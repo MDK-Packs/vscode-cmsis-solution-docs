@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Build a project - CMSIS Solution for VS Code</title>
+    <title>Import uVision project - CMSIS Solution for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Build a project";
-        var mkdocs_page_input_path = "build.md";
+        var mkdocs_page_name = "Import uVision project";
+        var mkdocs_page_input_path = "importuv.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -64,16 +64,8 @@
                 <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage settings</a>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Build a project</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#from-the-explorer-view">From the Explorer view</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#from-the-cmsis-view">From the CMSIS view</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#build-output">Build output</a>
-    </li>
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="build.html">Build a project</a>
                 </li>
               </ul>
               <ul>
@@ -88,8 +80,10 @@
                 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="importuv.html">Import uVision project</a>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Import uVision project</a>
+    <ul class="current">
+    </ul>
                 </li>
               </ul>
               <ul>
@@ -114,9 +108,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Build a project</li>
+      <li class="breadcrumb-item active">Import uVision project</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/master/docs/build.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/master/docs/importuv.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -124,38 +118,59 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="build-a-project">Build a project</h1>
-<p>Before you can download the application onto your target device, you need to build it. There are various ways to trigger a
-build.</p>
-<h2 id="from-the-explorer-view">From the Explorer view</h2>
-<p>In the <strong>Explorer</strong> view <img alt="Explorer icon" src="images/explorer-icon.png" />, right-click the <code>*.csolution.yml</code> file and select
-<strong>Build solution</strong>.</p>
-<p>These options are also available in the right-click menu:</p>
+                <h1 id="import-a-keil-uvision-project">Import a Keil uVision project</h1>
+<p>With the CMSIS Solution extension, you can convert Keil μVision project to a CMSIS solution.</p>
+<ol>
+<li>
+<p>Open the folder that contains the <code>*.uvprojx</code> that you want to convert in Visual Studio Code. Alternatively, import a
+   μVision project from <a href="https://www.keil.arm.com/">keil.arm.com</a>, or clone a project from GitHub.</p>
+</li>
+<li>
+<p>Right-click the <code>*.uvprojx</code> file and select <strong>Convert μVision project to CMSIS solution</strong> from the <strong>Explorer</strong> view.</p>
+</li>
+</ol>
+<p>The conversion starts immediately.</p>
+<p>Alternatively, if you are starting from an empty workspace, you can click <img alt="CMSIS icon" src="images/cmsis-icon.png" /> in the
+<strong>Activity Bar</strong> to open the <strong>CMSIS</strong> view. Then choose one of the following two options:</p>
 <ul>
-<li><strong>Rebuild solution</strong>: cleans the output directories before building the cproject.</li>
-<li><strong>Clean all out and tmp directories</strong>: cleans the output and tmp directories for the active solution.</li>
+<li>Click <strong>Convert a μVision Project to CMSIS Solution</strong> and open your <code>*.uvprojx</code> file to convert it.</li>
+<li>Move your cursor over the <strong>Solution</strong> outline, click <strong>Views More Actions...</strong>
+  <img alt="Views and More Actions icon" src="images/more-actions-icon.png" />, then select <strong>Convert μVision project to CMSIS solution</strong>
+  and open your <code>*.uvprojx</code> file to convert it.</li>
 </ul>
-<h2 id="from-the-cmsis-view">From the CMSIS view</h2>
-<p>In the header, click <img alt="Build icon" src="images/build-icon.png" />.</p>
-<p>The <strong>Clean all out and tmp directories</strong> and <strong>Rebuild solution options</strong> are also available with
-<img alt="Views and More Actions icon" src="images/more-actions-icon.png" />.</p>
-<p>You can configure a build task in a <code>tasks.json</code> file to customize the behavior of the build button. All the examples on
-keil.arm.com include a <code>tasks.json</code> file. See <a href="configuration.html#configure-a-build-task">Configure a build task</a> for more details.</p>
-<h2 id="build-output">Build output</h2>
-<p>Once you initiated the build process, a Terminal window opens that shos the build operation:</p>
-<p><img alt="Build output in Terminal" src="images/build-output.png" /></p>
-<p>Check the output to find where the ELF file (<code>.axf</code>) was generated.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If the build fails with an ENOENT error, follow the instructions in the pop-up message that displays in the bottom
-right-hand corner for installing CMSIS-Toolbox.</p>
+<p>A dialog box displays. You can carry out the following tasks:</p>
+<ul>
+<li>Open the solution in a new workspace with the <strong>Open</strong> option.</li>
+<li>Open the solution in a new window and new workspace with the <strong>Open project in new window</strong> option.</li>
+</ul>
+<p>You can also run the <strong>CMSIS: Convert μVision project to CMSIS solution</strong> command from the Command Palette. In that case,
+select the <code>*.uvprojx</code> that you want to convert on your machine and click Select.</p>
+<p>If there are conversion errors, check the <code>uv2csolution.log</code> file.</p>
+<ol>
+<li>
+<p>Confirm that the <strong>Arm Tools Environment Manager extension</strong> can automatically
+   activate the workspace and download the tools specified in your <code>vcpkg-configuration.json</code> file.</p>
+</li>
+<li>
+<p>Check the Output tab. In the View menu, select <strong>Output</strong> to open the <strong>Output</strong> tab. Select
+   <strong>μVision to Csolution Conversion</strong> in the drop-down list on the right side of the <strong>Output</strong> tab.</p>
+</li>
+</ol>
+<p>The <code>*.cproject.yml</code> and <code>*.csolution.yml</code> files are available in the folder where the <code>*.uvprojx</code> is stored.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The conversion does not work with Arm Compiler 5-based projects. Only projects using Arm Compiler 6 can be converted.
+As a workaround, you can update Arm Compiler 5 projects to Arm Compiler 6 in Keil μVision, then convert the projects to
+solutions in Visual Studio Code. For more information, see the
+<a href="https://developer.arm.com/documentation/kan298/latest/">Migrate Arm Compiler 5 to Arm Compiler 6 application note</a> and
+the <a href="https://developer.arm.com/documentation/100068/0620/Migrating-from-Arm-Compiler-5-to-Arm-Compiler-for-Embedded-6">Arm Compiler for Embedded Migration and Compatibility Guide</a>.</p>
 </div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="manage_settings.html" class="btn btn-neutral float-left" title="Manage settings"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="flash.html" class="btn btn-neutral float-right" title="Flash the application">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="configuration.html" class="btn btn-neutral float-left" title="Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="runexternal.html" class="btn btn-neutral float-right" title="Run external tools">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -182,10 +197,10 @@ right-hand corner for installing CMSIS-Toolbox.</p>
         </span>
     
     
-      <span><a href="manage_settings.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="configuration.html" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="flash.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="runexternal.html" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

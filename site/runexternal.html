@@ -80,6 +80,10 @@
                 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="importuv.html">Import uVision project</a>
+                </li>
+              </ul>
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Run external tools</a>
     <ul class="current">
@@ -89,7 +93,11 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#using-uvision-for-debugging">Using uVision for Debugging</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
+    <li class="toctree-l2"><a class="reference internal" href="#variables-and-commands">Variables and commands</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#substitution-examples">Substitution examples</a>
+    </li>
+        </ul>
     </li>
     </ul>
                 </li>
@@ -125,8 +133,8 @@
                 <h1 id="run-external-tools">Run External Tools</h1>
 <p>VS Code uses the <a href="https://code.visualstudio.com/docs/editor/debugging">launch.json</a> and
 <a href="https://code.visualstudio.com/docs/editor/tasks">tasks.json</a> configuration files to integrate external tools. The following
-section shows how to configure these files for typical use cases. <a href="#variables">Variables</a> provide access to parameters  of
-the current active <em>csolution project</em>.</p>
+section shows how to configure these files for typical use cases.</p>
+<p><a href="#variables-and-commands">Variables and commands</a> provide access to parameters  of the current active <em>csolution project</em>.</p>
 <h2 id="programmer">Programmer</h2>
 <p>ToDo show usage of command-line programmer (i.e. STCube Programmer)</p>
 <h2 id="debug-server">Debug Server</h2>
@@ -148,52 +156,80 @@ following task. The <code>command:</code> is the path to the uVision executable 
         }
     ]
 </code></pre>
-<h2 id="variables">Variables</h2>
-<p>VS Code supports variable substitution in <a href="https://code.visualstudio.com/docs/editor/debugging">launch.json</a> and
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This only works in Windows environments with µVision installed on the local machine.</p>
+</div>
+<h2 id="variables-and-commands">Variables and commands</h2>
+<p>VS Code supports variable and command substitution in <a href="https://code.visualstudio.com/docs/editor/debugging">launch.json</a> and
 <a href="https://code.visualstudio.com/docs/editor/tasks">tasks.json</a> configuration files as well as some select settings. In
 addition to the <a href="https://code.visualstudio.com/docs/editor/variables-reference">VS Code built-in variables</a>, the CMSIS
-Solution extension provides the following variables to access parameters of the current active <em>csolution project</em>.</p>
+Solution extension provides the following commands to access parameters of the current active <em>csolution project</em>.</p>
 <table>
 <thead>
 <tr>
-<th>Variable</th>
+<th>Command</th>
 <th>Description</th>
-<th>Example value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>cmsis-solution.getDfpName</code></td>
-<td>Name and version of the <a href="https://www.keil.arm.com/devices/">Device Family Pack (DFP)</a> of the current active target.</td>
-<td>ARM::V2M_MPS3_SSE_300_DFP@1.5.0</td>
+<td><code>cmsis-csolution.getBinaryFile</code></td>
+<td>Elf/Dwarf location of currently selected context</td>
 </tr>
 <tr>
-<td><code>cmsis-solution.getBspName</code></td>
-<td>Name and version of the <a href="https://www.keil.arm.com/boards/">Board Support Pack (BSP)</a> of the current active target.</td>
-<td>ARM::V2M_MPS3_SSE_300_DFP@1.5.0</td>
+<td><code>cmsis-csolution.getBinaryFiles</code></td>
+<td>Elf/Dwarf location of all files in current solution</td>
 </tr>
 <tr>
-<td><code>cmsis-solution.getDfpPath</code></td>
-<td>Path to Device Family Pack (DFP) file of the current active target.</td>
-<td></td>
+<td><code>cmsis-csolution.getBspName</code></td>
+<td>Name and version of the <a href="https://www.keil.arm.com/boards/">Board Support Pack (BSP)</a></td>
 </tr>
 <tr>
-<td><code>cmsis-solution.getBspPath</code></td>
-<td>Path to Board Support Pack (BSP) file of the current active target.</td>
-<td></td>
+<td><code>cmsis-csolution.getBspPath</code></td>
+<td>Path to <a href="https://www.keil.arm.com/boards/">Board Support Pack (BSP)</a> file of the current active target</td>
 </tr>
 <tr>
-<td><code>cmsis-solution.getCbuildRunPath</code></td>
-<td>Path to the CMSIS-Toolbox <code>*.cbuild-run.yml</code> file of the current active target.</td>
-<td></td>
+<td><code>cmsis-csolution.getCbuildRunPath</code></td>
+<td>Path to <code>cbuild-run.yml</code> file</td>
+</tr>
+<tr>
+<td><code>cmsis-csolution.getDeviceName</code></td>
+<td>Device name of active target</td>
+</tr>
+<tr>
+<td><code>cmsis-csolution.getDfpName</code></td>
+<td>Name and version of the <a href="https://www.keil.arm.com/devices/">Device Family Pack (DFP)</a></td>
+</tr>
+<tr>
+<td><code>cmsis-csolution.getDfpPath</code></td>
+<td>Path to <a href="https://www.keil.arm.com/devices/">Device Family Pack (DFP)</a> file of the current active target</td>
+</tr>
+<tr>
+<td><code>cmsis-csolution.getHardwareAndToolchainInfo</code></td>
+<td>Target hardware and toolchain for the active solution</td>
+</tr>
+<tr>
+<td><code>cmsis-csolution.getProcessorName</code></td>
+<td>The processor name for the currently selected context</td>
+</tr>
+<tr>
+<td><code>cmsis-csolution.getSolutionPath</code></td>
+<td>Path to active solution file</td>
+</tr>
+<tr>
+<td><code>cmsis-csolution.getTargetPack</code></td>
+<td>The <a href="https://www.keil.arm.com/devices/">Device Family Pack (DFP)</a> for the currently selected context</td>
 </tr>
 </tbody>
 </table>
+<h3 id="substitution-examples">Substitution examples</h3>
+<p>tbd</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="configuration.html" class="btn btn-neutral float-left" title="Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="importuv.html" class="btn btn-neutral float-left" title="Import uVision project"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="tipsandtricks.html" class="btn btn-neutral float-right" title="Tips and tricks">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -221,7 +257,7 @@ Solution extension provides the following variables to access parameters of the 
         </span>
     
     
-      <span><a href="configuration.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="importuv.html" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="tipsandtricks.html" style="color: #fcfcfc">Next &raquo;</a></span>

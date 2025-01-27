@@ -81,6 +81,10 @@
                 </li>
               </ul>
               <ul>
+                <li class="toctree-l1"><a class="reference internal" href="importuv.html">Import uVision project</a>
+                </li>
+              </ul>
+              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="runexternal.html">Run external tools</a>
                 </li>
               </ul>
@@ -88,8 +92,6 @@
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Tips and tricks</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#initialize-your-solution">Initialize your solution</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#convert-a-keil-uvision-project">Convert a Keil uVision project</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#set-current-solution-in-workspace">Set current solution in workspace</a>
     </li>
@@ -129,53 +131,6 @@
 <strong>Initialize CMSIS project</strong> option to generate them.</p>
 <p>Right-click anywhere in the workspace and select <strong>Initialize CMSIS project</strong>. The extension generates preconfigured files
 that are ready to use.</p>
-<h2 id="convert-a-keil-uvision-project">Convert a Keil uVision project</h2>
-<p>With the CMSIS Solution extension, you can convert Keil μVision project to a CMSIS solution.</p>
-<ol>
-<li>
-<p>Open the folder that contains the <code>*.uvprojx</code> that you want to convert in Visual Studio Code. Alternatively, import a
-   μVision project from <a href="https://www.keil.arm.com/">keil.arm.com</a>, or clone a project from GitHub.</p>
-</li>
-<li>
-<p>Right-click the <code>*.uvprojx</code> file and select <strong>Convert μVision project to CMSIS solution</strong> from the <strong>Explorer</strong> view.</p>
-</li>
-</ol>
-<p>The conversion starts immediately.</p>
-<p>Alternatively, if you are starting from an empty workspace, you can click <img alt="CMSIS icon" src="images/cmsis-icon.png" /> in the
-<strong>Activity Bar</strong> to open the <strong>CMSIS</strong> view. Then choose one of the following two options:</p>
-<ul>
-<li>Click <strong>Convert a μVision Project to CMSIS Solution</strong> and open your <code>*.uvprojx</code> file to convert it.</li>
-<li>Move your cursor over the <strong>Solution</strong> outline, click <strong>Views More Actions...</strong>
-  <img alt="Views and More Actions icon" src="images/more-actions-icon.png" />, then select <strong>Convert μVision project to CMSIS solution</strong>
-  and open your <code>*.uvprojx</code> file to convert it.</li>
-</ul>
-<p>A dialog box displays. You can carry out the following tasks:</p>
-<ul>
-<li>Open the solution in a new workspace with the <strong>Open</strong> option.</li>
-<li>Open the solution in a new window and new workspace with the <strong>Open project in new window</strong> option.</li>
-</ul>
-<p>You can also run the <strong>CMSIS: Convert μVision project to CMSIS solution</strong> command from the Command Palette. In that case,
-select the <code>*.uvprojx</code> that you want to convert on your machine and click Select.</p>
-<p>If there are conversion errors, check the <code>uv2csolution.log</code> file.</p>
-<ol>
-<li>
-<p>Confirm that the <strong>Arm Tools Environment Manager extension</strong> can automatically
-   activate the workspace and download the tools specified in your <code>vcpkg-configuration.json</code> file.</p>
-</li>
-<li>
-<p>Check the Output tab. In the View menu, select <strong>Output</strong> to open the <strong>Output</strong> tab. Select
-   <strong>μVision to Csolution Conversion</strong> in the drop-down list on the right side of the <strong>Output</strong> tab.</p>
-</li>
-</ol>
-<p>The <code>*.cproject.yml</code> and <code>*.csolution.yml</code> files are available in the folder where the <code>*.uvprojx</code> is stored.</p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>The conversion does not work with Arm Compiler 5-based projects. Only projects using Arm Compiler 6 can be converted.
-As a workaround, you can update Arm Compiler 5 projects to Arm Compiler 6 in Keil μVision, then convert the projects to
-solutions in Visual Studio Code. For more information, see the
-<a href="https://developer.arm.com/documentation/kan298/latest/">Migrate Arm Compiler 5 to Arm Compiler 6 application note</a> and
-the <a href="https://developer.arm.com/documentation/100068/0620/Migrating-from-Arm-Compiler-5-to-Arm-Compiler-for-Embedded-6">Arm Compiler for Embedded Migration and Compatibility Guide</a>.</p>
-</div>
 <h2 id="set-current-solution-in-workspace">Set current solution in workspace</h2>
 <p>To activate a solution in the <strong>Solution</strong> outline view, use the <strong>Select solution from workspace</strong> option in
 <strong>Views and More Actions...</strong> <img alt="Views and More Actions icon" src="images/more-actions-icon.png" />.</p>

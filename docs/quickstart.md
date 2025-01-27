@@ -25,7 +25,7 @@ You can access commands to manage your solution/project when you take the follow
 | [Build solution](./build.md)                     | Build the solution with the current context set |
 | Clean all out and tmp directories        | for the active solution |
 | [Configure Solution](./configuration.md#configure-a-solution) | Set compiler and add layers |
-| [Convert µVision project to CMSIS solution](./tipsandtricks.md#convert-a-keil-uvision-project) | Convert uvprojx files to CMSIS solution format |
+| [Convert µVision project to CMSIS solution](./importuv.md) | Convert uvprojx files to CMSIS solution format |
 | [Create a Solution](./create_app.md)     | Start from scratch |
 | [Debug](./debug.md)                      | the solution with the current context set |
 | Focus on Solution View                   | Shows the CMSIS view |
