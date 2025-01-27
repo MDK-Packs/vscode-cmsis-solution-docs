@@ -1,0 +1,20 @@
+site_name: CMSIS Solution for VS Code
+repo_url: https://github.com/ARM-software/vscode-cmsis-csolution/
+nav:
+    - Home: index.md
+    - Setup: installation.md
+    - Quick start: quickstart.md
+    - Create an embedded project: create_app.md
+    - Manage software components: manage_components.md
+    - Manage settings: manage_settings.md
+    - Build a project: build.md
+    - Flash the application: flash.md
+    - Debug a project: debug.md
+    - Configuration: configuration.md
+    - Tips and tricks: tipsandtricks.md
+theme:
+  name: readthedocs
+markdown_extensions:
+  - admonition
+extra_css:
+  - css/extra.css
