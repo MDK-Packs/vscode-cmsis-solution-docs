@@ -1,5 +1,5 @@
 site_name: CMSIS Solution for VS Code
-repo_url: https://github.com/ARM-software/vscode-cmsis-csolution/
+repo_url: https://github.com/MDK-Packs/vscode-cmsis-solution-docs
 nav:
     - Home: index.md
     - Setup: installation.md
@@ -19,3 +19,4 @@ markdown_extensions:
   - admonition
 extra_css:
   - css/extra.css
+use_directory_urls: false
