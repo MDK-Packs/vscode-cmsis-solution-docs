@@ -23,7 +23,9 @@ Thank you for using the **CMSIS Solution** extension that provides GUI tools in 
 
 - [**Configuration**](configuration.md) shows how to manage settings required for the CMSIS Solution extension.
 
-- [**Tips and tricks**](./tipsandtricks.md) help you to solve certain problems that may arise when working with the CMSUS
+- [**Run external tools**](./runexternal.md) describes the usage of external tools, such as debuggers and flash programmers.
+
+- [**Tips and tricks**](./tipsandtricks.md) help you to solve certain problems that may arise when working with the CMSIS
   Solution extension.
 
 ## Revision History

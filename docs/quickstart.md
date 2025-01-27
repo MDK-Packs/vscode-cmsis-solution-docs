@@ -4,7 +4,7 @@ The CMSIS Solution is an extension for Visual Studio Code that offers a GUI for 
 [CMSIS-Toolbox](https://open-cmsis-pack.github.io/cmsis-toolbox/) project management and build tools. Together with other
 extensions provided by Arm and third parties, this results in a powerful embedded development environment.
 
-This quick start guide gives you an [overview of the project management capabilities](#solution-outline) in the CMSIS view
+This quick start guide gives you an overview of the project management capabilities in the [CMSIS view](#cmsis-view)
 and shows how the [status bar](#status-bar) helps to understand the project and environment set up.
 
 ## Available commands
