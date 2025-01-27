@@ -174,57 +174,119 @@ Solution extension provides the following commands to access parameters of the c
 </thead>
 <tbody>
 <tr>
-<td><code>cmsis-csolution.getBinaryFile</code></td>
+<td><code>${command:cmsis-csolution.getBinaryFile}</code></td>
 <td>Elf/Dwarf location of currently selected context</td>
 </tr>
 <tr>
-<td><code>cmsis-csolution.getBinaryFiles</code></td>
+<td><code>${command:cmsis-csolution.getBinaryFiles}</code></td>
 <td>Elf/Dwarf location of all files in current solution</td>
 </tr>
 <tr>
-<td><code>cmsis-csolution.getBspName</code></td>
+<td><code>${command:cmsis-csolution.getBspName}</code></td>
 <td>Name and version of the <a href="https://www.keil.arm.com/boards/">Board Support Pack (BSP)</a></td>
 </tr>
 <tr>
-<td><code>cmsis-csolution.getBspPath</code></td>
+<td><code>${command:cmsis-csolution.getBspPath}</code></td>
 <td>Path to <a href="https://www.keil.arm.com/boards/">Board Support Pack (BSP)</a> file of the current active target</td>
 </tr>
 <tr>
-<td><code>cmsis-csolution.getCbuildRunPath</code></td>
+<td><code>${command:cmsis-csolution.getCbuildRunPath}</code></td>
 <td>Path to <code>cbuild-run.yml</code> file</td>
 </tr>
 <tr>
-<td><code>cmsis-csolution.getDeviceName</code></td>
+<td><code>${command:cmsis-csolution.getDeviceName}</code></td>
 <td>Device name of active target</td>
 </tr>
 <tr>
-<td><code>cmsis-csolution.getDfpName</code></td>
+<td><code>${command:cmsis-csolution.getDfpName}</code></td>
 <td>Name and version of the <a href="https://www.keil.arm.com/devices/">Device Family Pack (DFP)</a></td>
 </tr>
 <tr>
-<td><code>cmsis-csolution.getDfpPath</code></td>
+<td><code>${command:cmsis-csolution.getDfpPath}</code></td>
 <td>Path to <a href="https://www.keil.arm.com/devices/">Device Family Pack (DFP)</a> file of the current active target</td>
 </tr>
 <tr>
-<td><code>cmsis-csolution.getHardwareAndToolchainInfo</code></td>
+<td><code>${command:cmsis-csolution.getHardwareAndToolchainInfo}</code></td>
 <td>Target hardware and toolchain for the active solution</td>
 </tr>
 <tr>
-<td><code>cmsis-csolution.getProcessorName</code></td>
+<td><code>${command:cmsis-csolution.getProcessorName}</code></td>
 <td>The processor name for the currently selected context</td>
 </tr>
 <tr>
-<td><code>cmsis-csolution.getSolutionPath</code></td>
+<td><code>${command:cmsis-csolution.getSolutionPath}</code></td>
 <td>Path to active solution file</td>
 </tr>
 <tr>
-<td><code>cmsis-csolution.getTargetPack</code></td>
+<td><code>${command:cmsis-csolution.getTargetPack}</code></td>
 <td>The <a href="https://www.keil.arm.com/devices/">Device Family Pack (DFP)</a> for the currently selected context</td>
 </tr>
 </tbody>
 </table>
 <h3 id="substitution-examples">Substitution examples</h3>
-<p>tbd</p>
+<p><strong>launch.json</strong></p>
+<p>The following <code>launch.json</code> file can be used to start Arm Debugger:</p>
+<pre><code class="language-json">{
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;configurations&quot;: [
+        {
+            &quot;name&quot;: &quot;Arm Debugger&quot;,
+            &quot;type&quot;: &quot;arm-debugger&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;serialNumber&quot;: &quot;${command:device-manager.getSerialNumber}&quot;,
+            &quot;programs&quot;: &quot;${command:cmsis-csolution.getBinaryFiles}&quot;,
+            &quot;cmsisPack&quot;: &quot;${command:cmsis-csolution.getTargetPack}&quot;,
+            &quot;deviceName&quot;: &quot;${command:cmsis-csolution.getDeviceName}&quot;,
+        }
+    ]
+}
+</code></pre>
+<p>For a STMicroelectronics B-U585-IOT02A board, the commands may resolve to:</p>
+<ul>
+<li><code>${command:cmsis-csolution.getBinaryFiles}:</code> /Users/user/Blinky/out/Blinky/B-U585I-IOT02A/Debug/Blinky.axf</li>
+<li><code>${command:cmsis-csolution.getTargetPack}:</code> Keil::STM32U5xx_DFP@3.0.0</li>
+<li><code>${command:cmsis-csolution.getDeviceName}:</code> STM32U585AIIx</li>
+</ul>
+<p>The following <code>launch.json</code> file can be used to start debugging with pyOCD:</p>
+<pre><code class="language-json">{
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;configurations&quot;: [
+        {
+            &quot;type&quot;: &quot;gdbtarget&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;name&quot;: &quot;Debug with pyOCD&quot;,
+            &quot;program&quot;: &quot;${command:cmsis-csolution.getBinaryFile}&quot;,
+            &quot;cwd&quot;: &quot;${workspaceFolder}&quot;,
+            &quot;verbose&quot;: true,
+            &quot;gdb&quot;: &quot;/Applications/ArmGNUToolchain/13.3.rel1/arm-none-eabi/bin/arm-none-eabi-gdb&quot;,
+            &quot;initCommands&quot;: [
+                &quot;monitor set reset-type SW_EMULATED&quot;,
+                &quot;monitor reset halt&quot;
+            ],
+            &quot;target&quot;: {
+                &quot;server&quot;: &quot;python&quot;,
+                &quot;serverParameters&quot;: [
+                    &quot;-mpyocd&quot;,
+                    &quot;gdbserver&quot;,
+                    &quot;--target&quot;,
+                    &quot;${command:cmsis-csolution.getDeviceName}&quot;,
+                    &quot;--pack&quot;,
+                    &quot;${command:cmsis-csolution.getDfpPath}&quot;,
+                    &quot;--port&quot;,
+                    &quot;3333&quot;
+                ],
+                &quot;port&quot;: &quot;3333&quot;
+            }
+        }
+    ]
+}
+</code></pre>
+<p>For a NXP LPCXpresso55S69 board, the commands may resolve to:</p>
+<ul>
+<li><code>${command:cmsis-csolution.getBinaryFiles}:</code> /Users/user/hello_world/cm33_core1/armgcc/debug/core1_image.elf,/Users/user/hello_world/cm33_core0/armgcc/debug/hello_world_cm33_core0.elf</li>
+<li><code>${command:cmsis-csolution.getDeviceName}:</code> LPC55S69JBD100</li>
+<li><code>${command:cmsis-csolution.getDfpPath}:</code> /Users/user/.cache/arm/packs/NXP/LPC55S69_DFP/19.0.0</li>
+</ul>
               
             </div>
           </div><footer>
