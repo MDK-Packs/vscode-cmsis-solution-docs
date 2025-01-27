@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Manage software components - CMSIS Solution for VS Code</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Manage software components";
+        var mkdocs_page_input_path = "manage_components.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CMSIS Solution for VS Code
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../quickstart/">Quick start</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../create_app/">Create an embedded project</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Manage software components</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#software-components-view">Software components view</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#modify-the-software-components-in-your-project">Modify the software components in your project</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#modify-the-shown-context">Modify the shown context</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#select-components">Select components</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#validation">Validation</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../manage_settings/">Manage settings</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../build/">Build a project</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../flash/">Flash the application</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../debug/">Debug a project</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../runexternal/">Run external tools</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tipsandtricks/">Tips and tricks</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CMSIS Solution for VS Code</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Manage software components</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/ARM-software/vscode-cmsis-csolution/edit/master/docs/manage_components.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="manage-software-components">Manage software components</h1>
+<p>The <strong>Software Components</strong> view shows all the software components selected in the active project of a solution.</p>
+<p>You can do the following:</p>
+<ul>
+<li><a href="#modify-the-software-components-in-your-project">Modify the software components</a> of the project.</li>
+<li>Manage the dependencies between components for each target type defined in your solution, or for all the target types at
+  once.</li>
+</ul>
+<h2 id="software-components-view">Software components view</h2>
+<p>In the <strong>Solution</strong> outline, click <strong>Manage software components</strong>
+<img alt="Manage software components" src="../images/software-components-icon.png" /> at the project level. The <strong>Software Components</strong> view
+opens:</p>
+<p><img alt="The 'Software Components' " src="../images/software-components-view.png" /></p>
+<p>The default view displays the components available from the packs listed in your solution. Use the <strong>Search</strong> field to
+search the list of components.</p>
+<p>Layer icons <img alt="Layer icon" src="../images/layer-icon.png" /> indicate which components are used in layers. In the current version,
+layers are read-only, so you cannot select or clear them. Click the layer icon of a component to open the <code>*.clayer.yml</code>
+file or associated files.</p>
+<p><strong>Learn more</strong> links are available for some components that open the related documentation.</p>
+<h2 id="modify-the-software-components-in-your-project">Modify the software components in your project</h2>
+<p>You can add components from all the packs available, not just the packs that are already selected for a project.</p>
+<h3 id="modify-the-shown-context">Modify the shown context</h3>
+<ul>
+<li>In the <strong>Project</strong> drop-down list, select the project for which you want to modify software components.</li>
+<li>In the <strong>Target</strong> drop-down list, select a specific target type. If you want to modify all the target types at once,
+  select <strong>All Targets</strong>. Note that you might have only one target.</li>
+<li>In the <strong>Software packs</strong> drop-down list, you can filter on the components available from the packs listed in your
+  solution with the <strong>Solution: &lt;Solution-name&gt;</strong> option. You can display the components from all installed packs with
+  the <strong>All installed packs</strong> option.</li>
+</ul>
+<h3 id="select-components">Select components</h3>
+<p>Check that the <strong>All</strong> toggle button is selected to display all the components available. Switch to <strong>Selected</strong> to display
+only the components that are already selected.</p>
+<p>Use the checkboxes to select or clear components as required. For some components, you can also select a vendor, variant,
+or version. The <code>cproject.yml</code> file is automatically updated.</p>
+<h3 id="validation">Validation</h3>
+<p>Manage the dependencies between components and solve validation issues from the <strong>Validation</strong> panel. Issues are highlighted
+in red and have an exclamation mark icon <img alt="Issue icon" src="../images/issue-icon.png" /> next to them. You can remove conflicting
+components from your selection or add missing component dependencies from a suggested list.</p>
+<p><img alt="Validation errors" src="../images/validation-error.png" /></p>
+<p>If there are validation issues, move your cursor over the issues in the <strong>Validation</strong> panel to get more details. Click the
+proposed fixes to find the components in the list. In some cases, you might have to choose between different fix sets. Select
+a fix set in the drop-down list, make the required component choices, and then click <strong>Apply</strong>.</p>
+<p>If a pack is missing in the solution, a "<strong>Component's pack is not included in your solution</strong>" message displays in the
+<strong>Validation</strong> panel. An error also displays in the <strong>Problems</strong> view. Install the pack with the
+<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/build-tools/#cpackget-invocation"><code>cpackget</code></a> command.</p>
+<p>There can also be issues such as:</p>
+<ul>
+<li>A component that you selected is incompatible with the selected hardware and toolchain.</li>
+<li>A component that you selected has dependencies which are incompatible with the selected hardware and toolchain.</li>
+<li>A component that you selected has unresolvable dependencies.</li>
+</ul>
+<p>In such cases, you must remove the component. Click <strong>Apply</strong> from the <strong>Validation</strong> panel.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../create_app/" class="btn btn-neutral float-left" title="Create an embedded project"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../manage_settings/" class="btn btn-neutral float-right" title="Manage settings">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ARM-software/vscode-cmsis-csolution/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../create_app/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../manage_settings/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

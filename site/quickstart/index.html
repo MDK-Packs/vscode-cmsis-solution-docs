@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Quick start - CMSIS Solution for VS Code</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Quick start";
+        var mkdocs_page_input_path = "quickstart.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CMSIS Solution for VS Code
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Setup</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Quick start</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#available-commands">Available commands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cmsis-view">CMSIS View</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#status-bar">Status bar</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../create_app/">Create an embedded project</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../manage_components/">Manage software components</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../manage_settings/">Manage settings</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../build/">Build a project</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../flash/">Flash the application</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../debug/">Debug a project</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../runexternal/">Run external tools</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tipsandtricks/">Tips and tricks</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CMSIS Solution for VS Code</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Quick start</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/ARM-software/vscode-cmsis-csolution/edit/master/docs/quickstart.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="quick-start">Quick start</h1>
+<p>The CMSIS Solution is an extension for Visual Studio Code that offers a GUI for the underlying
+<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/">CMSIS-Toolbox</a> project management and build tools. Together with other
+extensions provided by Arm and third parties, this results in a powerful embedded development environment.</p>
+<p>This quick start guide gives you an overview of the project management capabilities in the <a href="#cmsis-view">CMSIS view</a>
+and shows how the <a href="#status-bar">status bar</a> helps to understand the project and environment set up.</p>
+<h2 id="available-commands">Available commands</h2>
+<p>You can access commands to manage your solution/project when you take the following actions:</p>
+<ul>
+<li>
+<p>Directly from the <a href="#cmsis-view"><strong>CMSIS</strong></a> view.</p>
+</li>
+<li>
+<p>When you right-click the <code>*.csolution.yml</code> file from the <strong>Explorer</strong> view.</p>
+</li>
+<li>
+<p>When you click the <a href="#status-bar">context set status bar item</a>.</p>
+</li>
+<li>
+<p>When press CTRL+Shift+P (CMD+Shift+P on MacOS).</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../manage_settings/">Manage Solution Settings</a></td>
+<td>Set a context for your solution</td>
+</tr>
+<tr>
+<td><a href="../build/">Build solution</a></td>
+<td>Build the solution with the current context set</td>
+</tr>
+<tr>
+<td>Clean all out and tmp directories</td>
+<td>for the active solution</td>
+</tr>
+<tr>
+<td><a href="../configuration/#configure-a-solution">Configure Solution</a></td>
+<td>Set compiler and add layers</td>
+</tr>
+<tr>
+<td><a href="../tipsandtricks/#convert-a-keil-uvision-project">Convert µVision project to CMSIS solution</a></td>
+<td>Convert uvprojx files to CMSIS solution format</td>
+</tr>
+<tr>
+<td><a href="../create_app/">Create a Solution</a></td>
+<td>Start from scratch</td>
+</tr>
+<tr>
+<td><a href="../debug/">Debug</a></td>
+<td>the solution with the current context set</td>
+</tr>
+<tr>
+<td>Focus on Solution View</td>
+<td>Shows the CMSIS view</td>
+</tr>
+<tr>
+<td><a href="../manage_components/">Manage software components</a></td>
+<td>Review, add, and remove software components</td>
+</tr>
+<tr>
+<td>Rebuild solution</td>
+<td>Rebuild the solution with the current context set</td>
+</tr>
+<tr>
+<td>Refresh (reload packs, update RTE)</td>
+<td>Reload information from all installed packs and run <code>cbuild setup update-rte</code></td>
+</tr>
+<tr>
+<td><a href="../flash/">Run</a></td>
+<td>Flash and run the solution on your target</td>
+</tr>
+<tr>
+<td>Run Generator</td>
+<td>Open generator program with the current target</td>
+</tr>
+<tr>
+<td>Select solution from workspace</td>
+<td>Set current solution if you have several of them in your workspace</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cmsis-view">CMSIS View</h2>
+<p>The CMSIS view (<img alt="CMSIS icon" src="../images/cmsis-icon.png" />) shows the content of the active projects in the solution. Each
+project contains configuration settings, source code files, build settings, and other project-specific information. The
+extension uses these settings and files to manage and build a software project for a board or device.</p>
+<p><img alt="CMSIS view" src="../images/solution-outline.png" /></p>
+<p>The main area shows:</p>
+<ul>
+<li>
+<p><strong>Groups and files</strong> are added to the project by the user.</p>
+</li>
+<li>
+<p><strong>constructed-files</strong> contains generated files such as the <code>RTE_Components.h</code> header file for each context.</p>
+</li>
+<li>
+<p><strong>linker</strong> contains a linker script file and a &lt;regions&gt;.h file (or other user-defined header files).</p>
+</li>
+<li>
+<p><strong>Components</strong> shows the software components selected for the project with their source files, user code templates, and
+  APIs. Click the files to open them in the editor. Click the book icon of a component to open the related documentation.
+  If you are using a generator to configure your device or board, then a <strong>Run Generator</strong> option is available to start a
+  generator session.</p>
+</li>
+<li>
+<p><strong>Layer Type</strong> (if available): The software layers in the project with their source files, preconfigured software
+  components, and configuration files.</p>
+</li>
+</ul>
+<h2 id="status-bar">Status bar</h2>
+<p>The Visual Studio Code status bar displays information about the status of your development environment and the project.</p>
+<p>Depending on the number of installed extensions, you see something like the following:</p>
+<p><img alt="Status bar" src="../images/status-bar.png" /></p>
+<ul>
+<li>
+<p>If you have a development board attached, the <strong>connected hardware</strong> is shown via the <strong>Arm Device Manager</strong> extension.
+  Click to open the extension.</p>
+</li>
+<li>
+<p>Using the <strong>Arm Debugger</strong> extension, the <strong>current debug configuration</strong> is displayed.</p>
+</li>
+<li>
+<p>You can inspect errors and warnings for a context set. For active projects in the context set, errors and warnings display
+  when you move your cursor over the <strong>Context Set</strong> in the status bar. The indicator is red for errors and yellow in case
+  of warnings. Click the indicator to open the <strong>Output</strong> tab for the <strong>CMSIS Solution</strong> category. If you previously closed
+  the <strong>Manage Solution</strong> view, then this action also re-opens the view.<br />
+<img alt="Context Set errors and warnings" src="../images/context-set-popup.png" /></p>
+</li>
+<li>
+<p>The <strong>Arm Environment Manager</strong> extension shows information about the number of installed tools. Hover over to review the
+  list. Click it to get further options.<br />
+<img alt="Arm Tools" src="../images/arm-tools.png" /></p>
+</li>
+<li>
+<p>If you are using licensed Arm tools, the active license is shown. Click it to manage the license.</p>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../installation/" class="btn btn-neutral float-left" title="Setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../create_app/" class="btn btn-neutral float-right" title="Create an embedded project">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ARM-software/vscode-cmsis-csolution/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../create_app/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

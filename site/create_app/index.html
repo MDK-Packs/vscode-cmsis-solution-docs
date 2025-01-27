@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Create an embedded project - CMSIS Solution for VS Code</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Create an embedded project";
+        var mkdocs_page_input_path = "create_app.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CMSIS Solution for VS Code
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../quickstart/">Quick start</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Create an embedded project</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#create-new-solution">Create new solution</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#select-a-template-reference-application-or-example">Select a template, reference application, or example</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#templates">Templates</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reference-applications">Reference Applications</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#csolution-examples">Csolution Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#vision-examples">µVision Examples</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#project-name">Project Name</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#solution-name">Solution Name</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#solution-sub-folder">Solution Sub Folder</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#solution-folder">Solution Folder</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../manage_components/">Manage software components</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../manage_settings/">Manage settings</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../build/">Build a project</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../flash/">Flash the application</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../debug/">Debug a project</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../runexternal/">Run external tools</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tipsandtricks/">Tips and tricks</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CMSIS Solution for VS Code</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Create an embedded project</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/ARM-software/vscode-cmsis-csolution/edit/master/docs/create_app.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="create-an-embedded-project">Create an embedded project</h1>
+<p>This chapter explains how to create a CMSIS solution-based application.</p>
+<h2 id="create-new-solution">Create new solution</h2>
+<p>In the <strong>CMSIS</strong> view, click <strong>Create a New Solution</strong> to open the <strong>Create Solution</strong> view.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you already have a solution opened in your workspace and want to create a new one in the same workspace, move your
+cursor over the three dots <strong>...</strong> in the <strong>CMSIS</strong> view, then <strong>Create new solution</strong>.</p>
+</div>
+<p>Click the <strong>Target Board</strong> drop-down list. Enter a search term, and then select a board. The details of the board that you
+selected are shown.</p>
+<p><img alt="Picker" src="../images/hardware-picker.png" /></p>
+<p>Click <strong>Select</strong>. By default, the <strong>Target Device</strong> drop-down list and <strong>Target Type</strong> field show the name of the device
+mounted on the board that you selected.</p>
+<p>In the <strong>Target Type</strong> field, you can customize the name of the target that is used to deploy the solution. This is
+displayed in the <strong>Manage Solution</strong> view and added to the <code>target-types:</code> section of the <code>&lt;solution_name&gt;.csolution.yml</code> file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Alternatively, you can directly select a device in the <strong>Target Device</strong> drop-down list, without selecting a board first.</p>
+</div>
+<h2 id="select-a-template-reference-application-or-example">Select a template, reference application, or example</h2>
+<p>Depending on the board or device you have chosen, select one of the following options from the drop-down list. If there are
+too many examples, enter a search term and then select an example.</p>
+<h3 id="templates">Templates</h3>
+<p>Templates help you getting started without application-specific code.</p>
+<ul>
+<li>
+<p><strong>Blank solution</strong>: starts a project from scratch with an empty <code>main.c</code> file and the CMSIS device startup component
+  selected.</p>
+</li>
+<li>
+<p><strong>TrustZone solution</strong>: If the board or device that you selected is compatible, you can use TrustZone, and define
+  whether projects in the solution use secure or non-secure zones.</p>
+</li>
+</ul>
+<h3 id="reference-applications">Reference Applications</h3>
+<p><strong>Reference applications</strong> show the usage of middleware, software libraries, and custom code that can run on many different
+target hardware boards. Examples display only if you selected a board and a software layer is available for the board.
+Reference applications are not dependent on specific hardware. You can deploy them to various evaluation boards using
+additional software layers that provide driver APIs for specific target hardware. Layers are provided using CMSIS-Packs.</p>
+<p>Reference applications are available with the
+<a href="https://www.keil.arm.com/packs/mdk-middleware-keil/versions/">MDK-Middleware</a>. These examples show you how to use software
+components for IPv4 and IPv6 networking, USB Host and Device communication, and file system for data storage. See
+<a href="https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/ReferenceApplications.md#mdk-middleware-reference-applications">MDK Middleware Reference Applications</a> and the
+<a href="https://github.com/arm-software/MDK-Middleware">MDK-Middleware</a> repository and
+<a href="https://arm-software.github.io/MDK-Middleware/latest/General/index.html">documentation</a> for more details.</p>
+<p>Other reference applications that illustrate how to match sensor shields and boards are also available with the Sensor SDK pack. The examples use board and shield layers. See <a href="https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/ReferenceApplications.md#sensor-reference-applications">Sensor Reference Applications</a> and the <a href="https://github.com/open-cmsis-pack/Sensor-SDK-Example">Sensor-SDK-Example</a> repository for more details.</p>
+<p>Reference applications that use socket layers are also available. See the <a href="https://github.com/Arm-Examples/AWS_MQTT_Demo">AWS MQTT demo</a> as an example.</p>
+<h3 id="csolution-examples">Csolution Examples</h3>
+<p>Use a CMSIS solution example. CMSIS solution examples are targeted at a specific board or Fixed Virtual Platform (FVP) model. The examples are fully configured and ready for use.</p>
+<h3 id="vision-examples">µVision Examples</h3>
+<p>Use a µVision example in <code>*.uvprojx</code> format as a starting point. µVision examples are converted automatically.</p>
+<h2 id="project-name">Project Name</h2>
+<p>Once you have selected your solution template, you need to specify a <strong>Project Name</strong>.</p>
+<p>If you selected <strong>Blank solution</strong> or <strong>TrustZone solution</strong>, one project for each processor is automatically added (in case
+of TrustZone a <code>secure</code> and a <code>non-secure</code> project)). You can:</p>
+<ul>
+<li>change the project names.</li>
+<li>remove projects.</li>
+<li>decide to add <code>secure</code> or <code>non-secure</code> zones with the TrustZone drop-down list if the board or device is compatible. By
+  default, TrustZone is <code>off</code>.</li>
+</ul>
+<p>Click <strong>Add Project</strong> to add projects to your solution and configure them. For TrustZone, you can add as many <code>secure</code> or
+<code>non-secure</code> projects as you need for a particular processor.</p>
+<h2 id="solution-name">Solution Name</h2>
+<p>In the <strong>Solution Name</strong> field, you can change the name for your solution. This will be used as the <code>SolutionName.csolution.yml</code> file name.</p>
+<h2 id="solution-sub-folder">Solution Sub Folder</h2>
+<p>In the <strong>Solution Sub Folder</strong> field, you can change the name of the subfolder where the solution files are stored.</p>
+<h2 id="solution-folder">Solution Folder</h2>
+<ul>
+<li>
+<p>Click <strong>Browse</strong> next to the <strong>Solution Base Folder</strong> field and choose where to store the solution subfolder using the system
+  dialog box.</p>
+</li>
+<li>
+<p>With the <strong>Initialize Git repository</strong> checkbox, you can initialize the solution as a Git repository. Clear the checkbox
+  if you do not want to turn your solution into a Git repository.</p>
+</li>
+<li>
+<p>Select the <strong>Show project opening options</strong> checkbox to decide where to open the solution.</p>
+</li>
+<li>
+<p>Click <strong>Create</strong>.</p>
+</li>
+</ul>
+<p>The extension creates the solution and automatically converts examples that are available only in <code>*.uvprojx</code> format. If there are conversion errors, check the <code>uv2csolution.log</code> file.</p>
+<p>Missing CMSIS-Packs are installed automatically.</p>
+<p>The following files are created for the solution:</p>
+<ul>
+<li>A <code>&lt;solution_name&gt;.csolution.yml</code> file.</li>
+<li>One or more <code>&lt;project_name&gt;.cproject.yml</code> files, each available in a separate folder.</li>
+<li>For reference applications only, each <code>cproject.yml</code> file contains a <code>$Board-Layer$</code> variable.</li>
+<li>For reference applications with sensor shields, each <code>cproject.yml</code> file contains a <code>$Shield-Layer$</code> variable.</li>
+<li>For reference applications with a socket layer, each <code>cproject.yml</code> file contains a <code>$Socket-Layer$</code> variable. These
+  variables are not yet defined.</li>
+<li>A main <code>&lt;filename&gt;.c</code> template file for each project.</li>
+<li>A <code>vcpkg-configuration.json</code> file to download required tools automatically.</li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>If get this warning issued:<br />
+<img alt="Task errors output" src="../images/task-errors.png" /><br />
+Click <strong>Show output</strong> to configure the solution. You may add board, shield, or socket layers to your reference
+application. You can also select a compiler for reference applications and other solution types.</p>
+</div>
+<p>Depending on the selected example, you might need to <a href="../configuration/#configure-a-solution">configure the solution</a>
+before you can continue with <a href="../build/">building</a> the project.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../quickstart/" class="btn btn-neutral float-left" title="Quick start"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../manage_components/" class="btn btn-neutral float-right" title="Manage software components">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ARM-software/vscode-cmsis-csolution/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../quickstart/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../manage_components/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

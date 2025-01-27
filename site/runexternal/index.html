@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Run external tools - CMSIS Solution for VS Code</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Run external tools";
+        var mkdocs_page_input_path = "runexternal.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CMSIS Solution for VS Code
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../quickstart/">Quick start</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../create_app/">Create an embedded project</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../manage_components/">Manage software components</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../manage_settings/">Manage settings</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../build/">Build a project</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../flash/">Flash the application</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../debug/">Debug a project</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Run external tools</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#programmer">Programmer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#debug-server">Debug Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-uvision-for-debugging">Using uVision for Debugging</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tipsandtricks/">Tips and tricks</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CMSIS Solution for VS Code</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Run external tools</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/ARM-software/vscode-cmsis-csolution/edit/master/docs/runexternal.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="run-external-tools">Run External Tools</h1>
+<p>VS Code uses the <a href="https://code.visualstudio.com/docs/editor/debugging">launch.json</a> and
+<a href="https://code.visualstudio.com/docs/editor/tasks">tasks.json</a> configuration files to integrate external tools. The following
+section shows how to configure these files for typical use cases. <a href="#variables">Variables</a> provide access to parameters  of
+the current active <em>csolution project</em>.</p>
+<h2 id="programmer">Programmer</h2>
+<p>ToDo show usage of command-line programmer (i.e. STCube Programmer)</p>
+<h2 id="debug-server">Debug Server</h2>
+<p>ToDo show usage of Cortex Debug configured for JLink</p>
+<h2 id="using-uvision-for-debugging">Using uVision for Debugging</h2>
+<p>The <a href="https://developer.arm.com/documentation/101407/0541/Debugging">µVision Debugger</a> offers advanced debug features such as
+Event Recorder and Component Viewer to analyze applications.</p>
+<p>To call µVision with the <em>csolution project</em> that you are using in VS Code, add to the file <code>.vscode\tasks.json</code> the
+following task. The <code>command:</code> is the path to the uVision executable on your computer.</p>
+<pre><code class="language-json">    &quot;tasks&quot;: [
+        {
+            &quot;label&quot;: &quot;Start uVision&quot;,
+            &quot;type&quot;: &quot;process&quot;,
+            &quot;command&quot;: &quot;C:\\Keil_v5\\UV4\\UV4.exe&quot;,
+            &quot;args&quot;: [
+                &quot;${command:cmsis-csolution.getSolutionPath}&quot;
+            ],
+            &quot;problemMatcher&quot;: []
+        }
+    ]
+</code></pre>
+<h2 id="variables">Variables</h2>
+<p>VS Code supports variable substitution in <a href="https://code.visualstudio.com/docs/editor/debugging">launch.json</a> and
+<a href="https://code.visualstudio.com/docs/editor/tasks">tasks.json</a> configuration files as well as some select settings. In
+addition to the <a href="https://code.visualstudio.com/docs/editor/variables-reference">VS Code built-in variables</a>, the CMSIS
+Solution extension provides the following variables to access parameters of the current active <em>csolution project</em>.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Example value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cmsis-solution.getDfpName</code></td>
+<td>Name and version of the <a href="https://www.keil.arm.com/devices/">Device Family Pack (DFP)</a> of the current active target.</td>
+<td>ARM::V2M_MPS3_SSE_300_DFP@1.5.0</td>
+</tr>
+<tr>
+<td><code>cmsis-solution.getBspName</code></td>
+<td>Name and version of the <a href="https://www.keil.arm.com/boards/">Board Support Pack (BSP)</a> of the current active target.</td>
+<td>ARM::V2M_MPS3_SSE_300_DFP@1.5.0</td>
+</tr>
+<tr>
+<td><code>cmsis-solution.getDfpPath</code></td>
+<td>Path to Device Family Pack (DFP) file of the current active target.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>cmsis-solution.getBspPath</code></td>
+<td>Path to Board Support Pack (BSP) file of the current active target.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>cmsis-solution.getCbuildRunPath</code></td>
+<td>Path to the CMSIS-Toolbox <code>*.cbuild-run.yml</code> file of the current active target.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../configuration/" class="btn btn-neutral float-left" title="Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../tipsandtricks/" class="btn btn-neutral float-right" title="Tips and tricks">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ARM-software/vscode-cmsis-csolution/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../configuration/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../tipsandtricks/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

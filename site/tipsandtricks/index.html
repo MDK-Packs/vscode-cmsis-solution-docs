@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Tips and tricks - CMSIS Solution for VS Code</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Tips and tricks";
+        var mkdocs_page_input_path = "tipsandtricks.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CMSIS Solution for VS Code
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../quickstart/">Quick start</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../create_app/">Create an embedded project</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../manage_components/">Manage software components</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../manage_settings/">Manage settings</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../build/">Build a project</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../flash/">Flash the application</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../debug/">Debug a project</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../runexternal/">Run external tools</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Tips and tricks</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#initialize-your-solution">Initialize your solution</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#convert-a-keil-uvision-project">Convert a Keil uVision project</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#set-current-solution-in-workspace">Set current solution in workspace</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CMSIS Solution for VS Code</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Tips and tricks</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/ARM-software/vscode-cmsis-csolution/edit/master/docs/tipsandtricks.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="tips-and-tricks">Tips and tricks</h1>
+<p>This chapter contains useful information that is not used often, but helpful in case of certain problems.</p>
+<h2 id="initialize-your-solution">Initialize your solution</h2>
+<p>Examples from <a href="https://keil.arm.com">keil.arm.com</a> or solutions <a href="../create_app/">created from scratch</a> from the
+<strong>Create Solution</strong> view are already initialized and contain all required files.</p>
+<p>If your solution does not contain the <code>vcpkg-configuration.json</code>, <code>tasks.json</code>, and <code>launch.json</code> files, use the
+<strong>Initialize CMSIS project</strong> option to generate them.</p>
+<p>Right-click anywhere in the workspace and select <strong>Initialize CMSIS project</strong>. The extension generates preconfigured files
+that are ready to use.</p>
+<h2 id="convert-a-keil-uvision-project">Convert a Keil uVision project</h2>
+<p>With the CMSIS Solution extension, you can convert Keil μVision project to a CMSIS solution.</p>
+<ol>
+<li>
+<p>Open the folder that contains the <code>*.uvprojx</code> that you want to convert in Visual Studio Code. Alternatively, import a
+   μVision project from <a href="https://www.keil.arm.com/">keil.arm.com</a>, or clone a project from GitHub.</p>
+</li>
+<li>
+<p>Right-click the <code>*.uvprojx</code> file and select <strong>Convert μVision project to CMSIS solution</strong> from the <strong>Explorer</strong> view.</p>
+</li>
+</ol>
+<p>The conversion starts immediately.</p>
+<p>Alternatively, if you are starting from an empty workspace, you can click <img alt="CMSIS icon" src="../images/cmsis-icon.png" /> in the
+<strong>Activity Bar</strong> to open the <strong>CMSIS</strong> view. Then choose one of the following two options:</p>
+<ul>
+<li>Click <strong>Convert a μVision Project to CMSIS Solution</strong> and open your <code>*.uvprojx</code> file to convert it.</li>
+<li>Move your cursor over the <strong>Solution</strong> outline, click <strong>Views More Actions...</strong>
+  <img alt="Views and More Actions icon" src="../images/more-actions-icon.png" />, then select <strong>Convert μVision project to CMSIS solution</strong>
+  and open your <code>*.uvprojx</code> file to convert it.</li>
+</ul>
+<p>A dialog box displays. You can carry out the following tasks:</p>
+<ul>
+<li>Open the solution in a new workspace with the <strong>Open</strong> option.</li>
+<li>Open the solution in a new window and new workspace with the <strong>Open project in new window</strong> option.</li>
+</ul>
+<p>You can also run the <strong>CMSIS: Convert μVision project to CMSIS solution</strong> command from the Command Palette. In that case,
+select the <code>*.uvprojx</code> that you want to convert on your machine and click Select.</p>
+<p>If there are conversion errors, check the <code>uv2csolution.log</code> file.</p>
+<ol>
+<li>
+<p>Confirm that the <strong>Arm Tools Environment Manager extension</strong> can automatically
+   activate the workspace and download the tools specified in your <code>vcpkg-configuration.json</code> file.</p>
+</li>
+<li>
+<p>Check the Output tab. In the View menu, select <strong>Output</strong> to open the <strong>Output</strong> tab. Select
+   <strong>μVision to Csolution Conversion</strong> in the drop-down list on the right side of the <strong>Output</strong> tab.</p>
+</li>
+</ol>
+<p>The <code>*.cproject.yml</code> and <code>*.csolution.yml</code> files are available in the folder where the <code>*.uvprojx</code> is stored.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The conversion does not work with Arm Compiler 5-based projects. Only projects using Arm Compiler 6 can be converted.
+As a workaround, you can update Arm Compiler 5 projects to Arm Compiler 6 in Keil μVision, then convert the projects to
+solutions in Visual Studio Code. For more information, see the
+<a href="https://developer.arm.com/documentation/kan298/latest/">Migrate Arm Compiler 5 to Arm Compiler 6 application note</a> and
+the <a href="https://developer.arm.com/documentation/100068/0620/Migrating-from-Arm-Compiler-5-to-Arm-Compiler-for-Embedded-6">Arm Compiler for Embedded Migration and Compatibility Guide</a>.</p>
+</div>
+<h2 id="set-current-solution-in-workspace">Set current solution in workspace</h2>
+<p>To activate a solution in the <strong>Solution</strong> outline view, use the <strong>Select solution from workspace</strong> option in
+<strong>Views and More Actions...</strong> <img alt="Views and More Actions icon" src="../images/more-actions-icon.png" />.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../runexternal/" class="btn btn-neutral float-left" title="Run external tools"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ARM-software/vscode-cmsis-csolution/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../runexternal/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
