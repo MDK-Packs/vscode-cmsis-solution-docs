@@ -129,6 +129,6 @@ The following `launch.json` file can be used to start debugging with pyOCD:
 
 For a NXP LPCXpresso55S69 board, the commands may resolve to:
 
-- `${command:cmsis-csolution.getBinaryFiles}:` /Users/user/hello_world/cm33_core1/armgcc/debug/core1_image.elf,/Users/user/hello_world/cm33_core0/armgcc/debug/hello_world_cm33_core0.elf
+- `${command:cmsis-csolution.getBinaryFiles}:` /Users/user/hello_world/cm33_core1/armgcc/debug/core1_image.elf, /Users/user/hello_world/cm33_core0/armgcc/debug/hello_world_cm33_core0.elf
 - `${command:cmsis-csolution.getDeviceName}:` LPC55S69JBD100
 - `${command:cmsis-csolution.getDfpPath}:` /Users/user/.cache/arm/packs/NXP/LPC55S69_DFP/19.0.0
