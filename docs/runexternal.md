@@ -1,26 +1,23 @@
-# Run External Tools
+# Run external tools
 
-VS Code uses the [launch.json](https://code.visualstudio.com/docs/editor/debugging) and
-[tasks.json](https://code.visualstudio.com/docs/editor/tasks) configuration files to integrate external tools. The following
-section shows how to configure these files for typical use cases.
+Visual Studio Code uses the [launch.json](https://code.visualstudio.com/docs/editor/debugging) and [tasks.json](https://code.visualstudio.com/docs/editor/tasks) configuration files to integrate with external tools. The following section shows how to configure these files for typical use cases.
 
-[Variables and commands](#variables-and-commands) provide access to parameters  of the current active *csolution project*.
+[Variables and commands](#variables-and-commands) provide access to parameters of the current active *csolution project*.
 
 ## Programmer
 
 ToDo show usage of command-line programmer (i.e. STCube Programmer)
 
-## Debug Server
+## Debug server
 
 ToDo show usage of Cortex Debug configured for JLink
 
-## Using µVision for Debugging
+## Use µVision for debugging
 
-The [µVision Debugger](https://developer.arm.com/documentation/101407/0541/Debugging) offers advanced debug features such as
+The [µVision debugger](https://developer.arm.com/documentation/101407/0541/Debugging) offers advanced debug features such as
 Event Recorder and Component Viewer to analyze applications.
 
-To call µVision with the *csolution project* that you are using in VS Code, add to the file `.vscode\tasks.json` the
-following task. The `command:` is the path to the uVision executable on your computer.
+To call µVision with the *csolution project* that you are using in Visual Studio Code, add the following task to the file `.vscode\tasks.json`. The `command:` is the path to the µVision executable on your computer.
 
 ```json
     "tasks": [
@@ -41,31 +38,31 @@ following task. The `command:` is the path to the uVision executable on your com
 
 ## Variables and commands
 
-VS Code supports variable and command substitution in [launch.json](https://code.visualstudio.com/docs/editor/debugging) and
+Visual Studio Code supports variable and command substitution in the [launch.json](https://code.visualstudio.com/docs/editor/debugging) and
 [tasks.json](https://code.visualstudio.com/docs/editor/tasks) configuration files as well as some select settings. In
-addition to the [VS Code built-in variables](https://code.visualstudio.com/docs/editor/variables-reference), the CMSIS
+addition to the [Visual Studio Code built-in variables](https://code.visualstudio.com/docs/editor/variables-reference), the CMSIS
 Solution extension provides the following commands to access parameters of the current active *csolution project*.
 
 | Command  | Description |
 |----------|-------------|
-| `${command:cmsis-csolution.getBinaryFile}`               | Elf/Dwarf location of currently selected context |
-| `${command:cmsis-csolution.getBinaryFiles}`              | Elf/Dwarf location of all files in current solution |
+| `${command:cmsis-csolution.getBinaryFile}`               | Elf/Dwarf location of the currently selected context |
+| `${command:cmsis-csolution.getBinaryFiles}`              | Elf/Dwarf location of all files in the current solution |
 | `${command:cmsis-csolution.getBspName}`                  | Name and version of the [Board Support Pack (BSP)](https://www.keil.arm.com/boards/) |
 | `${command:cmsis-csolution.getBspPath}`                  | Path to [Board Support Pack (BSP)](https://www.keil.arm.com/boards/) file of the current active target |
-| `${command:cmsis-csolution.getCbuildRunPath}`            | Path to `cbuild-run.yml` file |
-| `${command:cmsis-csolution.getDeviceName}`               | Device name of active target |
+| `${command:cmsis-csolution.getCbuildRunPath}`            | Path to the `cbuild-run.yml` file |
+| `${command:cmsis-csolution.getDeviceName}`               | Device name of the active target |
 | `${command:cmsis-csolution.getDfpName}`                  | Name and version of the [Device Family Pack (DFP)](https://www.keil.arm.com/devices/) |
-| `${command:cmsis-csolution.getDfpPath}`                  | Path to [Device Family Pack (DFP)](https://www.keil.arm.com/devices/) file of the current active target |
+| `${command:cmsis-csolution.getDfpPath}`                  | Path to the [Device Family Pack (DFP)](https://www.keil.arm.com/devices/) file of the current active target |
 | `${command:cmsis-csolution.getHardwareAndToolchainInfo}` | Target hardware and toolchain for the active solution |
 | `${command:cmsis-csolution.getProcessorName}`            | The processor name for the currently selected context |
-| `${command:cmsis-csolution.getSolutionPath}`             | Path to active solution file |
+| `${command:cmsis-csolution.getSolutionPath}`             | Path to the active solution file |
 | `${command:cmsis-csolution.getTargetPack}`               | The [Device Family Pack (DFP)](https://www.keil.arm.com/devices/) for the currently selected context |
 
 ### Substitution examples
 
 **launch.json**
 
-The following `launch.json` file can be used to start Arm Debugger:
+Use the following `launch.json` file to start Arm Debugger:
 
 ```json
 {
@@ -84,13 +81,15 @@ The following `launch.json` file can be used to start Arm Debugger:
 }
 ```
 
-For a STMicroelectronics B-U585-IOT02A board, the commands might resolve to:
+For an STMicroelectronics B-U585-IOT02A board, the commands might resolve to:
 
 - `${command:cmsis-csolution.getBinaryFiles}:` /Users/user/Blinky/out/Blinky/B-U585I-IOT02A/Debug/Blinky.axf
+
 - `${command:cmsis-csolution.getTargetPack}:` Keil::STM32U5xx_DFP@3.0.0
+
 - `${command:cmsis-csolution.getDeviceName}:` STM32U585AIIx
 
-The following `launch.json` file can be used to start debugging with pyOCD:
+Use the following `launch.json` file to start debugging with pyOCD:
 
 ```json
 {
@@ -130,5 +129,7 @@ The following `launch.json` file can be used to start debugging with pyOCD:
 For a NXP LPCXpresso55S69 board, the commands might resolve to:
 
 - `${command:cmsis-csolution.getBinaryFiles}:` /Users/user/hello_world/cm33_core1/armgcc/debug/core1_image.elf, /Users/user/hello_world/cm33_core0/armgcc/debug/hello_world_cm33_core0.elf
+
 - `${command:cmsis-csolution.getDeviceName}:` LPC55S69JBD100
+
 - `${command:cmsis-csolution.getDfpPath}:` /Users/user/.cache/arm/packs/NXP/LPC55S69_DFP/19.0.0

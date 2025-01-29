@@ -27,7 +27,7 @@ The **CMSIS Solution** extension available in Visual Studio Code provides tools 
 
 - [**Run external tools**](./runexternal.md) describes how to use external tools, such as debuggers and flash programmers
 
-- [**Tips and tricks**](./tipsandtricks.md) help you to solve specific issues
+- [**Tips and tricks**](./tipsandtricks.md) provides tips and tricks to help you solve specific issues
 
 ## Revision history
 
