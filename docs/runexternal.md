@@ -14,7 +14,7 @@ ToDo show usage of command-line programmer (i.e. STCube Programmer)
 
 ToDo show usage of Cortex Debug configured for JLink
 
-## Using uVision for Debugging
+## Using µVision for Debugging
 
 The [µVision Debugger](https://developer.arm.com/documentation/101407/0541/Debugging) offers advanced debug features such as
 Event Recorder and Component Viewer to analyze applications.
@@ -84,7 +84,7 @@ The following `launch.json` file can be used to start Arm Debugger:
 }
 ```
 
-For a STMicroelectronics B-U585-IOT02A board, the commands may resolve to:
+For a STMicroelectronics B-U585-IOT02A board, the commands might resolve to:
 
 - `${command:cmsis-csolution.getBinaryFiles}:` /Users/user/Blinky/out/Blinky/B-U585I-IOT02A/Debug/Blinky.axf
 - `${command:cmsis-csolution.getTargetPack}:` Keil::STM32U5xx_DFP@3.0.0
@@ -127,7 +127,7 @@ The following `launch.json` file can be used to start debugging with pyOCD:
 }
 ```
 
-For a NXP LPCXpresso55S69 board, the commands may resolve to:
+For a NXP LPCXpresso55S69 board, the commands might resolve to:
 
 - `${command:cmsis-csolution.getBinaryFiles}:` /Users/user/hello_world/cm33_core1/armgcc/debug/core1_image.elf, /Users/user/hello_world/cm33_core0/armgcc/debug/hello_world_cm33_core0.elf
 - `${command:cmsis-csolution.getDeviceName}:` LPC55S69JBD100

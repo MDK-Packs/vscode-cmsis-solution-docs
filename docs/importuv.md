@@ -1,4 +1,4 @@
-# Import a Keil uVision project
+# Import a Keil µVision project
 
 With the CMSIS Solution extension, you can convert Keil μVision project to a CMSIS solution.
 

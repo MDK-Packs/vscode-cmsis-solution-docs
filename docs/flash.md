@@ -1,4 +1,4 @@
-# Flash the application
+# Run the application
 
 !!! Attention
     First, check that your hardware is connected to your computer.
