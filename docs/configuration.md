@@ -2,18 +2,17 @@
 
 ## Configure the extension
 
-Press **CTRL+,** (**CMD+,** on macOS) or go to ![Settings cog wheel](./images/settings-cog.png) at the bottom of the
-**Activity Bar** and select **Settings**. Then, select **CMSIS Solution** to change the extension settings. The available
-settings are:
+Press **Ctrl+,** (Windows and Linux) or **Cmd+,** (macOS) or go to ![Settings cog wheel](./images/settings-cog.png) at the bottom of the **Activity Bar** and select **Settings**. Then, select **CMSIS Solution** to change the extension settings. The available settings are:
 
 | Setting | Description |
 |---------|-------------|
 | Actions | Set run and debug configurations for your solutions and projects. |
-| Download Packs | The CMSIS-Toolbox downloads required software packs using `packget` during setup and project build. This option enables the option `--packs` for `cbuild`. |
-| Exclude | Configure a glob pattern for excluding files and folders in searches for solution files. |
+| Download Packs | CMSIS-Toolbox downloads required software packs using `cpackget` during setup and project build. This option enables the option `--packs` for `cbuild`. |
+| Exclude | Configure a glob pattern for excluding files and folders in searches for csolution files. |
 | Experimental Features | Use the checkbox to enable experimental features. |
-| Generate Clang Setup | Use the checkbox to automatically generate the required setup (clangd file and `.vscode/settings.json`) for the active solution context. For AC6 compiler, include pre-defined macros in the clangd file. |
-| Use Web Services | Use the checkbox to enable web services for obtaining information about devices, boards, and examples. If enabled, information from the Internet and locally installed packs is used. If disabled, only information from installed packs is used. |
+| Generate Clang Setup | Use the checkbox to automatically generate the required setup (`.clangd` file and `.vscode/settings.json`) for the active solution context. For Arm Compiler 6, include pre-defined macros in the `.clangd` file. |
+| Output Directory | Enter an output directory prefix for 'outdir' and 'tmpdir' and relocated build information files (experimental). |
+| Use Web Services | Use the checkbox to enable web services to obtain information about devices, boards, and examples. If enabled, information from the internet and locally installed packs is used. If disabled, only information from installed packs is used. |
 
 ## Configure a solution
 
