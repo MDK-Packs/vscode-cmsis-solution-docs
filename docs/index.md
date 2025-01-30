@@ -7,7 +7,7 @@ The **CMSIS Solution** extension available in Visual Studio Code provides tools 
 - [**Setup**](installation.md) explains how to install the CMSIS Solution extension along with a build environment for
   embedded applications that are based on Arm Cortex-M processors
 
-- [**Quick start**](quickstart.md) details the main features available in the CMSIS Solution extension GUI
+- [**Quick start**](quickstart.md) shows the main features available in the CMSIS Solution extension GUI
 
 - [**Create an embedded project**](create_app.md) explains how to start a project from scratch
 
