@@ -22,7 +22,8 @@ Click **Select**. By default, the **Target Device** drop-down list shows the nam
 
 ## Select a template, a reference application, or an example
 
-Select one of the following options from the drop-down list. The options available depend on the board or device selected previousl. If there are too many examples, enter a search term and then select an example.
+Select one of the following options from the drop-down list. The options available depend on the board or device selected previously. If there are too many examples, enter a search term and then select an example.
+
 
 ### Templates
 
