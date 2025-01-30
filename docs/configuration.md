@@ -7,7 +7,7 @@ Press **Ctrl+,** (Windows and Linux) or **Cmd+,** (macOS) or go to ![Settings co
 | Setting | Description |
 |---------|-------------|
 | Actions | Set run and debug configurations for your solutions and projects. |
-| Download Packs | The CMSIS-Toolbox downloads required software packs using `cpackget` during setup and project build. This option enables the option `--packs` for `cbuild`. |
+| Download Packs | CMSIS-Toolbox downloads required software packs using `cpackget` during setup and project build. This option enables the option `--packs` for `cbuild`. |
 | Exclude | Configure a glob pattern for excluding files and folders in searches for csolution files. |
 | Experimental Features | Use the checkbox to enable experimental features. |
 | Generate Clang Setup | Use the checkbox to automatically generate the required setup (`.clangd` file and `.vscode/settings.json`) for the active solution context. For Arm Compiler 6, include pre-defined macros in the `.clangd` file. |
