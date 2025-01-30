@@ -25,7 +25,7 @@ The **Debug Console** tab displays the debugging output.
 
 ## Debug with simulation models
 
-FVPs are complete simulations of an Arm system, including processor, memory, and peripherals. These are set out in a "programmer's view" that gives you a comprehensive model on which to build and test your software.
+FVPs are complete simulations of an Arm system, including a processor, memory, and peripherals. These are set out in a "programmer's view" that gives you a comprehensive model on which to build and test your software.
 
 !!! Note
     FVPs are natively available on Windows and Linux only. If you are on a Mac, follow this [Learning Path](https://learn.arm.com/install-guides fvps-on-macos/) to install Docker and clone the [FVPs-on-Mac](https://github.com/Arm-Examples/FVPs-on-Mac) repository.
