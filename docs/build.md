@@ -24,7 +24,7 @@ keil.arm.com include a `tasks.json` file. See [Configure a build task](./configu
 
 ## Build output
 
-Once you initiated the build process, a Terminal window opens and displays the build operation:
+After you initiate the build process, a Terminal window opens and displays the build operation:
 
 ![Build output in Terminal](./images/build-output.png)
 
