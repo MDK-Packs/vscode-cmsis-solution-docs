@@ -4,13 +4,13 @@ Visual Studio Code uses the [launch.json](https://code.visualstudio.com/docs/edi
 
 [Variables and commands](#variables-and-commands) provide access to parameters of the current active *csolution project*.
 
-## Programmer
+<!--## Programmer
 
 ToDo show usage of command-line programmer (i.e. STCube Programmer)
 
 ## Debug server
 
-ToDo show usage of Cortex Debug configured for JLink
+ToDo show usage of Cortex Debug configured for JLink-->
 
 ## Use µVision for debugging
 
