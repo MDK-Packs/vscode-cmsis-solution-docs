@@ -118,30 +118,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="import-a-keil-uvision-project">Import a Keil uVision project</h1>
-<p>With the CMSIS Solution extension, you can convert Keil μVision project to a CMSIS solution.</p>
+                <h1 id="import-a-keil-vision-project">Import a Keil µVision project</h1>
+<p>With the CMSIS Solution extension, you can convert a Keil μVision project to a CMSIS solution.</p>
 <ol>
 <li>
 <p>Open the folder that contains the <code>*.uvprojx</code> that you want to convert in Visual Studio Code. Alternatively, import a
    μVision project from <a href="https://www.keil.arm.com/">keil.arm.com</a>, or clone a project from GitHub.</p>
 </li>
 <li>
-<p>Right-click the <code>*.uvprojx</code> file and select <strong>Convert μVision project to CMSIS solution</strong> from the <strong>Explorer</strong> view.</p>
+<p>From the <strong>Explorer</strong> view, right-click the <code>*.uvprojx</code> file and select <strong>Convert μVision project to CMSIS solution</strong>.</p>
 </li>
 </ol>
 <p>The conversion starts immediately.</p>
 <p>Alternatively, if you are starting from an empty workspace, you can click <img alt="CMSIS icon" src="images/cmsis-icon.png" /> in the
-<strong>Activity Bar</strong> to open the <strong>CMSIS</strong> view. Then choose one of the following two options:</p>
+<strong>Activity Bar</strong> to open the <strong>CMSIS</strong> view. Then choose one of the following options:</p>
 <ul>
-<li>Click <strong>Convert a μVision Project to CMSIS Solution</strong> and open your <code>*.uvprojx</code> file to convert it.</li>
-<li>Move your cursor over the <strong>Solution</strong> outline, click <strong>Views More Actions...</strong>
+<li>
+<p>Click <strong>Convert a μVision Project to CMSIS Solution</strong> and open your <code>*.uvprojx</code> file to convert it.</p>
+</li>
+<li>
+<p>Move your cursor over the <strong>Solution</strong> outline, click <strong>Views and More Actions</strong>
   <img alt="Views and More Actions icon" src="images/more-actions-icon.png" />, then select <strong>Convert μVision project to CMSIS solution</strong>
-  and open your <code>*.uvprojx</code> file to convert it.</li>
+  and open your <code>*.uvprojx</code> file to convert it.</p>
+</li>
 </ul>
 <p>A dialog box displays. You can carry out the following tasks:</p>
 <ul>
-<li>Open the solution in a new workspace with the <strong>Open</strong> option.</li>
-<li>Open the solution in a new window and new workspace with the <strong>Open project in new window</strong> option.</li>
+<li>
+<p>Open the solution in a new workspace with the <strong>Open</strong> option.</p>
+</li>
+<li>
+<p>Open the solution in a new window and new workspace with the <strong>Open project in new window</strong> option.</p>
+</li>
 </ul>
 <p>You can also run the <strong>CMSIS: Convert μVision project to CMSIS solution</strong> command from the Command Palette. In that case,
 select the <code>*.uvprojx</code> that you want to convert on your machine and click Select.</p>
@@ -152,7 +160,7 @@ select the <code>*.uvprojx</code> that you want to convert on your machine and c
    activate the workspace and download the tools specified in your <code>vcpkg-configuration.json</code> file.</p>
 </li>
 <li>
-<p>Check the Output tab. In the View menu, select <strong>Output</strong> to open the <strong>Output</strong> tab. Select
+<p>Check the <strong>Output</strong> tab. In the View menu, select <strong>Output</strong> to open the <strong>Output</strong> tab. Select
    <strong>μVision to Csolution Conversion</strong> in the drop-down list on the right side of the <strong>Output</strong> tab.</p>
 </li>
 </ol>

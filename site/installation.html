@@ -123,44 +123,64 @@
                 <h1 id="setup">Setup</h1>
 <!-- markdownlint-disable MD036 -->
 
-<p>The <strong>Keil Studio Pack</strong> extension pack is a set of extensions that you can use to work with CMSIS solution projects.
-It also contains the CMSIS Solution extension.</p>
+<p>The <strong>Arm Keil Studio Pack (MDK v6)</strong> extension pack includes the CMSIS Solution extension and other extensions that you can use to work with CMSIS solution projects.</p>
 <ol>
-<li>In Visual Studio Code, open the <strong>Extensions</strong> view and enter "Keil Studio Pack" in the search bar.</li>
-<li>Click the Install button to start the installation.</li>
-<li>Once finished, the CMSIS View icon appears on the activity bar.</li>
+<li>
+<p>In Visual Studio Code, open the <strong>Extensions</strong> view and type <code>Keil Studio Pack</code> in the search bar.</p>
+</li>
+<li>
+<p>Click <strong>Install</strong> to start the installation.
+   When the installation is finished, the CMSIS view icon appears in the activity bar.</p>
+</li>
 </ol>
 <p>You can <a href="create_app.html">create your first application</a> or <a href="#find-an-example-project">download an example project</a>
-to verify the correct operation of the IDE.</p>
+and then check that you can build, run, and debug the application.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you do not wish to install the whole suite of extensions, you can install the CMSIS Solution extension standalone.
-In this case, search for "CMSIS Solution"</p>
+<p>If you do not want to install all the extensions available in the pack, you can install the CMSIS Solution extension as standalone.
+Search for <code>CMSIS Solution</code> in the <strong>Extensions</strong> view.</p>
 </div>
 <h2 id="find-an-example-project">Find an example project</h2>
-<p>The <a href="https://www.keil.arm.com/boards/">CMSIS boards list</a> contains many examples that can be used to verify the correct
-operation of the extension. The following demonstrates how to use an example based on the
-<a href="https://www.keil.arm.com/boards/nxp-frdm-k32l3a6-989d2e5/projects/">NXP FRDM-K32L3A6 development board</a>. Please adapt
-to your development board.</p>
+<p>The <a href="https://www.keil.arm.com/boards/">CMSIS boards list</a> contains many examples that you can use to verify that the extension works correctly. </p>
+<p>The following procedure explains how to start from an example for the <a href="https://www.keil.arm.com/boards/nxp-frdm-k32l3a6-989d2e5/projects/">NXP FRDM-K32L3A6 development board</a>. Adapt the steps to your development board.</p>
 <ol>
-<li>In your browser, open the <a href="https://www.keil.arm.com/boards/">CMSIS boards list</a>.</li>
-<li>In the search bar, enter "frdm-k32" for example. Alternatively, you may search for a board using the filters
-   <strong>Vendor</strong> and <strong>Core</strong>.</li>
-<li>In the list, click on <strong>FRDM-K32L3A6</strong>.</li>
-<li>The board page opens on the <strong>Projects</strong> tab. This tab shows the list of available example projects.</li>
-<li>Enter "hello" in the search bar.</li>
-<li>Select <strong>Open in Keil Studio for VS Code</strong> in the <strong>Get Project</strong> drop-down to download and open the example directly
-   to your computer.
-   <img alt="Download and open hello example in VS Code" src="images/frdm-hello.png" /></li>
-<li>Visual Studio Code will ask for permissions to open the URI:<br />
-<img alt="Allow extension to open URI" src="images/allow-open.png" /><br />
-   Click <strong>Open</strong>.</li>
-<li>Next, select a download and unzip location.</li>
-<li>Finally, Visual Studio Code ask to open the unzipped folder, to open it in a new window, or to add it to the workspace.<br />
-<img alt="Open the unzipped folder" src="images/open-folder.png" /><br />
-   It is recommended to open the folder in a new window.</li>
+<li>
+<p>In your browser, open the <a href="https://www.keil.arm.com/boards/">CMSIS boards list</a>.</p>
+</li>
+<li>
+<p>In the search bar, type <code>frdm-k32</code>. Alternatively, you can search for a board using the <strong>Vendor</strong> and <strong>Core</strong> filters.</p>
+</li>
+<li>
+<p>In the list of suggested boards, click <code>FRDM-K32L3A6</code>.
+   The board page opens on the <strong>Projects</strong> tab. This tab shows the list of available example projects.</p>
+</li>
+<li>
+<p>In the search bar, type <code>hello_frdm</code>.</p>
+</li>
+<li>
+<p>In the <strong>Get Project</strong> drop-down list, select <strong>Open in Keil Studio for VS Code</strong> to download the example to your computer and open it in Visual Studio Code.
+   <img alt="Download and open hello example in VS Code" src="images/frdm-hello.png" /></p>
+</li>
 </ol>
-<p>Once opened, you can continue to <a href="build.html">build</a> and <a href="debug.html">debug</a> the example project.</p>
+<p>Visual Studio Code asks for a permission to open the URI.
+   <img alt="Allow extension to open URI" src="images/allow-open.png" /></p>
+<ol>
+<li>
+<p>Click <strong>Open</strong>.</p>
+</li>
+<li>
+<p>Select a download location.</p>
+</li>
+<li>
+<p>Select <strong>Open in New Window</strong> to open the example in a separate Visual Studio Code window.
+   <img alt="Open the unzipped folder" src="images/open-folder.png" /></p>
+</li>
+<li>
+<p>If you installed the Keil Studio Pack, confirm that the Arm Tools Environment Manager extension can automatically activate the workspace and download the tools specified in the <code>vcpkg-configuration.json</code> file included in your project.
+   <img alt="Activate the workspace" src="images/activate-environment.png" /></p>
+</li>
+</ol>
+<p>You can now <a href="build.html">build</a> and <a href="debug.html">debug</a> the example project.</p>
               
             </div>
           </div><footer>

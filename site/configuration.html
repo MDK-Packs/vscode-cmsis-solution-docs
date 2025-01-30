@@ -126,9 +126,7 @@
               
                 <h1 id="configuration">Configuration</h1>
 <h2 id="configure-the-extension">Configure the extension</h2>
-<p>Press <strong>CTRL+,</strong> (<strong>CMD+,</strong> on macOS) or go to <img alt="Settings cog wheel" src="images/settings-cog.png" /> at the bottom of the
-<strong>Activity Bar</strong> and select <strong>Settings</strong>. Then, select <strong>CMSIS Solution</strong> to change the extension settings. The available
-settings are:</p>
+<p>Press <strong>Ctrl+,</strong> (Windows and Linux) or <strong>Cmd+,</strong> (macOS) or go to <img alt="Settings cog wheel" src="images/settings-cog.png" /> at the bottom of the <strong>Activity Bar</strong> and select <strong>Settings</strong>. Then, select <strong>CMSIS Solution</strong> to change the extension settings. The available settings are:</p>
 <table>
 <thead>
 <tr>
@@ -143,11 +141,11 @@ settings are:</p>
 </tr>
 <tr>
 <td>Download Packs</td>
-<td>The CMSIS-Toolbox downloads required software packs using <code>packget</code> during setup and project build. This option enables the option <code>--packs</code> for <code>cbuild</code>.</td>
+<td>CMSIS-Toolbox downloads required software packs using <code>cpackget</code> during setup and project build. This option enables the option <code>--packs</code> for <code>cbuild</code>.</td>
 </tr>
 <tr>
 <td>Exclude</td>
-<td>Configure a glob pattern for excluding files and folders in searches for solution files.</td>
+<td>Configure a glob pattern for excluding files and folders in searches for csolution files.</td>
 </tr>
 <tr>
 <td>Experimental Features</td>
@@ -155,11 +153,15 @@ settings are:</p>
 </tr>
 <tr>
 <td>Generate Clang Setup</td>
-<td>Use the checkbox to automatically generate the required setup (clangd file and <code>.vscode/settings.json</code>) for the active solution context. For AC6 compiler, include pre-defined macros in the clangd file.</td>
+<td>Use the checkbox to automatically generate the required setup (<code>.clangd</code> file and <code>.vscode/settings.json</code>) for the active solution context. For Arm Compiler 6, include pre-defined macros in the <code>.clangd</code> file.</td>
+</tr>
+<tr>
+<td>Output Directory</td>
+<td>Enter an output directory prefix for 'outdir' and 'tmpdir' and relocated build information files (experimental).</td>
 </tr>
 <tr>
 <td>Use Web Services</td>
-<td>Use the checkbox to enable web services for obtaining information about devices, boards, and examples. If enabled, information from the Internet and locally installed packs is used. If disabled, only information from installed packs is used.</td>
+<td>Use the checkbox to enable web services to obtain information about devices, boards, and examples. If enabled, information from the internet and locally installed packs is used. If disabled, only information from installed packs is used.</td>
 </tr>
 </tbody>
 </table>

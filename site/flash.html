@@ -120,33 +120,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="flash-the-application">Flash the application</h1>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
+                <h1 id="run-the-application">Run the application</h1>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
 <p>First, check that your hardware is connected to your computer.</p>
 </div>
-<p>Before you can start debugging the application, you need to download it to the flash of the target hardware.</p>
+<p>Before you can start debugging the application, you must download it to the flash of the target hardware.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <ul>
 <li>When you have several solutions in one folder, Visual Studio Code ignores the <code>tasks.json</code> and <code>launch.json</code> files that
 you created for each solution. Instead, Visual Studio Code generates new JSON files at the root of the workspace in a
-<code>.vscode</code> folder and ignores the other JSON files. As a workaround, open one solution first, then add other solutions to
-your workspace with the <strong>File</strong> &gt; <strong>Add Folder to Workspace</strong> option.  </li>
+<code>.vscode</code> folder and ignores the other JSON files. As a workaround, open one solution first, then add other solutions to your workspace with the <strong>File</strong> &gt; <strong>Add Folder to Workspace</strong> option.</li>
 <li>If you are using a multicore device and you did not specify a <code>"processorName"</code> in the <code>launch.json</code> file, select the
   appropriate processor for your project in the <strong>Select a processor</strong> drop-down list at the top of the window.</li>
 </ul>
 </div>
-<p>In the <strong>Solution</strong> outline header, click <img alt="Run/flash icon" src="images/run-icon.png" />.</p>
+<p>In the <strong>Solution</strong> outline header, click <img alt="Run icon" src="images/run-icon.png" />.</p>
 <p>To verify that the project has run correctly, check the Terminal tab:</p>
 <p><img alt="Flash download output" src="images/flash-dwnl-output.png" /></p>
 <h2 id="troubleshooting">Troubleshooting</h2>
-<p>If the Arm Debugger engine cannot be found on your machine, a dialog box appears:</p>
+<!--Is this needed for the Run action?-->
+
+<p>If the Arm Debugger engine cannot be found on your machine, a dialog box displays:</p>
 <p><img alt="Arm Debugger not found" src="images/arm-dbg-not-found.png" /></p>
 <p>Select one of these options:  </p>
 <ul>
-<li>To add Arm Debugger to your environment, click <strong>Install Arm Debugger</strong>. The <code>vcpkg-configuration.json</code> file is updated.</li>
-<li>To indicate the path to the Arm Debugger engine in the settings, click <strong>Configure Path</strong>.</li>
+<li>
+<p>To add Arm Debugger to your environment, click <strong>Install Arm Debugger</strong>. The <code>vcpkg-configuration.json</code> file is updated.</p>
+</li>
+<li>
+<p>To indicate the path to the Arm Debugger engine from the settings, click <strong>Configure Path</strong>.</p>
+</li>
 </ul>
               
             </div>

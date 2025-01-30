@@ -75,9 +75,9 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Debug a project</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#debugging-hardware">Debugging hardware</a>
+    <li class="toctree-l2"><a class="reference internal" href="#debug-on-real-hardware">Debug on real hardware</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#debugging-with-simulation-models">Debugging with simulation models</a>
+    <li class="toctree-l2"><a class="reference internal" href="#debug-with-simulation-models">Debug with simulation models</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a>
     </li>
@@ -126,8 +126,8 @@
               
                 <h1 id="debug-the-application">Debug the application</h1>
 <p>Debugging is an essential task for every embedded developer. You can debug your code on real hardware or on simulation
-models based on Fixed Virtual Platforms.</p>
-<h2 id="debugging-hardware">Debugging hardware</h2>
+models based on Fixed Virtual Platforms (FVPs).</p>
+<h2 id="debug-on-real-hardware">Debug on real hardware</h2>
 <ul>
 <li>
 <p>Check that your device is connected to your computer.</p>
@@ -150,36 +150,37 @@ appropriate processor for your project in the <strong>Select a processor</strong
 <p>The <strong>Run and Debug</strong> view displays and the debug session starts. The debugger stops at the <code>main()</code> function of the program:</p>
 <p><img alt="Run to main" src="images/run2main.png" /></p>
 <p>The <strong>Debug Console</strong> tab displays the debugging output.</p>
-<h2 id="debugging-with-simulation-models">Debugging with simulation models</h2>
-<p>Fixed Virtual Platforms (FVPs) are complete simulations of an Arm system, including processor, memory and peripherals. These
-are set out in a "programmer's view", which gives you a comprehensive model on which to build and test your software.</p>
+<h2 id="debug-with-simulation-models">Debug with simulation models</h2>
+<p>FVPs are complete simulations of an Arm system, including a processor, memory, and peripherals. These are set out in a "programmer's view" that gives you a comprehensive model on which to build and test your software.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>FVPs are natively available on Windows and Linux only. If you are on a Mac, follow this
-<a href="https://learn.arm.com/install-guides/fvps-on-macos/">Learning Path</a> to install Docker and clone the
-<a href="https://github.com/Arm-Examples/FVPs-on-Mac">FVPs-on-Mac</a> repository.</p>
+<p>FVPs are natively available on Windows and Linux only. If you are on a Mac, follow this <a href="https://learn.arm.com/install-guides fvps-on-macos/">Learning Path</a> to install Docker and clone the <a href="https://github.com/Arm-Examples/FVPs-on-Mac">FVPs-on-Mac</a> repository.</p>
 </div>
 <ul>
 <li>
 <p>Go to the Device Manager <img alt="Device Manager icon" src="images/device-manager-icon.png" /> and select the FVP that you want to
-  use. For example, MPS2 Cortex M4.</p>
+  use. For example, <code>MPS2 Cortex M4</code>.</p>
 </li>
 <li>
-<p>To start a debug session, click <img alt="Run and Debug icon" src="images/run-debug-icon.png" /> and select the <strong>Arm Debugger FVP</strong>
+<p>To start a debug session, click <img alt="Run and Debug icon" src="images/run-debug-icon.png" /> and select the <code>Arm Debugger FVP</code>
   debug configuration in the list.</p>
 <p><img alt="FVP configuration" src="images/start-debugging-button-fvps.png" /></p>
 </li>
 <li>
-<p>Click Start Debugging.</p>
+<p>Click <img alt="Start Debugging" src="images/start-debugging-icon.png" />.</p>
 </li>
 </ul>
 <h2 id="troubleshooting">Troubleshooting</h2>
-<p>If the Arm Debugger engine cannot be found on your machine, a dialog box appears:</p>
+<p>If the Arm Debugger engine cannot be found on your machine, a dialog box displays:</p>
 <p><img alt="Arm Debugger not found" src="images/arm-dbg-not-found.png" /></p>
 <p>Select one of these options:  </p>
 <ul>
-<li>To add Arm Debugger to your environment, click <strong>Install Arm Debugger</strong>. The <code>vcpkg-configuration.json</code> file is updated.</li>
-<li>To indicate the path to the Arm Debugger engine in the settings, click <strong>Configure Path</strong>.</li>
+<li>
+<p>To add Arm Debugger to your environment, click <strong>Install Arm Debugger</strong>. The <code>vcpkg-configuration.json</code> file is updated.</p>
+</li>
+<li>
+<p>To indicate the path to the Arm Debugger engine in the settings, click <strong>Configure Path</strong>.</p>
+</li>
 </ul>
               
             </div>

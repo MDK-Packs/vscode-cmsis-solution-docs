@@ -59,11 +59,11 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Manage software components</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#software-components-view">Software components view</a>
+    <li class="toctree-l2"><a class="reference internal" href="#software-components-view">Software Components view</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#modify-the-software-components-in-your-project">Modify the software components in your project</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#modify-the-shown-context">Modify the shown context</a>
+    <li class="toctree-l3"><a class="reference internal" href="#modify-the-context-displayed">Modify the context displayed</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#select-components">Select components</a>
     </li>
@@ -134,12 +134,16 @@
 <p>The <strong>Software Components</strong> view shows all the software components selected in the active project of a solution.</p>
 <p>You can do the following:</p>
 <ul>
-<li><a href="#modify-the-software-components-in-your-project">Modify the software components</a> of the project.</li>
-<li>Manage the dependencies between components for each target type defined in your solution, or for all the target types at
-  once.</li>
+<li>
+<p><a href="#modify-the-software-components-in-your-project">Modify the software components</a> of the project</p>
+</li>
+<li>
+<p>Manage the dependencies between components for each target type defined in your solution, or for all the target types at
+  once</p>
+</li>
 </ul>
-<h2 id="software-components-view">Software components view</h2>
-<p>In the <strong>Solution</strong> outline, click <strong>Manage software components</strong>
+<h2 id="software-components-view">Software Components view</h2>
+<p>Open the CMSIS view <img alt="CMSIS icon" src="images/cmsis-icon.png" />. In the <strong>Solution outline</strong>, click <strong>Manage software components</strong>
 <img alt="Manage software components" src="images/software-components-icon.png" /> at the project level. The <strong>Software Components</strong> view
 opens:</p>
 <p><img alt="The 'Software Components' " src="images/software-components-view.png" /></p>
@@ -148,17 +152,23 @@ search the list of components.</p>
 <p>Layer icons <img alt="Layer icon" src="images/layer-icon.png" /> indicate which components are used in layers. In the current version,
 layers are read-only, so you cannot select or clear them. Click the layer icon of a component to open the <code>*.clayer.yml</code>
 file or associated files.</p>
-<p><strong>Learn more</strong> links are available for some components that open the related documentation.</p>
+<p><strong>Learn more</strong> links are available for some components. Click the links to open the related documentation.</p>
 <h2 id="modify-the-software-components-in-your-project">Modify the software components in your project</h2>
 <p>You can add components from all the packs available, not just the packs that are already selected for a project.</p>
-<h3 id="modify-the-shown-context">Modify the shown context</h3>
+<h3 id="modify-the-context-displayed">Modify the context displayed</h3>
 <ul>
-<li>In the <strong>Project</strong> drop-down list, select the project for which you want to modify software components.</li>
-<li>In the <strong>Target</strong> drop-down list, select a specific target type. If you want to modify all the target types at once,
-  select <strong>All Targets</strong>. Note that you might have only one target.</li>
-<li>In the <strong>Software packs</strong> drop-down list, you can filter on the components available from the packs listed in your
+<li>
+<p>In the <strong>Project</strong> drop-down list, select the project for which you want to modify software components.</p>
+</li>
+<li>
+<p>In the <strong>Target</strong> drop-down list, select a specific target type. If you want to modify all the target types at once,
+  select <strong>All Targets</strong>. Note that you might have only one target.</p>
+</li>
+<li>
+<p>In the <strong>Software packs</strong> drop-down list, you can filter on the components available from the packs listed in your
   solution with the <strong>Solution: &lt;Solution-name&gt;</strong> option. You can display the components from all installed packs with
-  the <strong>All installed packs</strong> option.</li>
+  the <strong>All installed packs</strong> option.</p>
+</li>
 </ul>
 <h3 id="select-components">Select components</h3>
 <p>Check that the <strong>All</strong> toggle button is selected to display all the components available. Switch to <strong>Selected</strong> to display
@@ -166,21 +176,24 @@ only the components that are already selected.</p>
 <p>Use the checkboxes to select or clear components as required. For some components, you can also select a vendor, variant,
 or version. The <code>cproject.yml</code> file is automatically updated.</p>
 <h3 id="validation">Validation</h3>
-<p>Manage the dependencies between components and solve validation issues from the <strong>Validation</strong> panel. Issues are highlighted
-in red and have an exclamation mark icon <img alt="Issue icon" src="images/issue-icon.png" /> next to them. You can remove conflicting
-components from your selection or add missing component dependencies from a suggested list.</p>
+<p>Manage the dependencies between components and solve validation issues from the <strong>Validation</strong> panel. Issues are highlighted in red and have an exclamation mark icon <img alt="Issue icon" src="images/issue-icon.png" /> next to them. You can remove conflicting components from your selection or add missing component dependencies from a suggested list.</p>
 <p><img alt="Validation errors" src="images/validation-error.png" /></p>
 <p>If there are validation issues, move your cursor over the issues in the <strong>Validation</strong> panel to get more details. Click the
 proposed fixes to find the components in the list. In some cases, you might have to choose between different fix sets. Select
 a fix set in the drop-down list, make the required component choices, and then click <strong>Apply</strong>.</p>
-<p>If a pack is missing in the solution, a "<strong>Component's pack is not included in your solution</strong>" message displays in the
-<strong>Validation</strong> panel. An error also displays in the <strong>Problems</strong> view. Install the pack with the
-<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/build-tools/#cpackget-invocation"><code>cpackget</code></a> command.</p>
+<p>If a pack is missing in the solution, a <strong>Component's pack is not included in your solution</strong> message displays in the
+<strong>Validation</strong> panel. An error also displays in the <strong>Problems</strong> view. Install the pack with the <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/build-tools/#cpackget-invocation"><code>cpackget</code></a> command.</p>
 <p>There can also be issues such as:</p>
 <ul>
-<li>A component that you selected is incompatible with the selected hardware and toolchain.</li>
-<li>A component that you selected has dependencies which are incompatible with the selected hardware and toolchain.</li>
-<li>A component that you selected has unresolvable dependencies.</li>
+<li>
+<p>A component that you selected is incompatible with the selected hardware and toolchain</p>
+</li>
+<li>
+<p>A component that you selected has dependencies which are incompatible with the selected hardware and toolchain</p>
+</li>
+<li>
+<p>A component that you selected has unresolvable dependencies</p>
+</li>
 </ul>
 <p>In such cases, you must remove the component. Click <strong>Apply</strong> from the <strong>Validation</strong> panel.</p>
               

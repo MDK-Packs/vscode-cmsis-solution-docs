@@ -87,11 +87,7 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Run external tools</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#programmer">Programmer</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#debug-server">Debug Server</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#using-uvision-for-debugging">Using uVision for Debugging</a>
+    <li class="toctree-l2"><a class="reference internal" href="#use-vision-for-debugging">Use µVision for debugging</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#variables-and-commands">Variables and commands</a>
         <ul>
@@ -130,20 +126,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="run-external-tools">Run External Tools</h1>
-<p>VS Code uses the <a href="https://code.visualstudio.com/docs/editor/debugging">launch.json</a> and
-<a href="https://code.visualstudio.com/docs/editor/tasks">tasks.json</a> configuration files to integrate external tools. The following
-section shows how to configure these files for typical use cases.</p>
-<p><a href="#variables-and-commands">Variables and commands</a> provide access to parameters  of the current active <em>csolution project</em>.</p>
-<h2 id="programmer">Programmer</h2>
-<p>ToDo show usage of command-line programmer (i.e. STCube Programmer)</p>
-<h2 id="debug-server">Debug Server</h2>
-<p>ToDo show usage of Cortex Debug configured for JLink</p>
-<h2 id="using-uvision-for-debugging">Using uVision for Debugging</h2>
-<p>The <a href="https://developer.arm.com/documentation/101407/0541/Debugging">µVision Debugger</a> offers advanced debug features such as
+                <h1 id="run-external-tools">Run external tools</h1>
+<p>Visual Studio Code uses the <a href="https://code.visualstudio.com/docs/editor/debugging">launch.json</a> and <a href="https://code.visualstudio.com/docs/editor/tasks">tasks.json</a> configuration files to integrate with external tools. The following section shows how to configure these files for typical use cases.</p>
+<p><a href="#variables-and-commands">Variables and commands</a> provide access to parameters of the current active <em>csolution project</em>.</p>
+<!--## Programmer
+
+ToDo show usage of command-line programmer (i.e. STCube Programmer)
+
+## Debug server
+
+ToDo show usage of Cortex Debug configured for JLink-->
+
+<h2 id="use-vision-for-debugging">Use µVision for debugging</h2>
+<p>The <a href="https://developer.arm.com/documentation/101407/0541/Debugging">µVision debugger</a> offers advanced debug features such as
 Event Recorder and Component Viewer to analyze applications.</p>
-<p>To call µVision with the <em>csolution project</em> that you are using in VS Code, add to the file <code>.vscode\tasks.json</code> the
-following task. The <code>command:</code> is the path to the uVision executable on your computer.</p>
+<p>To call µVision with the <em>csolution project</em> that you are using in Visual Studio Code, add the following task to the <code>.vscode\tasks.json</code>  file. The <code>command:</code> is the path to the µVision executable on your computer.</p>
 <pre><code class="language-json">    &quot;tasks&quot;: [
         {
             &quot;label&quot;: &quot;Start uVision&quot;,
@@ -161,9 +158,9 @@ following task. The <code>command:</code> is the path to the uVision executable 
 <p>This only works in Windows environments with µVision installed on the local machine.</p>
 </div>
 <h2 id="variables-and-commands">Variables and commands</h2>
-<p>VS Code supports variable and command substitution in <a href="https://code.visualstudio.com/docs/editor/debugging">launch.json</a> and
+<p>Visual Studio Code supports variable and command substitution in the <a href="https://code.visualstudio.com/docs/editor/debugging">launch.json</a> and
 <a href="https://code.visualstudio.com/docs/editor/tasks">tasks.json</a> configuration files as well as some select settings. In
-addition to the <a href="https://code.visualstudio.com/docs/editor/variables-reference">VS Code built-in variables</a>, the CMSIS
+addition to the <a href="https://code.visualstudio.com/docs/editor/variables-reference">Visual Studio Code built-in variables</a>, the CMSIS
 Solution extension provides the following commands to access parameters of the current active <em>csolution project</em>.</p>
 <table>
 <thead>
@@ -175,39 +172,39 @@ Solution extension provides the following commands to access parameters of the c
 <tbody>
 <tr>
 <td><code>${command:cmsis-csolution.getBinaryFile}</code></td>
-<td>Elf/Dwarf location of currently selected context</td>
+<td>The Elf/Dwarf location of the currently selected context</td>
 </tr>
 <tr>
 <td><code>${command:cmsis-csolution.getBinaryFiles}</code></td>
-<td>Elf/Dwarf location of all files in current solution</td>
+<td>The Elf/Dwarf location of all the files in the current solution</td>
 </tr>
 <tr>
 <td><code>${command:cmsis-csolution.getBspName}</code></td>
-<td>Name and version of the <a href="https://www.keil.arm.com/boards/">Board Support Pack (BSP)</a></td>
+<td>The name and version of the <a href="https://www.keil.arm.com/boards/">Board Support Pack (BSP)</a></td>
 </tr>
 <tr>
 <td><code>${command:cmsis-csolution.getBspPath}</code></td>
-<td>Path to <a href="https://www.keil.arm.com/boards/">Board Support Pack (BSP)</a> file of the current active target</td>
+<td>The path to the <a href="https://www.keil.arm.com/boards/">Board Support Pack (BSP)</a> file of the current active target</td>
 </tr>
 <tr>
 <td><code>${command:cmsis-csolution.getCbuildRunPath}</code></td>
-<td>Path to <code>cbuild-run.yml</code> file</td>
+<td>The path to the <code>cbuild-run.yml</code> file</td>
 </tr>
 <tr>
 <td><code>${command:cmsis-csolution.getDeviceName}</code></td>
-<td>Device name of active target</td>
+<td>The device name of the active target</td>
 </tr>
 <tr>
 <td><code>${command:cmsis-csolution.getDfpName}</code></td>
-<td>Name and version of the <a href="https://www.keil.arm.com/devices/">Device Family Pack (DFP)</a></td>
+<td>The name and version of the <a href="https://www.keil.arm.com/devices/">Device Family Pack (DFP)</a></td>
 </tr>
 <tr>
 <td><code>${command:cmsis-csolution.getDfpPath}</code></td>
-<td>Path to <a href="https://www.keil.arm.com/devices/">Device Family Pack (DFP)</a> file of the current active target</td>
+<td>The path to the <a href="https://www.keil.arm.com/devices/">Device Family Pack (DFP)</a> file of the current active target</td>
 </tr>
 <tr>
 <td><code>${command:cmsis-csolution.getHardwareAndToolchainInfo}</code></td>
-<td>Target hardware and toolchain for the active solution</td>
+<td>The target hardware and toolchain for the active solution</td>
 </tr>
 <tr>
 <td><code>${command:cmsis-csolution.getProcessorName}</code></td>
@@ -215,7 +212,7 @@ Solution extension provides the following commands to access parameters of the c
 </tr>
 <tr>
 <td><code>${command:cmsis-csolution.getSolutionPath}</code></td>
-<td>Path to active solution file</td>
+<td>The path to the active solution file</td>
 </tr>
 <tr>
 <td><code>${command:cmsis-csolution.getTargetPack}</code></td>
@@ -225,7 +222,7 @@ Solution extension provides the following commands to access parameters of the c
 </table>
 <h3 id="substitution-examples">Substitution examples</h3>
 <p><strong>launch.json</strong></p>
-<p>The following <code>launch.json</code> file can be used to start Arm Debugger:</p>
+<p>Use the following <code>launch.json</code> file to start Arm Debugger:</p>
 <pre><code class="language-json">{
     &quot;version&quot;: &quot;0.2.0&quot;,
     &quot;configurations&quot;: [
@@ -241,13 +238,19 @@ Solution extension provides the following commands to access parameters of the c
     ]
 }
 </code></pre>
-<p>For a STMicroelectronics B-U585-IOT02A board, the commands may resolve to:</p>
+<p>For an STMicroelectronics B-U585-IOT02A board, the commands might resolve to:</p>
 <ul>
-<li><code>${command:cmsis-csolution.getBinaryFiles}:</code> /Users/user/Blinky/out/Blinky/B-U585I-IOT02A/Debug/Blinky.axf</li>
-<li><code>${command:cmsis-csolution.getTargetPack}:</code> Keil::STM32U5xx_DFP@3.0.0</li>
-<li><code>${command:cmsis-csolution.getDeviceName}:</code> STM32U585AIIx</li>
+<li>
+<p><code>${command:cmsis-csolution.getBinaryFiles}:</code> /Users/user/Blinky/out/Blinky/B-U585I-IOT02A/Debug/Blinky.axf</p>
+</li>
+<li>
+<p><code>${command:cmsis-csolution.getTargetPack}:</code> Keil::STM32U5xx_DFP@3.0.0</p>
+</li>
+<li>
+<p><code>${command:cmsis-csolution.getDeviceName}:</code> STM32U585AIIx</p>
+</li>
 </ul>
-<p>The following <code>launch.json</code> file can be used to start debugging with pyOCD:</p>
+<p>Use the following <code>launch.json</code> file to start debugging with pyOCD:</p>
 <pre><code class="language-json">{
     &quot;version&quot;: &quot;0.2.0&quot;,
     &quot;configurations&quot;: [
@@ -281,11 +284,17 @@ Solution extension provides the following commands to access parameters of the c
     ]
 }
 </code></pre>
-<p>For a NXP LPCXpresso55S69 board, the commands may resolve to:</p>
+<p>For a NXP LPCXpresso55S69 board, the commands might resolve to:</p>
 <ul>
-<li><code>${command:cmsis-csolution.getBinaryFiles}:</code> /Users/user/hello_world/cm33_core1/armgcc/debug/core1_image.elf,/Users/user/hello_world/cm33_core0/armgcc/debug/hello_world_cm33_core0.elf</li>
-<li><code>${command:cmsis-csolution.getDeviceName}:</code> LPC55S69JBD100</li>
-<li><code>${command:cmsis-csolution.getDfpPath}:</code> /Users/user/.cache/arm/packs/NXP/LPC55S69_DFP/19.0.0</li>
+<li>
+<p><code>${command:cmsis-csolution.getBinaryFiles}:</code> /Users/user/hello_world/cm33_core1/armgcc/debug/core1_image.elf, /Users/user/hello_world/cm33_core0/armgcc/debug/hello_world_cm33_core0.elf</p>
+</li>
+<li>
+<p><code>${command:cmsis-csolution.getDeviceName}:</code> LPC55S69JBD100</p>
+</li>
+<li>
+<p><code>${command:cmsis-csolution.getDfpPath}:</code> /Users/user/.cache/arm/packs/NXP/LPC55S69_DFP/19.0.0</p>
+</li>
 </ul>
               
             </div>

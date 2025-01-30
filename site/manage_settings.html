@@ -63,11 +63,11 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Manage settings</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#active-target">Active Target</a>
+    <li class="toctree-l2"><a class="reference internal" href="#active-target">Active target</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#active-projects">Active Projects</a>
+    <li class="toctree-l2"><a class="reference internal" href="#active-projects">Active projects</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#run-and-debug">Run and Debug</a>
+    <li class="toctree-l2"><a class="reference internal" href="#run-and-debug">Run and debug</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#errors-and-warnings">Errors and warnings</a>
     </li>
@@ -126,40 +126,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="manage-solution-settings">Manage solution settings</h1>
-<p>In the <strong>Manage solution settings</strong> view you can set the context of your solution. The context set selects the target and
-defines projects and build types that are included in the application image.</p>
-<p>In the <strong>Solution</strong> outline, click <strong>Manage Solution Settings</strong> <img alt="Cogwheel icon" src="images/cogwheel-icon.png" />. The
+                <h1 id="set-a-context">Set a context</h1>
+<p>In the <strong>Manage Solution</strong> view, you can set the context of your solution. The context set selects the target and
+defines the projects and build types that are included in the application image.</p>
+<p>In the <strong>Solution outline</strong>, click <strong>Manage Solution Settings</strong> <img alt="Cogwheel icon" src="images/cogwheel-icon.png" />. The
 <strong>Manage Solutions</strong> view opens:</p>
 <p><img alt="Manage Solution view" src="images/manage-solution-view.png" /></p>
-<p>You can change the <a href="#active-target"><strong>Active Target</strong></a> type, the <a href="#active-projects"><strong>Active Projects</strong></a> included in the
-build. You can change the build type of a project. You can also change the run and debug configurations, or add new
+<p>You can change the <a href="#active-target">active target</a> type, and the <a href="#active-projects">active projects</a> included in the
+build. You can also change the build type of a project, or the run and debug configurations, or you can add new
 configurations.</p>
-<h2 id="active-target">Active Target</h2>
+<h2 id="active-target">Active target</h2>
 <p>Select a <strong>Target Type</strong> to specify the hardware used to build the solution. Some examples are also compatible with Arm
-Virtual Hardware (AVH) targets, in which case more options are available. For more details, read the
-<a href="https://arm-software.github.io/AVH/main/overview/html/index.html">AVH solutions overview</a>.</p>
-<p>Click <strong>Edit targets, build-types and project references in csolution.yml</strong> to specify your target types by editing the YAML
-file directly.</p>
-<h2 id="active-projects">Active Projects</h2>
-<p>This section shows each project that is part of the solution. Use the checkbox to add a project to or to remove it from the
-context set. The <strong>Project Name</strong> is shown, but cannot be changed.</p>
+Virtual Hardware (AVH) targets, in which case more options are available. For more details, read the <a href="https://arm-software.github.io/AVH/main/overview/html/index.html">AVH solutions overview</a>.</p>
+<p>To specify your target types by editing the YAML file directly, click <strong>Edit targets, build-types and project references in csolution.yml</strong>.</p>
+<h2 id="active-projects">Active projects</h2>
+<p>This section shows the projects that are part of the solution. Use the checkboxes to add or remove projects from the context set. The <strong>Project Name</strong> displays and cannot be changed.</p>
 <p>Select a <strong>Build Type</strong> for each project. You can set different build types for different projects in your solution.</p>
 <p>Click <strong>Edit cproject.yml</strong> next to a project to open the <code>&lt;project-name&gt;.cproject.yml</code> file. YAML syntax support helps you
 with editing.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The projects and build types you can select are defined by contexts for a particular target. Some options might be
-unavailable if they have been excluded for the target selected. To learn more about contexts and how to modify them, see
-the <a href="https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/YML-Input-Format.md#context">Context</a> and
-<a href="https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/YML-Input-Format.md#conditional-build">Conditional build</a>
-information in the CMSIS-Toolbox documentation. For example, you can use <code>for-context</code> and <code>not-for-context</code> to include
-or exclude target types at the <code>project:</code> level in the <code>*.csolution.yml</code> file.</p>
+<p>The projects and build types that you can select are defined by contexts for a particular target. Some options might be
+unavailable if they have been excluded for the target selected. To learn more about contexts and how to modify them, see the <a href="https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/YML-Input-Format.md#context">Context</a> and
+<a href="https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/YML-Input-Format.md#conditional-build">Conditional build</a> information in the CMSIS-Toolbox documentation. For example, you can use <code>for-context</code> and <code>not-for-context</code> to include or exclude target types at the <code>project:</code> level in the <code>*.csolution.yml</code> file.</p>
 </div>
-<h2 id="run-and-debug">Run and Debug</h2>
-<p>Choose a run configuration and a debug configuration to use for your solution. You may select different run and debug
-configurations for each project included in the solution. You can also:</p>
-<p>Move your mouse over an entry in the list and click the pen icon to edit an existing configuration with the visual editor:</p>
+<h2 id="run-and-debug">Run and debug</h2>
+<p>Choose a run configuration and a debug configuration to use for your solution. You can select different run and debug configurations for each project included in the solution.</p>
+<p>You can also move your mouse over an entry in the list and click the pen icon to edit an existing configuration with a visual editor:</p>
 <p><img alt="Edit configuration" src="images/run-debug-edit-config.png" /></p>
 <p>Click <strong>+ Add new</strong> to add a new configuration.</p>
 <h2 id="errors-and-warnings">Errors and warnings</h2>

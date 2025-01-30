@@ -125,30 +125,32 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="build-a-project">Build a project</h1>
-<p>Before you can download the application onto your target device, you need to build it. There are various ways to trigger a
+<p>Before you can download the application on your target device, you need to build it. There are various ways to trigger a
 build.</p>
 <h2 id="from-the-explorer-view">From the Explorer view</h2>
-<p>In the <strong>Explorer</strong> view <img alt="Explorer icon" src="images/explorer-icon.png" />, right-click the <code>*.csolution.yml</code> file and select
-<strong>Build solution</strong>.</p>
+<p>In the <strong>Explorer</strong> view <img alt="Explorer icon" src="images/explorer-icon.png" />, right-click the <code>*.csolution.yml</code> file and select <strong>Build solution</strong>.</p>
 <p>These options are also available in the right-click menu:</p>
 <ul>
-<li><strong>Rebuild solution</strong>: cleans the output directories before building the cproject.</li>
-<li><strong>Clean all out and tmp directories</strong>: cleans the output and tmp directories for the active solution.</li>
+<li>
+<p><strong>Rebuild solution</strong>: Cleans the output directories before building the cproject</p>
+</li>
+<li>
+<p><strong>Clean all out and tmp directories</strong>: Cleans the output and tmp directories for the active solution</p>
+</li>
 </ul>
 <h2 id="from-the-cmsis-view">From the CMSIS view</h2>
 <p>In the header, click <img alt="Build icon" src="images/build-icon.png" />.</p>
-<p>The <strong>Clean all out and tmp directories</strong> and <strong>Rebuild solution options</strong> are also available with
-<img alt="Views and More Actions icon" src="images/more-actions-icon.png" />.</p>
+<p>The <strong>Clean all out and tmp directories</strong> and <strong>Rebuild solution</strong> options are also available with <img alt="Views and More Actions icon" src="images/more-actions-icon.png" />.</p>
 <p>You can configure a build task in a <code>tasks.json</code> file to customize the behavior of the build button. All the examples on
 keil.arm.com include a <code>tasks.json</code> file. See <a href="configuration.html#configure-a-build-task">Configure a build task</a> for more details.</p>
 <h2 id="build-output">Build output</h2>
-<p>Once you initiated the build process, a Terminal window opens that shos the build operation:</p>
+<p>After you initiate the build process, a Terminal window opens and displays the build operation:</p>
 <p><img alt="Build output in Terminal" src="images/build-output.png" /></p>
 <p>Check the output to find where the ELF file (<code>.axf</code>) was generated.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If the build fails with an ENOENT error, follow the instructions in the pop-up message that displays in the bottom
-right-hand corner for installing CMSIS-Toolbox.</p>
+right-hand corner to install CMSIS-Toolbox.</p>
 </div>
               
             </div>
