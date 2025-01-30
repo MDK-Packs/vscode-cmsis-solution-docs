@@ -58,7 +58,8 @@ Use a µVision example in `*.uvprojx` format as a starting point. µVision examp
 
 ## Project name
 
-Once you have selected your solution template, specify a **Project Name**.
+After you have selected your solution template, specify a **Project Name**.
+
 
 If you selected **Blank solution** or **TrustZone solution**, one project for each processor is automatically added (for TrustZone, a `secure` and a `non-secure` project are added for each processor). You can:
 
