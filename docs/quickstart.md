@@ -28,7 +28,7 @@ You can access commands to manage your solution and the projects it includes in 
 | [Convert µVision project to CMSIS solution](./importuv.md) | Convert uvprojx files to the CMSIS Solution format |
 | [Create a Solution](./create_app.md)     | Start from scratch |
 | [Debug](./debug.md)                      | Debug the solution with the current context set |
-| Focus on Solution View                   | Opens the CMSIS view |
+| Focus on Solution View                   | Open the CMSIS view |
 | [Manage software components](./manage_components.md) | Review, add, or remove software components |
 | Rebuild solution                         | Rebuild the solution with the current context set |
 | Refresh (reload packs, update RTE)       | Reload information from all installed packs and run `cbuild setup update-rte` |
