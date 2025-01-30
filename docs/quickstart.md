@@ -9,7 +9,7 @@ and shows how the [status bar](#status-bar) helps you to understand the project 
 
 ## Available commands
 
-You can access commands to manage your solution and the projects it includes:
+You can access commands to manage your solution and the projects it includes in the following ways:
 
 - From the [**CMSIS** view](#cmsis-view).
 
