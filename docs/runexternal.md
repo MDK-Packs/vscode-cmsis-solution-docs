@@ -46,7 +46,7 @@ Solution extension provides the following commands to access parameters of the c
 | Command  | Description |
 |----------|-------------|
 | The `${command:cmsis-csolution.getBinaryFile}`               | Elf/Dwarf location of the currently selected context |
-| `${command:cmsis-csolution.getBinaryFiles}`              | Elf/Dwarf location of all files in the current solution |
+| The `${command:cmsis-csolution.getBinaryFiles}`              | Elf/Dwarf location of all files in the current solution |
 | `${command:cmsis-csolution.getBspName}`                  | Name and version of the [Board Support Pack (BSP)](https://www.keil.arm.com/boards/) |
 | `${command:cmsis-csolution.getBspPath}`                  | Path to [Board Support Pack (BSP)](https://www.keil.arm.com/boards/) file of the current active target |
 | `${command:cmsis-csolution.getCbuildRunPath}`            | Path to the `cbuild-run.yml` file |
