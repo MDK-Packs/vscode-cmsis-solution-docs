@@ -8,7 +8,7 @@ In the **Solution outline**, click **Manage Solution Settings** ![Cogwheel icon]
 
 ![Manage Solution view](./images/manage-solution-view.png)
 
-You can change the [active target](#active-target) type, the [active projects](#active-projects) included in the
+You can change the [active target](#active-target) type, and the [active projects](#active-projects) included in the
 build. You can also change the build type of a project, or the run and debug configurations, or you can add new
 configurations.
 
