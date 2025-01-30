@@ -45,17 +45,17 @@ Solution extension provides the following commands to access parameters of the c
 
 | Command  | Description |
 |----------|-------------|
-| The `${command:cmsis-csolution.getBinaryFile}`               | Elf/Dwarf location of the currently selected context |
-| The `${command:cmsis-csolution.getBinaryFiles}`              | Elf/Dwarf location of all files in the current solution |
+| `${command:cmsis-csolution.getBinaryFile}`               | The Elf/Dwarf location of the currently selected context |
+| `${command:cmsis-csolution.getBinaryFiles}`              | The Elf/Dwarf location of all the files in the current solution |
 | `${command:cmsis-csolution.getBspName}`                  | The name and version of the [Board Support Pack (BSP)](https://www.keil.arm.com/boards/) |
-| `${command:cmsis-csolution.getBspPath}`                  | Path to [Board Support Pack (BSP)](https://www.keil.arm.com/boards/) file of the current active target |
-| `${command:cmsis-csolution.getCbuildRunPath}`            | Path to the `cbuild-run.yml` file |
-| `${command:cmsis-csolution.getDeviceName}`               | Device name of the active target |
-| `${command:cmsis-csolution.getDfpName}`                  | Name and version of the [Device Family Pack (DFP)](https://www.keil.arm.com/devices/) |
-| `${command:cmsis-csolution.getDfpPath}`                  | Path to the [Device Family Pack (DFP)](https://www.keil.arm.com/devices/) file of the current active target |
-| `${command:cmsis-csolution.getHardwareAndToolchainInfo}` | Target hardware and toolchain for the active solution |
+| `${command:cmsis-csolution.getBspPath}`                  | The path to the [Board Support Pack (BSP)](https://www.keil.arm.com/boards/) file of the current active target |
+| `${command:cmsis-csolution.getCbuildRunPath}`            | The path to the `cbuild-run.yml` file |
+| `${command:cmsis-csolution.getDeviceName}`               | The device name of the active target |
+| `${command:cmsis-csolution.getDfpName}`                  | The name and version of the [Device Family Pack (DFP)](https://www.keil.arm.com/devices/) |
+| `${command:cmsis-csolution.getDfpPath}`                  | The path to the [Device Family Pack (DFP)](https://www.keil.arm.com/devices/) file of the current active target |
+| `${command:cmsis-csolution.getHardwareAndToolchainInfo}` | The target hardware and toolchain for the active solution |
 | `${command:cmsis-csolution.getProcessorName}`            | The processor name for the currently selected context |
-| `${command:cmsis-csolution.getSolutionPath}`             | Path to the active solution file |
+| `${command:cmsis-csolution.getSolutionPath}`             | The path to the active solution file |
 | `${command:cmsis-csolution.getTargetPack}`               | The [Device Family Pack (DFP)](https://www.keil.arm.com/devices/) for the currently selected context |
 
 ### Substitution examples
