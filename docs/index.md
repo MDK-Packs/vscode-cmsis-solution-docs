@@ -13,7 +13,7 @@ The **CMSIS Solution** extension available in Visual Studio Code provides tools 
 
 - [**Manage software components**](./manage_components.md) shows how to add or remove software components in a solution
 
-- [**Set a context**](./manage_settings.md) illustrates how to set the context of a solution
+- [**Set a context**](./manage_settings.md) shows how to set the context of a solution
 
 - [**Build a project**](build.md) describes how to build a project
 
