@@ -17,7 +17,7 @@ ToDo show usage of Cortex Debug configured for JLink
 The [µVision debugger](https://developer.arm.com/documentation/101407/0541/Debugging) offers advanced debug features such as
 Event Recorder and Component Viewer to analyze applications.
 
-To call µVision with the *csolution project* that you are using in Visual Studio Code, add the following task to the file `.vscode\tasks.json`. The `command:` is the path to the µVision executable on your computer.
+To call µVision with the *csolution project* that you are using in Visual Studio Code, add the following task to the `.vscode\tasks.json`  file. The `command:` is the path to the µVision executable on your computer.
 
 ```json
     "tasks": [
