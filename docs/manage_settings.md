@@ -17,7 +17,7 @@ configurations.
 Select a **Target Type** to specify the hardware used to build the solution. Some examples are also compatible with Arm
 Virtual Hardware (AVH) targets, in which case more options are available. For more details, read the [AVH solutions overview](https://arm-software.github.io/AVH/main/overview/html/index.html).
 
-Click **Edit targets, build-types and project references in csolution.yml** to specify your target types by editing the YAML file directly.
+To specify your target types by editing the YAML file directly, click **Edit targets, build-types and project references in csolution.yml**.
 
 ## Active projects
 
