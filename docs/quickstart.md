@@ -64,7 +64,7 @@ The main area shows:
 
 The Visual Studio Code status bar displays information about the status of your development environment and the project. The number of extensions installed might vary.
 
-Here is an example of how the status bar can look like:
+Here is an example of how the status bar can look:
 
 ![Status bar](./images/status-bar.png)
 
