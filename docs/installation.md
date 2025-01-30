@@ -7,7 +7,7 @@ The **Arm Keil Studio Pack (MDK v6)** extension pack includes the CMSIS Solution
 1. In Visual Studio Code, open the **Extensions** view and type `Keil Studio Pack` in the search bar.
 
 2. Click **Install** to start the installation.
-   Once the installation is finished, the CMSIS view icon appears in the activity bar.
+   When the installation is finished, the CMSIS view icon appears in the activity bar.
 
 You can [create your first application](./create_app.md) or [download an example project](#find-an-example-project)
 and then check that you can build, run, and debug the application.
