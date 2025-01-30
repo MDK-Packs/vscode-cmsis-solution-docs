@@ -75,7 +75,8 @@ Click **Add Project** to add projects to your solution and configure them. For T
 
 ## Solution name
 
-If you selected **Blank solution** or **TrustZone solution**, you can change the name for your solution in the **Solution Name** field. This is used as the `<solution_name>.csolution.yml` file name.
+If you selected **Blank solution** or **TrustZone solution**, you can change the name for your solution in the **Solution Name** field. This information is used as the `<solution_name>.csolution.yml` file name.
+
 
 ## Solution subfolder
 
