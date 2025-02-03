@@ -2,46 +2,12 @@
 
 Visual Studio Code uses the [launch.json](https://code.visualstudio.com/docs/editor/debugging) and [tasks.json](https://code.visualstudio.com/docs/editor/tasks) configuration files to integrate with external tools. The following section shows how to configure these files for typical use cases.
 
-[Variables and commands](#variables-and-commands) provide access to parameters of the current active *csolution project*.
+## Variables
 
-<!--## Programmer
-
-ToDo show usage of command-line programmer (i.e. STCube Programmer)
-
-## Debug server
-
-ToDo show usage of Cortex Debug configured for JLink-->
-
-## Use µVision for debugging
-
-The [µVision debugger](https://developer.arm.com/documentation/101407/0541/Debugging) offers advanced debug features such as
-Event Recorder and Component Viewer to analyze applications.
-
-To call µVision with the *csolution project* that you are using in Visual Studio Code, add the following task to the `.vscode\tasks.json`  file. The `command:` is the path to the µVision executable on your computer.
-
-```json
-    "tasks": [
-        {
-            "label": "Start uVision",
-            "type": "process",
-            "command": "C:\\Keil_v5\\UV4\\UV4.exe",
-            "args": [
-                "${command:cmsis-csolution.getSolutionPath}"
-            ],
-            "problemMatcher": []
-        }
-    ]
-```
-
-!!! Note
-    This only works in Windows environments with µVision installed on the local machine.
-
-## Variables and commands
-
-Visual Studio Code supports variable and command substitution in the [launch.json](https://code.visualstudio.com/docs/editor/debugging) and
-[tasks.json](https://code.visualstudio.com/docs/editor/tasks) configuration files as well as some select settings. In
-addition to the [Visual Studio Code built-in variables](https://code.visualstudio.com/docs/editor/variables-reference), the CMSIS
-Solution extension provides the following commands to access parameters of the current active *csolution project*.
+Visual Studio Code supports [variable substitution](https://code.visualstudio.com/docs/editor/variables-reference) in the [Debugging](https://code.visualstudio.com/docs/editor/debugging) and
+[Tasks](https://code.visualstudio.com/docs/editor/tasks) configuration files and selected settings. Variable substitution is supported in `launch.json` and `tasks.json` files using the `${variableName}` syntax.
+In addition to the [Visual Studio Code built-in variables](https://code.visualstudio.com/docs/editor/variables-reference), the CMSIS
+Solution extension provides the following variables.
 
 | Command  | Description |
 |----------|-------------|
@@ -133,3 +99,37 @@ For a NXP LPCXpresso55S69 board, the commands might resolve to:
 - `${command:cmsis-csolution.getDeviceName}:` LPC55S69JBD100
 
 - `${command:cmsis-csolution.getDfpPath}:` /Users/user/.cache/arm/packs/NXP/LPC55S69_DFP/19.0.0
+
+
+<!--## Programmer
+
+ToDo show usage of command-line programmer (i.e. STCube Programmer)
+
+## Debug server
+
+ToDo show usage of Cortex Debug configured for JLink-->
+
+## Use µVision for debugging
+
+The [µVision debugger](https://developer.arm.com/documentation/101407/0541/Debugging) offers advanced debug features such as
+Event Recorder and Component Viewer to analyze applications.
+
+To call µVision with the *csolution project* that you are using in Visual Studio Code, add the following task to the `.vscode\tasks.json`  file. The `command:` is the path to the µVision executable on your computer.
+
+```json
+    "tasks": [
+        {
+            "label": "Start uVision",
+            "type": "process",
+            "command": "C:\\Keil_v5\\UV4\\UV4.exe",
+            "args": [
+                "${command:cmsis-csolution.getSolutionPath}"
+            ],
+            "problemMatcher": []
+        }
+    ]
+```
+
+!!! Note
+    This only works in Windows environments with µVision installed on the local machine.
+
