@@ -5,55 +5,48 @@ Visual Studio Code uses the [launch.json](https://code.visualstudio.com/docs/edi
 ## Variables
 
 Visual Studio Code supports [variable substitution](https://code.visualstudio.com/docs/editor/variables-reference) in the [Debugging](https://code.visualstudio.com/docs/editor/debugging) and
-[Tasks](https://code.visualstudio.com/docs/editor/tasks) configuration files and selected settings. Variable substitution is supported in `launch.json` and `tasks.json` files using the `${variableName}` syntax.
-In addition to the [Visual Studio Code built-in variables](https://code.visualstudio.com/docs/editor/variables-reference), the CMSIS
-Solution extension provides the following variables.
+[Tasks](https://code.visualstudio.com/docs/editor/tasks) configuration files and selected settings. Variable substitution uses the `${variableName}` syntax, for example in `launch.json` and `tasks.json` files.
+In addition to the [Visual Studio Code built-in variables](https://code.visualstudio.com/docs/editor/variables-reference), the CMSIS Solution extension provides the following variables.
 
-| Command  | Description |
-|----------|-------------|
-| `${command:cmsis-csolution.getBinaryFile}`               | The Elf/Dwarf location of the currently selected context |
-| `${command:cmsis-csolution.getBinaryFiles}`              | The Elf/Dwarf location of all the files in the current solution |
-| `${command:cmsis-csolution.getBspName}`                  | The name and version of the [Board Support Pack (BSP)](https://www.keil.arm.com/boards/) |
-| `${command:cmsis-csolution.getBspPath}`                  | The path to the [Board Support Pack (BSP)](https://www.keil.arm.com/boards/) file of the current active target |
-| `${command:cmsis-csolution.getCbuildRunPath}`            | The path to the `cbuild-run.yml` file |
-| `${command:cmsis-csolution.getDeviceName}`               | The device name of the active target |
-| `${command:cmsis-csolution.getDfpName}`                  | The name and version of the [Device Family Pack (DFP)](https://www.keil.arm.com/devices/) |
-| `${command:cmsis-csolution.getDfpPath}`                  | The path to the [Device Family Pack (DFP)](https://www.keil.arm.com/devices/) file of the current active target |
-| `${command:cmsis-csolution.getHardwareAndToolchainInfo}` | The target hardware and toolchain for the active solution |
-| `${command:cmsis-csolution.getProcessorName}`            | The processor name for the currently selected context |
-| `${command:cmsis-csolution.getSolutionPath}`             | The path to the active solution file |
-| `${command:cmsis-csolution.getTargetPack}`               | The [Device Family Pack (DFP)](https://www.keil.arm.com/devices/) for the currently selected context |
+| Variable  | Description |
+|:----------|:------------|
+| `${command:cmsis-csolution.getBinaryFile}`    | First ELF/DWARF file of Active Target |
+| `${command:cmsis-csolution.getBinaryFiles}`   | All ELF/DWARF files (comma separated) of Active Target |
+| `${command:cmsis-csolution.getBoardName}`     | Board name of Active Target as specified in csolution.yml |
+| `${command:cmsis-csolution.getBspName}`       | Board Support Pack (BSP) used in Active Target |
+| `${command:cmsis-csolution.getBspPath}`       | Path to content of BSP used in Active Target |
+| `${command:cmsis-csolution.getCbuildRunPath}` | Path and name to cbuild-run.yml file of Active Target |
+| `${command:cmsis-csolution.getDeviceName}`    | Device name of Active Target as specified in csolution.yml |
+| `${command:cmsis-csolution.getDfpName}`       | Device Family Pack (DFP) used in Active Target |
+| `${command:cmsis-csolution.getDfpPath}`       | Path to content of DFP used in Active Target |
+| `${command:cmsis-csolution.getSolutionPath}`  | Path and name to csolution.yml file of Active Solution |
+| `${command:cmsis-csolution.getTargetPack}`    | Deprecated; identical with getDfpName |
+
+The terms:
+
+- Active Solution refers to the *csolution project* that is currently loaded.
+- Active Targer refers to the target that is currently selected in the [Manage Solution](manage_settings.md) view.
 
 ### Substitution examples
 
-**launch.json**
+The following table examplifies the variable substition using the [DualCore csolution example](https://github.com/Open-CMSIS-Pack/csolution-examples/tree/main/DualCore). Note that `...` stands for an absolute path on the host computer that stores the *csolution project* or the [CMSIS pack content](https://open-cmsis-pack.github.io/cmsis-toolbox/installation/#environment-variables).
 
-Use the following `launch.json` file to start Arm Debugger:
+| Variable  | Substitution |
+|:----------|:-------------|
+| `${command:cmsis-csolution.getBinaryFile}`    | .../DualCore/out/HelloWorld_cm4/FRDM-K32L3A6/Debug/HelloWorld_cm4.axf |
+| `${command:cmsis-csolution.getBinaryFiles}`   | .../DualCore/out/HelloWorld_cm4/FRDM-K32L3A6/Debug/HelloWorld_cm4.axf,.../DualCore/out/HelloWorld_cm0plus/FRDM-K32L3A6/Debug/HelloWorld_cm0plus.axf |
+| `${command:cmsis-csolution.getBoardName}`     | K32L3A60VPJ1A |
+| `${command:cmsis-csolution.getBspName}`       | NXP::FRDM-K32L3A6_BSP@19.0.0 |
+| `${command:cmsis-csolution.getBspPath}`       | .../NXP/FRDM-K32L3A6_BSP/19.0.0 |
+| `${command:cmsis-csolution.getCbuildRunPath}` | .../DualCore/DualCore+FRDM-K32L3A6.cbuild-run.yml |
+| `${command:cmsis-csolution.getDeviceName}`    | K32L3A60VPJ1A |
+| `${command:cmsis-csolution.getDfpName}`       | NXP::K32L3A60_DFP@19.0.0 |
+| `${command:cmsis-csolution.getDfpPath}`       | .../NXP/K32L3A60_DFP/19.0.0  |
+| `${command:cmsis-csolution.getSolutionPath}`  | .../DualCore/HelloWorld.csolution.yml |
 
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Arm Debugger",
-            "type": "arm-debugger",
-            "request": "launch",
-            "serialNumber": "${command:device-manager.getSerialNumber}",
-            "programs": "${command:cmsis-csolution.getBinaryFiles}",
-            "cmsisPack": "${command:cmsis-csolution.getTargetPack}",
-            "deviceName": "${command:cmsis-csolution.getDeviceName}",
-        }
-    ]
-}
-```
+## Examples
 
-For an STMicroelectronics B-U585-IOT02A board, the commands might resolve to:
-
-- `${command:cmsis-csolution.getBinaryFiles}:` /Users/user/Blinky/out/Blinky/B-U585I-IOT02A/Debug/Blinky.axf
-
-- `${command:cmsis-csolution.getTargetPack}:` Keil::STM32U5xx_DFP@3.0.0
-
-- `${command:cmsis-csolution.getDeviceName}:` STM32U585AIIx
+### pyOCD
 
 Use the following `launch.json` file to start debugging with pyOCD:
 
@@ -92,24 +85,36 @@ Use the following `launch.json` file to start debugging with pyOCD:
 }
 ```
 
-For a NXP LPCXpresso55S69 board, the commands might resolve to:
+### Arm Debugger
 
-- `${command:cmsis-csolution.getBinaryFiles}:` /Users/user/hello_world/cm33_core1/armgcc/debug/core1_image.elf, /Users/user/hello_world/cm33_core0/armgcc/debug/hello_world_cm33_core0.elf
+Use the following `launch.json` file to start Arm Debugger:
 
-- `${command:cmsis-csolution.getDeviceName}:` LPC55S69JBD100
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Arm Debugger",
+            "type": "arm-debugger",
+            "request": "launch",
+            "serialNumber": "${command:device-manager.getSerialNumber}",
+            "programs": "${command:cmsis-csolution.getBinaryFiles}",
+            "cmsisPack": "${command:cmsis-csolution.getDfpPack}",
+            "deviceName": "${command:cmsis-csolution.getDeviceName}",
+        }
+    ]
+}
+```
 
-- `${command:cmsis-csolution.getDfpPath}:` /Users/user/.cache/arm/packs/NXP/LPC55S69_DFP/19.0.0
-
-
-<!--## Programmer
+### Programmer
 
 ToDo show usage of command-line programmer (i.e. STCube Programmer)
 
-## Debug server
+### Debug server
 
-ToDo show usage of Cortex Debug configured for JLink-->
+ToDo show usage of Cortex Debug configured for JLink
 
-## Use µVision for debugging
+### Use µVision for debugging
 
 The [µVision debugger](https://developer.arm.com/documentation/101407/0541/Debugging) offers advanced debug features such as
 Event Recorder and Component Viewer to analyze applications.
