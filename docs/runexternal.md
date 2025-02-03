@@ -10,39 +10,38 @@ In addition to the [Visual Studio Code built-in variables](https://code.visualst
 
 | Variable  | Description |
 |:----------|:------------|
-| `${command:cmsis-csolution.getBinaryFile}`    | First ELF/DWARF file of Active Target |
-| `${command:cmsis-csolution.getBinaryFiles}`   | All ELF/DWARF files (comma separated) of Active Target |
-| `${command:cmsis-csolution.getBoardName}`     | Board name of Active Target as specified in csolution.yml |
-| `${command:cmsis-csolution.getBspName}`       | Board Support Pack (BSP) used in Active Target |
-| `${command:cmsis-csolution.getBspPath}`       | Path to content of BSP used in Active Target |
-| `${command:cmsis-csolution.getCbuildRunPath}` | Path and name to cbuild-run.yml file of Active Target |
-| `${command:cmsis-csolution.getDeviceName}`    | Device name of Active Target as specified in csolution.yml |
-| `${command:cmsis-csolution.getDfpName}`       | Device Family Pack (DFP) used in Active Target |
-| `${command:cmsis-csolution.getDfpPath}`       | Path to content of DFP used in Active Target |
-| `${command:cmsis-csolution.getSolutionPath}`  | Path and name to csolution.yml file of Active Solution |
-| `${command:cmsis-csolution.getTargetPack}`    | Deprecated; identical with getDfpName |
+| `${command:cmsis-csolution.getBinaryFile}`     | Path and name of first ELF/DWARF file in Active Target |
+| `${command:cmsis-csolution.getBinaryFiles}`    | Path and name of ELF/DWARF files (comma separated) in Active Target |
+| `${command:cmsis-csolution.getBoardName}`      | Board name of Active Target as specified in csolution.yml |
+| `${command:cmsis-csolution.getBspName}`        | Board Support Pack (BSP) used in Active Target |
+| `${command:cmsis-csolution.getBspPath}`        | Path to content of BSP used in Active Target |
+| `${command:cmsis-csolution.getCbuildRunFile}`  | Path and name to cbuild-run.yml file of Active Target |
+| `${command:cmsis-csolution.getDeviceName}`     | Device name of Active Target as specified in csolution.yml |
+| `${command:cmsis-csolution.getDfpName}`        | Device Family Pack (DFP) used in Active Target |
+| `${command:cmsis-csolution.getDfpPath}`        | Path to content of DFP used in Active Target |
+| `${command:cmsis-csolution.getSolutionFile}`   | Path and name to csolution.yml file of Active Solution |
 
-The terms:
+The term:
 
 - Active Solution refers to the *csolution project* that is currently loaded.
-- Active Targer refers to the target that is currently selected in the [Manage Solution](manage_settings.md) view.
+- Active Target refers to the target that is currently selected in the [Manage Solution](manage_settings.md) view.
 
 ### Substitution examples
 
-The following table examplifies the variable substition using the [DualCore csolution example](https://github.com/Open-CMSIS-Pack/csolution-examples/tree/main/DualCore). Note that `...` stands for an absolute path on the host computer that stores the *csolution project* or the [CMSIS pack content](https://open-cmsis-pack.github.io/cmsis-toolbox/installation/#environment-variables).
+The following table examplifies the variable substition using the [DualCore csolution example](https://github.com/Open-CMSIS-Pack/csolution-examples/tree/main/DualCore). Note that `...` stands for the absolute path on the host computer that stores the *csolution project* or the [CMSIS pack content](https://open-cmsis-pack.github.io/cmsis-toolbox/installation/#environment-variables).
 
 | Variable  | Substitution |
 |:----------|:-------------|
 | `${command:cmsis-csolution.getBinaryFile}`    | .../DualCore/out/HelloWorld_cm4/FRDM-K32L3A6/Debug/HelloWorld_cm4.axf |
-| `${command:cmsis-csolution.getBinaryFiles}`   | .../DualCore/out/HelloWorld_cm4/FRDM-K32L3A6/Debug/HelloWorld_cm4.axf,.../DualCore/out/HelloWorld_cm0plus/FRDM-K32L3A6/Debug/HelloWorld_cm0plus.axf |
+| `${command:cmsis-csolution.getBinaryFiles}`   | .../DualCore/out/HelloWorld_cm4/FRDM-K32L3A6/Debug/HelloWorld_cm4.axf, .../DualCore/out/HelloWorld_cm0plus/FRDM-K32L3A6/Debug/HelloWorld_cm0plus.axf |
 | `${command:cmsis-csolution.getBoardName}`     | K32L3A60VPJ1A |
 | `${command:cmsis-csolution.getBspName}`       | NXP::FRDM-K32L3A6_BSP@19.0.0 |
 | `${command:cmsis-csolution.getBspPath}`       | .../NXP/FRDM-K32L3A6_BSP/19.0.0 |
-| `${command:cmsis-csolution.getCbuildRunPath}` | .../DualCore/DualCore+FRDM-K32L3A6.cbuild-run.yml |
+| `${command:cmsis-csolution.getCbuildRunFile}` | .../DualCore/DualCore+FRDM-K32L3A6.cbuild-run.yml |
 | `${command:cmsis-csolution.getDeviceName}`    | K32L3A60VPJ1A |
 | `${command:cmsis-csolution.getDfpName}`       | NXP::K32L3A60_DFP@19.0.0 |
 | `${command:cmsis-csolution.getDfpPath}`       | .../NXP/K32L3A60_DFP/19.0.0  |
-| `${command:cmsis-csolution.getSolutionPath}`  | .../DualCore/HelloWorld.csolution.yml |
+| `${command:cmsis-csolution.getSolutionFile}`  | .../DualCore/HelloWorld.csolution.yml |
 
 ## Examples
 
@@ -128,7 +127,7 @@ To call µVision with the *csolution project* that you are using in Visual Studi
             "type": "process",
             "command": "C:\\Keil_v5\\UV4\\UV4.exe",
             "args": [
-                "${command:cmsis-csolution.getSolutionPath}"
+                "${command:cmsis-csolution.getSolutionFile}"
             ],
             "problemMatcher": []
         }
