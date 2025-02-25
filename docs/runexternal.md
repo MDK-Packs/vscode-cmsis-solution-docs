@@ -10,19 +10,18 @@ In addition to the [Visual Studio Code built-in variables](https://code.visualst
 
 | Variable  | Description |
 |:----------|:------------|
-| `${command:cmsis-csolution.getBinaryFile}`     | Path and name of first ELF/DWARF file in Active Target |
-| `${command:cmsis-csolution.getBinaryFiles}`    | Path and name of ELF/DWARF files (comma separated) in Active Target |
-| `${command:cmsis-csolution.getBoardName}`      | Board name of Active Target as specified in csolution.yml |
-| `${command:cmsis-csolution.getBspName}`        | Board Support Pack (BSP) used in Active Target |
-| `${command:cmsis-csolution.getBspPath}`        | Path to content of BSP used in Active Target |
-| `${command:cmsis-csolution.getCbuildRunFile}`  | Path and name to cbuild-run.yml file of Active Target |
-| `${command:cmsis-csolution.getDeviceName}`     | Device name of Active Target as specified in csolution.yml |
-| `${command:cmsis-csolution.getDfpName}`        | Device Family Pack (DFP) used in Active Target |
-| `${command:cmsis-csolution.getDfpPath}`        | Path to content of DFP used in Active Target |
-| `${command:cmsis-csolution.getSolutionFile}`   | Path and name to csolution.yml file of Active Solution |
+| `${command:cmsis-csolution.getBinaryFile}`     | The path and name of the first ELF/DWARF file available for the Active Target |
+| `${command:cmsis-csolution.getBinaryFiles}`    | The paths and names of the ELF/DWARF files (comma separated) available for the Active Target |
+| `${command:cmsis-csolution.getBoardName}`      | The board name for the Active Target as specified in the csolution.yml |
+| `${command:cmsis-csolution.getBspName}`        | The Board Support Pack (BSP) for the Active Target |
+| `${command:cmsis-csolution.getBspPath}`        | The path to the content of the BSP for the Active Target |
+| `${command:cmsis-csolution.getCbuildRunFile}`  | The path and name of the cbuild-run.yml file for the Active Target |
+| `${command:cmsis-csolution.getDeviceName}`     | The device name for the Active Target as specified in the csolution.yml |
+| `${command:cmsis-csolution.getDfpName}`        | The Device Family Pack (DFP) for the Active Target |
+| `${command:cmsis-csolution.getDfpPath}`        | The path to the content of the DFP for the Active Target |
+| `${command:cmsis-csolution.getSolutionFile}`   | The path and name to the csolution.yml file for the Active Solution |
 
-The term:
-
+!!! Note
 - Active Solution refers to the *csolution project* that is currently loaded.
 - Active Target refers to the target that is currently selected in the [Manage Solution](manage_settings.md) view.
 
