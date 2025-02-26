@@ -34,7 +34,7 @@ You can access commands to manage your solution and the projects it includes in 
 | Refresh (reload packs, update RTE)       | Reload information from all installed packs and run `cbuild setup update-rte` |
 | [Run](./flash.md)                        | Run the solution on your target |
 | Run Configuration Generator                            | Open a generator program with the current target |
-| Select solution from workspace           | If you have several solutions in your workspace, switch between solutions and select the active solution |
+| Select Active Solution from workspace           | If you have several solutions in your workspace, switch between solutions and select the active solution |
 
 ## CMSIS view
 
