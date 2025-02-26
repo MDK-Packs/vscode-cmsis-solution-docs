@@ -87,11 +87,19 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Run external tools</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#use-vision-for-debugging">Use µVision for debugging</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#variables-and-commands">Variables and commands</a>
+    <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#substitution-examples">Substitution examples</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pyocd">pyOCD</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#arm-debugger">Arm Debugger</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#use-vision-for-debugging">Use µVision for debugging</a>
     </li>
         </ul>
     </li>
@@ -118,7 +126,7 @@
     <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
       <li class="breadcrumb-item active">Run external tools</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/master/docs/runexternal.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/main/docs/runexternal.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -128,128 +136,120 @@
               
                 <h1 id="run-external-tools">Run external tools</h1>
 <p>Visual Studio Code uses the <a href="https://code.visualstudio.com/docs/editor/debugging">launch.json</a> and <a href="https://code.visualstudio.com/docs/editor/tasks">tasks.json</a> configuration files to integrate with external tools. The following section shows how to configure these files for typical use cases.</p>
-<p><a href="#variables-and-commands">Variables and commands</a> provide access to parameters of the current active <em>csolution project</em>.</p>
-<!--## Programmer
-
-ToDo show usage of command-line programmer (i.e. STCube Programmer)
-
-## Debug server
-
-ToDo show usage of Cortex Debug configured for JLink-->
-
-<h2 id="use-vision-for-debugging">Use µVision for debugging</h2>
-<p>The <a href="https://developer.arm.com/documentation/101407/0541/Debugging">µVision debugger</a> offers advanced debug features such as
-Event Recorder and Component Viewer to analyze applications.</p>
-<p>To call µVision with the <em>csolution project</em> that you are using in Visual Studio Code, add the following task to the <code>.vscode\tasks.json</code>  file. The <code>command:</code> is the path to the µVision executable on your computer.</p>
-<pre><code class="language-json">    &quot;tasks&quot;: [
-        {
-            &quot;label&quot;: &quot;Start uVision&quot;,
-            &quot;type&quot;: &quot;process&quot;,
-            &quot;command&quot;: &quot;C:\\Keil_v5\\UV4\\UV4.exe&quot;,
-            &quot;args&quot;: [
-                &quot;${command:cmsis-csolution.getSolutionPath}&quot;
-            ],
-            &quot;problemMatcher&quot;: []
-        }
-    ]
-</code></pre>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This only works in Windows environments with µVision installed on the local machine.</p>
-</div>
-<h2 id="variables-and-commands">Variables and commands</h2>
-<p>Visual Studio Code supports variable and command substitution in the <a href="https://code.visualstudio.com/docs/editor/debugging">launch.json</a> and
-<a href="https://code.visualstudio.com/docs/editor/tasks">tasks.json</a> configuration files as well as some select settings. In
-addition to the <a href="https://code.visualstudio.com/docs/editor/variables-reference">Visual Studio Code built-in variables</a>, the CMSIS
-Solution extension provides the following commands to access parameters of the current active <em>csolution project</em>.</p>
+<h2 id="variables">Variables</h2>
+<p>Visual Studio Code supports <a href="https://code.visualstudio.com/docs/editor/variables-reference">variable substitution</a> in the <a href="https://code.visualstudio.com/docs/editor/debugging">Debugging</a> and <a href="https://code.visualstudio.com/docs/editor/tasks">Tasks</a> configuration files and selected settings. Variable substitution uses the <code>${variableName}</code> syntax, for example in <code>launch.json</code> and <code>tasks.json</code> files.
+In addition to the <a href="https://code.visualstudio.com/docs/editor/variables-reference">Visual Studio Code built-in variables</a>, the CMSIS Solution extension provides the following variables.</p>
 <table>
 <thead>
 <tr>
-<th>Command</th>
-<th>Description</th>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>${command:cmsis-csolution.getBinaryFile}</code></td>
-<td>The Elf/Dwarf location of the currently selected context</td>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getBinaryFile}</code></td>
+<td style="text-align: left;">The path and name of the first ELF/DWARF file available for the Active Target</td>
 </tr>
 <tr>
-<td><code>${command:cmsis-csolution.getBinaryFiles}</code></td>
-<td>The Elf/Dwarf location of all the files in the current solution</td>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getBinaryFiles}</code></td>
+<td style="text-align: left;">The paths and names of the ELF/DWARF files (comma separated) available for the Active Target</td>
 </tr>
 <tr>
-<td><code>${command:cmsis-csolution.getBspName}</code></td>
-<td>The name and version of the <a href="https://www.keil.arm.com/boards/">Board Support Pack (BSP)</a></td>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getBoardName}</code></td>
+<td style="text-align: left;">The board name for the Active Target as specified in the csolution.yml</td>
 </tr>
 <tr>
-<td><code>${command:cmsis-csolution.getBspPath}</code></td>
-<td>The path to the <a href="https://www.keil.arm.com/boards/">Board Support Pack (BSP)</a> file of the current active target</td>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getBspName}</code></td>
+<td style="text-align: left;">The Board Support Pack (BSP) for the Active Target</td>
 </tr>
 <tr>
-<td><code>${command:cmsis-csolution.getCbuildRunPath}</code></td>
-<td>The path to the <code>cbuild-run.yml</code> file</td>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getBspPath}</code></td>
+<td style="text-align: left;">The path to the content of the BSP for the Active Target</td>
 </tr>
 <tr>
-<td><code>${command:cmsis-csolution.getDeviceName}</code></td>
-<td>The device name of the active target</td>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getCbuildRunFile}</code></td>
+<td style="text-align: left;">The path to the cbuild-run.yml file for the Active Target</td>
 </tr>
 <tr>
-<td><code>${command:cmsis-csolution.getDfpName}</code></td>
-<td>The name and version of the <a href="https://www.keil.arm.com/devices/">Device Family Pack (DFP)</a></td>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getDeviceName}</code></td>
+<td style="text-align: left;">The device name for the Active Target as specified in the csolution.yml</td>
 </tr>
 <tr>
-<td><code>${command:cmsis-csolution.getDfpPath}</code></td>
-<td>The path to the <a href="https://www.keil.arm.com/devices/">Device Family Pack (DFP)</a> file of the current active target</td>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getDfpName}</code></td>
+<td style="text-align: left;">The Device Family Pack (DFP) for the Active Target</td>
 </tr>
 <tr>
-<td><code>${command:cmsis-csolution.getHardwareAndToolchainInfo}</code></td>
-<td>The target hardware and toolchain for the active solution</td>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getDfpPath}</code></td>
+<td style="text-align: left;">The path to the content of the DFP for the Active Target</td>
 </tr>
 <tr>
-<td><code>${command:cmsis-csolution.getProcessorName}</code></td>
-<td>The processor name for the currently selected context</td>
-</tr>
-<tr>
-<td><code>${command:cmsis-csolution.getSolutionPath}</code></td>
-<td>The path to the active solution file</td>
-</tr>
-<tr>
-<td><code>${command:cmsis-csolution.getTargetPack}</code></td>
-<td>The <a href="https://www.keil.arm.com/devices/">Device Family Pack (DFP)</a> for the currently selected context</td>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getSolutionFile}</code></td>
+<td style="text-align: left;">The path to the csolution.yml file for the Active Solution</td>
 </tr>
 </tbody>
 </table>
-<h3 id="substitution-examples">Substitution examples</h3>
-<p><strong>launch.json</strong></p>
-<p>Use the following <code>launch.json</code> file to start Arm Debugger:</p>
-<pre><code class="language-json">{
-    &quot;version&quot;: &quot;0.2.0&quot;,
-    &quot;configurations&quot;: [
-        {
-            &quot;name&quot;: &quot;Arm Debugger&quot;,
-            &quot;type&quot;: &quot;arm-debugger&quot;,
-            &quot;request&quot;: &quot;launch&quot;,
-            &quot;serialNumber&quot;: &quot;${command:device-manager.getSerialNumber}&quot;,
-            &quot;programs&quot;: &quot;${command:cmsis-csolution.getBinaryFiles}&quot;,
-            &quot;cmsisPack&quot;: &quot;${command:cmsis-csolution.getTargetPack}&quot;,
-            &quot;deviceName&quot;: &quot;${command:cmsis-csolution.getDeviceName}&quot;,
-        }
-    ]
-}
-</code></pre>
-<p>For an STMicroelectronics B-U585-IOT02A board, the commands might resolve to:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
 <ul>
-<li>
-<p><code>${command:cmsis-csolution.getBinaryFiles}:</code> /Users/user/Blinky/out/Blinky/B-U585I-IOT02A/Debug/Blinky.axf</p>
-</li>
-<li>
-<p><code>${command:cmsis-csolution.getTargetPack}:</code> Keil::STM32U5xx_DFP@3.0.0</p>
-</li>
-<li>
-<p><code>${command:cmsis-csolution.getDeviceName}:</code> STM32U585AIIx</p>
-</li>
+<li>Active Solution refers to the <em>csolution project</em> that is currently loaded.</li>
+<li>Active Target refers to the target that is currently selected in the <a href="manage_settings.html">Manage Solution</a> view.</li>
 </ul>
+<h3 id="substitution-examples">Substitution examples</h3>
+<p>The following table illustrates the variable substition using the <a href="https://github.com/Open-CMSIS-Pack/csolution-examples/tree/main/DualCore">DualCore csolution example</a>. Note that <code>...</code> stands for the absolute path on the host computer that stores the <em>csolution project</em> or the <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/installation/#environment-variables">CMSIS pack content</a>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Substitution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getBinaryFile}</code></td>
+<td style="text-align: left;">.../DualCore/out/HelloWorld_cm4/FRDM-K32L3A6/Debug/HelloWorld_cm4.axf</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getBinaryFiles}</code></td>
+<td style="text-align: left;">.../DualCore/out/HelloWorld_cm4/FRDM-K32L3A6/Debug/HelloWorld_cm4.axf, .../DualCore/out/HelloWorld_cm0plus/FRDM-K32L3A6/Debug/HelloWorld_cm0plus.axf</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getBoardName}</code></td>
+<td style="text-align: left;">K32L3A60VPJ1A</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getBspName}</code></td>
+<td style="text-align: left;">NXP::FRDM-K32L3A6_BSP@19.0.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getBspPath}</code></td>
+<td style="text-align: left;">.../NXP/FRDM-K32L3A6_BSP/19.0.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getCbuildRunFile}</code></td>
+<td style="text-align: left;">.../DualCore/DualCore+FRDM-K32L3A6.cbuild-run.yml</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getDeviceName}</code></td>
+<td style="text-align: left;">K32L3A60VPJ1A</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getDfpName}</code></td>
+<td style="text-align: left;">NXP::K32L3A60_DFP@19.0.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getDfpPath}</code></td>
+<td style="text-align: left;">.../NXP/K32L3A60_DFP/19.0.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getSolutionFile}</code></td>
+<td style="text-align: left;">.../DualCore/HelloWorld.csolution.yml</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<h3 id="pyocd">pyOCD</h3>
 <p>Use the following <code>launch.json</code> file to start debugging with pyOCD:</p>
 <pre><code class="language-json">{
     &quot;version&quot;: &quot;0.2.0&quot;,
@@ -284,18 +284,51 @@ Solution extension provides the following commands to access parameters of the c
     ]
 }
 </code></pre>
-<p>For a NXP LPCXpresso55S69 board, the commands might resolve to:</p>
-<ul>
-<li>
-<p><code>${command:cmsis-csolution.getBinaryFiles}:</code> /Users/user/hello_world/cm33_core1/armgcc/debug/core1_image.elf, /Users/user/hello_world/cm33_core0/armgcc/debug/hello_world_cm33_core0.elf</p>
-</li>
-<li>
-<p><code>${command:cmsis-csolution.getDeviceName}:</code> LPC55S69JBD100</p>
-</li>
-<li>
-<p><code>${command:cmsis-csolution.getDfpPath}:</code> /Users/user/.cache/arm/packs/NXP/LPC55S69_DFP/19.0.0</p>
-</li>
-</ul>
+<h3 id="arm-debugger">Arm Debugger</h3>
+<p>Use the following <code>launch.json</code> file to start Arm Debugger:</p>
+<pre><code class="language-json">{
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;configurations&quot;: [
+        {
+            &quot;name&quot;: &quot;Arm Debugger&quot;,
+            &quot;type&quot;: &quot;arm-debugger&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;serialNumber&quot;: &quot;${command:device-manager.getSerialNumber}&quot;,
+            &quot;programs&quot;: &quot;${command:cmsis-csolution.getBinaryFiles}&quot;,
+            &quot;cmsisPack&quot;: &quot;${command:cmsis-csolution.getDfpPack}&quot;,
+            &quot;deviceName&quot;: &quot;${command:cmsis-csolution.getDeviceName}&quot;,
+        }
+    ]
+}
+</code></pre>
+<!--### Programmer
+
+ToDo show usage of command-line programmer (i.e. STCube Programmer)
+
+### Debug server
+
+ToDo show usage of Cortex Debug configured for JLink-->
+
+<h3 id="use-vision-for-debugging">Use µVision for debugging</h3>
+<p>The <a href="https://developer.arm.com/documentation/101407/0541/Debugging">µVision debugger</a> offers advanced debug features such as
+Event Recorder and Component Viewer to analyze applications.</p>
+<p>To call µVision with the <em>csolution project</em> that you are using in Visual Studio Code, add the following task to the <code>.vscode\tasks.json</code>  file. The <code>command:</code> is the path to the µVision executable on your computer.</p>
+<pre><code class="language-json">    &quot;tasks&quot;: [
+        {
+            &quot;label&quot;: &quot;Start uVision&quot;,
+            &quot;type&quot;: &quot;process&quot;,
+            &quot;command&quot;: &quot;C:\\Keil_v5\\UV4\\UV4.exe&quot;,
+            &quot;args&quot;: [
+                &quot;${command:cmsis-csolution.getSolutionFile}&quot;
+            ],
+            &quot;problemMatcher&quot;: []
+        }
+    ]
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This only works in Windows environments with µVision installed on the local machine.</p>
+</div>
               
             </div>
           </div><footer>

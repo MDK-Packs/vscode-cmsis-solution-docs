@@ -22,7 +22,7 @@ In addition to the [Visual Studio Code built-in variables](https://code.visualst
 
 !!! Note
 - Active Solution refers to the *csolution project* that is currently loaded.
-- Active Target refers to the target that is currently selected in the [Manage Solution](#manage_settings.md) view.
+- Active Target refers to the target that is currently selected in the [Manage Solution](./manage_settings.md) view.
 
 ### Substitution examples
 

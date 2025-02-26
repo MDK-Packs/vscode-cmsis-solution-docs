@@ -110,7 +110,7 @@
     <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
       <li class="breadcrumb-item active">Import uVision project</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/master/docs/importuv.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/main/docs/importuv.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -126,10 +126,12 @@
    μVision project from <a href="https://www.keil.arm.com/">keil.arm.com</a>, or clone a project from GitHub.</p>
 </li>
 <li>
+<p>Do one of the following:</p>
+</li>
+<li>
 <p>From the <strong>Explorer</strong> view, right-click the <code>*.uvprojx</code> file and select <strong>Convert μVision project to CMSIS solution</strong>.</p>
 </li>
-</ol>
-<p>The conversion starts immediately.</p>
+<li>
 <p>Alternatively, if you are starting from an empty workspace, you can click <img alt="CMSIS icon" src="images/cmsis-icon.png" /> in the
 <strong>Activity Bar</strong> to open the <strong>CMSIS</strong> view. Then choose one of the following options:</p>
 <ul>
@@ -137,31 +139,24 @@
 <p>Click <strong>Convert a μVision Project to CMSIS Solution</strong> and open your <code>*.uvprojx</code> file to convert it.</p>
 </li>
 <li>
-<p>Move your cursor over the <strong>Solution</strong> outline, click <strong>Views and More Actions</strong>
-  <img alt="Views and More Actions icon" src="images/more-actions-icon.png" />, then select <strong>Convert μVision project to CMSIS solution</strong>
-  and open your <code>*.uvprojx</code> file to convert it.</p>
+<p>Click <strong>Views and More Actions</strong> <img alt="Views and More Actions icon" src="images/more-actions-icon.png" />, then select <strong>Convert μVision project to CMSIS solution</strong> and open your <code>*.uvprojx</code> file to convert it.</p>
 </li>
 </ul>
+</li>
+</ol>
 <p>A dialog box displays. You can carry out the following tasks:</p>
-<ul>
-<li>
-<p>Open the solution in a new workspace with the <strong>Open</strong> option.</p>
-</li>
-<li>
-<p>Open the solution in a new window and new workspace with the <strong>Open project in new window</strong> option.</p>
-</li>
-</ul>
-<p>You can also run the <strong>CMSIS: Convert μVision project to CMSIS solution</strong> command from the Command Palette. In that case,
-select the <code>*.uvprojx</code> that you want to convert on your machine and click Select.</p>
-<p>If there are conversion errors, check the <code>uv2csolution.log</code> file.</p>
+<pre><code>  - Open the solution in a new workspace with the **Open** option.
+
+  - Open the solution in a new window and new workspace with the **Open project in new window** option.
+</code></pre>
+<p>You can also run the <strong>CMSIS: Convert μVision project to CMSIS solution</strong> command from the Command Palette. In that case, select the <code>*.uvprojx</code> that you want to convert on your machine and click Select.</p>
+<p>If a <code>*.csolution.yml</code> file already exists in the same folder as the <code>*.uvprojx file</code>, then a pop-up message displays in the bottom right-hand corner. Click <strong>Overwrite</strong> to overwrite the existing file. The conversion starts immediately.</p>
 <ol>
 <li>
-<p>Confirm that the <strong>Arm Tools Environment Manager extension</strong> can automatically
-   activate the workspace and download the tools specified in your <code>vcpkg-configuration.json</code> file.</p>
+<p>Confirm that the <strong>Arm Tools Environment Manager extension</strong> can automatically activate the workspace and download the tools specified in your <code>vcpkg-configuration.json</code> file.</p>
 </li>
 <li>
-<p>Check the <strong>Output</strong> tab. In the View menu, select <strong>Output</strong> to open the <strong>Output</strong> tab. Select
-   <strong>μVision to Csolution Conversion</strong> in the drop-down list on the right side of the <strong>Output</strong> tab.</p>
+<p>Check the <strong>Output</strong> tab. If there are any conversion errors and warnings, they display in the <strong>CMSIS Solution</strong> category. You can also check the <code>uv2csolution.log</code> file.</p>
 </li>
 </ol>
 <p>The <code>*.cproject.yml</code> and <code>*.csolution.yml</code> files are available in the folder where the <code>*.uvprojx</code> is stored.</p>

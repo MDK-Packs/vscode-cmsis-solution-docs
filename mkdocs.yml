@@ -1,5 +1,5 @@
 site_name: CMSIS Solution for VS Code
-repo_name: MDK-Packs/vscode-cmsis-solution-docs
+repo_name: GitHub
 repo_url: https://github.com/MDK-Packs/vscode-cmsis-solution-docs
 edit_uri: edit/main/docs/
 nav:
