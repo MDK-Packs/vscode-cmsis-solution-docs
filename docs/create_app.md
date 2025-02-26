@@ -94,7 +94,7 @@ In the **Solution Sub Folder** field, you can change the name of the subfolder w
 
 - Click **Create**.
 
-The extension creates the solution and automatically converts examples that are available only in `*.uvprojx` format. If there are conversion errors, check the `uv2csolution.log` file.
+The extension creates the solution and automatically converts examples that are available only in `*.uvprojx` format. Check the **Output** tab. If there are any conversion errors and warnings, they display in the **CMSIS Solution** category. You can also check the `uv2csolution.log` file.
 
 Missing CMSIS-Packs are installed automatically.
 
