@@ -4,8 +4,7 @@ Visual Studio Code uses the [launch.json](https://code.visualstudio.com/docs/edi
 
 ## Variables
 
-Visual Studio Code supports [variable substitution](https://code.visualstudio.com/docs/editor/variables-reference) in the [Debugging](https://code.visualstudio.com/docs/editor/debugging) and
-[Tasks](https://code.visualstudio.com/docs/editor/tasks) configuration files and selected settings. Variable substitution uses the `${variableName}` syntax, for example in `launch.json` and `tasks.json` files.
+Visual Studio Code supports [variable substitution](https://code.visualstudio.com/docs/editor/variables-reference) in the [Debugging](https://code.visualstudio.com/docs/editor/debugging) and [Tasks](https://code.visualstudio.com/docs/editor/tasks) configuration files and selected settings. Variable substitution uses the `${variableName}` syntax, for example in `launch.json` and `tasks.json` files.
 In addition to the [Visual Studio Code built-in variables](https://code.visualstudio.com/docs/editor/variables-reference), the CMSIS Solution extension provides the following variables.
 
 | Variable  | Description |
@@ -23,11 +22,11 @@ In addition to the [Visual Studio Code built-in variables](https://code.visualst
 
 !!! Note
 - Active Solution refers to the *csolution project* that is currently loaded.
-- Active Target refers to the target that is currently selected in the [Manage Solution](manage_settings.md) view.
+- Active Target refers to the target that is currently selected in the [Manage Solution](#manage_settings.md) view.
 
 ### Substitution examples
 
-The following table examplifies the variable substition using the [DualCore csolution example](https://github.com/Open-CMSIS-Pack/csolution-examples/tree/main/DualCore). Note that `...` stands for the absolute path on the host computer that stores the *csolution project* or the [CMSIS pack content](https://open-cmsis-pack.github.io/cmsis-toolbox/installation/#environment-variables).
+The following table illustrates the variable substition using the [DualCore csolution example](https://github.com/Open-CMSIS-Pack/csolution-examples/tree/main/DualCore). Note that `...` stands for the absolute path on the host computer that stores the *csolution project* or the [CMSIS pack content](https://open-cmsis-pack.github.io/cmsis-toolbox/installation/#environment-variables).
 
 | Variable  | Substitution |
 |:----------|:-------------|
@@ -104,13 +103,13 @@ Use the following `launch.json` file to start Arm Debugger:
 }
 ```
 
-### Programmer
+<!--### Programmer
 
 ToDo show usage of command-line programmer (i.e. STCube Programmer)
 
 ### Debug server
 
-ToDo show usage of Cortex Debug configured for JLink
+ToDo show usage of Cortex Debug configured for JLink-->
 
 ### Use µVision for debugging
 
@@ -135,4 +134,3 @@ To call µVision with the *csolution project* that you are using in Visual Studi
 
 !!! Note
     This only works in Windows environments with µVision installed on the local machine.
-
