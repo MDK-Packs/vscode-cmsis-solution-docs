@@ -14,11 +14,11 @@ In addition to the [Visual Studio Code built-in variables](https://code.visualst
 | `${command:cmsis-csolution.getBoardName}`      | The board name for the Active Target as specified in the csolution.yml |
 | `${command:cmsis-csolution.getBspName}`        | The Board Support Pack (BSP) for the Active Target |
 | `${command:cmsis-csolution.getBspPath}`        | The path to the content of the BSP for the Active Target |
-| `${command:cmsis-csolution.getCbuildRunFile}`  | The path and name of the cbuild-run.yml file for the Active Target |
+| `${command:cmsis-csolution.getCbuildRunFile}`  | The path to the cbuild-run.yml file for the Active Target |
 | `${command:cmsis-csolution.getDeviceName}`     | The device name for the Active Target as specified in the csolution.yml |
 | `${command:cmsis-csolution.getDfpName}`        | The Device Family Pack (DFP) for the Active Target |
 | `${command:cmsis-csolution.getDfpPath}`        | The path to the content of the DFP for the Active Target |
-| `${command:cmsis-csolution.getSolutionFile}`   | The path and name to the csolution.yml file for the Active Solution |
+| `${command:cmsis-csolution.getSolutionFile}`   | The path to the csolution.yml file for the Active Solution |
 
 !!! Note
 - Active Solution refers to the *csolution project* that is currently loaded.
