@@ -8,7 +8,7 @@ In the **CMSIS** view, click **Create a New Solution** to open the **Create Solu
 
 !!! Note
     If you already have a solution opened in your workspace and want to create a new one in the same workspace, move your
-    cursor over the three dots **...** in the **CMSIS** view, then click **Create new solution**.
+    cursor over the three dots **...** in the **CMSIS** view, then click **Create a Solution**.
 
 Click the **Target Board** drop-down list. Enter a search term, and then select a board. The details of the board that you
 selected display.
@@ -23,7 +23,6 @@ Click **Select**. By default, the **Target Device** drop-down list shows the nam
 ## Select a template, a reference application, or an example
 
 Select one of the following options from the drop-down list. The options available depend on the board or device selected previously. If there are too many examples, enter a search term and then select an example.
-
 
 ### Templates
 
@@ -60,7 +59,6 @@ Use a µVision example in `*.uvprojx` format as a starting point. µVision examp
 
 After you have selected your solution template, specify a **Project Name**.
 
-
 If you selected **Blank solution** or **TrustZone solution**, one project for each processor is automatically added (for TrustZone, a `secure` and a `non-secure` project are added for each processor). You can:
 
 - Change the project names
@@ -76,7 +74,6 @@ Click **Add Project** to add projects to your solution and configure them. For T
 ## Solution name
 
 If you selected **Blank solution** or **TrustZone solution**, you can change the name for your solution in the **Solution Name** field. This information is used as the `<solution_name>.csolution.yml` file name.
-
 
 ## Solution subfolder
 
