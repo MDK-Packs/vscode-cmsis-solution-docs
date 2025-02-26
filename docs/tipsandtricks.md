@@ -15,5 +15,5 @@ that are ready to use.
 
 ## Set current solution in workspace
 
-To activate a solution in the **Solution** outline view, use the **Select solution from workspace** option in
+To activate a solution in the **Solution** outline view, use the **Select Active Solution from workspace** option in
 **Views and More Actions** ![Views and More Actions icon](./images/more-actions-icon.png).

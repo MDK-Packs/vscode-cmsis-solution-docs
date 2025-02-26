@@ -4,31 +4,29 @@ Visual Studio Code uses the [launch.json](https://code.visualstudio.com/docs/edi
 
 ## Variables
 
-Visual Studio Code supports [variable substitution](https://code.visualstudio.com/docs/editor/variables-reference) in the [Debugging](https://code.visualstudio.com/docs/editor/debugging) and
-[Tasks](https://code.visualstudio.com/docs/editor/tasks) configuration files and selected settings. Variable substitution uses the `${variableName}` syntax, for example in `launch.json` and `tasks.json` files.
+Visual Studio Code supports [variable substitution](https://code.visualstudio.com/docs/editor/variables-reference) in the [Debugging](https://code.visualstudio.com/docs/editor/debugging) and [Tasks](https://code.visualstudio.com/docs/editor/tasks) configuration files and selected settings. Variable substitution uses the `${variableName}` syntax, for example in `launch.json` and `tasks.json` files.
 In addition to the [Visual Studio Code built-in variables](https://code.visualstudio.com/docs/editor/variables-reference), the CMSIS Solution extension provides the following variables.
 
 | Variable  | Description |
 |:----------|:------------|
-| `${command:cmsis-csolution.getBinaryFile}`     | Path and name of first ELF/DWARF file in Active Target |
-| `${command:cmsis-csolution.getBinaryFiles}`    | Path and name of ELF/DWARF files (comma separated) in Active Target |
-| `${command:cmsis-csolution.getBoardName}`      | Board name of Active Target as specified in csolution.yml |
-| `${command:cmsis-csolution.getBspName}`        | Board Support Pack (BSP) used in Active Target |
-| `${command:cmsis-csolution.getBspPath}`        | Path to content of BSP used in Active Target |
-| `${command:cmsis-csolution.getCbuildRunFile}`  | Path and name to cbuild-run.yml file of Active Target |
-| `${command:cmsis-csolution.getDeviceName}`     | Device name of Active Target as specified in csolution.yml |
-| `${command:cmsis-csolution.getDfpName}`        | Device Family Pack (DFP) used in Active Target |
-| `${command:cmsis-csolution.getDfpPath}`        | Path to content of DFP used in Active Target |
-| `${command:cmsis-csolution.getSolutionFile}`   | Path and name to csolution.yml file of Active Solution |
+| `${command:cmsis-csolution.getBinaryFile}`     | The path and name of the first ELF/DWARF file available for the Active Target |
+| `${command:cmsis-csolution.getBinaryFiles}`    | The paths and names of the ELF/DWARF files (comma separated) available for the Active Target |
+| `${command:cmsis-csolution.getBoardName}`      | The board name for the Active Target as specified in the csolution.yml |
+| `${command:cmsis-csolution.getBspName}`        | The Board Support Pack (BSP) for the Active Target |
+| `${command:cmsis-csolution.getBspPath}`        | The path to the content of the BSP for the Active Target |
+| `${command:cmsis-csolution.getCbuildRunFile}`  | The path to the cbuild-run.yml file for the Active Target |
+| `${command:cmsis-csolution.getDeviceName}`     | The device name for the Active Target as specified in the csolution.yml |
+| `${command:cmsis-csolution.getDfpName}`        | The Device Family Pack (DFP) for the Active Target |
+| `${command:cmsis-csolution.getDfpPath}`        | The path to the content of the DFP for the Active Target |
+| `${command:cmsis-csolution.getSolutionFile}`   | The path to the csolution.yml file for the Active Solution |
 
-The term:
-
+!!! Note
 - Active Solution refers to the *csolution project* that is currently loaded.
-- Active Target refers to the target that is currently selected in the [Manage Solution](manage_settings.md) view.
+- Active Target refers to the target that is currently selected in the [Manage Solution](#manage_settings.md) view.
 
 ### Substitution examples
 
-The following table examplifies the variable substition using the [DualCore csolution example](https://github.com/Open-CMSIS-Pack/csolution-examples/tree/main/DualCore). Note that `...` stands for the absolute path on the host computer that stores the *csolution project* or the [CMSIS pack content](https://open-cmsis-pack.github.io/cmsis-toolbox/installation/#environment-variables).
+The following table illustrates the variable substition using the [DualCore csolution example](https://github.com/Open-CMSIS-Pack/csolution-examples/tree/main/DualCore). Note that `...` stands for the absolute path on the host computer that stores the *csolution project* or the [CMSIS pack content](https://open-cmsis-pack.github.io/cmsis-toolbox/installation/#environment-variables).
 
 | Variable  | Substitution |
 |:----------|:-------------|
@@ -105,13 +103,13 @@ Use the following `launch.json` file to start Arm Debugger:
 }
 ```
 
-### Programmer
+<!--### Programmer
 
 ToDo show usage of command-line programmer (i.e. STCube Programmer)
 
 ### Debug server
 
-ToDo show usage of Cortex Debug configured for JLink
+ToDo show usage of Cortex Debug configured for JLink-->
 
 ### Use µVision for debugging
 
@@ -136,4 +134,3 @@ To call µVision with the *csolution project* that you are using in Visual Studi
 
 !!! Note
     This only works in Windows environments with µVision installed on the local machine.
-
