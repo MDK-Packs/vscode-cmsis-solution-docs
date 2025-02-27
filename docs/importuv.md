@@ -32,9 +32,83 @@ With the CMSIS Solution extension, you can convert a Keil μVision project to a 
 
 The `*.cproject.yml` and `*.csolution.yml` files are available in the folder where the `*.uvprojx` is stored.
 
-!!! Attention
-    The conversion does not work with Arm Compiler 5-based projects. Only projects using Arm Compiler 6 can be converted.
-    As a workaround, you can update Arm Compiler 5 projects to Arm Compiler 6 in Keil μVision, then convert the projects to
-    solutions in Visual Studio Code. For more information, see the
+## Caveats
+
+Depending on how your µVision project is written, the conversion may encounter problems. The following is a (non-exhaustive)
+list of issues you might see.
+
+### Using Arm Compiler 5
+
+The conversion *does not work* with Arm Compiler 5-based projects. Only projects using Arm Compiler 6 can be converted.
+
+!!! Workaround
+    Update an Arm Compiler 5 project to Arm Compiler 6 in Keil μVision, then convert the project to a CMSIS solution in
+    Visual Studio Code.
+
+!!! Note
+    For more information, see the
     [Migrate Arm Compiler 5 to Arm Compiler 6 application note](https://developer.arm.com/documentation/kan298/latest/) and
-    the [Arm Compiler for Embedded Migration and Compatibility Guide](https://developer.arm.com/documentation/100068/0620/Migrating-from-Arm-Compiler-5-to-Arm-Compiler-for-Embedded-6).
+    the [Arm Compiler for Embedded Migration and Compatibility Guide](https://developer.arm.com/documentation/100068/0620/ating-from-Arm-Compiler-5-to-Arm-Compiler-for-Embedded-6).
+
+### Using dollar sign in linker misc controls
+
+In µVision, you can use the dollar sign (`$`) for Linker misc options in the Options for Target dialog:
+
+![Linker Misc controls](./images/misc-opt-dollar-sign.png)
+
+!!! Attention
+    Using this will cause a malformed YML access sequence in the generated cproject.yml file that will fail subsequent builds.
+
+### Using dots in project file names
+
+In µVision project names, you can use the dot, e.g. MyProjeckt_1.0.vuprojx. In CMSIS solution project format, dots are used
+to separate project names, build type, and target types (refer to
+[Context](https://open-cmsis-pack.github.io/cmsis-toolbox/build-overview/#context)).
+
+!!! Attention
+    Using dots in project names will lead to `"error csolution: schema check failed, verify syntax"`.
+
+### Project located in paths containing a dollar sign
+
+In some operating systems, paths can contain the dollar (`$`) sign. Try avoiding the `$` sing in path names as this will
+cause build to fail. A workaround is available (see below).
+
+!!! Attention
+    Building the project will fail with a similar message:  
+    `error csolution: malformed access sequence: '/$test/Blinky_FRDM-K32L3A6`
+
+!!! Workaround
+    Use the `-O` option to redirect all output to a directory without the `$` sign.
+
+### Component mismatches when using generators
+
+Older projects using GPDSC-based generators will see an issue after the conversion. In the original uvprojx file, an entry
+for STM32CubeMX could look like this:
+
+```xml
+      <component Cclass="Device" Cgroup="STM32Cube Framework" Csub="STM32CubeMX" Cvendor="Keil" Cversion="1.1.0" condition="STCubeMX" generated="1" generator="STM32CubeMX">
+        <package name="FrameworkCubeMX" schemaVersion="1.0" url="project-path" vendor="Keil" version="1.0.0"/>
+        <targetInfos>
+          <targetInfo name="nucleo"/>
+        </targetInfos>
+      </component>
+```
+
+Modern DFPs with [generator support](https://open-cmsis-pack.github.io/cmsis-toolbox/build-overview/#generator-support)
+would look like:
+
+```xml
+      <component Capiversion="1.0.0" Cclass="Device" Cgroup="STM32Cube Framework" Csub="STM32CubeMX" Cvendor="Keil" Cversion="1.0.0" condition="STM32H7_SC" generator="STM32CubeMX">
+        <package name="STM32H7xx_DFP" schemaVersion="1.6.3" url="http://www.keil.com/pack/" vendor="Keil" version="2.7.0"/>
+        <targetInfos>
+          <targetInfo name="nucleo"/>
+        </targetInfos>
+      </component>
+```
+
+!!! Attention
+    `uv2csolution` adds a non-existing pack node `Keil::FrameworkCubeMX@^1.0.0` which will lead to an error like this:  
+    `error csolution: required pack: Keil::FrameworkCubeMX@^1.0.0 not installed`
+
+!!! Workaround
+    Delete the corresponding line from the `cproject.yml` file.
