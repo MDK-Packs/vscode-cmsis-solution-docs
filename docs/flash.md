@@ -6,8 +6,8 @@
 Before you can start debugging the application, you must download it to the flash of the target hardware.
 
 !!! Notes
-    - When you have several solutions in one folder, Visual Studio Code ignores the `tasks.json` and `launch.json` files that
-    you created for each solution. Instead, Visual Studio Code generates new JSON files at the root of the workspace in a
+    - When you have several solutions in one folder, VS Code ignores the `tasks.json` and `launch.json` files that
+    you created for each solution. Instead, VS Code generates new JSON files at the root of the workspace in a
     `.vscode` folder and ignores the other JSON files. As a workaround, open one solution first, then add other solutions to your workspace with the **File** > **Add Folder to Workspace** option.
     - If you are using a multicore device and you did not specify a `"processorName"` in the `launch.json` file, select the
       appropriate processor for your project in the **Select a processor** drop-down list at the top of the window.

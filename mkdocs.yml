@@ -6,14 +6,15 @@ nav:
     - Home: index.md
     - Setup: installation.md
     - Quick start: quickstart.md
-    - Create an embedded project: create_app.md
-    - Manage software components: manage_components.md
-    - Manage settings: manage_settings.md
+    - Create New Solution: create_app.md
+    - Manage Software Components: manage_components.md
+    - Manage Solution Settings: manage_settings.md
     - Build a project: build.md
     - Flash the application: flash.md
     - Debug a project: debug.md
     - Configuration: configuration.md
     - Import uVision project: importuv.md
+    - Configure Run and Debug: conf_debug.md
     - Run external tools: runexternal.md
     - Tips and tricks: tipsandtricks.md
 theme:

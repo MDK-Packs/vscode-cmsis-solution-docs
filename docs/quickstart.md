@@ -1,11 +1,10 @@
 # Quick start
 
-CMSIS Solution is an extension for Visual Studio Code that provides a GUI for the underlying
-[CMSIS-Toolbox](https://open-cmsis-pack.github.io/cmsis-toolbox/) project management and build tools. Together with other
-Arm and third-party extensions, the CMSIS Solution extension gives you access to a powerful embedded development environment.
+The **CMSIS Solution** extension for VS Code provides a GUI for project management and build tools with the [CMSIS-Toolbox](https://open-cmsis-pack.github.io/cmsis-toolbox/). Combined with other
+Arm and third-party extensions, it implements a powerful embedded development environment.
 
-This quick start guide provides an overview of the project management capabilities available from the [CMSIS view](#cmsis-view)
-and shows how the [status bar](#status-bar) helps you to understand the project and environment setup.
+This quick start section explains the commands and capabilities of the [CMSIS view](#cmsis-view)
+and the [status bar](#status-bar).
 
 ## Available commands
 
@@ -21,20 +20,20 @@ You can access commands to manage your solution and the projects it includes in 
 
 | Command | Description |
 |---------|-------------|
-| [Manage Solution Settings](./manage_settings.md) | Set a context for your solution |
+| [Create a Solution](./create_app.md) | Create a new *csolution project*.  |
+| [Configure Solution](./configuration.md#configure-a-solution) | Set a compiler and add software layers |
+| [Manage Solution Settings](./manage_settings.md) | Configure the build context and debug setup. |
+| [Manage Software Components](./manage_components.md) | Review, add, or remove software components |
+| Run Configuration Generator                            | Open a configuration tools such as CubeMX |
 | [Build solution](./build.md)                     | Build the solution with the current context set |
-| Clean all out and tmp directories        | Clean all out and tmp directories for the active solution |
-| [Configure Solution](./configuration.md#configure-a-solution) | Set a compiler and add layers |
-| [Convert µVision project to CMSIS solution](./importuv.md) | Convert uvprojx files to the CMSIS Solution format |
-| [Create a Solution](./create_app.md)     | Start from scratch |
-| [Debug](./debug.md)                      | Debug the solution with the current context set |
-| Focus on Solution View                   | Open the CMSIS view |
-| [Manage software components](./manage_components.md) | Review, add, or remove software components |
 | Rebuild solution                         | Rebuild the solution with the current context set |
-| Refresh (reload packs, update RTE)       | Reload information from all installed packs and run `cbuild setup update-rte` |
+| [Debug](./debug.md)                      | Debug the solution with the current context set |
 | [Run](./flash.md)                        | Run the solution on your target |
-| Run Configuration Generator                            | Open a generator program with the current target |
+| Focus on Solution View                   | Open the CMSIS view |
 | Select Active Solution from workspace           | If you have several solutions in your workspace, switch between solutions and select the active solution |
+| [Convert µVision project to CMSIS solution](./importuv.md) | Convert uvprojx files to *csolution project* format |
+| Refresh (reload packs, update RTE)       | Reload information from all installed packs and run `cbuild setup update-rte` |
+| Clean all out and tmp directories        | Clean all out and tmp directories for the active solution |
 
 ## CMSIS view
 
@@ -62,7 +61,7 @@ The main area shows:
 
 ## Status bar
 
-The Visual Studio Code status bar displays information about the status of your development environment and the project. The number of extensions installed might vary.
+The VS Code status bar displays information about the status of your development environment and the project. The number of extensions installed might vary.
 
 Here is an example of how the status bar can look:
 

@@ -1,4 +1,4 @@
-# Set a context
+# Manage Solution Settings
 
 In the **Manage Solution** view, you can set the context of your solution. The context set selects the target and
 defines the projects and build types that are included in the application image.
@@ -56,4 +56,4 @@ Click the indicator to open the **Output** tab for the **CMSIS Solution** catego
 
 You can also go to the **Problems** tab and check for errors.
 
-Open the `main.c` file and check the IntelliSense features available. To find out about the different features, read the Visual Studio Code documentation on [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense).
+Open the `main.c` file and check the IntelliSense features available. To find out about the different features, read the VS Code documentation on [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense).
