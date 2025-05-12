@@ -78,7 +78,7 @@ By default, the **CMSIS Solution** extension updates the `launch.json` file to r
 
 ## Template Files
 
-Template files for various debug adapters are included in the installation. For reference the template files are provided here (todo).
+Template files for various debug adapters are included in the installation. For reference the template files are provided in the [Debug Adapter Registry](https://github.com/Open-CMSIS-Pack/debug-adapter-registry).
 
 A template file in `*.json` format contains the following sections:
 
@@ -96,7 +96,7 @@ A template file in `*.json` format contains the following sections:
         "label": "CMSIS Erase",         // command "CMSIS Erase"
 ```
 
-The template files are processed with the [Eta](https://eta.js.org/) template engine. It inserts data of the `*.cbuild-run.yml` file into the various sections of the template file using placeholders listed in the table below. Each section is processed depending on the system type. 
+The template files are processed with the [Eta](https://eta.js.org/) template engine. It inserts data of the `*.cbuild-run.yml` file into the various sections of the template file using placeholders listed in the table below. Each section is processed depending on the system type.
 
 Placeholder    | Description
 :--------------|:----------------
