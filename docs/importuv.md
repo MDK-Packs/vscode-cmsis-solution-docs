@@ -2,7 +2,7 @@
 
 With the CMSIS Solution extension, you can convert a Keil μVision project to a CMSIS solution.
 
-1. Open the folder that contains the `*.uvprojx` that you want to convert in Visual Studio Code. Alternatively, import a
+1. Open the folder that contains the `*.uvprojx` that you want to convert in VS Code. Alternatively, import a
    μVision project from [keil.arm.com](https://www.keil.arm.com/), or clone a project from GitHub.
 
 2. Do one of the following:
@@ -43,7 +43,7 @@ The conversion *does not work* with Arm Compiler 5-based projects. Only projects
 
 !!! Workaround
     Update an Arm Compiler 5 project to Arm Compiler 6 in Keil μVision, then convert the project to a CMSIS solution in
-    Visual Studio Code.
+    VS Code.
 
 !!! Note
     For more information, see the

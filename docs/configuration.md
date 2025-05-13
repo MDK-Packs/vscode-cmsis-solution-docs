@@ -55,7 +55,7 @@ For all solution types, the compiler is added with the `compiler:` key in the `c
 
 ## Configure a build task
 
-In Visual Studio Code, you can automate certain tasks by configuring a `tasks.json` file. See
+In VS Code, you can automate certain tasks by configuring a `tasks.json` file. See
 [Integrate with External Tools via Tasks](https://code.visualstudio.com/docs/editor/tasks) for more details.
 
 With the CMSIS Solution extension, you can configure a build task using the `tasks.json` file to build your projects. When

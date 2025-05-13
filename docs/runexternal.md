@@ -1,11 +1,11 @@
 # Run external tools
 
-Visual Studio Code uses the [launch.json](https://code.visualstudio.com/docs/editor/debugging) and [tasks.json](https://code.visualstudio.com/docs/editor/tasks) configuration files to integrate with external tools. The following section shows how to configure these files for typical use cases.
+VS Code uses the [launch.json](https://code.visualstudio.com/docs/editor/debugging) and [tasks.json](https://code.visualstudio.com/docs/editor/tasks) configuration files to integrate with external tools. The following section shows how to configure these files for typical use cases.
 
 ## Variables
 
-Visual Studio Code supports [variable substitution](https://code.visualstudio.com/docs/editor/variables-reference) in the [Debugging](https://code.visualstudio.com/docs/editor/debugging) and [Tasks](https://code.visualstudio.com/docs/editor/tasks) configuration files and selected settings. Variable substitution uses the `${variableName}` syntax, for example in `launch.json` and `tasks.json` files.
-In addition to the [Visual Studio Code built-in variables](https://code.visualstudio.com/docs/editor/variables-reference), the CMSIS Solution extension provides the following variables.
+VS Code supports [variable substitution](https://code.visualstudio.com/docs/editor/variables-reference) in the [Debugging](https://code.visualstudio.com/docs/editor/debugging) and [Tasks](https://code.visualstudio.com/docs/editor/tasks) configuration files and selected settings. Variable substitution uses the `${variableName}` syntax, for example in `launch.json` and `tasks.json` files.
+In addition to the [VS Code built-in variables](https://code.visualstudio.com/docs/editor/variables-reference), the CMSIS Solution extension provides the following variables.
 
 | Variable  | Description |
 |:----------|:------------|
@@ -21,8 +21,8 @@ In addition to the [Visual Studio Code built-in variables](https://code.visualst
 | `${command:cmsis-csolution.getSolutionFile}`   | The path to the csolution.yml file for the Active Solution |
 
 !!! Note
-- Active Solution refers to the *csolution project* that is currently loaded.
-- Active Target refers to the target that is currently selected in the [Manage Solution](./manage_settings.md) view.
+    - Active Solution refers to the *csolution project* that is currently loaded.
+    - Active Target refers to the target that is currently selected in the [Manage Solution](./manage_settings.md) view.
 
 ### Substitution examples
 
@@ -116,7 +116,7 @@ ToDo show usage of Cortex Debug configured for JLink-->
 The [µVision debugger](https://developer.arm.com/documentation/101407/0541/Debugging) offers advanced debug features such as
 Event Recorder and Component Viewer to analyze applications.
 
-To call µVision with the *csolution project* that you are using in Visual Studio Code, add the following task to the `.vscode\tasks.json`  file. The `command:` is the path to the µVision executable on your computer.
+To call µVision with the *csolution project* that you are using in VS Code, add the following task to the `.vscode\tasks.json`  file. The `command:` is the path to the µVision executable on your computer.
 
 ```json
     "tasks": [

@@ -1,6 +1,7 @@
 # CMSIS Solution extension
 
-The **CMSIS Solution** extension available in Visual Studio Code provides tools to create projects and build embedded applications that use [*software packs*](https://www.keil.arm.com/packs/). Various compilation tools are supported.
+The **CMSIS Solution** extension available for VS Code allows to create projects and build embedded applications that use [CMSIS *software packs*](https://www.keil.arm.com/packs/). 
+It is a user interface for the [CMSIS-Toolbox](https://open-cmsis-pack.github.io/cmsis-toolbox/) that supports various compilation tools including Arm Compiler 6, GCC, IAR, and LLVM.
 
 ## Contents
 
@@ -13,7 +14,7 @@ The **CMSIS Solution** extension available in Visual Studio Code provides tools 
 
 - [**Manage software components**](./manage_components.md) shows how to add or remove software components in a solution
 
-- [**Set a context**](./manage_settings.md) shows how to set the context of a solution
+- [**Manage solution settings**](./manage_settings.md) explains how to configure a *csolution project* for run and debug
 
 - [**Build a project**](build.md) describes how to build a project
 
@@ -25,6 +26,8 @@ The **CMSIS Solution** extension available in Visual Studio Code provides tools 
 
 - [**Import µVision project**](./importuv.md) explains how to convert uvprojx-based files to the CMSIS Solution format
 
+- [**Configure run and debug**](./conf_debug.md) describes the integration of the CMSIS-Toolbox Run and Debug Management
+
 - [**Run external tools**](./runexternal.md) describes how to use external tools, such as debuggers and flash programmers
 
 - [**Tips and tricks**](./tipsandtricks.md) provides tips and tricks to help you solve specific issues
@@ -33,4 +36,5 @@ The **CMSIS Solution** extension available in Visual Studio Code provides tools 
 
 Version            | Description
 :------------------|:-------------------------
+1.54.0             | Added CMSIS-Toolbox Run and Debug Management
 1.48.0             | Initial release for the CMSIS Solution extension version 1.48.0

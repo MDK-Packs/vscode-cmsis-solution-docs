@@ -3,7 +3,7 @@
 Debugging is an essential task for every embedded developer. You can debug your code on real hardware or on simulation
 models based on Fixed Virtual Platforms (FVPs).
 
-## Debug on real hardware
+## Debug on hardware
 
 - Check that your device is connected to your computer.
 
@@ -23,12 +23,12 @@ The **Run and Debug** view displays and the debug session starts. The debugger s
 
 The **Debug Console** tab displays the debugging output.
 
-## Debug with simulation models
+## Debug on simulation models
 
 FVPs are complete simulations of an Arm system, including a processor, memory, and peripherals. These are set out in a "programmer's view" that gives you a comprehensive model on which to build and test your software.
 
 !!! Note
-    FVPs are natively available on Windows and Linux only. If you are on a Mac, follow this [Learning Path](https://learn.arm.com/install-guides fvps-on-macos/) to install Docker and clone the [FVPs-on-Mac](https://github.com/Arm-Examples/FVPs-on-Mac) repository.
+    FVPs are natively available on Windows and Linux only. If you are on a Mac, follow this [Learning Path](https://learn.arm.com/install-guides/fvps-on-macos/) to install Docker and clone the [FVPs-on-Mac](https://github.com/Arm-Examples/FVPs-on-Mac) repository.
 
 - Go to the Device Manager ![Device Manager icon](./images/device-manager-icon.png) and select the FVP that you want to
   use. For example, `MPS2 Cortex M4`.
