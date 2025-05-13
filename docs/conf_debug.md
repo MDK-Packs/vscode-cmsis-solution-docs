@@ -89,7 +89,7 @@ A template file in `*.json` format contains the following sections:
         "multicore-start-launch":       // debugger launch request for the start processor in multi-core system. 
         "multicore-start-attach":       // debugger attach request for the start processor in multi-core system. 
         "multicore-other":              // debugger attach request for other processors in multi-core system.
-    "tasks":                            // section for launch.json
+    "tasks":                            // section for tasks.json
         "label": "CMSIS Load+Run",      // command "CMSIS Load+Run"  
         "label": "CMSIS Run",           // command "CMSIS Run"
         "label": "CMSIS Load",          // command "CMSIS Load"
@@ -98,9 +98,10 @@ A template file in `*.json` format contains the following sections:
 
 The template files are processed with the [Eta](https://eta.js.org/) template engine. It inserts data of the `*.cbuild-run.yml` file into the various sections of the template file using placeholders listed in the table below. Each section is processed depending on the system type.
 
-Placeholder    | Description
-:--------------|:----------------
-`template`     | Base directory of the template file. Used to access to additional files
+Placeholder       | Description
+:-----------------|:----------------
+`template`        | Absolute path to the base directory of the template file. Used to access to additional files
+`solution_folder` | Relative path from the workspace folder to the directory that stores the `*.csolution.yml` file
 `device_name`  | From `*.cbuild-run.yml`: value of [`device:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#file-structure-of-cbuild-runyml)
 `target_type`  | From `*.cbuild-run.yml`: value of [`target-type:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#file-structure-of-cbuild-runyml)
 `start_pname`  | From `*.cbuild-run.yml`: value of [`start_pname:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#debugger)
