@@ -80,7 +80,7 @@ By default, the **CMSIS Solution** extension updates the `launch.json` file to r
 
 Template files for various debug adapters are included in the installation. For reference the template files are provided in the [Debug Adapter Registry](https://github.com/Open-CMSIS-Pack/debug-adapter-registry).
 
-A template file in `*.json` format contains the following sections:
+A [template file in `*.json` format](https://github.com/Open-CMSIS-Pack/debug-adapter-registry/tree/main/templates) contains the following sections:
 
 ```json
     "launch":                           // section for launch.json
@@ -89,6 +89,7 @@ A template file in `*.json` format contains the following sections:
         "multicore-start-launch":       // debugger launch request for the start processor in multi-core system. 
         "multicore-start-attach":       // debugger attach request for the start processor in multi-core system. 
         "multicore-other":              // debugger attach request for other processors in multi-core system.
+
     "tasks":                            // section for tasks.json
         "label": "CMSIS Load+Run",      // command "CMSIS Load+Run"  
         "label": "CMSIS Run",           // command "CMSIS Run"
@@ -100,11 +101,13 @@ The template files are processed with the [Eta](https://eta.js.org/) template en
 
 Placeholder       | Description
 :-----------------|:----------------
-`template`        | Absolute path to the base directory of the template file. Used to access to additional files
 `solution_folder` | Relative path from the workspace folder to the directory that stores the `*.csolution.yml` file
 `device_name`  | From `*.cbuild-run.yml`: value of [`device:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#file-structure-of-cbuild-runyml)
 `target_type`  | From `*.cbuild-run.yml`: value of [`target-type:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#file-structure-of-cbuild-runyml)
 `start_pname`  | From `*.cbuild-run.yml`: value of [`start_pname:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#debugger)
 `image_files`  | From `*.cbuild-run.yml`: value list of [`output:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#output) with `image` information
 `symbol_files` | From `*.cbuild-run.yml`: value list of [`output:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#output) with `symbols` information
+`pname`        | Processor name in a multi-core system that is currently processed by the template engine
 `ports`        | From `*.cbuild-run.yml`: value list of [`gdbserver:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#gdbserver)
+
+The usage of these placeholders is exemplified with the [template files in the Debug Adapter Registry](https://github.com/Open-CMSIS-Pack/debug-adapter-registry/tree/main/templates).
