@@ -4,19 +4,18 @@ repo_url: https://github.com/MDK-Packs/vscode-cmsis-solution-docs
 edit_uri: edit/main/docs/
 nav:
     - Home: index.md
-    - Setup: installation.md
-    - Quick start: quickstart.md
+    - Installation: installation.md
+    - User Interface: userinterface.md
     - Create New Solution: create_app.md
     - Manage Software Components: manage_components.md
     - Manage Solution Settings: manage_settings.md
-    - Build a project: build.md
-    - Flash the application: flash.md
-    - Debug a project: debug.md
+    - Build: build.md
+    - Load and Run: flash.md
+    - Debug: debug.md
     - Configuration: configuration.md
-    - Import uVision project: importuv.md
-    - Configure Run and Debug: conf_debug.md
-    - Run external tools: runexternal.md
-    - Tips and tricks: tipsandtricks.md
+    - Import uVision Project: importuv.md
+    - Run External Tools: runexternal.md
+    - Tips and Tricks: tipsandtricks.md
 theme:
   name: readthedocs
 markdown_extensions:

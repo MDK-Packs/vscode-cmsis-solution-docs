@@ -1,4 +1,4 @@
-# Quick start
+# User Interface
 
 The **CMSIS Solution** extension for VS Code provides a GUI for project management and build tools with the [CMSIS-Toolbox](https://open-cmsis-pack.github.io/cmsis-toolbox/). Combined with other
 Arm and third-party extensions, it implements a powerful embedded development environment.

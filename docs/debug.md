@@ -1,17 +1,57 @@
 # Debug the application
 
-Debugging is an essential task for every embedded developer. You can debug your code on real hardware or on simulation
-models based on Fixed Virtual Platforms (FVPs).
+Debugging is an essential task for every embedded developer. The [**CMSIS View**](#cmsis-view) offers action buttons to
+start a debug session. The [**Run and Debug View**](#run-and-debug-view) lets you connect to the target.
+
+Refer to the
+[Arm CMSIS Debugger extension](https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger) for a
+detailed description of debug features.
+
+## CMSIS View
+
+![CMSIS View Action buttons](./images/CMSIS-View-ConfDebug.png)
+
+The CMSIS View offers these action buttons:
+
+- **Load & Run** a *csolution* application which downloads and starts the application images in the target.
+- **Load & Debug** a *csolution* application which downloads the application images and starts the debugger.
+- **Manage Solution** configures the debug setup with the `target-set:` node. It also supports multiple configurations
+  using a `set:` name.
+
+The action button:
+
+- **Load & Run** executes from `tasks.json` the command `CMSIS Load+Run`.
+- **Load & Debug** executes from `launch.json` the first section with `"request": "launch"` and `cmsis:`. If this is
+  not present it uses from `tasks.json` the command `CMSIS Load+Debug`.
+
+Further commands are available under `...`:
+
+- **Load** executes from `tasks.json` the command `CMSIS Load`.
+- **Erase** executes from `tasks.json` the command `CMSIS Erase`.
+- **Run** executes from `tasks.json` the command `CMSIS Run`.
+
+## Run and Debug View
+
+The **Run and Debug View** in VS Code connects to the target using the request selection shown below.
+
+![Debug View Debugger request](./images/Debug-View-ConfDebug.png)
+
+The **CMSIS Solution** extension handles multiple processor cores using one debug connection for each core.
+
+![Generate launch.json and tasks.json](./images/multicore-debug.png)
 
 ## Debug on hardware
 
-- Check that your device is connected to your computer.
+!!! Attention
+    Make sure that your project is set up correctly for [run and debug](./configuration.md#configure-run-and-debug).
 
-- To start a debug session, click ![Run and Debug icon](./images/run-debug-icon.png) in the **Activity Bar**.
+Make sure that your target is connected, before loading the application onto it. You can use `pyOCD` to verify target
+connectivity.
 
-- Select a debug configuration in the list ![Configuration](./images/start-debugging-button.png).
-
-- Click ![Start Debugging](./images/start-debugging-icon.png).
+1. Open a **Terminal**, and enter `pyOCD list` to check attached hardware:
+   ![Check connected hardware with pyOCD](./images/pyOCDlist.png)
+2. In the **Solution** outline header, click ![Debug icon](./images/debug-icon.png). This executes the "load and debug"
+   command that flashes the project onto the target and starts a debug session.
 
 !!! Note
     If you are using a multicore device and you did not specify a `"processorName"` in the `launch.json` file, select the
@@ -22,32 +62,3 @@ The **Run and Debug** view displays and the debug session starts. The debugger s
 ![Run to main](./images/run2main.png)
 
 The **Debug Console** tab displays the debugging output.
-
-## Debug on simulation models
-
-FVPs are complete simulations of an Arm system, including a processor, memory, and peripherals. These are set out in a "programmer's view" that gives you a comprehensive model on which to build and test your software.
-
-!!! Note
-    FVPs are natively available on Windows and Linux only. If you are on a Mac, follow this [Learning Path](https://learn.arm.com/install-guides/fvps-on-macos/) to install Docker and clone the [FVPs-on-Mac](https://github.com/Arm-Examples/FVPs-on-Mac) repository.
-
-- Go to the Device Manager ![Device Manager icon](./images/device-manager-icon.png) and select the FVP that you want to
-  use. For example, `MPS2 Cortex M4`.
-
-- To start a debug session, click ![Run and Debug icon](./images/run-debug-icon.png) and select the `Arm Debugger FVP`
-  debug configuration in the list.
-
-    ![FVP configuration](./images/start-debugging-button-fvps.png)
-
-- Click ![Start Debugging](./images/start-debugging-icon.png).
-
-## Troubleshooting
-
-If the Arm Debugger engine cannot be found on your machine, a dialog box displays:
-
-![Arm Debugger not found](./images/arm-dbg-not-found.png)
-
-Select one of these options:  
-
-- To add Arm Debugger to your environment, click **Install Arm Debugger**. The `vcpkg-configuration.json` file is updated.
-
-- To indicate the path to the Arm Debugger engine in the settings, click **Configure Path**.
