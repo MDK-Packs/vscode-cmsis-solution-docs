@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Tips and tricks - CMSIS Solution for VS Code</title>
+    <title>Tips and Tricks - CMSIS Solution for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Tips and tricks";
+        var mkdocs_page_name = "Tips and Tricks";
         var mkdocs_page_input_path = "tipsandtricks.md";
         var mkdocs_page_url = null;
       </script>
@@ -45,11 +45,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="installation.html">Setup</a>
+                <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start</a>
+                <li class="toctree-l1"><a class="reference internal" href="userinterface.html">User Interface</a>
                 </li>
               </ul>
               <ul>
@@ -65,15 +65,15 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="build.html">Build a project</a>
+                <li class="toctree-l1"><a class="reference internal" href="build.html">Build</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="flash.html">Flash the application</a>
+                <li class="toctree-l1"><a class="reference internal" href="flash.html">Load and Run</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug a project</a>
+                <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a>
                 </li>
               </ul>
               <ul>
@@ -81,23 +81,27 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="importuv.html">Import uVision project</a>
+                <li class="toctree-l1"><a class="reference internal" href="importuv.html">Import uVision Project</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="conf_debug.html">Configure Run and Debug</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="runexternal.html">Run external tools</a>
+                <li class="toctree-l1"><a class="reference internal" href="runexternal.html">Run External Tools</a>
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Tips and tricks</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Tips and Tricks</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#initialize-your-solution">Initialize your solution</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#set-current-solution-in-workspace">Set current solution in workspace</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enhancing-the-debug-experience">Enhancing the Debug Experience</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#csolutionyml">csolution.yml</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cprojectyml">cproject.yml</a>
+    </li>
+        </ul>
     </li>
     </ul>
                 </li>
@@ -116,7 +120,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Tips and tricks</li>
+      <li class="breadcrumb-item active">Tips and Tricks</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/main/docs/tipsandtricks.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -131,18 +135,45 @@
 <h2 id="initialize-your-solution">Initialize your solution</h2>
 <p>Examples from <a href="https://keil.arm.com">keil.arm.com</a> or solutions you <a href="create_app.html">create from scratch</a> from the
 <strong>Create Solution</strong> view are already initialized and contain all the required files.</p>
-<p>If your solution does not contain the <code>vcpkg-configuration.json</code>, <code>tasks.json</code>, and <code>launch.json</code> files, use the
-<strong>Initialize CMSIS project</strong> option to generate them.</p>
-<p>Right-click anywhere in the workspace and select <strong>Initialize CMSIS project</strong>. The extension generates preconfigured files
+<p>If your solution does not contain the <code>vcpkg-configuration.json</code>, <code>tasks.json</code>, and <code>launch.json</code> files, right-click
+anywhere in the workspace and select <strong>Initialize CMSIS project</strong>. The extension generates preconfigured files
 that are ready to use.</p>
 <h2 id="set-current-solution-in-workspace">Set current solution in workspace</h2>
 <p>To activate a solution in the <strong>Solution</strong> outline view, use the <strong>Select Active Solution from workspace</strong> option in
 <strong>Views and More Actions</strong> <img alt="Views and More Actions icon" src="images/more-actions-icon.png" />.</p>
+<h2 id="enhancing-the-debug-experience">Enhancing the Debug Experience</h2>
+<p>To ensure the best debug experience with Arm Compiler for Embedded, make sure that your CMSIS solution files contain
+the following.</p>
+<h3 id="csolutionyml">csolution.yml</h3>
+<p>In the <code>*.csolution.yml</code> file, insert the following block in <code>- target-types\- type</code> section:</p>
+<pre><code class="language-yml">      target-set:
+        - set: 
+          debugger:
+            name: # set to name of your debug adapter
+</code></pre>
+<p>Insert the following before the <code>- projects</code> section:</p>
+<pre><code class="language-yml">  misc:
+   - for-compiler: AC6
+     C-CPP:
+       - -gdwarf-5
+     ASM:
+       - -gdwarf-5
+     Link:
+       - --entry=Reset_Handler
+</code></pre>
+<h3 id="cprojectyml">cproject.yml</h3>
+<p>In the <code>*.cproject.yml</code> file, add at the end:</p>
+<pre><code class="language-yml">  output:
+    type:
+     - elf
+     - hex
+     - map
+</code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="runexternal.html" class="btn btn-neutral float-left" title="Run external tools"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="runexternal.html" class="btn btn-neutral float-left" title="Run External Tools"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>

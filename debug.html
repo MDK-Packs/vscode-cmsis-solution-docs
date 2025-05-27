@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Debug a project - CMSIS Solution for VS Code</title>
+    <title>Debug - CMSIS Solution for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Debug a project";
+        var mkdocs_page_name = "Debug";
         var mkdocs_page_input_path = "debug.md";
         var mkdocs_page_url = null;
       </script>
@@ -45,11 +45,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="installation.html">Setup</a>
+                <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start</a>
+                <li class="toctree-l1"><a class="reference internal" href="userinterface.html">User Interface</a>
                 </li>
               </ul>
               <ul>
@@ -65,21 +65,21 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="build.html">Build a project</a>
+                <li class="toctree-l1"><a class="reference internal" href="build.html">Build</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="flash.html">Flash the application</a>
+                <li class="toctree-l1"><a class="reference internal" href="flash.html">Load and Run</a>
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Debug a project</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Debug</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#cmsis-view">CMSIS View</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#run-and-debug-view">Run and Debug View</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#debug-on-hardware">Debug on hardware</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#debug-on-simulation-models">Debug on simulation models</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a>
     </li>
     </ul>
                 </li>
@@ -89,19 +89,15 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="importuv.html">Import uVision project</a>
+                <li class="toctree-l1"><a class="reference internal" href="importuv.html">Import uVision Project</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="conf_debug.html">Configure Run and Debug</a>
+                <li class="toctree-l1"><a class="reference internal" href="runexternal.html">Run External Tools</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="runexternal.html">Run external tools</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips and tricks</a>
+                <li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips and Tricks</a>
                 </li>
               </ul>
       </div>
@@ -118,7 +114,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Debug a project</li>
+      <li class="breadcrumb-item active">Debug</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/main/docs/debug.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -129,23 +125,50 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="debug-the-application">Debug the application</h1>
-<p>Debugging is an essential task for every embedded developer. You can debug your code on real hardware or on simulation
-models based on Fixed Virtual Platforms (FVPs).</p>
-<h2 id="debug-on-hardware">Debug on hardware</h2>
+<p>Debugging is an essential task for every embedded developer. The <a href="#cmsis-view"><strong>CMSIS View</strong></a> offers action buttons to
+start a debug session. The <a href="#run-and-debug-view"><strong>Run and Debug View</strong></a> lets you connect to the target.</p>
+<p>Refer to the
+<a href="https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger">Arm CMSIS Debugger extension</a> for a
+detailed description of debug features.</p>
+<h2 id="cmsis-view">CMSIS View</h2>
+<p><img alt="CMSIS View Action buttons" src="images/CMSIS-View-ConfDebug.png" /></p>
+<p>The CMSIS View offers these action buttons:</p>
 <ul>
-<li>
-<p>Check that your device is connected to your computer.</p>
-</li>
-<li>
-<p>To start a debug session, click <img alt="Run and Debug icon" src="images/run-debug-icon.png" /> in the <strong>Activity Bar</strong>.</p>
-</li>
-<li>
-<p>Select a debug configuration in the list <img alt="Configuration" src="images/start-debugging-button.png" />.</p>
-</li>
-<li>
-<p>Click <img alt="Start Debugging" src="images/start-debugging-icon.png" />.</p>
-</li>
+<li><strong>Load &amp; Run</strong> a <em>csolution</em> application which downloads and starts the application images in the target.</li>
+<li><strong>Load &amp; Debug</strong> a <em>csolution</em> application which downloads the application images and starts the debugger.</li>
+<li><strong>Manage Solution</strong> configures the debug setup with the <code>target-set:</code> node. It also supports multiple configurations
+  using a <code>set:</code> name.</li>
 </ul>
+<p>The action button:</p>
+<ul>
+<li><strong>Load &amp; Run</strong> executes from <code>tasks.json</code> the command <code>CMSIS Load+Run</code>.</li>
+<li><strong>Load &amp; Debug</strong> executes from <code>launch.json</code> the first section with <code>"request": "launch"</code> and <code>cmsis:</code>. If this is
+  not present it uses from <code>tasks.json</code> the command <code>CMSIS Load+Debug</code>.</li>
+</ul>
+<p>Further commands are available under <code>...</code>:</p>
+<ul>
+<li><strong>Load</strong> executes from <code>tasks.json</code> the command <code>CMSIS Load</code>.</li>
+<li><strong>Erase</strong> executes from <code>tasks.json</code> the command <code>CMSIS Erase</code>.</li>
+<li><strong>Run</strong> executes from <code>tasks.json</code> the command <code>CMSIS Run</code>.</li>
+</ul>
+<h2 id="run-and-debug-view">Run and Debug View</h2>
+<p>The <strong>Run and Debug View</strong> in VS Code connects to the target using the request selection shown below.</p>
+<p><img alt="Debug View Debugger request" src="images/Debug-View-ConfDebug.png" /></p>
+<p>The <strong>CMSIS Solution</strong> extension handles multiple processor cores using one debug connection for each core.</p>
+<p><img alt="Generate launch.json and tasks.json" src="images/multicore-debug.png" /></p>
+<h2 id="debug-on-hardware">Debug on hardware</h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Make sure that your project is set up correctly for <a href="configuration.html#configure-run-and-debug">run and debug</a>.</p>
+</div>
+<p>Make sure that your target is connected, before loading the application onto it. You can use <code>pyOCD</code> to verify target
+connectivity.</p>
+<ol>
+<li>Open a <strong>Terminal</strong>, and enter <code>pyOCD list</code> to check attached hardware:
+   <img alt="Check connected hardware with pyOCD" src="images/pyOCDlist.png" /></li>
+<li>In the <strong>Solution</strong> outline header, click <img alt="Debug icon" src="images/debug-icon.png" />. This executes the "load and debug"
+   command that flashes the project onto the target and starts a debug session.</li>
+</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you are using a multicore device and you did not specify a <code>"processorName"</code> in the <code>launch.json</code> file, select the
@@ -154,43 +177,11 @@ appropriate processor for your project in the <strong>Select a processor</strong
 <p>The <strong>Run and Debug</strong> view displays and the debug session starts. The debugger stops at the <code>main()</code> function of the program:</p>
 <p><img alt="Run to main" src="images/run2main.png" /></p>
 <p>The <strong>Debug Console</strong> tab displays the debugging output.</p>
-<h2 id="debug-on-simulation-models">Debug on simulation models</h2>
-<p>FVPs are complete simulations of an Arm system, including a processor, memory, and peripherals. These are set out in a "programmer's view" that gives you a comprehensive model on which to build and test your software.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>FVPs are natively available on Windows and Linux only. If you are on a Mac, follow this <a href="https://learn.arm.com/install-guides/fvps-on-macos/">Learning Path</a> to install Docker and clone the <a href="https://github.com/Arm-Examples/FVPs-on-Mac">FVPs-on-Mac</a> repository.</p>
-</div>
-<ul>
-<li>
-<p>Go to the Device Manager <img alt="Device Manager icon" src="images/device-manager-icon.png" /> and select the FVP that you want to
-  use. For example, <code>MPS2 Cortex M4</code>.</p>
-</li>
-<li>
-<p>To start a debug session, click <img alt="Run and Debug icon" src="images/run-debug-icon.png" /> and select the <code>Arm Debugger FVP</code>
-  debug configuration in the list.</p>
-<p><img alt="FVP configuration" src="images/start-debugging-button-fvps.png" /></p>
-</li>
-<li>
-<p>Click <img alt="Start Debugging" src="images/start-debugging-icon.png" />.</p>
-</li>
-</ul>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<p>If the Arm Debugger engine cannot be found on your machine, a dialog box displays:</p>
-<p><img alt="Arm Debugger not found" src="images/arm-dbg-not-found.png" /></p>
-<p>Select one of these options:  </p>
-<ul>
-<li>
-<p>To add Arm Debugger to your environment, click <strong>Install Arm Debugger</strong>. The <code>vcpkg-configuration.json</code> file is updated.</p>
-</li>
-<li>
-<p>To indicate the path to the Arm Debugger engine in the settings, click <strong>Configure Path</strong>.</p>
-</li>
-</ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="flash.html" class="btn btn-neutral float-left" title="Flash the application"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="flash.html" class="btn btn-neutral float-left" title="Load and Run"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="configuration.html" class="btn btn-neutral float-right" title="Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
