@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Configuration - CMSIS Solution for VS Code</title>
+    <title>Configure Run and Debug - CMSIS Solution for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Configuration";
-        var mkdocs_page_input_path = "configuration.md";
+        var mkdocs_page_name = "Configure Run and Debug";
+        var mkdocs_page_input_path = "conf_debug.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -76,26 +76,8 @@
                 <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Configuration</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#configure-the-extension">Configure the extension</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#configure-a-solution">Configure a solution</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#configure-a-build-task">Configure a build task</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#configure-run-and-debug">Configure Run and Debug</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#example">Example</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#user-modifications-to-launchjson">User Modifications to launch.json</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#template-files">Template Files</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a>
                 </li>
               </ul>
               <ul>
@@ -124,9 +106,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Configuration</li>
+      <li class="breadcrumb-item active">Configure Run and Debug</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/main/docs/configuration.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/main/docs/conf_debug.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -134,121 +116,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="configuration">Configuration</h1>
-<h2 id="configure-the-extension">Configure the extension</h2>
-<p>Press <strong>Ctrl+,</strong> (Windows and Linux) or <strong>Cmd+,</strong> (macOS) or go to <img alt="Settings cog wheel" src="images/settings-cog.png" /> at the bottom of the <strong>Activity Bar</strong> and select <strong>Settings</strong>. Then, select <strong>CMSIS Solution</strong> to change the extension settings. The available settings are:</p>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Actions</td>
-<td>Set run and debug configurations for your solutions and projects.</td>
-</tr>
-<tr>
-<td>Download Packs</td>
-<td>CMSIS-Toolbox downloads required software packs using <code>cpackget</code> during setup and project build. This option enables the option <code>--packs</code> for <code>cbuild</code>.</td>
-</tr>
-<tr>
-<td>Exclude</td>
-<td>Configure a glob pattern for excluding files and folders in searches for csolution files.</td>
-</tr>
-<tr>
-<td>Experimental Features</td>
-<td>Use the checkbox to enable experimental features.</td>
-</tr>
-<tr>
-<td>Generate Clang Setup</td>
-<td>Use the checkbox to automatically generate the required setup (<code>.clangd</code> file and <code>.vscode/settings.json</code>) for the active solution context. For Arm Compiler 6, include pre-defined macros in the <code>.clangd</code> file.</td>
-</tr>
-<tr>
-<td>Output Directory</td>
-<td>Enter an output directory prefix for 'outdir' and 'tmpdir' and relocated build information files (experimental).</td>
-</tr>
-<tr>
-<td>Use Web Services</td>
-<td>Use the checkbox to enable web services to obtain information about devices, boards, and examples. If enabled, information from the internet and locally installed packs is used. If disabled, only information from installed packs is used.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="configure-a-solution">Configure a solution</h2>
-<p>If you have not already set a compiler, select a compiler for your solution from the <strong>Configure Solution</strong> view. If you
-created a reference application from a reference example, you can also add layers to your solution from the same view.</p>
-<p>If your project has a <code>select-compiler:</code> node, but no <code>compiler:</code> node is set in the <code>csolution.yml</code> file, or if your
-reference application has no layers defined, then the <strong>Configure Solution</strong> view opens automatically.</p>
-<p>If you are working with a reference application, <strong>Add Software Layer</strong> displays, showing the software layers that you can
-use. Layers are available from the CMSIS-Packs installed on your machine.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul>
-<li>Not all Board Support Packs (BSPs) have board layers.</li>
-<li>Not all layers are compatible with the connections that your reference application requires.</li>
-<li>The CMSIS-Packs which contain reference applications and layers generally provide an <code>Overview.md</code> file where the connections are detailed.</li>
-</ul>
-</div>
-<p>If there are no compatible layers, errors display.</p>
-<p><img alt="Configure a solution" src="images/configure-solution.png" /></p>
-<ul>
-<li>
-<p>Click <strong>Next</strong> to display the different options available.</p>
-</li>
-<li>
-<p>You can indicate where the layers should be copied to in the <strong>Board-Layer</strong>, <strong>Shield-Layer</strong>, and <strong>Socket-Layer</strong>
-  fields. Click <strong>Default</strong> to reset the paths to their default values.</p>
-</li>
-<li>
-<p>If no compiler is set for the reference application, <strong>Select Compiler</strong> displays under the layers selection and shows the
-  compilers available in your environment. Select a compiler. For example, AC6 or GCC.</p>
-</li>
-<li>
-<p>If you are working with another solution type, only <strong>Select Compiler</strong> displays. Select a compiler.</p>
-</li>
-<li>
-<p>Click <strong>OK</strong>.</p>
-</li>
-</ul>
-<p>For reference applications only, a <code>Board.clayer.yml</code> file, a <code>Shield.clayer.yml</code> file, or a <code>Socket.clayer.yml</code> file, along
-with other files that make up the layer, are added in the folders that you selected. The files are available from the
-<strong>Explorer</strong> view. The <code>.clayer.yml</code> files come from the CMSIS-Pack. Layers are automatically added in the <code>csolution.yml</code>
-file of your solution under <code>target-types: variables:</code> for the active target.</p>
-<p>For all solution types, the compiler is added with the <code>compiler:</code> key in the <code>csolution.yml</code> file.</p>
-<h2 id="configure-a-build-task">Configure a build task</h2>
-<p>In VS Code, you can automate certain tasks by configuring a <code>tasks.json</code> file. See
-<a href="https://code.visualstudio.com/docs/editor/tasks">Integrate with External Tools via Tasks</a> for more details.</p>
-<p>With the CMSIS Solution extension, you can configure a build task using the <code>tasks.json</code> file to build your projects. When
-you run the build task, the extension runs <code>cbuild</code> with the options that you defined.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The examples on keil.arm.com include a <code>tasks.json</code> file that already contains some configuration settings to build
-your project. You can modify the default configuration if needed.</p>
-</div>
-<p>If you are working with an example that does not have a build task configured, follow these steps:</p>
-<ul>
-<li>
-<p>Go to <strong>Terminal</strong> &gt; <strong>Configure Tasks...</strong>.</p>
-</li>
-<li>
-<p>In the drop-down list that opens at the top of the window, select the <strong>CMSIS Build</strong> task. A <code>tasks.json</code> file opens with
-  the default configuration.</p>
-</li>
-<li>
-<p>Modify the configuration.</p>
-</li>
-</ul>
-<p>With IntelliSense, you can see the full set of task properties and values available in the <code>tasks.json</code> file. You can bring
-up suggestions using <strong>Trigger Suggest</strong> from the <strong>Command Palette</strong>. You can also display the task properties specific to
-<code>cbuild</code> by typing <code>cbuild --help</code> in the <strong>Terminal</strong>.</p>
-<ul>
-<li>Save the <code>tasks.json</code> file.</li>
-</ul>
-<p>Alternatively, you can define a default build task using <strong>Terminal</strong> &gt; <strong>Configure Default Build Task...</strong>.
-The <strong>Terminal</strong> &gt; <strong>Run Build Task...</strong> option triggers the execution of default build tasks.</p>
-<h2 id="configure-run-and-debug">Configure Run and Debug</h2>
-<p>When using the CMSIS-Toolbox 2.9.0, the <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#run-and-debug-management">Run and Debug Management</a> file <code>*.cbuild-run.yml</code> provides all information to configure programmers or debuggers.
+                <h1 id="configure-run-and-debug">Configure Run and Debug</h1>
+<p>When using the CMSIS-Toolbox 2.9, the <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#run-and-debug-management">Run and Debug Management</a> file <code>*.cbuild-run.yml</code> provides all information to configure programmers or debuggers.
 With this information the <strong>CMSIS Solution</strong> extension generates the <a href="https://code.visualstudio.com/docs/editor/debugging"><code>launch.json</code></a> and <a href="https://code.visualstudio.com/docs/editor/tasks"><code>tasks.json</code></a> configuration files for the
 run and debug features of VS Code.</p>
 <div class="admonition note">
@@ -260,7 +129,31 @@ run and debug features of VS Code.</p>
 <li><strong>Launch</strong> starts a debug session and typically stops at the <em>main</em> function.</li>
 <li><strong>Attach</strong> connects a debug session to a running system.</li>
 </ul>
-<h3 id="example">Example</h3>
+<h2 id="cmsis-view-action-buttons">CMSIS View - Action buttons</h2>
+<p><img alt="CMSIS View Action buttons" src="images/CMSIS-View-ConfDebug.png" /></p>
+<p>The CMSIS View offers these action buttons:</p>
+<ul>
+<li><strong>Load &amp; Run</strong> a <em>csolution</em> application which downloads and starts the application images in the target.</li>
+<li><strong>Load &amp; Debug</strong> a <em>csolution</em> application which downloads the application images and starts the debugger.</li>
+<li><strong>Manage Solution</strong> configures the debug setup with the <code>target-set:</code> node. It also supports multiple configurations using a <code>set:</code> name.</li>
+</ul>
+<p>The action button:</p>
+<ul>
+<li><strong>Load &amp; Run</strong> executes from <code>tasks.json</code> the command <code>CMSIS Load+Run</code>.</li>
+<li><strong>Load &amp; Debug</strong> executes from <code>launch.json</code> the first section with <code>"request": "launch"</code> and <code>cmsis:</code>. If this is not present it uses from <code>tasks.json</code> the command <code>CMSIS Load+Debug</code>.</li>
+</ul>
+<p>Further commands are available under <code>...</code>:</p>
+<ul>
+<li><strong>Load</strong> executes from <code>tasks.json</code> the command <code>CMSIS Load</code>.</li>
+<li><strong>Erase</strong> executes from <code>tasks.json</code> the command <code>CMSIS Erase</code>.</li>
+<li><strong>Run</strong> executes from <code>tasks.json</code> the command <code>CMSIS Run</code>.</li>
+</ul>
+<h2 id="run-and-debug-request">Run and Debug - Request</h2>
+<p>The <strong>Run and Debug View</strong> in VS Code connects to the target using the request selection shown below.</p>
+<p><img alt="Debug View Debugger request" src="images/Debug-View-ConfDebug.png" /></p>
+<p>The <strong>CMSIS Solution</strong> extension handles multiple processor cores using one debug connection for each core.</p>
+<p><img alt="Generate launch.json and tasks.json" src="images/multicore-debug.png" /></p>
+<h2 id="example">Example</h2>
 <p>The following <code>*.csolution.yml</code> file is configured for a CMSIS-DAP Debugger as shown below. Refer to the CMSIS-Toolbox users guide for details on <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/YML-Input-Format/#target-set"><code>target-set</code></a>.</p>
 <pre><code class="language-yml">solution:
     :
@@ -275,14 +168,14 @@ run and debug features of VS Code.</p>
 <p>The related <code>*.cbuild-run.yml</code> file contains the information for the debugger setup. The <strong>CMSIS Solution</strong> extension uses this information with a template file for a debug adapter (in this case for CMSIS-DAP) to update the configuration information in <code>launch.json</code> and <code>tasks.json</code>.</p>
 <p><img alt="Generate launch.json and tasks.json" src="images/configure-debug-run.png" /></p>
 <p>ToDo: add the generated launch.json + tasks.json from this example</p>
-<h3 id="user-modifications-to-launchjson">User Modifications to <code>launch.json</code></h3>
+<h2 id="user-modifications-to-launchjson">User Modifications to <code>launch.json</code></h2>
 <p>By default, the <strong>CMSIS Solution</strong> extension updates the <code>launch.json</code> file to reflect the settings in the <em>csolution project</em>. Sometimes the user needs control over settings. The <code>cmsis:</code> - <code>updateConfiguration:</code> value in the <code>launch.json</code> file controls the update. Remove <code>auto</code> to manually control the settings and this section.</p>
 <pre><code class="language-json">            &quot;cmsis&quot;: {
                 &quot;pname&quot;: cm33_core0
                 &quot;target-type&quot;: MCXN947 
                 &quot;updateConfiguration&quot;: auto     // without auto, this section is not modified
 </code></pre>
-<h3 id="template-files">Template Files</h3>
+<h2 id="template-files">Template Files</h2>
 <p>Template files for various debug adapters are included in the installation. For reference the template files are provided in the <a href="https://github.com/Open-CMSIS-Pack/debug-adapter-registry">Debug Adapter Registry</a>.</p>
 <p>A <a href="https://github.com/Open-CMSIS-Pack/debug-adapter-registry/tree/main/templates">template file in <code>*.json</code> format</a> contains the following sections:</p>
 <pre><code class="language-json">    &quot;launch&quot;:                           // section for launch.json
@@ -345,10 +238,6 @@ run and debug features of VS Code.</p>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="debug.html" class="btn btn-neutral float-left" title="Debug"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="importuv.html" class="btn btn-neutral float-right" title="Import uVision Project">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
   <hr/>
 
@@ -374,10 +263,6 @@ run and debug features of VS Code.</p>
         </span>
     
     
-      <span><a href="debug.html" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="importuv.html" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Setup - CMSIS Solution for VS Code</title>
+    <title>Installation - CMSIS Solution for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Setup";
+        var mkdocs_page_name = "Installation";
         var mkdocs_page_input_path = "installation.md";
         var mkdocs_page_url = null;
       </script>
@@ -45,39 +45,39 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Setup</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#find-an-example-project">Find an example project</a>
+    <li class="toctree-l2"><a class="reference internal" href="#verify-the-installation">Verify the installation</a>
     </li>
     </ul>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start</a>
+                <li class="toctree-l1"><a class="reference internal" href="userinterface.html">User Interface</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="create_app.html">Create an embedded project</a>
+                <li class="toctree-l1"><a class="reference internal" href="create_app.html">Create New Solution</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Manage software components</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Manage Software Components</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage settings</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution Settings</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="build.html">Build a project</a>
+                <li class="toctree-l1"><a class="reference internal" href="build.html">Build</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="flash.html">Flash the application</a>
+                <li class="toctree-l1"><a class="reference internal" href="flash.html">Load and Run</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug a project</a>
+                <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a>
                 </li>
               </ul>
               <ul>
@@ -85,15 +85,15 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="importuv.html">Import uVision project</a>
+                <li class="toctree-l1"><a class="reference internal" href="importuv.html">Import uVision Project</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="runexternal.html">Run external tools</a>
+                <li class="toctree-l1"><a class="reference internal" href="runexternal.html">Run External Tools</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips and tricks</a>
+                <li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips and Tricks</a>
                 </li>
               </ul>
       </div>
@@ -110,7 +110,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Setup</li>
+      <li class="breadcrumb-item active">Installation</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/main/docs/installation.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -120,73 +120,60 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="setup">Setup</h1>
+                <h1 id="installation">Installation</h1>
 <!-- markdownlint-disable MD036 -->
 
-<p>The <strong>Arm Keil Studio Pack (MDK v6)</strong> extension pack includes the CMSIS Solution extension and other extensions that you can use to work with CMSIS solution projects.</p>
+<p>The <a href="https://marketplace.visualstudio.com/items?itemName=Arm.keil-studio-pack"><strong>Arm Keil Studio Pack (MDK v6)</strong></a>
+extension pack includes the CMSIS Solution extension and other extensions that you can use to work with CMSIS solution
+projects.</p>
 <ol>
 <li>
-<p>In Visual Studio Code, open the <strong>Extensions</strong> view and type <code>Keil Studio Pack</code> in the search bar.</p>
+<p>In VS Code, open the <strong>Extensions</strong> view and type <code>Keil Studio Pack</code> in the search bar.</p>
 </li>
 <li>
-<p>Click <strong>Install</strong> to start the installation.
-   When the installation is finished, the CMSIS view icon appears in the activity bar.</p>
+<p>Click <strong>Install</strong> to start the installation. When the installation is finished, the CMSIS view icon appears in the
+   activity bar.</p>
 </li>
 </ol>
-<p>You can <a href="create_app.html">create your first application</a> or <a href="#find-an-example-project">download an example project</a>
-and then check that you can build, run, and debug the application.</p>
+<p>You can <a href="create_app.html">create your first application</a> or
+<a href="#verify-the-installation">verify the installation with an example projecy</a> and then check that you can build, run, and
+debug the application.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you do not want to install all the extensions available in the pack, you can install the CMSIS Solution extension as standalone.
+<p>If you do not want to install all the extensions available in the pack, you can install the
+<a href="https://marketplace.visualstudio.com/items?itemName=Arm.cmsis-csolution">Arm CMSIS Solution</a> extension standalone.
 Search for <code>CMSIS Solution</code> in the <strong>Extensions</strong> view.</p>
 </div>
-<h2 id="find-an-example-project">Find an example project</h2>
-<p>The <a href="https://www.keil.arm.com/boards/">CMSIS boards list</a> contains many examples that you can use to verify that the extension works correctly. </p>
-<p>The following procedure explains how to start from an example for the <a href="https://www.keil.arm.com/boards/nxp-frdm-k32l3a6-989d2e5/projects/">NXP FRDM-K32L3A6 development board</a>. Adapt the steps to your development board.</p>
+<h2 id="verify-the-installation">Verify the installation</h2>
+<p>The <a href="https://www.keil.arm.com/boards/">CMSIS boards list</a> contains many examples that you can use to verify that the
+extension works correctly.</p>
+<p>The following example explains how to start from a Blinky project for the
+<a href="https://www.keil.arm.com/boards/stmicroelectronics-nucleo-f756zg-revb-2251244">STMicroelectronics NUCLEO-F756ZG</a>
+development board. Adapt the steps for your target hardware.</p>
 <ol>
-<li>
-<p>In your browser, open the <a href="https://www.keil.arm.com/boards/">CMSIS boards list</a>.</p>
-</li>
-<li>
-<p>In the search bar, type <code>frdm-k32</code>. Alternatively, you can search for a board using the <strong>Vendor</strong> and <strong>Core</strong> filters.</p>
-</li>
-<li>
-<p>In the list of suggested boards, click <code>FRDM-K32L3A6</code>.
-   The board page opens on the <strong>Projects</strong> tab. This tab shows the list of available example projects.</p>
-</li>
-<li>
-<p>In the search bar, type <code>hello_frdm</code>.</p>
-</li>
-<li>
-<p>In the <strong>Get Project</strong> drop-down list, select <strong>Open in Keil Studio for VS Code</strong> to download the example to your computer and open it in Visual Studio Code.
-   <img alt="Download and open hello example in VS Code" src="images/frdm-hello.png" /></p>
-</li>
+<li>In the <strong>CMSIS</strong> view, click <strong>Create a New Solution</strong> to open the <strong>Create Solution</strong> view.</li>
+<li>Click the <strong>Target Board</strong> drop-down list. Enter a search term, for example "f756", and then select the
+   "NUCLEO-F756ZG (Rev.B)" board.<br />
+<img alt="Select the NUCLEO-F756ZG" src="images/SelectF756ZG.png" />  </li>
+<li>Click <strong>Select</strong>. By default, the <strong>Target Device</strong> drop-down list shows the name of the device mounted on the board
+that you selected.</li>
+<li>Click the <strong>Templates, Reference Applications, and Example</strong> drop-down list. Enter a search term, for example
+   "Blinky", and then select the "Blinky" example from the web.<br />
+<img alt="Select Blinky example" src="images/SelectBlinky.png" /></li>
+<li>Click <strong>Browse</strong> to set a base forlder for the solution, then click <strong>Create</strong>.<br />
+<img alt="Click Create" src="images/SolutionCreate.png" />  </li>
+<li>Confirm that the Arm Tools Environment Manager extension can automatically activate the workspace and download the
+   tools specified in the <code>vcpkg-configuration.json</code> file included in your project.<br />
+<img alt="Activate the workspace" src="images/activate-environment.png" />  </li>
 </ol>
-<p>Visual Studio Code asks for a permission to open the URI.
-   <img alt="Allow extension to open URI" src="images/allow-open.png" /></p>
-<ol>
-<li>
-<p>Click <strong>Open</strong>.</p>
-</li>
-<li>
-<p>Select a download location.</p>
-</li>
-<li>
-<p>Select <strong>Open in New Window</strong> to open the example in a separate Visual Studio Code window.
-   <img alt="Open the unzipped folder" src="images/open-folder.png" /></p>
-</li>
-<li>
-<p>If you installed the Keil Studio Pack, confirm that the Arm Tools Environment Manager extension can automatically activate the workspace and download the tools specified in the <code>vcpkg-configuration.json</code> file included in your project.
-   <img alt="Activate the workspace" src="images/activate-environment.png" /></p>
-</li>
-</ol>
-<p>You can now <a href="build.html">build</a> and <a href="debug.html">debug</a> the example project.</p>
+<p>Now you can now <a href="build.html">build</a> and <a href="debug.html">debug</a> the example project.  During the build process missing
+software packs may be downloaded.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="index.html" class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="quickstart.html" class="btn btn-neutral float-right" title="Quick start">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="userinterface.html" class="btn btn-neutral float-right" title="User Interface">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -216,7 +203,7 @@ Search for <code>CMSIS Solution</code> in the <strong>Extensions</strong> view.<
       <span><a href="index.html" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="quickstart.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="userinterface.html" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
