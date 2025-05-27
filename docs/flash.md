@@ -1,9 +1,17 @@
-# Run the application
+# Load and Run
 
-!!! CAUTION
-    First, check that your hardware is connected to your computer.
+!!! Attention
+    Make sure that your project is set up correctly for [run and debug](./configuration.md#configure-run-and-debug).
 
-Before you can start debugging the application, you must download it to the flash of the target hardware.
+Make sure that your target is connected, before loading the application onto it. You can use `pyOCD` to verify target
+connectivity.
+
+1. Open a **Terminal**, and enter `pyOCD list` to check attached hardware:
+   ![Check connected hardware with pyOCD](./images/pyOCDlist.png)
+2. In the **Solution** outline header, click ![Run icon](./images/run-icon.png). This executes the "load and run"
+   command that flashes the project onto the target and issues a reset to start the application.
+3. To verify that the step has run correctly, check the **Terminal** output:
+   ![Flash download output](./images/flash-dwnl-output.png)
 
 !!! Notes
     - When you have several solutions in one folder, VS Code ignores the `tasks.json` and `launch.json` files that
@@ -11,23 +19,3 @@ Before you can start debugging the application, you must download it to the flas
     `.vscode` folder and ignores the other JSON files. As a workaround, open one solution first, then add other solutions to your workspace with the **File** > **Add Folder to Workspace** option.
     - If you are using a multicore device and you did not specify a `"processorName"` in the `launch.json` file, select the
       appropriate processor for your project in the **Select a processor** drop-down list at the top of the window.
-
-In the **Solution** outline header, click ![Run icon](./images/run-icon.png).
-
-To verify that the project has run correctly, check the Terminal tab:
-
-![Flash download output](./images/flash-dwnl-output.png)
-
-## Troubleshooting
-
-<!--Is this needed for the Run action?-->
-
-If the Arm Debugger engine cannot be found on your machine, a dialog box displays:
-
-![Arm Debugger not found](./images/arm-dbg-not-found.png)
-
-Select one of these options:  
-
-- To add Arm Debugger to your environment, click **Install Arm Debugger**. The `vcpkg-configuration.json` file is updated.
-
-- To indicate the path to the Arm Debugger engine from the settings, click **Configure Path**.
