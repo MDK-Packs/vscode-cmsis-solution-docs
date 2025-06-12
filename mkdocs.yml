@@ -1,4 +1,4 @@
-site_name: CMSIS Solution for VS Code
+site_name: Arm Keil Studio for VS Code
 repo_name: GitHub
 repo_url: https://github.com/MDK-Packs/vscode-cmsis-solution-docs
 edit_uri: edit/main/docs/

@@ -4,16 +4,17 @@ This chapter explains how to create a CMSIS solution-based application.
 
 ## Create a new solution
 
-In the **CMSIS** view, click **Create a New Solution** to open the **Create Solution** view.
+In the ![CMSIS view](./images/CMSISView.png) **CMSIS** view, click **Create a New Solution** to open the
+**Create Solution** view.
 
 !!! Note
-    If you already have a solution opened in your workspace and want to create a new one in the same workspace, move your
-    cursor over the three dots **...** in the **CMSIS** view, then click **Create a Solution**.
+    If you already have a solution opened in your workspace and want to create a new one in the same workspace, move
+    your cursor over the three dots **...** in the **CMSIS** view, then click **Create a Solution**.
 
-Click the **Target Board** drop-down list. Enter a search term, and then select a board. The details of the board that you
-selected display.
+Click the **Target Board (Optional)** drop-down list. Enter a search term (here: "mcx"), and then select a board.
+The details of the board that you selected display.
 
-![Picker](./images/hardware-picker.png)
+![Hardware Picker](./images/hardware-picker.png)
 
 Click **Select**. By default, the **Target Device** drop-down list shows the name of the device mounted on the board that you selected.
 
@@ -23,6 +24,8 @@ Click **Select**. By default, the **Target Device** drop-down list shows the nam
 ## Select a template, a reference application, or an example
 
 Select one of the following options from the drop-down list. The options available depend on the board or device selected previously. If there are too many examples, enter a search term and then select an example.
+
+![Project Picker](./images/project-picker.png)
 
 ### Templates
 
@@ -55,31 +58,24 @@ CMSIS solution examples are targeted at a specific board or Fixed Virtual Platfo
 
 Use a µVision example in `*.uvprojx` format as a starting point. µVision examples are converted automatically.
 
-## Project name
+## Configure the solution
 
-After you have selected your solution template, specify a **Project Name**.
+Depending on the example/template application you have chose, you might be presented with a view that allows you to
+select a compiler toolchain and/or one or more software layers.
 
-If you selected **Blank solution** or **TrustZone solution**, one project for each processor is automatically added (for TrustZone, a `secure` and a `non-secure` project are added for each processor). You can:
+Refer to [configure a solution](./configuration.md#configure-a-solution) for more information.
 
-- Change the project names
+## Specify solution folders
 
-- Remove projects
+Before creating the project, the solution's folder name and location need to be set up.
 
-- Decide to add `secure` or `non-secure` zones with the TrustZone drop-down list if the board or device is compatible. By
-  default, TrustZone is `off`.
+![Project name and folder setup](./images/create-new-solution-picker.png)
 
-Click **Add Project** to add projects to your solution and configure them. For TrustZone, you can add as many `secure` or
-`non-secure` projects as you need for a particular processor.
+### Solution Sub Folder
 
-## Solution name
+After you have selected your solution template, specify a **Solution Sub Folder** where the solution files are stored.
 
-If you selected **Blank solution** or **TrustZone solution**, you can change the name for your solution in the **Solution Name** field. This information is used as the `<solution_name>.csolution.yml` file name.
-
-## Solution subfolder
-
-In the **Solution Sub Folder** field, you can change the name of the subfolder where the solution files are stored.
-
-## Solution base folder
+### Solution base folder
 
 - Click **Browse** next to the **Solution Base Folder** field and choose where to store the solution subfolder using the system
   dialog box.
@@ -87,30 +83,31 @@ In the **Solution Sub Folder** field, you can change the name of the subfolder w
 - With the **Initialize Git repository** checkbox, you can initialize the solution as a Git repository. Clear the checkbox
   if you do not want to turn your solution into a Git repository.
 
-- Select the **Show project opening options** checkbox to decide where to open the solution.
+- Select the **Show project opening options** checkbox to decide how to open the solution (in the same window, a new
+  window, added to the current workspace).
 
 - Click **Create**.
 
 The extension creates the solution and automatically converts examples that are available only in `*.uvprojx` format. Check the **Output** tab. If there are any conversion errors and warnings, they display in the **CMSIS Solution** category. You can also check the `uv2csolution.log` file.
 
-Missing CMSIS-Packs are installed automatically.
-
 The following files are created for the solution:
 
-- A `<solution_name>.csolution.yml` file
-
-- One or more `<project_name>.cproject.yml` files, each available in a separate folder
-
-- For reference applications only, each `cproject.yml` file contains a `$Board-Layer$` variable
-
-- For reference applications with sensor shields, each `cproject.yml` file contains a `$Shield-Layer$` variable
-
-- For reference applications with a socket layer, each `cproject.yml` file contains a `$Socket-Layer$` variable. These
-  variables are not yet defined.
-
-- A main `<filename>.c` template file for each project
-
-- A `vcpkg-configuration.json` file to download required tools automatically
+- A `<solution_name>.csolution.yml` file.
+- One or more `<project_name>.cproject.yml` files, each available in a separate folder.
+    - For reference applications only, each `cproject.yml` file contains a `$Board-Layer$` variable.
+    - For reference applications with sensor shields, each `cproject.yml` file contains a `$Shield-Layer$` variable.
+    - For reference applications with a socket layer, each `cproject.yml` file contains a `$Socket-Layer$` variable. These
+      variables are not yet defined.
+- A `cdefault.yml` file containing default toolchain setting for the selected toolchain.
+- A `<solution_name>.cbuild-idx.yml` file which contains overall information for the application.
+- A `<solution_name>.cbuild-pack.yml` file listing all the packs that are used by the application. Missing CMSIS-Packs
+  are installed automatically.
+- A `<solution_name>.cbuild-set.yml` file which specifies the context set of projects, target-types, and build-types
+  that are used to generate the application image
+- A `<solution_name>+<target_name>.cbuild-run.yml` file which contains a build description of a single `cproject.yml`
+  input file for each context.
+- A main `<filename>.c` template file for each project.
+- A `vcpkg-configuration.json` file to download required tools automatically.
 
 !!! CAUTION
     If you see this warning:

@@ -165,3 +165,44 @@ Placeholder       | Description
 `ports`        | From `*.cbuild-run.yml`: value list of [`gdbserver:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#gdbserver)
 
 The usage of these placeholders is exemplified with the [template files in the Debug Adapter Registry](https://github.com/Open-CMSIS-Pack/debug-adapter-registry/tree/main/templates).
+
+### Enhancing the Debug Experience
+
+To ensure the best debug experience with Arm Compiler for Embedded, make sure that your CMSIS solution files contain
+the following.
+
+#### csolution.yml
+
+In the `*.csolution.yml` file, insert the following block in `- target-types\- type` section:
+  
+```yml
+      target-set:
+        - set: 
+          debugger:
+            name: # set to name of your debug adapter
+```
+
+Insert the following before the `- projects` section:
+
+```yml
+  misc:
+   - for-compiler: AC6
+     C-CPP:
+       - -gdwarf-5
+     ASM:
+       - -gdwarf-5
+     Link:
+       - --entry=Reset_Handler
+```
+
+#### cproject.yml
+
+In the `*.cproject.yml` file, add at the end:
+
+```yml
+  output:
+    type:
+     - elf
+     - hex
+     - map
+```
