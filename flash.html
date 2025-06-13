@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Load and Run - CMSIS Solution for VS Code</title>
+    <title>Load and Run - Arm Keil Studio for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="index.html" class="icon icon-home"> CMSIS Solution for VS Code
+          <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -101,7 +101,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">CMSIS Solution for VS Code</a>
+          <a href="index.html">Arm Keil Studio for VS Code</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -119,17 +119,14 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="load-and-run">Load and Run</h1>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>Make sure that your project is set up correctly for <a href="configuration.html#configure-run-and-debug">run and debug</a>.</p>
-</div>
 <p>Make sure that your target is connected, before loading the application onto it. You can use <code>pyOCD</code> to verify target
 connectivity.</p>
 <ol>
 <li>Open a <strong>Terminal</strong>, and enter <code>pyOCD list</code> to check attached hardware:
    <img alt="Check connected hardware with pyOCD" src="images/pyOCDlist.png" /></li>
-<li>In the <strong>Solution</strong> outline header, click <img alt="Run icon" src="images/run-icon.png" />. This executes the "load and run"
-   command that flashes the project onto the target and issues a reset to start the application.</li>
+<li>In the <strong>CMSIS</strong> view's <strong>Solution</strong> outline header, click <img alt="Run icon" src="images/run-icon.png" />. This executes the
+   "Load &amp; Run application" command that flashes the project onto the target and issues a reset to start the
+   application.</li>
 <li>To verify that the step has run correctly, check the <strong>Terminal</strong> output:
    <img alt="Flash download output" src="images/flash-dwnl-output.png" /></li>
 </ol>
@@ -138,9 +135,11 @@ connectivity.</p>
 <ul>
 <li>When you have several solutions in one folder, VS Code ignores the <code>tasks.json</code> and <code>launch.json</code> files that
 you created for each solution. Instead, VS Code generates new JSON files at the root of the workspace in a
-<code>.vscode</code> folder and ignores the other JSON files. As a workaround, open one solution first, then add other solutions to your workspace with the <strong>File</strong> &gt; <strong>Add Folder to Workspace</strong> option.</li>
-<li>If you are using a multicore device and you did not specify a <code>"processorName"</code> in the <code>launch.json</code> file, select the
-  appropriate processor for your project in the <strong>Select a processor</strong> drop-down list at the top of the window.</li>
+<code>.vscode</code> folder and ignores the other JSON files. As a workaround, open one solution first, then add other
+solutions to your workspace with the <strong>File</strong> &gt; <strong>Add Folder to Workspace</strong> option.</li>
+<li>If you are using a multi-core device and you did not specify a <code>"processorName"</code> in the <code>launch.json</code> file,
+  select the appropriate processor for your project in the <strong>Select a processor</strong> drop-down list at the top of the
+  window.</li>
 </ul>
 </div>
               

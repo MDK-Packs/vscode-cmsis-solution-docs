@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Manage Solution Settings - CMSIS Solution for VS Code</title>
+    <title>Manage Solution Settings - Arm Keil Studio for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="index.html" class="icon icon-home"> CMSIS Solution for VS Code
+          <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -63,11 +63,9 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Manage Solution Settings</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#active-target">Active target</a>
+    <li class="toctree-l2"><a class="reference internal" href="#active-target">Active Target</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#active-projects">Active projects</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#run-and-debug">Run and debug</a>
+    <li class="toctree-l2"><a class="reference internal" href="#active-projects">Active Projects</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#errors-and-warnings">Errors and warnings</a>
     </li>
@@ -109,7 +107,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">CMSIS Solution for VS Code</a>
+          <a href="index.html">Arm Keil Studio for VS Code</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -127,19 +125,17 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="manage-solution-settings">Manage Solution Settings</h1>
-<p>In the <strong>Manage Solution</strong> view, you can set the context of your solution. The context set selects the target and
-defines the projects and build types that are included in the application image.</p>
-<p>In the <strong>Solution outline</strong>, click <strong>Manage Solution Settings</strong> <img alt="Cogwheel icon" src="images/cogwheel-icon.png" />. The
-<strong>Manage Solutions</strong> view opens:</p>
+<p>In the <strong>Manage Solution</strong> view, you can select the target, projects, and build types that are included in the application image. This is called <strong>Context Set</strong>.</p>
+<p>In the <strong>CMSIS view's Solution outline</strong>, click <strong>Manage Solution Settings</strong>
+<img alt="Cogwheel icon" src="images/cogwheel-icon.png" />. The <strong>Manage Solutions</strong> view opens:</p>
 <p><img alt="Manage Solution view" src="images/manage-solution-view.png" /></p>
 <p>You can change the <a href="#active-target">active target</a> type, and the <a href="#active-projects">active projects</a> included in the
-build. You can also change the build type of a project, or the run and debug configurations, or you can add new
-configurations.</p>
-<h2 id="active-target">Active target</h2>
+build, as well as the build type of a project.</p>
+<h2 id="active-target">Active Target</h2>
 <p>Select a <strong>Target Type</strong> to specify the hardware used to build the solution. Some examples are also compatible with Arm
 Virtual Hardware (AVH) targets, in which case more options are available. For more details, read the <a href="https://arm-software.github.io/AVH/main/overview/html/index.html">AVH solutions overview</a>.</p>
 <p>To specify your target types by editing the YAML file directly, click <strong>Edit targets, build-types and project references in csolution.yml</strong>.</p>
-<h2 id="active-projects">Active projects</h2>
+<h2 id="active-projects">Active Projects</h2>
 <p>This section shows the projects that are part of the solution. Use the checkboxes to add or remove projects from the context set. The <strong>Project Name</strong> displays and cannot be changed.</p>
 <p>Select a <strong>Build Type</strong> for each project. You can set different build types for different projects in your solution.</p>
 <p>Click <strong>Edit cproject.yml</strong> next to a project to open the <code>&lt;project-name&gt;.cproject.yml</code> file. YAML syntax support helps you
@@ -150,11 +146,6 @@ with editing.</p>
 unavailable if they have been excluded for the target selected. To learn more about contexts and how to modify them, see the <a href="https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/YML-Input-Format.md#context">Context</a> and
 <a href="https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/YML-Input-Format.md#conditional-build">Conditional build</a> information in the CMSIS-Toolbox documentation. For example, you can use <code>for-context</code> and <code>not-for-context</code> to include or exclude target types at the <code>project:</code> level in the <code>*.csolution.yml</code> file.</p>
 </div>
-<h2 id="run-and-debug">Run and debug</h2>
-<p>Choose a run configuration and a debug configuration to use for your solution. You can select different run and debug configurations for each project included in the solution.</p>
-<p>You can also move your mouse over an entry in the list and click the pen icon to edit an existing configuration with a visual editor:</p>
-<p><img alt="Edit configuration" src="images/run-debug-edit-config.png" /></p>
-<p>Click <strong>+ Add new</strong> to add a new configuration.</p>
 <h2 id="errors-and-warnings">Errors and warnings</h2>
 <p>You can inspect errors and warnings for a context set. For active projects in the context set, errors and warnings
 display when you move your cursor over the <strong>Context Set</strong> in the status bar. The indicator is red for errors and yellow

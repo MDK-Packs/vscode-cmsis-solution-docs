@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Create New Solution - CMSIS Solution for VS Code</title>
+    <title>Create New Solution - Arm Keil Studio for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="index.html" class="icon icon-home"> CMSIS Solution for VS Code
+          <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -69,13 +69,15 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#project-name">Project name</a>
+    <li class="toctree-l2"><a class="reference internal" href="#configure-the-solution">Configure the solution</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#solution-name">Solution name</a>
+    <li class="toctree-l2"><a class="reference internal" href="#specify-solution-folders">Specify solution folders</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#solution-sub-folder">Solution Sub Folder</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#solution-subfolder">Solution subfolder</a>
+    <li class="toctree-l3"><a class="reference internal" href="#solution-base-folder">Solution base folder</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#solution-base-folder">Solution base folder</a>
+        </ul>
     </li>
     </ul>
                 </li>
@@ -123,7 +125,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">CMSIS Solution for VS Code</a>
+          <a href="index.html">Arm Keil Studio for VS Code</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -143,15 +145,16 @@
                 <h1 id="create-an-embedded-project">Create an embedded project</h1>
 <p>This chapter explains how to create a CMSIS solution-based application.</p>
 <h2 id="create-a-new-solution">Create a new solution</h2>
-<p>In the <strong>CMSIS</strong> view, click <strong>Create a New Solution</strong> to open the <strong>Create Solution</strong> view.</p>
+<p>In the <img alt="CMSIS view" src="images/CMSISView.png" /> <strong>CMSIS</strong> view, click <strong>Create a New Solution</strong> to open the
+<strong>Create Solution</strong> view.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you already have a solution opened in your workspace and want to create a new one in the same workspace, move your
-cursor over the three dots <strong>...</strong> in the <strong>CMSIS</strong> view, then click <strong>Create a Solution</strong>.</p>
+<p>If you already have a solution opened in your workspace and want to create a new one in the same workspace, move
+your cursor over the three dots <strong>...</strong> in the <strong>CMSIS</strong> view, then click <strong>Create a Solution</strong>.</p>
 </div>
-<p>Click the <strong>Target Board</strong> drop-down list. Enter a search term, and then select a board. The details of the board that you
-selected display.</p>
-<p><img alt="Picker" src="images/hardware-picker.png" /></p>
+<p>Click the <strong>Target Board (Optional)</strong> drop-down list. Enter a search term (here: "mcx"), and then select a board.
+The details of the board that you selected display.</p>
+<p><img alt="Hardware Picker" src="images/hardware-picker.png" /></p>
 <p>Click <strong>Select</strong>. By default, the <strong>Target Device</strong> drop-down list shows the name of the device mounted on the board that you selected.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -159,6 +162,7 @@ selected display.</p>
 </div>
 <h2 id="select-a-template-a-reference-application-or-an-example">Select a template, a reference application, or an example</h2>
 <p>Select one of the following options from the drop-down list. The options available depend on the board or device selected previously. If there are too many examples, enter a search term and then select an example.</p>
+<p><img alt="Project Picker" src="images/project-picker.png" /></p>
 <h3 id="templates">Templates</h3>
 <p>Templates help you to get started without application-specific code.</p>
 <ul>
@@ -183,28 +187,16 @@ additional software layers that provide driver APIs for specific target hardware
 <p>CMSIS solution examples are targeted at a specific board or Fixed Virtual Platform (FVP) model. The examples are fully configured and ready for use.</p>
 <h3 id="vision-examples">µVision examples</h3>
 <p>Use a µVision example in <code>*.uvprojx</code> format as a starting point. µVision examples are converted automatically.</p>
-<h2 id="project-name">Project name</h2>
-<p>After you have selected your solution template, specify a <strong>Project Name</strong>.</p>
-<p>If you selected <strong>Blank solution</strong> or <strong>TrustZone solution</strong>, one project for each processor is automatically added (for TrustZone, a <code>secure</code> and a <code>non-secure</code> project are added for each processor). You can:</p>
-<ul>
-<li>
-<p>Change the project names</p>
-</li>
-<li>
-<p>Remove projects</p>
-</li>
-<li>
-<p>Decide to add <code>secure</code> or <code>non-secure</code> zones with the TrustZone drop-down list if the board or device is compatible. By
-  default, TrustZone is <code>off</code>.</p>
-</li>
-</ul>
-<p>Click <strong>Add Project</strong> to add projects to your solution and configure them. For TrustZone, you can add as many <code>secure</code> or
-<code>non-secure</code> projects as you need for a particular processor.</p>
-<h2 id="solution-name">Solution name</h2>
-<p>If you selected <strong>Blank solution</strong> or <strong>TrustZone solution</strong>, you can change the name for your solution in the <strong>Solution Name</strong> field. This information is used as the <code>&lt;solution_name&gt;.csolution.yml</code> file name.</p>
-<h2 id="solution-subfolder">Solution subfolder</h2>
-<p>In the <strong>Solution Sub Folder</strong> field, you can change the name of the subfolder where the solution files are stored.</p>
-<h2 id="solution-base-folder">Solution base folder</h2>
+<h2 id="configure-the-solution">Configure the solution</h2>
+<p>Depending on the example/template application you have chose, you might be presented with a view that allows you to
+select a compiler toolchain and/or one or more software layers.</p>
+<p>Refer to <a href="configuration.html#configure-a-solution">configure a solution</a> for more information.</p>
+<h2 id="specify-solution-folders">Specify solution folders</h2>
+<p>Before creating the project, the solution's folder name and location need to be set up.</p>
+<p><img alt="Project name and folder setup" src="images/create-new-solution-picker.png" /></p>
+<h3 id="solution-sub-folder">Solution Sub Folder</h3>
+<p>After you have selected your solution template, specify a <strong>Solution Sub Folder</strong> where the solution files are stored.</p>
+<h3 id="solution-base-folder">Solution base folder</h3>
 <ul>
 <li>
 <p>Click <strong>Browse</strong> next to the <strong>Solution Base Folder</strong> field and choose where to store the solution subfolder using the system
@@ -215,38 +207,34 @@ additional software layers that provide driver APIs for specific target hardware
   if you do not want to turn your solution into a Git repository.</p>
 </li>
 <li>
-<p>Select the <strong>Show project opening options</strong> checkbox to decide where to open the solution.</p>
+<p>Select the <strong>Show project opening options</strong> checkbox to decide how to open the solution (in the same window, a new
+  window, added to the current workspace).</p>
 </li>
 <li>
 <p>Click <strong>Create</strong>.</p>
 </li>
 </ul>
 <p>The extension creates the solution and automatically converts examples that are available only in <code>*.uvprojx</code> format. Check the <strong>Output</strong> tab. If there are any conversion errors and warnings, they display in the <strong>CMSIS Solution</strong> category. You can also check the <code>uv2csolution.log</code> file.</p>
-<p>Missing CMSIS-Packs are installed automatically.</p>
 <p>The following files are created for the solution:</p>
 <ul>
-<li>
-<p>A <code>&lt;solution_name&gt;.csolution.yml</code> file</p>
+<li>A <code>&lt;solution_name&gt;.csolution.yml</code> file.</li>
+<li>One or more <code>&lt;project_name&gt;.cproject.yml</code> files, each available in a separate folder.<ul>
+<li>For reference applications only, each <code>cproject.yml</code> file contains a <code>$Board-Layer$</code> variable.</li>
+<li>For reference applications with sensor shields, each <code>cproject.yml</code> file contains a <code>$Shield-Layer$</code> variable.</li>
+<li>For reference applications with a socket layer, each <code>cproject.yml</code> file contains a <code>$Socket-Layer$</code> variable. These
+  variables are not yet defined.</li>
+</ul>
 </li>
-<li>
-<p>One or more <code>&lt;project_name&gt;.cproject.yml</code> files, each available in a separate folder</p>
-</li>
-<li>
-<p>For reference applications only, each <code>cproject.yml</code> file contains a <code>$Board-Layer$</code> variable</p>
-</li>
-<li>
-<p>For reference applications with sensor shields, each <code>cproject.yml</code> file contains a <code>$Shield-Layer$</code> variable</p>
-</li>
-<li>
-<p>For reference applications with a socket layer, each <code>cproject.yml</code> file contains a <code>$Socket-Layer$</code> variable. These
-  variables are not yet defined.</p>
-</li>
-<li>
-<p>A main <code>&lt;filename&gt;.c</code> template file for each project</p>
-</li>
-<li>
-<p>A <code>vcpkg-configuration.json</code> file to download required tools automatically</p>
-</li>
+<li>A <code>cdefault.yml</code> file containing default toolchain setting for the selected toolchain.</li>
+<li>A <code>&lt;solution_name&gt;.cbuild-idx.yml</code> file which contains overall information for the application.</li>
+<li>A <code>&lt;solution_name&gt;.cbuild-pack.yml</code> file listing all the packs that are used by the application. Missing CMSIS-Packs
+  are installed automatically.</li>
+<li>A <code>&lt;solution_name&gt;.cbuild-set.yml</code> file which specifies the context set of projects, target-types, and build-types
+  that are used to generate the application image</li>
+<li>A <code>&lt;solution_name&gt;+&lt;target_name&gt;.cbuild-run.yml</code> file which contains a build description of a single <code>cproject.yml</code>
+  input file for each context.</li>
+<li>A main <code>&lt;filename&gt;.c</code> template file for each project.</li>
+<li>A <code>vcpkg-configuration.json</code> file to download required tools automatically.</li>
 </ul>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>

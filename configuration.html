@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Configuration - CMSIS Solution for VS Code</title>
+    <title>Configuration - Arm Keil Studio for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="index.html" class="icon icon-home"> CMSIS Solution for VS Code
+          <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -93,6 +93,14 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#template-files">Template Files</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#enhancing-the-debug-experience">Enhancing the Debug Experience</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#csolutionyml">csolution.yml</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cprojectyml">cproject.yml</a>
+    </li>
+        </ul>
+    </li>
         </ul>
     </li>
     </ul>
@@ -117,7 +125,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">CMSIS Solution for VS Code</a>
+          <a href="index.html">Arm Keil Studio for VS Code</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -342,6 +350,34 @@ run and debug features of VS Code.</p>
 </tbody>
 </table>
 <p>The usage of these placeholders is exemplified with the <a href="https://github.com/Open-CMSIS-Pack/debug-adapter-registry/tree/main/templates">template files in the Debug Adapter Registry</a>.</p>
+<h3 id="enhancing-the-debug-experience">Enhancing the Debug Experience</h3>
+<p>To ensure the best debug experience with Arm Compiler for Embedded, make sure that your CMSIS solution files contain
+the following.</p>
+<h4 id="csolutionyml">csolution.yml</h4>
+<p>In the <code>*.csolution.yml</code> file, insert the following block in <code>- target-types\- type</code> section:</p>
+<pre><code class="language-yml">      target-set:
+        - set: 
+          debugger:
+            name: # set to name of your debug adapter
+</code></pre>
+<p>Insert the following before the <code>- projects</code> section:</p>
+<pre><code class="language-yml">  misc:
+   - for-compiler: AC6
+     C-CPP:
+       - -gdwarf-5
+     ASM:
+       - -gdwarf-5
+     Link:
+       - --entry=Reset_Handler
+</code></pre>
+<h4 id="cprojectyml">cproject.yml</h4>
+<p>In the <code>*.cproject.yml</code> file, add at the end:</p>
+<pre><code class="language-yml">  output:
+    type:
+     - elf
+     - hex
+     - map
+</code></pre>
               
             </div>
           </div><footer>

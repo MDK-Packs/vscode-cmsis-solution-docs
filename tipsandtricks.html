@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Tips and Tricks - CMSIS Solution for VS Code</title>
+    <title>Tips and Tricks - Arm Keil Studio for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="index.html" class="icon icon-home"> CMSIS Solution for VS Code
+          <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -95,14 +95,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#set-current-solution-in-workspace">Set current solution in workspace</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#enhancing-the-debug-experience">Enhancing the Debug Experience</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#csolutionyml">csolution.yml</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#cprojectyml">cproject.yml</a>
-    </li>
-        </ul>
-    </li>
     </ul>
                 </li>
               </ul>
@@ -113,7 +105,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">CMSIS Solution for VS Code</a>
+          <a href="index.html">Arm Keil Studio for VS Code</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -133,42 +125,14 @@
                 <h1 id="tips-and-tricks">Tips and tricks</h1>
 <p>This chapter contains useful information to help you solve specific issues.</p>
 <h2 id="initialize-your-solution">Initialize your solution</h2>
-<p>Examples from <a href="https://keil.arm.com">keil.arm.com</a> or solutions you <a href="create_app.html">create from scratch</a> from the
-<strong>Create Solution</strong> view are already initialized and contain all the required files.</p>
+<p>Solutions you <a href="create_app.html">create from scratch</a> from the <strong>Create Solution</strong> view are already initialized and
+contain all the required files.</p>
 <p>If your solution does not contain the <code>vcpkg-configuration.json</code>, <code>tasks.json</code>, and <code>launch.json</code> files, right-click
 anywhere in the workspace and select <strong>Initialize CMSIS project</strong>. The extension generates preconfigured files
 that are ready to use.</p>
 <h2 id="set-current-solution-in-workspace">Set current solution in workspace</h2>
 <p>To activate a solution in the <strong>Solution</strong> outline view, use the <strong>Select Active Solution from workspace</strong> option in
 <strong>Views and More Actions</strong> <img alt="Views and More Actions icon" src="images/more-actions-icon.png" />.</p>
-<h2 id="enhancing-the-debug-experience">Enhancing the Debug Experience</h2>
-<p>To ensure the best debug experience with Arm Compiler for Embedded, make sure that your CMSIS solution files contain
-the following.</p>
-<h3 id="csolutionyml">csolution.yml</h3>
-<p>In the <code>*.csolution.yml</code> file, insert the following block in <code>- target-types\- type</code> section:</p>
-<pre><code class="language-yml">      target-set:
-        - set: 
-          debugger:
-            name: # set to name of your debug adapter
-</code></pre>
-<p>Insert the following before the <code>- projects</code> section:</p>
-<pre><code class="language-yml">  misc:
-   - for-compiler: AC6
-     C-CPP:
-       - -gdwarf-5
-     ASM:
-       - -gdwarf-5
-     Link:
-       - --entry=Reset_Handler
-</code></pre>
-<h3 id="cprojectyml">cproject.yml</h3>
-<p>In the <code>*.cproject.yml</code> file, add at the end:</p>
-<pre><code class="language-yml">  output:
-    type:
-     - elf
-     - hex
-     - map
-</code></pre>
               
             </div>
           </div><footer>
