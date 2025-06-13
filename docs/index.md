@@ -1,15 +1,16 @@
-# CMSIS Solution extension
+# Arm Keil Studio
 
-The **CMSIS Solution** extension available for VS Code allows to create projects and build embedded applications that
-use [CMSIS-Packs](https://www.keil.arm.com/packs/). 
-It is a user interface for the [CMSIS-Toolbox](https://open-cmsis-pack.github.io/cmsis-toolbox/) that supports various compilation tools including Arm Compiler 6, GCC, IAR, and LLVM.
+**Arm Keil Studio for VS Code** allows to create projects and build embedded applications that use
+[CMSIS-Packs](https://www.keil.arm.com/packs/). It is a user interface for the
+[CMSIS-Toolbox](https://open-cmsis-pack.github.io/cmsis-toolbox/) that supports various compilation tools including Arm
+Compiler 6, GCC, IAR, and LLVM.
 
 ## Contents
 
-- [**Installation**](installation.md) explains how to install the CMSIS Solution extension along with a build
+- [**Installation**](installation.md) explains how to install Keil Studio along with a build
   environment for embedded applications that are based on Arm Cortex-M processors.
 
-- [**User interface**](userinterface.md) shows the main features available in the CMSIS Solution extension GUI.
+- [**User interface**](userinterface.md) shows the main features available in the GUI.
 
 - [**Create an embedded project**](create_app.md) explains how to start a project from scratch.
 

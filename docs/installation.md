@@ -3,8 +3,7 @@
 <!-- markdownlint-disable MD036 -->
 
 The [**Arm Keil Studio Pack (MDK v6)**](https://marketplace.visualstudio.com/items?itemName=Arm.keil-studio-pack)
-extension pack includes the CMSIS Solution extension and other extensions that you can use to work with CMSIS solution
-projects.
+extension pack includes the extensions that are required to work with CMSIS solution projects.
 
 1. In VS Code, open the **Extensions** view and type `Keil Studio Pack` in the search bar.
 
@@ -12,7 +11,7 @@ projects.
    activity bar.
 
 You can [create your first application](./create_app.md) or
-[verify the installation with an example projecy](#verify-the-installation) and then check that you can build, run, and
+[verify the installation with an example project](#verify-the-installation) and then check that you can build, run, and
 debug the application.
 
 !!!Note
@@ -22,8 +21,8 @@ debug the application.
 
 ## Verify the installation
 
-The [CMSIS boards list](https://www.keil.arm.com/boards/) contains many examples that you can use to verify that the
-extension works correctly.
+The [CMSIS boards list](https://www.keil.arm.com/boards/) contains many examples that you can use to verify that Keil
+Studio works correctly.
 
 The following example explains how to start from a Blinky project for the
 [STMicroelectronics NUCLEO-F756ZG](https://www.keil.arm.com/boards/stmicroelectronics-nucleo-f756zg-revb-2251244)

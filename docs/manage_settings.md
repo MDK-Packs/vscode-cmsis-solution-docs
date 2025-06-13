@@ -1,25 +1,23 @@
 # Manage Solution Settings
 
-In the **Manage Solution** view, you can set the context of your solution. The context set selects the target and
-defines the projects and build types that are included in the application image.
+In the **Manage Solution** view, you can select the target, projects, and build types that are included in the application image. This is called **Context Set**.
 
-In the **Solution outline**, click **Manage Solution Settings** ![Cogwheel icon](./images/cogwheel-icon.png). The
-**Manage Solutions** view opens:
+In the **CMSIS view's Solution outline**, click **Manage Solution Settings**
+![Cogwheel icon](./images/cogwheel-icon.png). The **Manage Solutions** view opens:
 
 ![Manage Solution view](./images/manage-solution-view.png)
 
 You can change the [active target](#active-target) type, and the [active projects](#active-projects) included in the
-build. You can also change the build type of a project, or the run and debug configurations, or you can add new
-configurations.
+build, as well as the build type of a project.
 
-## Active target
+## Active Target
 
 Select a **Target Type** to specify the hardware used to build the solution. Some examples are also compatible with Arm
 Virtual Hardware (AVH) targets, in which case more options are available. For more details, read the [AVH solutions overview](https://arm-software.github.io/AVH/main/overview/html/index.html).
 
 To specify your target types by editing the YAML file directly, click **Edit targets, build-types and project references in csolution.yml**.
 
-## Active projects
+## Active Projects
 
 This section shows the projects that are part of the solution. Use the checkboxes to add or remove projects from the context set. The **Project Name** displays and cannot be changed.
 
@@ -32,16 +30,6 @@ with editing.
     The projects and build types that you can select are defined by contexts for a particular target. Some options might be
     unavailable if they have been excluded for the target selected. To learn more about contexts and how to modify them, see the [Context](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/YML-Input-Format.md#context) and
     [Conditional build](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/YML-Input-Format.md#conditional-build) information in the CMSIS-Toolbox documentation. For example, you can use `for-context` and `not-for-context` to include or exclude target types at the `project:` level in the `*.csolution.yml` file.
-
-## Run and debug
-
-Choose a run configuration and a debug configuration to use for your solution. You can select different run and debug configurations for each project included in the solution.
-
-You can also move your mouse over an entry in the list and click the pen icon to edit an existing configuration with a visual editor:
-
-![Edit configuration](./images/run-debug-edit-config.png)
-
-Click **+ Add new** to add a new configuration.
 
 ## Errors and warnings
 
