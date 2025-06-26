@@ -55,27 +55,23 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Create New Solution</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#create-a-new-solution">Create a new solution</a>
+    <li class="toctree-l2"><a class="reference internal" href="#work-with-examples">Work with examples</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#select-a-template-a-reference-application-or-an-example">Select a template, a reference application, or an example</a>
+    <li class="toctree-l2"><a class="reference internal" href="#work-with-reference-applications">Work with reference applications</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#work-with-templates">Work with templates</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#project-contents">Project contents</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#build">Build</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#templates">Templates</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#reference-applications">Reference applications</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#csolution-examples">Csolution examples</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#vision-examples">µVision examples</a>
+    <li class="toctree-l3"><a class="reference internal" href="#build-output">Build output</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#configure-the-solution">Configure the solution</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#specify-solution-folders">Specify solution folders</a>
+    <li class="toctree-l2"><a class="reference internal" href="#load-and-run">Load and Run</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#solution-sub-folder">Solution Sub Folder</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#solution-base-folder">Solution base folder</a>
+    <li class="toctree-l3"><a class="reference internal" href="#monitoring-printf-messages">Monitoring printf messages</a>
     </li>
         </ul>
     </li>
@@ -83,19 +79,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Manage Software Components</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution Settings</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="build.html">Build</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="flash.html">Load and Run</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software Components</a>
                 </li>
               </ul>
               <ul>
@@ -142,28 +130,70 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="create-an-embedded-project">Create an embedded project</h1>
-<p>This chapter explains how to create a CMSIS solution-based application.</p>
-<h2 id="create-a-new-solution">Create a new solution</h2>
-<p>In the <img alt="CMSIS view" src="images/CMSISView.png" /> <strong>CMSIS</strong> view, click <strong>Create a New Solution</strong> to open the
-<strong>Create Solution</strong> view.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you already have a solution opened in your workspace and want to create a new one in the same workspace, move
-your cursor over the three dots <strong>...</strong> in the <strong>CMSIS</strong> view, then click <strong>Create a Solution</strong>.</p>
-</div>
-<p>Click the <strong>Target Board (Optional)</strong> drop-down list. Enter a search term (here: "mcx"), and then select a board.
-The details of the board that you selected display.</p>
+                <h1 id="create-new-solution">Create new solution</h1>
+<p>This section explains how to create a <em>CMSIS solution-based project</em> that is using CMSIS-Packs.</p>
+<p>In the <img alt="CMSIS view" src="images/CMSISView.png" /> <strong>CMSIS</strong> view, click <strong>Create a New Solution</strong>. If you already have a
+solution opened, use the menu (<strong>...</strong>) item <strong>Create a Solution</strong>.</p>
+<p><img alt="Create New Solution" src="images/CreateNewSolution.png" /></p>
+<p>The <strong>Create new solution</strong> dialog allows to start projects based on a <strong>Target Board</strong> or <strong>Target Device</strong> selection.</p>
+<p>Examples, templates, and reference applications depend on the selected board or device and on installed CMSIS-Packs.</p>
+<ul>
+<li><strong>Examples</strong> are created for a specific hardware or evaluation board. These are typically complete projects that
+  directly interface with board and device peripherals.</li>
+<li><strong>Reference Applications</strong> use defined interfaces (APIs) and are therefore hardware agnostic. These projects require
+  the installation of related CMSIS-Packs and additional software layers for an evaluation board.</li>
+<li><strong>Templates</strong> are stub projects that help you getting started. Some CMSIS-Packs may contain device-specific
+  templates.</li>
+</ul>
+<p>The <strong>Solution Sub Folder</strong> is typically a sub-directory in your workspace.</p>
+<p>The <strong>Solution Base Folder</strong> specifies your workspace location that may contain multiple projects.</p>
+<p>With <strong>Initialize Git repository</strong> the related <code>.gitignore</code> file is created.</p>
+<p><strong>Show project opening options</strong> allows you to open the spolution a new instance of VS Code. By default, the solution
+is loaded into the current VS Code instance.</p>
+<h2 id="work-with-examples">Work with examples</h2>
+<p>Click the <strong>Target Board (Optional)</strong> drop-down list. Enter a search term (here: "U5"), and then select a board
+(here: "B-U585-IOT02A"). The details of the selected board are displayed.</p>
 <p><img alt="Hardware Picker" src="images/hardware-picker.png" /></p>
-<p>Click <strong>Select</strong>. By default, the <strong>Target Device</strong> drop-down list shows the name of the device mounted on the board that you selected.</p>
+<p>Click <strong>Select</strong>.</p>
+<p>Next, select the example project. There are two types of example projects:</p>
+<ul>
+<li>
+<p><strong>Csolution Examples</strong> are using Keil Studio's native project format.</p>
+</li>
+<li>
+<p><strong>uVision Examples</strong> are in <code>*.uvprojx</code> format and are converted automatically.</p>
+</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Alternatively, you can directly select a device in the <strong>Target Device</strong> drop-down list, without selecting a board first.</p>
+<p>You may see examples from <strong>Local</strong> packs and/or from the <strong>Web</strong>.</p>
 </div>
-<h2 id="select-a-template-a-reference-application-or-an-example">Select a template, a reference application, or an example</h2>
-<p>Select one of the following options from the drop-down list. The options available depend on the board or device selected previously. If there are too many examples, enter a search term and then select an example.</p>
-<p><img alt="Project Picker" src="images/project-picker.png" /></p>
-<h3 id="templates">Templates</h3>
+<p>To verify the Keil Studio installation, select a <strong>Blinky</strong> project for example.</p>
+<p>Specify a <strong>Solution Base Folder</strong> and click <strong>Create</strong>.</p>
+<p>Continue to <a href="#build">"build the project"</a>.</p>
+<h2 id="work-with-reference-applications">Work with reference applications</h2>
+<p><strong>Reference applications</strong> show the usage of middleware, software libraries, and custom code that can run on many
+different target hardware boards. Examples display only if you selected a board and a software layer is available for
+that board. Reference applications are not dependent on specific hardware. You can deploy them to various evaluation
+boards using additional software layers that provide driver APIs for specific target hardware. Layers are provided
+using CMSIS-Packs.</p>
+<p>Reference applications are available with these CMSIS-Packs:</p>
+<ul>
+<li>
+<p><a href="https://www.keil.arm.com/packs/mdk-middleware-keil/overview/">MDK-Middleware</a>: use software components for IPv4 and
+  IPv6 networking, USB Host and Device communication, and file system for data storage.</p>
+</li>
+<li>
+<p><a href="https://www.keil.arm.com/packs/sds-arm/overview/">SDS Framework</a>: record real-world data off a device and playing it
+  back on Arm Virtual Hardware.</p>
+</li>
+<li>
+<p><a href="https://www.keil.arm.com/packs/tensorflow-lite-micro-tensorflow/overview/">LiteRT</a>: demonstrates the fundamental
+  integration and usage of the LiteRT stack for ML inference on a microcontroller.</p>
+</li>
+</ul>
+<p>Once you have selected the reference application, continue to <a href="#build">"build the project"</a>.</p>
+<h2 id="work-with-templates">Work with templates</h2>
 <p>Templates help you to get started without application-specific code.</p>
 <ul>
 <li>
@@ -175,66 +205,49 @@ The details of the board that you selected display.</p>
   whether projects in the solution use secure or non-secure zones</p>
 </li>
 </ul>
-<h3 id="reference-applications">Reference applications</h3>
-<p><strong>Reference applications</strong> show the usage of middleware, software libraries, and custom code that can run on many different
-target hardware boards. Examples display only if you selected a board and a software layer is available for that board.
-Reference applications are not dependent on specific hardware. You can deploy them to various evaluation boards using
-additional software layers that provide driver APIs for specific target hardware. Layers are provided using CMSIS-Packs.</p>
-<p>Reference applications are available with the <a href="https://www.keil.arm.com/packs/mdk-middleware-keil/versions/">MDK-Middleware</a>. These examples show you how to use software components for IPv4 and IPv6 networking, USB Host and Device communication, and file system for data storage. See <a href="https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/ReferenceApplications.md#mdk-middleware-reference-applications">MDK Middleware Reference Applications</a> and the <a href="https://github.com/arm-software/MDK-Middleware">MDK-Middleware</a> repository and <a href="https://arm-software.github.io/MDK-Middleware/latest/General/index.html">documentation</a> for more details.</p>
-<p>Other reference applications that illustrate how to match sensor shields and boards are also available with the Sensor SDK pack. The examples use board and shield layers. See <a href="https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/ReferenceApplications.md#sensor-reference-applications">Sensor Reference Applications</a> and the <a href="https://github.com/open-cmsis-pack/Sensor-SDK-Example">Sensor-SDK-Example</a> repository for more details.</p>
-<p>Reference applications that use socket layers are also available. See the <a href="https://github.com/Arm-Examples/AWS_MQTT_Demo">AWS MQTT demo</a> as an example.</p>
-<h3 id="csolution-examples">Csolution examples</h3>
-<p>CMSIS solution examples are targeted at a specific board or Fixed Virtual Platform (FVP) model. The examples are fully configured and ready for use.</p>
-<h3 id="vision-examples">µVision examples</h3>
-<p>Use a µVision example in <code>*.uvprojx</code> format as a starting point. µVision examples are converted automatically.</p>
-<h2 id="configure-the-solution">Configure the solution</h2>
-<p>Depending on the example/template application you have chose, you might be presented with a view that allows you to
-select a compiler toolchain and/or one or more software layers.</p>
-<p>Refer to <a href="configuration.html#configure-a-solution">configure a solution</a> for more information.</p>
-<h2 id="specify-solution-folders">Specify solution folders</h2>
-<p>Before creating the project, the solution's folder name and location need to be set up.</p>
-<p><img alt="Project name and folder setup" src="images/create-new-solution-picker.png" /></p>
-<h3 id="solution-sub-folder">Solution Sub Folder</h3>
-<p>After you have selected your solution template, specify a <strong>Solution Sub Folder</strong> where the solution files are stored.</p>
-<h3 id="solution-base-folder">Solution base folder</h3>
-<ul>
-<li>
-<p>Click <strong>Browse</strong> next to the <strong>Solution Base Folder</strong> field and choose where to store the solution subfolder using the system
-  dialog box.</p>
-</li>
-<li>
-<p>With the <strong>Initialize Git repository</strong> checkbox, you can initialize the solution as a Git repository. Clear the checkbox
-  if you do not want to turn your solution into a Git repository.</p>
-</li>
-<li>
-<p>Select the <strong>Show project opening options</strong> checkbox to decide how to open the solution (in the same window, a new
-  window, added to the current workspace).</p>
-</li>
-<li>
-<p>Click <strong>Create</strong>.</p>
-</li>
-</ul>
-<p>The extension creates the solution and automatically converts examples that are available only in <code>*.uvprojx</code> format. Check the <strong>Output</strong> tab. If there are any conversion errors and warnings, they display in the <strong>CMSIS Solution</strong> category. You can also check the <code>uv2csolution.log</code> file.</p>
+<p>Continue to <a href="#build">"build the project"</a>.</p>
+<h2 id="project-contents">Project contents</h2>
+<p>Once you have selected an example/template/reference application, the solution is created automatically. If a uVision
+example is converted, check the <strong>Output</strong> tab. Conversion errors and warnings are displayed in the <strong>CMSIS Solution</strong>
+category. You can also check the <code>uv2csolution.log</code> file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using Keil Studio for the first time, the <strong>Arm Tools Environment Manager</strong> needs to download required
+tools from the Internet. While may take a couple of minutes (depending on your internet connection), it is only
+required once.</p>
+</div>
 <p>The following files are created for the solution:</p>
 <ul>
-<li>A <code>&lt;solution_name&gt;.csolution.yml</code> file.</li>
-<li>One or more <code>&lt;project_name&gt;.cproject.yml</code> files, each available in a separate folder.<ul>
-<li>For reference applications only, each <code>cproject.yml</code> file contains a <code>$Board-Layer$</code> variable.</li>
-<li>For reference applications with sensor shields, each <code>cproject.yml</code> file contains a <code>$Shield-Layer$</code> variable.</li>
-<li>For reference applications with a socket layer, each <code>cproject.yml</code> file contains a <code>$Socket-Layer$</code> variable. These
-  variables are not yet defined.</li>
-</ul>
+<li>
+<p>A <code>&lt;solution_name&gt;.csolution.yml</code> file.</p>
 </li>
-<li>A <code>cdefault.yml</code> file containing default toolchain setting for the selected toolchain.</li>
-<li>A <code>&lt;solution_name&gt;.cbuild-idx.yml</code> file which contains overall information for the application.</li>
-<li>A <code>&lt;solution_name&gt;.cbuild-pack.yml</code> file listing all the packs that are used by the application. Missing CMSIS-Packs
-  are installed automatically.</li>
-<li>A <code>&lt;solution_name&gt;.cbuild-set.yml</code> file which specifies the context set of projects, target-types, and build-types
-  that are used to generate the application image</li>
-<li>A <code>&lt;solution_name&gt;+&lt;target_name&gt;.cbuild-run.yml</code> file which contains a build description of a single <code>cproject.yml</code>
-  input file for each context.</li>
-<li>A main <code>&lt;filename&gt;.c</code> template file for each project.</li>
-<li>A <code>vcpkg-configuration.json</code> file to download required tools automatically.</li>
+<li>
+<p>One or more <code>&lt;project_name&gt;.cproject.yml</code> files, each available in a separate folder.</p>
+</li>
+<li>
+<p>A <code>cdefault.yml</code> file containing default toolchain setting for the selected toolchain.</p>
+</li>
+<li>
+<p>A <code>&lt;solution_name&gt;.cbuild-idx.yml</code> file which contains overall information for the application.</p>
+</li>
+<li>
+<p>A <code>&lt;solution_name&gt;.cbuild-pack.yml</code> file listing all the packs that are used by the application. Missing CMSIS-Packs
+  are installed automatically.</p>
+</li>
+<li>
+<p>A <code>&lt;solution_name&gt;.cbuild-set.yml</code> file which specifies the context set of projects, target-types, and build-types
+  that are used to generate the application image</p>
+</li>
+<li>
+<p>A <code>&lt;solution_name&gt;+&lt;target_name&gt;.cbuild-run.yml</code> file which contains a build description of a single <code>cproject.yml</code>
+  input file for each context.</p>
+</li>
+<li>
+<p>A main <code>&lt;filename&gt;.c</code> template file for each project.</p>
+</li>
+<li>
+<p>A <code>vcpkg-configuration.json</code> file to download required tools automatically.</p>
+</li>
 </ul>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
@@ -244,13 +257,87 @@ Click <strong>Show output</strong> to configure the solution. You can add board,
 application. You can also select a compiler for reference applications and other solution types.</p>
 </div>
 <p>Depending on the selected example, you might need to <a href="configuration.html#configure-a-solution">configure the solution</a>
-before you can <a href="build.html">build</a> the project.</p>
+first.</p>
+<p>First time users may need to confirm that the <strong>Arm Tools Environment Manager</strong> extension can automatically activate
+the workspace and download the tools specified in the <code>vcpkg-configuration.json</code> file included in a project.</p>
+<h2 id="build">Build</h2>
+<p>Before you can download the application on your target device, you need to build it. There are various ways to trigger
+a build:</p>
+<ul>
+<li>
+<p>In the <strong>Explorer</strong> view <img alt="Explorer icon" src="images/ExplorerView.png" />, right-click the <code>*.csolution.yml</code> file and
+  select <strong>Build solution</strong>.</p>
+</li>
+<li>
+<p>In the <strong>CMSIS</strong> view <img alt="CMSIS view" src="images/CMSISView.png" />, click <img alt="Build icon" src="images/build-icon.png" />.</p>
+</li>
+</ul>
+<p>You can configure a build task in a <code>tasks.json</code> file to customize the behavior of the build button. All the examples
+on <a href="https://www.keil.arm.com">keil.arm.com</a> include a <code>tasks.json</code> file. See
+<a href="configuration.html#configure-a-build-task">Configure a build task</a> for more details.</p>
+<p>Continue to <a href="#load-and-run">load and run</a> the solution.</p>
+<h3 id="build-output">Build output</h3>
+<p>After you initiate the build process, a Terminal window opens and displays the build operation:</p>
+<pre><code class="language-txt">Execute: cbuild /Users/user/03_work/02_Projects/ST/Nucleo-F756ZG/Blinky/Blinky.csolution.yml --active NUCLEO-F756ZG --packs
++---------------------------------------------------
+(1/1) Building context: &quot;Blinky.Debug+NUCLEO-F756ZG&quot;
+Using AC6 V6.24.0 compiler, from: '/Users/user/.vcpkg/artifacts/2139c4c6/compilers.arm.armclang/6.24.0/bin/'
+Building CMake target 'Blinky.Debug+NUCLEO-F756ZG'
+[1/51] Building C object CMakeFiles/Group_Source_Files_retarget_stdio_c.dir/Users/user/03_work/02_Projects/ST/Nucleo-F756ZG/Blinky/retarget_stdio.o
+[2/51] Building ASM object CMakeFiles/Group_CubeMX.dir/Users/user/03_work/02_Projects/ST/Nucleo-F756ZG/Blinky/STM32CubeMX/NUCLEO-F756ZG/STM32CubeMX/MDK-ARM/startup_stm32f756xx.o
+Warning: A1950W: The legacy armasm assembler is deprecated. Consider using the armclang integrated assembler instead.
+0 Errors, 1 Warning
+[3/51] Building C object CMakeFiles/Group_CubeMX.dir/Users/user/03_work/02_Projects/ST/Nucleo-F756ZG/Blinky/STM32CubeMX/NUCLEO-F756ZG/STM32CubeMX/Src/stm32f7xx_hal_timebase_tim.o
+...
+[49/51] Building C object CMakeFiles/Keil_CMSIS_Driver_USART_3_0_0.dir/Users/user/.cache/arm/packs/ARM/CMSIS-Driver_STM32/1.1.0/Drivers/USART_STM32.o
+[50/51] Building C object CMakeFiles/ARM_CMSIS_RTOS2_Keil_RTX5_Source_5_9_0.dir/Users/user/.cache/arm/packs/ARM/CMSIS-RTX/5.9.0/Source/rtx_thread.o
+[51/51] Linking C executable /Users/user/03_work/02_Projects/ST/Nucleo-F756ZG/Blinky/out/Blinky/NUCLEO-F756ZG/Debug/Blinky.axf
+Program Size: Code=31972 RO-data=1076 RW-data=512 ZI-data=38760  
++------------------------------------------------------------
+Build summary: 1 succeeded, 0 failed - Time Elapsed: 00:00:04
++============================================================
+Completed: cbuild succeed with exit code 0
+Build complete
+</code></pre>
+<p>The output directory usually contains an ELF (<code>.axf</code>) and a HEX (<code>.hex</code>) file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the build fails with an <code>ENOENT</code> error, follow the instructions in the pop-up message that displays in the
+bottom right-hand corner to install CMSIS-Toolbox.</p>
+</div>
+<h2 id="load-and-run">Load and Run</h2>
+<p>Make sure that your target is connected, before loading the application onto it. You can use <code>pyOCD</code> to verify target
+connectivity.</p>
+<ol>
+<li>Open a <strong>Terminal</strong>, and enter <code>pyOCD list</code> to check attached hardware:
+   <img alt="Check connected hardware with pyOCD" src="images/pyOCDlist.png" /></li>
+<li>In the <strong>CMSIS</strong> view, click <img alt="Run icon" src="images/run-icon.png" />. This executes the "Load &amp; Run application" command
+   that flashes the project onto the target and issues a reset to start the application.</li>
+<li>To verify that the step has run correctly, check the <strong>Terminal</strong> output:
+   <img alt="Flash download output" src="images/flash-dwnl-output.png" /></li>
+</ol>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>When you have several solutions in one folder, VS Code ignores the <code>tasks.json</code> and <code>launch.json</code> files that
+you created for each solution. Instead, VS Code generates new JSON files at the root of the workspace in a
+<code>.vscode</code> folder and ignores the other JSON files. As a workaround, open one solution first, then add other
+solutions to your workspace with the <strong>File</strong> &gt; <strong>Add Folder to Workspace</strong> option.</li>
+<li>If you are using a multi-core device and you did not specify a <code>"processorName"</code> in the <code>launch.json</code> file,
+  select the appropriate processor for your project in the <strong>Select a processor</strong> drop-down list at the top of the
+  window.</li>
+</ul>
+</div>
+<h3 id="monitoring-printf-messages">Monitoring printf messages</h3>
+<p>Keil Studio includes the <strong>Serial Monitor</strong> extension that connects to the target's serial output port. If your example
+contains <code>printf</code> statements, use the Serial Monitor to observe them.</p>
+<p><img alt="Serial Monitor showing printf messages" src="images/serial-monitor.png" /></p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="userinterface.html" class="btn btn-neutral float-left" title="User Interface"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="manage_components.html" class="btn btn-neutral float-right" title="Manage Software Components">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="manage_settings.html" class="btn btn-neutral float-right" title="Manage Solution">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -280,7 +367,7 @@ before you can <a href="build.html">build</a> the project.</p>
       <span><a href="userinterface.html" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="manage_components.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="manage_settings.html" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

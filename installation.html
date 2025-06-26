@@ -47,6 +47,10 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-keil-studio">Installing Keil Studio</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#verify-the-installation">Verify the installation</a>
     </li>
     </ul>
@@ -61,19 +65,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Manage Software Components</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution Settings</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="build.html">Build</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="flash.html">Load and Run</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software Components</a>
                 </li>
               </ul>
               <ul>
@@ -123,6 +119,26 @@
                 <h1 id="installation">Installation</h1>
 <!-- markdownlint-disable MD036 -->
 
+<h2 id="prerequisites">Prerequisites</h2>
+<ol>
+<li>As Keil Studio is a set of extensions for <a href="https://code.visualstudio.com/">Microsoft Visual Studio Code</a>, make sure
+   this is installed on your machine.</li>
+<li>If you are using a third-party debug adapter, make sure that the latest drivers are installed on your machine:<ul>
+<li>For ST-LINK support on Windows, visit <a href="https://www.st.com/en/development-tools/stsw-link009.html">STSW-LINK009</a>.</li>
+<li>For J-Link support, visit <a href="https://www.segger.com/downloads/jlink/">J-Link/J-Trace Downloads</a>.</li>
+</ul>
+</li>
+</ol>
+<p>Make sure the debug adapters are running the latest firmware and that the <code>PATH</code> variable is set correctly.</p>
+<p>For J-Link, you can verify the correct operation by entering the command <code>jlink</code> (Windows) or <code>jlinkexe</code> (Linux, macOS)
+in a Terminal window. The output should similar to this:</p>
+<pre><code class="language-sh">SEGGER J-Link Commander V8.24 (Compiled Mar 26 2025 15:34:18)
+DLL version V8.24, compiled Mar 26 2025 15:33:37
+
+Connecting to J-Link via USB...FAILED: Cannot connect to J-Link.
+J-Link&gt;
+</code></pre>
+<h2 id="installing-keil-studio">Installing Keil Studio</h2>
 <p>The <a href="https://marketplace.visualstudio.com/items?itemName=Arm.keil-studio-pack"><strong>Arm Keil Studio Pack (MDK v6)</strong></a>
 extension pack includes the extensions that are required to work with CMSIS solution projects.</p>
 <ol>
@@ -144,29 +160,10 @@ debug the application.</p>
 Search for <code>CMSIS Solution</code> in the <strong>Extensions</strong> view.</p>
 </div>
 <h2 id="verify-the-installation">Verify the installation</h2>
-<p>The <a href="https://www.keil.arm.com/boards/">CMSIS boards list</a> contains many examples that you can use to verify that Keil
-Studio works correctly.</p>
-<p>The following example explains how to start from a Blinky project for the
-<a href="https://www.keil.arm.com/boards/stmicroelectronics-nucleo-f756zg-revb-2251244">STMicroelectronics NUCLEO-F756ZG</a>
-development board. Adapt the steps for your target hardware.</p>
-<ol>
-<li>In the <strong>CMSIS</strong> view, click <strong>Create a New Solution</strong> to open the <strong>Create Solution</strong> view.</li>
-<li>Click the <strong>Target Board</strong> drop-down list. Enter a search term, for example "f756", and then select the
-   "NUCLEO-F756ZG (Rev.B)" board.<br />
-<img alt="Select the NUCLEO-F756ZG" src="images/SelectF756ZG.png" />  </li>
-<li>Click <strong>Select</strong>. By default, the <strong>Target Device</strong> drop-down list shows the name of the device mounted on the board
-that you selected.</li>
-<li>Click the <strong>Templates, Reference Applications, and Example</strong> drop-down list. Enter a search term, for example
-   "Blinky", and then select the "Blinky" example from the web.<br />
-<img alt="Select Blinky example" src="images/SelectBlinky.png" /></li>
-<li>Click <strong>Browse</strong> to set a base forlder for the solution, then click <strong>Create</strong>.<br />
-<img alt="Click Create" src="images/SolutionCreate.png" />  </li>
-<li>Confirm that the Arm Tools Environment Manager extension can automatically activate the workspace and download the
-   tools specified in the <code>vcpkg-configuration.json</code> file included in your project.<br />
-<img alt="Activate the workspace" src="images/activate-environment.png" />  </li>
-</ol>
-<p>Now you can now <a href="build.html">build</a> and <a href="debug.html">debug</a> the example project.  During the build process missing
-software packs may be downloaded.</p>
+<p>Once you have installed Keil Studio, you can verify your installation using one of the examples provided in a
+CMSIS-Pack.</p>
+<p>Start <a href="create_app.html">creating a new solution</a> based on a Blinky example, which typically flashes an LED on a target
+board.</p>
               
             </div>
           </div><footer>

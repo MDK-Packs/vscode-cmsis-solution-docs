@@ -57,19 +57,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Manage Software Components</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution Settings</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="build.html">Build</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="flash.html">Load and Run</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software Components</a>
                 </li>
               </ul>
               <ul>
@@ -91,9 +83,11 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Tips and Tricks</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#initialize-your-solution">Initialize your solution</a>
+    <li class="toctree-l2"><a class="reference internal" href="#create-vcpkg-configuration-file">Create vcpkg configuration file</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#set-current-solution-in-workspace">Set current solution in workspace</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#documentation-does-not-open">Documentation does not open</a>
     </li>
     </ul>
                 </li>
@@ -124,15 +118,29 @@
               
                 <h1 id="tips-and-tricks">Tips and tricks</h1>
 <p>This chapter contains useful information to help you solve specific issues.</p>
-<h2 id="initialize-your-solution">Initialize your solution</h2>
-<p>Solutions you <a href="create_app.html">create from scratch</a> from the <strong>Create Solution</strong> view are already initialized and
-contain all the required files.</p>
-<p>If your solution does not contain the <code>vcpkg-configuration.json</code>, <code>tasks.json</code>, and <code>launch.json</code> files, right-click
-anywhere in the workspace and select <strong>Initialize CMSIS project</strong>. The extension generates preconfigured files
-that are ready to use.</p>
+<h2 id="create-vcpkg-configuration-file">Create vcpkg configuration file</h2>
+<p>If your solution does not contain the <code>vcpkg-configuration.json</code>, right-click anywhere in the workspace and select
+<strong>Configure Arm Tools Environment</strong>. The <strong>Arm Tools Environment Manager</strong> extension then generates this file.</p>
 <h2 id="set-current-solution-in-workspace">Set current solution in workspace</h2>
 <p>To activate a solution in the <strong>Solution</strong> outline view, use the <strong>Select Active Solution from workspace</strong> option in
 <strong>Views and More Actions</strong> <img alt="Views and More Actions icon" src="images/more-actions-icon.png" />.</p>
+<h2 id="documentation-does-not-open">Documentation does not open</h2>
+<p>If you are using a Linux machine that uses the Snap package manager, your web browser will not be able to open
+documentation that is shipped in CMSIS-Packs as the <code>CMSIS_PACK_ROOT</code> directory is in <code>${HOME}/.cache/arm/packs</code> which
+is not accessible to Snaps. Likewise, the Keil Studio help is located in <code>${HOME}/.vscode/extensions</code> which is also not
+available.</p>
+<p>To get this working, use a browser that is not installed as a Snap package:</p>
+<ul>
+<li>
+<p>Uninstall the Snap package. For example, run <code>sudo snap remove firefox</code> in a Terminal window.</p>
+</li>
+<li>
+<p>Download the installer from the browser's web site.</p>
+</li>
+<li>
+<p>Install it on your machine.</p>
+</li>
+</ul>
               
             </div>
           </div><footer>
