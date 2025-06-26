@@ -2,6 +2,29 @@
 
 <!-- markdownlint-disable MD036 -->
 
+## Prerequisites
+
+1. As Keil Studio is a set of extensions for [Microsoft Visual Studio Code](https://code.visualstudio.com/), make sure
+   this is installed on your machine.
+2. If you are using a third-party debug adapter, make sure that the latest drivers are installed on your machine:
+    - For ST-LINK support on Windows, visit [STSW-LINK009](https://www.st.com/en/development-tools/stsw-link009.html).
+    - For J-Link support, visit [J-Link/J-Trace Downloads](https://www.segger.com/downloads/jlink/).
+
+   Make sure the debug adapters are running the latest firmware and that the `PATH` variable is set correctly.
+
+For J-Link, you can verify the correct operation by entering the command `jlink` (Windows) or `jlinkexe` (Linux, macOS)
+in a Terminal window. The output should similar to this:
+
+```sh
+SEGGER J-Link Commander V8.24 (Compiled Mar 26 2025 15:34:18)
+DLL version V8.24, compiled Mar 26 2025 15:33:37
+
+Connecting to J-Link via USB...FAILED: Cannot connect to J-Link.
+J-Link>
+```
+
+## Installing Keil Studio
+
 The [**Arm Keil Studio Pack (MDK v6)**](https://marketplace.visualstudio.com/items?itemName=Arm.keil-studio-pack)
 extension pack includes the extensions that are required to work with CMSIS solution projects.
 
@@ -21,27 +44,8 @@ debug the application.
 
 ## Verify the installation
 
-The [CMSIS boards list](https://www.keil.arm.com/boards/) contains many examples that you can use to verify that Keil
-Studio works correctly.
+Once you have installed Keil Studio, you can verify your installation using one of the examples provided in a
+CMSIS-Pack.
 
-The following example explains how to start from a Blinky project for the
-[STMicroelectronics NUCLEO-F756ZG](https://www.keil.arm.com/boards/stmicroelectronics-nucleo-f756zg-revb-2251244)
-development board. Adapt the steps for your target hardware.
-
-1. In the **CMSIS** view, click **Create a New Solution** to open the **Create Solution** view.
-2. Click the **Target Board** drop-down list. Enter a search term, for example "f756", and then select the
-   "NUCLEO-F756ZG (Rev.B)" board.  
-   ![Select the NUCLEO-F756ZG](./images/SelectF756ZG.png)  
-3. Click **Select**. By default, the **Target Device** drop-down list shows the name of the device mounted on the board
-that you selected.
-4. Click the **Templates, Reference Applications, and Example** drop-down list. Enter a search term, for example
-   "Blinky", and then select the "Blinky" example from the web.  
-   ![Select Blinky example](./images/SelectBlinky.png)
-5. Click **Browse** to set a base forlder for the solution, then click **Create**.  
-   ![Click Create](./images/SolutionCreate.png)  
-6. Confirm that the Arm Tools Environment Manager extension can automatically activate the workspace and download the
-   tools specified in the `vcpkg-configuration.json` file included in your project.  
-   ![Activate the workspace](./images/activate-environment.png)  
-
-Now you can now [build](./build.md) and [debug](./debug.md) the example project.  During the build process missing
-software packs may be downloaded.
+Start [creating a new solution](./create_app.md) based on a Blinky example, which typically flashes an LED on a target
+board.

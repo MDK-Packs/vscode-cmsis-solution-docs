@@ -99,10 +99,10 @@ You can access commands to manage your solution and the projects it includes in 
 | [Manage Solution Settings](./manage_settings.md) | Configure the build context and debug setup. |
 | [Manage Software Components](./manage_components.md) | Review, add, or remove software components |
 | Run Configuration Generator                            | Open a configuration tools such as CubeMX |
-| [Build solution](./build.md)                     | Build the solution with the current context set |
+| [Build solution](./create_app.md#build) | Build the solution with the current context set |
 | Rebuild solution                         | Rebuild the solution with the current context set |
 | [Debug](./debug.md)                      | Debug the solution with the current context set |
-| [Run](./flash.md)                        | Run the solution on your target |
+| [Run](./create_app.md#load-and-run)      | Run the solution on your target |
 | Focus on Solution View                   | Open the CMSIS view |
 | Select Active Solution from workspace           | If you have several solutions in your workspace, switch between solutions and select the active solution |
 | [Convert µVision project to CMSIS solution](./importuv.md) | Convert uvprojx files to *csolution project* format |
