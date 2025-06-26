@@ -7,10 +7,8 @@ nav:
     - Installation: installation.md
     - User Interface: userinterface.md
     - Create New Solution: create_app.md
-    - Manage Software Components: manage_components.md
-    - Manage Solution Settings: manage_settings.md
-    - Build: build.md
-    - Load and Run: flash.md
+    - Manage Solution: manage_settings.md
+    - Software Components: manage_components.md
     - Debug: debug.md
     - Configuration: configuration.md
     - Import uVision Project: importuv.md

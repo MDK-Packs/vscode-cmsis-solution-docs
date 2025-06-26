@@ -1,3 +1,3 @@
-# CMSIS-Toolbox Documentation
+# Keil Studio Documentation
 
-Open the [CMSIS-Toolbox documentation](https://open-cmsis-pack.github.io/cmsis-toolbox).
+Open the [Keil Studio documentation](https://mdk-packs.github.io/vscode-cmsis-solution-docs/index.html).

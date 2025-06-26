@@ -1,19 +1,20 @@
 # Manage software components
 
-The **Software Components** view shows all the software components selected in the active project of a solution.
+A [software component](https://open-cmsis-pack.github.io/cmsis-toolbox/CreateApplications/#software-components)
+encapsulates a set of related functions. The **Software Components** view shows all the software components selected in
+the active project of a solution.
 
-You can do the following:
+You can:
 
-- [Modify the software components](#modify-the-software-components-in-your-project) of the project
+- [Modify the software components](#modify-the-software-components-in-your-project) of the project.
 
 - Manage the dependencies between components for each target type defined in your solution, or for all the target types at
-  once
+  once.
 
 ## Software Components view
 
-Open the CMSIS view ![CMSIS icon](./images/cmsis-icon.png). In the **Solution outline**, click **Manage software components**
-![Manage software components](./images/software-components-icon.png) at the project level. The **Software Components** view
-opens:
+Open the CMSIS view and click **Manage software components**
+![Manage software components](./images/software-components-icon.png). The **Software Components** view opens:
 
 ![The 'Software Components' ](./images/software-components-view.png)
 

@@ -7,26 +7,21 @@ Compiler 6, GCC, IAR, and LLVM.
 
 ## Contents
 
-- [**Installation**](installation.md) explains how to install Keil Studio along with a build
+- [**Installation**](./installation.md) explains how to install Keil Studio along with a build
   environment for embedded applications that are based on Arm Cortex-M processors.
 
-- [**User interface**](userinterface.md) shows the main features available in the GUI.
+- [**User interface**](./userinterface.md) shows the main features available in the GUI.
 
-- [**Create an embedded project**](create_app.md) explains how to start a project from scratch.
+- [**Create new solution**](./create_app.md) explains how to start an embedded project from scratch.
 
-- [**Manage software components**](./manage_components.md) shows how to add or remove software components in a
+- [**Manage solution**](./manage_settings.md) explains how to configure a *csolution project*.
+
+- [**Software components**](./manage_components.md) shows how to add or remove software components in a
   solution.
 
-- [**Manage solution settings**](./manage_settings.md) explains how to configure a *csolution project* for run and
-  debug.
+- [**Debug**](./debug.md) explains how to debug a project.
 
-- [**Build**](build.md) describes how to build a project.
-
-- [**Load and run**](./flash.md) explains how to load and run an application on your hardware.
-
-- [**Debug**](debug.md) explains how to debug a project.
-
-- [**Configuration**](configuration.md) explains how to manage the extension settings and some specific configuration
+- [**Configuration**](./configuration.md) explains how to manage the extension settings and some specific configuration
   options, for example for run and debug.
 
 - [**Import µVision project**](./importuv.md) explains how to convert uvprojx-based files to the CMSIS Solution format.
@@ -40,5 +35,6 @@ Compiler 6, GCC, IAR, and LLVM.
 
 Version            | Description
 :------------------|:-------------------------
+1.5x.0             | Rework for better clarity
 1.54.0             | Added CMSIS-Toolbox Run and Debug Management
 1.48.0             | Initial release for the CMSIS Solution extension version 1.48.0
