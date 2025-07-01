@@ -1,20 +1,16 @@
 # Import a Keil µVision project
 
-With the CMSIS Solution extension, you can convert a Keil μVision project to a CMSIS solution.
+In Keil Studio, you can convert a Keil μVision project to a CMSIS solution by opening the folder that contains the
+`*.uvprojx` file that you want to convert. Then, do one of the following:
 
-1. Open the folder that contains the `*.uvprojx` that you want to convert in VS Code. Alternatively, import a
-   μVision project from [keil.arm.com](https://www.keil.arm.com/), or clone a project from GitHub.
+- From the **Explorer view**, right-click the `*.uvprojx` file and select **Convert μVision project to CMSIS solution**.
+- From the **CMSIS view**, choose one of the following options:
 
-2. Do one of the following:
+![Convert from CMSIS view](./images/cmsis-view-convert.png)
 
-   - From the **Explorer** view, right-click the `*.uvprojx` file and select **Convert μVision project to CMSIS solution**.
-
-   - Alternatively, if you are starting from an empty workspace, you can click ![CMSIS icon]( ./images/cmsis-icon.png) in the
-**Activity Bar** to open the **CMSIS** view. Then choose one of the following options:
-
-      - Click **Convert a μVision Project to CMSIS Solution** and open your `*.uvprojx` file to convert it.
-
-      - Click **Views and More Actions** ![Views and More Actions icon](./images/more-actions-icon.png), then select **Convert μVision project to CMSIS solution** and open your `*.uvprojx` file to convert it.
+1. Click **Convert a μVision Project to CMSIS Solution** and open your `*.uvprojx` file to convert it.
+2. Click **Views and More Actions** ![Views and More Actions icon](./images/more-actions-icon.png), then select
+   **Convert μVision project to CMSIS solution** and open your `*.uvprojx` file to convert it.
 
    A dialog box displays. You can carry out the following tasks:
 
@@ -41,9 +37,10 @@ list of issues you might see.
 
 The conversion *does not work* with Arm Compiler 5-based projects. Only projects using Arm Compiler 6 can be converted.
 
-!!! Workaround
-    Update an Arm Compiler 5 project to Arm Compiler 6 in Keil μVision, then convert the project to a CMSIS solution in
-    VS Code.
+**Solution**
+
+Update an Arm Compiler 5 project to Arm Compiler 6 in Keil μVision, then convert the project to a CMSIS solution in VS
+Code.
 
 !!! Note
     For more information, see the
@@ -56,29 +53,39 @@ In µVision, you can use the dollar sign (`$`) for Linker misc options in the Op
 
 ![Linker Misc controls](./images/misc-opt-dollar-sign.png)
 
-!!! Attention
-    Using this will cause a malformed YML access sequence in the generated cproject.yml file that will fail subsequent builds.
+This will cause a malformed YML access sequence in the generated `cproject.yml` file that will fail during builds.
+
+**Solution**
+
+Remove the `$` sign and save the project in Keil μVision, then convert the project to a CMSIS solution in VS Code.
 
 ### Using dots in project file names
 
-In µVision project names, you can use the dot, e.g. MyProjeckt_1.0.vuprojx. In CMSIS solution project format, dots are used
+In µVision project names, you can use the dot, e.g. MyProject_1.0.uvprojx. In CMSIS solution project format, dots are used
 to separate project names, build type, and target types (refer to
-[Context](https://open-cmsis-pack.github.io/cmsis-toolbox/build-overview/#context)).
+[Context](https://open-cmsis-pack.github.io/cmsis-toolbox/build-overview/#context)). Thus, using dots in project names
+will lead to:
 
-!!! Attention
-    Using dots in project names will lead to `"error csolution: schema check failed, verify syntax"`.
+```txt
+error csolution: schema check failed, verify syntax
+```
+
+**Solution**
+
+Remove dots from project names.
 
 ### Project located in paths containing a dollar sign
 
-In some operating systems, paths can contain the dollar (`$`) sign. Try avoiding the `$` sing in path names as this will
-cause build to fail. A workaround is available (see below).
+In some operating systems, paths can contain the dollar (`$`) sign. Building the project will fail with a similar
+message:
 
-!!! Attention
-    Building the project will fail with a similar message:  
-    `error csolution: malformed access sequence: '/$test/Blinky_FRDM-K32L3A6`
+```txt
+error csolution: malformed access sequence: '/$test/Blinky_FRDM-K32L3A6
+```
 
-!!! Workaround
-    Use the `-O` option to redirect all output to a directory without the `$` sign.
+**Solution**
+
+Use the `-O` option to redirect all output to a directory without the `$` sign.
 
 ### Component mismatches when using generators
 
@@ -106,9 +113,12 @@ would look like:
       </component>
 ```
 
-!!! Attention
-    `uv2csolution` adds a non-existing pack node `Keil::FrameworkCubeMX@^1.0.0` which will lead to an error like this:  
-    `error csolution: required pack: Keil::FrameworkCubeMX@^1.0.0 not installed`
+`uv2csolution` adds a non-existing pack node `Keil::FrameworkCubeMX@^1.0.0` which will lead to an error like this:
 
-!!! Workaround
-    Delete the corresponding line from the `cproject.yml` file.
+```txt
+error csolution: required pack: Keil::FrameworkCubeMX@^1.0.0 not installed
+```
+
+**Solution**
+
+Delete the corresponding line from the `cproject.yml` file.
