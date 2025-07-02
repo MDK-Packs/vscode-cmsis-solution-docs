@@ -57,7 +57,7 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#2-main-area-of-the-cmsis-view">2. Main area of the CMSIS view</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#3-icons-available-through-the-cmsis-view">3. Icons available through the CMSIS view</a>
+    <li class="toctree-l3"><a class="reference internal" href="#3-actions-available-through-the-cmsis-view">3. Actions available through the CMSIS view</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#4-main-area-icons">4. Main area icons</a>
     </li>
@@ -134,15 +134,40 @@ it implements a powerful embedded development environment.</p>
 <p><img alt="CMSIS view" src="images/solution-outline.png" /></p>
 <p>The GUI consists of these elements:</p>
 <h3 id="1-dedicated-views-from-the-side-bar">1. Dedicated views from the side bar</h3>
-<ul>
-<li><img alt="Explorer view" src="images/ExplorerView.png" /> <strong>Explorer</strong> view lists all local files of the CMSIS solution.</li>
-<li><img alt="Search view" src="images/SearchView.png" /> <strong>Search</strong> view enables searching all files of the CMSIS solution</li>
-<li><img alt="Source Control view" src="images/SourceControlView.png" /> <strong>Source Control</strong> view allows you to work with git.</li>
-<li><img alt="Extensions view" src="images/ExtensionsView.png" /> <strong>Extensions</strong> view lets you work with VS Code extensions.</li>
-<li><img alt="Run and Debug view" src="images/RunDebugView.png" /> <strong>Run and Debug</strong> view switches the GUI to a dedicated
-  <a href="debug.html#run-and-debug-view">debug view</a>.</li>
-<li><img alt="CMSIS view" src="images/CMSISView.png" /> <strong>CMSIS</strong> view is the main view for working with CMSIS solution-based projects.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">View</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Explorer view" src="images/ExplorerView.png" /></td>
+<td><a href="https://code.visualstudio.com/docs/getstarted/userinterface#_explorer-view"><strong>Explorer</strong> view</a> lists all local files.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Search view" src="images/SearchView.png" /></td>
+<td><strong>Search</strong> view enables <a href="https://code.visualstudio.com/docs/editing/codebasics#_search-across-files">search/replace</a> across all files.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Source Control view" src="images/SourceControlView.png" /></td>
+<td><a href="https://code.visualstudio.com/docs/sourcecontrol/overview"><strong>Source Control</strong> view</a> allows you to work with git.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Extensions view" src="images/ExtensionsView.png" /></td>
+<td><a href="https://code.visualstudio.com/docs/configure/extensions/extension-marketplace"><strong>Extensions</strong> view</a> lets you work with VS Code extensions.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Run and Debug view" src="images/RunDebugView.png" /></td>
+<td><strong>Run and Debug</strong> view switches the GUI to a dedicated <a href="debug.html#run-and-debug-view">debug view</a>.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="CMSIS view" src="images/CMSISView.png" /></td>
+<td><a href="#2-main-area-of-the-cmsis-view"><strong>CMSIS</strong> view</a> is the main view for working with CMSIS solution-based projects.</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The ordering of the icons may be different in your VS Code environment.</p>
@@ -163,28 +188,69 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 <li><strong>Layer Type</strong> (if available): The software layers in the project with their source files, preconfigured software
   components, and configuration files</li>
 </ul>
-<h3 id="3-icons-available-through-the-cmsis-view">3. Icons available through the <strong>CMSIS</strong> view</h3>
-<ul>
-<li><img alt="Build solution" src="images/build-icon.png" /> <strong>Build solution</strong> calls the compiler toolchain and builds the CMSIS
-  solution.</li>
-<li><img alt="Load and Run Application" src="images/run-icon.png" /> <strong>Load &amp; Run application</strong> flashes the binary onto the target and
-  starts the application.</li>
-<li><img alt="Load &amp; Debug application" src="images/debug-icon.png" /> <strong>Load &amp; Debug application</strong> flashes the binary onto the target
-  and starts a debug session.</li>
-<li><img alt="Open csolution.yml file" src="images/openFile.png" /> <strong>Open csolution.yml file</strong> opens the CMSIS solution YML file for
-  editing.</li>
-<li><img alt="Manage Solution Settings" src="images/ManageSWComonents.png" /> <strong>Manage Solution Settings</strong> allows you to manage the
-  CMSIS solution settings.</li>
-<li><img alt=".../Views and more actions" src="images/more-actions-icon.png" /> shows further views and more actions.</li>
-</ul>
+<h3 id="3-actions-available-through-the-cmsis-view">3. Actions available through the <strong>CMSIS</strong> view</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Action</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Build solution" src="images/build-icon.png" /></td>
+<td><a href="create_app.html#build"><strong>Build solution</strong></a> calls the compiler toolchain and builds the solution.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Load and Run Application" src="images/run-icon.png" /></td>
+<td><a href="create_app.html#load-and-run"><strong>Load &amp; Run application</strong></a> flashes the binary onto the target and starts the application.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Load &amp; Debug application" src="images/debug-icon.png" /></td>
+<td><a href="debug.html"><strong>Load &amp; Debug application</strong></a> flashes the binary onto the target and starts a debug session.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Open csolution.yml file" src="images/openFile.png" /></td>
+<td><strong>Open csolution.yml file</strong> opens the CMSIS solution YML file for editing.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Manage Solution Settings" src="images/ManageSWComonents.png" /></td>
+<td><a href="manage_settings.html"><strong>Manage Solution Settings</strong></a> allows you to manage the solution settings.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Views and more actions" src="images/more-actions-icon.png" /></td>
+<td>Shows further views and more actions.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="4-main-area-icons">4. Main area icons</h3>
 <p>Depending on the file and the context, various icons may appear:</p>
-<ul>
-<li><img alt="clangd information active" src="images/clangdInfo.png" /> IntelliSense is active for this cproject file.</li>
-<li><img alt="Open file" src="images/openFile.png" /> Open the file.</li>
-<li><img alt="Manage software components" src="images/ManageSWComonents.png" /> Manage the software components of the cproject file.</li>
-<li><img alt="Add groups or files" src="images/AddGroupsFiles.png" /> Add groups or files to the cproject file.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Action</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="clangd information active" src="images/clangdInfo.png" /></td>
+<td>IntelliSense is active for this cproject file.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Open file" src="images/openFile.png" /></td>
+<td>Open the file.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Manage software components" src="images/ManageSWComonents.png" /></td>
+<td>Manage the software components of the cproject file.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Add groups or files" src="images/AddGroupsFiles.png" /></td>
+<td>Add groups or files to the cproject file.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="5-status-bar">5. Status bar</h3>
 <p>The VS Code status bar displays information about the status of your development environment and the project. The number of extensions installed might vary.</p>
 <ul>

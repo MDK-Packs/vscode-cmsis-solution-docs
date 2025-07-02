@@ -89,6 +89,20 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#documentation-does-not-open">Documentation does not open</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-debug-adapters">Installing debug adapters</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#infineon-kitprog3">Infineon KitProg3</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#microchip-pickit-basic">Microchip PICKit Basic</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nxp-mcu-link">NXP MCU-Link</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#segger-j-link">SEGGER J-Link</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#stmicroelectronics-st-link">STMicroelectronics ST-Link</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -132,7 +146,7 @@ available.</p>
 <p>To get this working, use a browser that is not installed as a Snap package:</p>
 <ul>
 <li>
-<p>Uninstall the Snap package. For example, run <code>sudo snap remove firefox</code> in a Terminal window.</p>
+<p>Uninstall the Snap package. For example, run <code>sudo snap remove firefox</code> in a Terminal.</p>
 </li>
 <li>
 <p>Download the installer from the browser's web site.</p>
@@ -141,6 +155,31 @@ available.</p>
 <p>Install it on your machine.</p>
 </li>
 </ul>
+<h2 id="installing-debug-adapters">Installing debug adapters</h2>
+<p>If you are using a third-party debug adapter, make sure that the latest drivers are installed on your machine</p>
+<p>Make sure the debug adapters are running the latest firmware and that the <code>PATH</code> variable is set correctly.</p>
+<h3 id="infineon-kitprog3">Infineon KitProg3</h3>
+<p>Make sure that the latest <a href="https://community.infineon.com/t5/Knowledge-Base-Articles/ModusToolbox-Updating-the-KitProg3-MiniProg4-firmware-from-modus-shell/ta-p/625419#.">firmware is installed</a>.</p>
+<h3 id="microchip-pickit-basic">Microchip PICKit Basic</h3>
+<p>Use the Python utility <a href="https://pypi.org/project/pycmsisdapswitcher/">pycmsisdapswitcher</a> to switch the firmware to a
+CMSIS-DAP v2 implementation.</p>
+<h3 id="nxp-mcu-link">NXP MCU-Link</h3>
+<p>Make sure that the latest
+<a href="https://community.nxp.com/t5/MCUXpresso-General-Knowledge/MCU-Link-installation/ta-p/1180326">firmware is installed</a>.</p>
+<h3 id="segger-j-link">SEGGER J-Link</h3>
+<p>For J-Link support, visit <a href="https://www.segger.com/downloads/jlink/">J-Link/J-Trace Downloads</a>.</p>
+<p>Set the <code>PATH</code> variable to the <code>bin</code> directory of the installation.</p>
+<p>Verify the correct operation by entering the command <code>jlink</code> (Windows) or <code>jlinkexe</code> (Linux, macOS) in a Terminal. The
+output should similar to this:</p>
+<pre><code class="language-sh">SEGGER J-Link Commander V8.24 (Compiled Mar 26 2025 15:34:18)
+DLL version V8.24, compiled Mar 26 2025 15:33:37
+
+Connecting to J-Link via USB...FAILED: Cannot connect to J-Link.
+J-Link&gt;
+</code></pre>
+<h3 id="stmicroelectronics-st-link">STMicroelectronics ST-Link</h3>
+<p>For ST-LINK/V2 and ST-LINK/V2-1 support on Windows, download the USB driver here:
+<a href="https://www.st.com/en/development-tools/stsw-link009.html">STSW-LINK009</a>.</p>
               
             </div>
           </div><footer>

@@ -87,8 +87,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#pyocd">pyOCD</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#arm-debugger">Arm Debugger</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#use-vision-for-debugging">Use µVision for debugging</a>
@@ -241,41 +239,6 @@ In addition to the <a href="https://code.visualstudio.com/docs/editor/variables-
 </tbody>
 </table>
 <h2 id="examples">Examples</h2>
-<h3 id="pyocd">pyOCD</h3>
-<p>Use the following <code>launch.json</code> file to start debugging with pyOCD:</p>
-<pre><code class="language-json">{
-    &quot;version&quot;: &quot;0.2.0&quot;,
-    &quot;configurations&quot;: [
-        {
-            &quot;type&quot;: &quot;gdbtarget&quot;,
-            &quot;request&quot;: &quot;launch&quot;,
-            &quot;name&quot;: &quot;Debug with pyOCD&quot;,
-            &quot;program&quot;: &quot;${command:cmsis-csolution.getBinaryFile}&quot;,
-            &quot;cwd&quot;: &quot;${workspaceFolder}&quot;,
-            &quot;verbose&quot;: true,
-            &quot;gdb&quot;: &quot;/Applications/ArmGNUToolchain/13.3.rel1/arm-none-eabi/bin/arm-none-eabi-gdb&quot;,
-            &quot;initCommands&quot;: [
-                &quot;monitor set reset-type SW_EMULATED&quot;,
-                &quot;monitor reset halt&quot;
-            ],
-            &quot;target&quot;: {
-                &quot;server&quot;: &quot;python&quot;,
-                &quot;serverParameters&quot;: [
-                    &quot;-mpyocd&quot;,
-                    &quot;gdbserver&quot;,
-                    &quot;--target&quot;,
-                    &quot;${command:cmsis-csolution.getDeviceName}&quot;,
-                    &quot;--pack&quot;,
-                    &quot;${command:cmsis-csolution.getDfpPath}&quot;,
-                    &quot;--port&quot;,
-                    &quot;3333&quot;
-                ],
-                &quot;port&quot;: &quot;3333&quot;
-            }
-        }
-    ]
-}
-</code></pre>
 <h3 id="arm-debugger">Arm Debugger</h3>
 <p>Use the following <code>launch.json</code> file to start Arm Debugger:</p>
 <pre><code class="language-json">{

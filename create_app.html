@@ -58,10 +58,12 @@
     <li class="toctree-l2"><a class="reference internal" href="#work-with-examples">Work with examples</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#work-with-reference-applications">Work with reference applications</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#work-with-templates">Work with templates</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#project-contents">Project contents</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#build">Build</a>
         <ul>
@@ -138,24 +140,44 @@ solution opened, use the menu (<strong>...</strong>) item <strong>Create a Solut
 <p>The <strong>Create new solution</strong> dialog allows to start projects based on a <strong>Target Board</strong> or <strong>Target Device</strong> selection.</p>
 <p>Examples, templates, and reference applications depend on the selected board or device and on installed CMSIS-Packs.</p>
 <ul>
-<li><strong>Examples</strong> are created for a specific hardware or evaluation board. These are typically complete projects that
-  directly interface with board and device peripherals.</li>
-<li><strong>Reference Applications</strong> use defined interfaces (APIs) and are therefore hardware agnostic. These projects require
-  the installation of related CMSIS-Packs and additional software layers for an evaluation board.</li>
-<li><strong>Templates</strong> are stub projects that help you getting started. Some CMSIS-Packs may contain device-specific
-  templates.</li>
+<li>
+<p><a href="#work-with-examples"><strong>Examples</strong></a> are created for a specific hardware or evaluation board. These are typically
+  complete projects that directly interface with board and device peripherals.</p>
+</li>
+<li>
+<p><a href="#work-with-reference-applications"><strong>Reference Applications</strong></a> use defined interfaces (APIs) and are therefore
+  hardware agnostic. These projects require the installation of related CMSIS-Packs and additional software layers for
+  an evaluation board.</p>
+</li>
+<li>
+<p><a href="#work-with-templates"><strong>Templates</strong></a> are stub projects that help you getting started. Some CMSIS-Packs may contain
+  device-specific templates.</p>
+</li>
 </ul>
+<p>Further settings include:</p>
+<ul>
+<li>
 <p>The <strong>Solution Sub Folder</strong> is typically a sub-directory in your workspace.</p>
+</li>
+<li>
 <p>The <strong>Solution Base Folder</strong> specifies your workspace location that may contain multiple projects.</p>
+</li>
+<li>
 <p>With <strong>Initialize Git repository</strong> the related <code>.gitignore</code> file is created.</p>
+</li>
+<li>
 <p><strong>Show project opening options</strong> allows you to open the spolution a new instance of VS Code. By default, the solution
-is loaded into the current VS Code instance.</p>
+  is loaded into the current VS Code instance.</p>
+</li>
+</ul>
 <h2 id="work-with-examples">Work with examples</h2>
-<p>Click the <strong>Target Board (Optional)</strong> drop-down list. Enter a search term (here: "U5"), and then select a board
-(here: "B-U585-IOT02A"). The details of the selected board are displayed.</p>
-<p><img alt="Hardware Picker" src="images/hardware-picker.png" /></p>
-<p>Click <strong>Select</strong>.</p>
-<p>Next, select the example project. There are two types of example projects:</p>
+<ol>
+<li>Click the <strong>Target Board (Optional)</strong> drop-down list.</li>
+<li>Enter a search term tp filter the list and then select your board. The details of the selected board are displayed.</li>
+<li>Click <strong>Select</strong>.</li>
+</ol>
+<p>Next, select the example project. There are two types of example projects (available either from <strong>Local</strong> packs and/or
+from the <strong>Web</strong>):</p>
 <ul>
 <li>
 <p><strong>Csolution Examples</strong> are using Keil Studio's native project format.</p>
@@ -164,13 +186,18 @@ is loaded into the current VS Code instance.</p>
 <p><strong>uVision Examples</strong> are in <code>*.uvprojx</code> format and are converted automatically.</p>
 </li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You may see examples from <strong>Local</strong> packs and/or from the <strong>Web</strong>.</p>
-</div>
 <p>To verify the Keil Studio installation, select a <strong>Blinky</strong> project for example.</p>
 <p>Specify a <strong>Solution Base Folder</strong> and click <strong>Create</strong>.</p>
-<p>Continue to <a href="#build">"build the project"</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>First time users may need to confirm that the <strong>Arm Tools Environment Manager</strong> extension can automatically
+activate the workspace and download the tools specified in the <code>vcpkg-configuration.json</code> file included in a
+project.</p>
+</div>
+<p>A typical Blinky example includes a <code>REAMDE.md</code> file that contains valuable information about the hardware setup and
+specific tasks that need to be done before working with the target board:</p>
+<p><img alt="Alif E7 Blinky-HP example" src="images/blinky-hp.png" /></p>
+<p>Continue to <a href="#build">build the project</a>.</p>
 <h2 id="work-with-reference-applications">Work with reference applications</h2>
 <p><strong>Reference applications</strong> show the usage of middleware, software libraries, and custom code that can run on many
 different target hardware boards. Examples display only if you selected a board and a software layer is available for
@@ -192,7 +219,22 @@ using CMSIS-Packs.</p>
   integration and usage of the LiteRT stack for ML inference on a microcontroller.</p>
 </li>
 </ul>
-<p>Once you have selected the reference application, continue to <a href="#build">"build the project"</a>.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>You need to have the CMSIS-Packs installed before you can create a new reference application. Please follow the
+instruction for <a href="installation.html#pack-installation">installing packs</a>.</p>
+</div>
+<h3 id="configuration">Configuration</h3>
+<p>Reference applications use
+<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/build-overview/#software-layers">software layers</a> that help scaling
+example projects to many different target boards. To be able to use the selected board with the reference application,
+you need to <a href="configuration.html#configure-a-solution">configure the solution</a> and select an appropriate layer.</p>
+<p>More information about the layer requirements and other configuration options can be found in the documentation:</p>
+<ul>
+<li><a href="https://arm-software.github.io/MDK-Middleware/latest/General/index.html">MDK-Middleware</a></li>
+<li><a href="https://arm-software.github.io/SDS-Framework/main/index.html">SDS Framework Documentation</a></li>
+</ul>
+<p>Continue to <a href="#build">build the project</a>.</p>
 <h2 id="work-with-templates">Work with templates</h2>
 <p>Templates help you to get started without application-specific code.</p>
 <ul>
@@ -205,61 +247,47 @@ using CMSIS-Packs.</p>
   whether projects in the solution use secure or non-secure zones</p>
 </li>
 </ul>
-<p>Continue to <a href="#build">"build the project"</a>.</p>
-<h2 id="project-contents">Project contents</h2>
-<p>Once you have selected an example/template/reference application, the solution is created automatically. If a uVision
-example is converted, check the <strong>Output</strong> tab. Conversion errors and warnings are displayed in the <strong>CMSIS Solution</strong>
-category. You can also check the <code>uv2csolution.log</code> file.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you are using Keil Studio for the first time, the <strong>Arm Tools Environment Manager</strong> needs to download required
-tools from the Internet. While may take a couple of minutes (depending on your internet connection), it is only
-required once.</p>
-</div>
-<p>The following files are created for the solution:</p>
-<ul>
-<li>
-<p>A <code>&lt;solution_name&gt;.csolution.yml</code> file.</p>
-</li>
-<li>
-<p>One or more <code>&lt;project_name&gt;.cproject.yml</code> files, each available in a separate folder.</p>
-</li>
-<li>
-<p>A <code>cdefault.yml</code> file containing default toolchain setting for the selected toolchain.</p>
-</li>
-<li>
-<p>A <code>&lt;solution_name&gt;.cbuild-idx.yml</code> file which contains overall information for the application.</p>
-</li>
-<li>
-<p>A <code>&lt;solution_name&gt;.cbuild-pack.yml</code> file listing all the packs that are used by the application. Missing CMSIS-Packs
-  are installed automatically.</p>
-</li>
-<li>
-<p>A <code>&lt;solution_name&gt;.cbuild-set.yml</code> file which specifies the context set of projects, target-types, and build-types
-  that are used to generate the application image</p>
-</li>
-<li>
-<p>A <code>&lt;solution_name&gt;+&lt;target_name&gt;.cbuild-run.yml</code> file which contains a build description of a single <code>cproject.yml</code>
-  input file for each context.</p>
-</li>
-<li>
-<p>A main <code>&lt;filename&gt;.c</code> template file for each project.</p>
-</li>
-<li>
-<p>A <code>vcpkg-configuration.json</code> file to download required tools automatically.</p>
-</li>
-</ul>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>If you see this warning:
-<img alt="Task errors output" src="images/task-errors.png" />
-Click <strong>Show output</strong> to configure the solution. You can add board, shield, or socket layers to your reference
-application. You can also select a compiler for reference applications and other solution types.</p>
-</div>
-<p>Depending on the selected example, you might need to <a href="configuration.html#configure-a-solution">configure the solution</a>
-first.</p>
-<p>First time users may need to confirm that the <strong>Arm Tools Environment Manager</strong> extension can automatically activate
-the workspace and download the tools specified in the <code>vcpkg-configuration.json</code> file included in a project.</p>
+<p>Continue to <a href="#build">build the project</a>.</p>
+<!--
+## Project contents
+
+Once you have selected an example/template/reference application, the solution is created automatically. If a uVision
+example is converted, check the **Output** tab. Conversion errors and warnings are displayed in the **CMSIS Solution**
+category. You can also check the `uv2csolution.log` file.
+
+The following files are created for the solution:
+
+- A `<solution_name>.csolution.yml` file.
+
+- One or more `<project_name>.cproject.yml` files, each available in a separate folder.
+
+- A `cdefault.yml` file containing default toolchain setting for the selected toolchain.
+
+- A `<solution_name>.cbuild-idx.yml` file which contains overall information for the application.
+
+- A `<solution_name>.cbuild-pack.yml` file listing all the packs that are used by the application. Missing CMSIS-Packs
+  are installed automatically.
+
+- A `<solution_name>.cbuild-set.yml` file which specifies the context set of projects, target-types, and build-types
+  that are used to generate the application image
+
+- A `<solution_name>+<target_name>.cbuild-run.yml` file which contains a build description of a single `cproject.yml`
+  input file for each context.
+
+- A main `<filename>.c` template file for each project.
+
+- A `vcpkg-configuration.json` file to download required tools automatically.
+
+!!! CAUTION
+    If you see this warning:
+    ![Task errors output](./images/task-errors.png)
+    Click **Show output** to configure the solution. You can add board, shield, or socket layers to your reference
+    application. You can also select a compiler for reference applications and other solution types.
+
+Depending on the selected example, you might need to [configure the solution](./configuration.md#configure-a-solution)
+first.
+-->
+
 <h2 id="build">Build</h2>
 <p>Before you can download the application on your target device, you need to build it. There are various ways to trigger
 a build:</p>
@@ -277,7 +305,7 @@ on <a href="https://www.keil.arm.com">keil.arm.com</a> include a <code>tasks.jso
 <a href="configuration.html#configure-a-build-task">Configure a build task</a> for more details.</p>
 <p>Continue to <a href="#load-and-run">load and run</a> the solution.</p>
 <h3 id="build-output">Build output</h3>
-<p>After you initiate the build process, a Terminal window opens and displays the build operation:</p>
+<p>After you initiate the build process, a Terminal opens and displays the build operation:</p>
 <pre><code class="language-txt">Execute: cbuild /Users/user/03_work/02_Projects/ST/Nucleo-F756ZG/Blinky/Blinky.csolution.yml --active NUCLEO-F756ZG --packs
 +---------------------------------------------------
 (1/1) Building context: &quot;Blinky.Debug+NUCLEO-F756ZG&quot;
@@ -305,17 +333,74 @@ Build complete
 <p>If the build fails with an <code>ENOENT</code> error, follow the instructions in the pop-up message that displays in the
 bottom right-hand corner to install CMSIS-Toolbox.</p>
 </div>
+<p>To learn about the solution structure, refer to
+<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/build-overview/">CMSIS-Toolbox documentation</a></p>
 <h2 id="load-and-run">Load and Run</h2>
 <p>Make sure that your target is connected, before loading the application onto it. You can use <code>pyOCD</code> to verify target
 connectivity.</p>
-<ol>
-<li>Open a <strong>Terminal</strong>, and enter <code>pyOCD list</code> to check attached hardware:
-   <img alt="Check connected hardware with pyOCD" src="images/pyOCDlist.png" /></li>
+<ul>
+<li>Open a <strong>Terminal</strong>, and enter <code>pyOCD list</code> to check attached hardware:</li>
+</ul>
+<pre><code class="language-sh">❯ pyocd list
+  #   Probe/Board      Unique ID                  Target           
+-------------------------------------------------------------------
+  0   STLINK-V3        001000254D46501220383832   ✖︎ stm32u585aiix  
+      B-U585I-IOT02A
+</code></pre>
+<ul>
 <li>In the <strong>CMSIS</strong> view, click <img alt="Run icon" src="images/run-icon.png" />. This executes the "Load &amp; Run application" command
-   that flashes the project onto the target and issues a reset to start the application.</li>
-<li>To verify that the step has run correctly, check the <strong>Terminal</strong> output:
-   <img alt="Flash download output" src="images/flash-dwnl-output.png" /></li>
-</ol>
+  that flashes the project onto the target and issues a reset to start the application.</li>
+<li>To verify that the step has run correctly, check the <strong>Terminal</strong> output:</li>
+</ul>
+<pre><code class="language-sh"> *  Executing task: pyocd load --probe stlink: --cbuild-run /Users/user/B-U585-Board/Blinky/Blinky+B-U585I-IOT02A.cbuild-run.yml 
+
+0000712 I Loading /Users/user/B-U585-Board/Blinky/out/Blinky/B-U585I-IOT02A/Debug/Blinky.axf [load_cmd]
+[==================================================] 100%
+0003015 I Erased 49152 bytes (6 sectors), programmed 49152 bytes (48 pages), skipped 0 bytes (0 pages) at 20.96 kB/s [loader]
+ *  Terminal will be reused by tasks, press any key to close it. 
+
+ *  Executing task: pyocd gdbserver --probe stlink: --connect attach --persist --reset-run --cbuild-run /Users/user/B-U585-Board/Blinky/Blinky+B-U585I-IOT02A.cbuild-run.yml 
+
+0000251 I Target type is stm32u585aiix [board]
+0000434 I DP IDR = 0x0be12477 (v2 MINDP rev0) [dap]
+0000511 I debugvar 'DbgMCU_AHB1_Fz' = 0x0 (0) [cbuild_run]
+0000511 I debugvar 'DbgMCU_AHB3_Fz' = 0x0 (0) [cbuild_run]
+0000511 I debugvar 'DbgMCU_APB1H_Fz' = 0x0 (0) [cbuild_run]
+0000511 I debugvar 'DbgMCU_APB1L_Fz' = 0x0 (0) [cbuild_run]
+0000511 I debugvar 'DbgMCU_APB2_Fz' = 0x0 (0) [cbuild_run]
+0000511 I debugvar 'DbgMCU_APB3_Fz' = 0x0 (0) [cbuild_run]
+0000511 I debugvar 'DbgMCU_CR' = 0x6 (6) [cbuild_run]
+0000511 I debugvar 'DoOptionByteLoading' = 0x0 (0) [cbuild_run]
+0000511 I debugvar 'TraceClk_Pin' = 0x40002 (262146) [cbuild_run]
+0000511 I debugvar 'TraceD0_Pin' = 0x20009 (131081) [cbuild_run]
+0000511 I debugvar 'TraceD1_Pin' = 0x2000a (131082) [cbuild_run]
+0000511 I debugvar 'TraceD2_Pin' = 0x40005 (262149) [cbuild_run]
+0000511 I debugvar 'TraceD3_Pin' = 0x2000c (131084) [cbuild_run]
+0000516 I AHB5-AP#0 IDR = 0x14770015 (AHB5-AP var1 rev1) [discovery]
+0000517 I AHB5-AP#0 Class 0x1 ROM table #0 @ 0xe00fe000 (designer=020:ST part=482) [rom_table]
+0000518 I [0]&lt;e00ff000:ROM class=1 designer=43b:Arm part=4c9&gt; [rom_table]
+0000518 I   AHB5-AP#0 Class 0x1 ROM table #1 @ 0xe00ff000 (designer=43b:Arm part=4c9) [rom_table]
+0000520 I   [0]&lt;e000e000:SCS M33 class=9 designer=43b:Arm part=d21 devtype=00 archid=2a04 devid=0:0:0&gt; [rom_table]
+0000520 I   [1]&lt;e0001000:DWT M33 class=9 designer=43b:Arm part=d21 devtype=00 archid=1a02 devid=0:0:0&gt; [rom_table]
+0000521 I   [2]&lt;e0002000:BPU M33 class=9 designer=43b:Arm part=d21 devtype=00 archid=1a03 devid=0:0:0&gt; [rom_table]
+0000522 I   [3]&lt;e0000000:ITM M33 class=9 designer=43b:Arm part=d21 devtype=43 archid=1a01 devid=0:0:0&gt; [rom_table]
+0000523 I   [5]&lt;e0041000:ETM M33 class=9 designer=43b:Arm part=d21 devtype=13 archid=4a13 devid=0:0:0&gt; [rom_table]
+0000524 I   [6]&lt;e0042000:CTI M33 class=9 designer=43b:Arm part=d21 devtype=14 archid=1a14 devid=40800:0:0&gt; [rom_table]
+0000524 I [1]&lt;e0040000:TPIU M33 class=9 designer=43b:Arm part=d21 devtype=11 archid=0000 devid=ca1:0:0&gt; [rom_table]
+0000525 I [2]&lt;e0044000:DBGMCU class=15 designer=020:ST part=000&gt; [rom_table]
+0000533 I CPU core #0: Cortex-M33 r0p4, v8.0-M architecture [cortex_m]
+0000533 I   Extensions: [DSP, FPU, FPU_V5, MPU] [cortex_m]
+0000533 I   FPU present: FPv5-SP-D16-M [cortex_m]
+0000534 I Setting core #0 (Cortex-M33) default reset sequence to ResetSystem [cbuild_run]
+0000534 I 4 hardware watchpoints [dwt]
+0000537 I 8 hardware breakpoints, 1 literal comparators [fpb]
+0000662 I Semihost server started on port 4444 (core 0) [server]
+0000718 I GDB server started on port 3333 (core 0) [gdbserver]
+</code></pre>
+<ul>
+<li>When running, <img alt="Run button" src="images/run-icon.png" /> changes to <img alt="Stop button" src="images/stop-button.png" />. Use it to
+  stop the GDB session anytime.</li>
+</ul>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <ul>
