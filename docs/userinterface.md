@@ -12,13 +12,14 @@ The GUI consists of these elements:
 
 ### 1. Dedicated views from the side bar
 
-- ![Explorer view](./images/ExplorerView.png) **Explorer** view lists all local files of the CMSIS solution.
-- ![Search view](./images/SearchView.png) **Search** view enables searching all files of the CMSIS solution
-- ![Source Control view](./images/SourceControlView.png) **Source Control** view allows you to work with git.
-- ![Extensions view](./images/ExtensionsView.png) **Extensions** view lets you work with VS Code extensions.
-- ![Run and Debug view](./images/RunDebugView.png) **Run and Debug** view switches the GUI to a dedicated
-  [debug view](./debug.md#run-and-debug-view).
-- ![CMSIS view](./images/CMSISView.png) **CMSIS** view is the main view for working with CMSIS solution-based projects.
+| View | Description |
+|:----:|-------------|
+| ![Explorer view](./images/ExplorerView.png) | [**Explorer** view](https://code.visualstudio.com/docs/getstarted/userinterface#_explorer-view) lists all local files. |
+| ![Search view](./images/SearchView.png) | **Search** view enables [search/replace](https://code.visualstudio.com/docs/editing/codebasics#_search-across-files) across all files. |
+| ![Source Control view](./images/SourceControlView.png) | [**Source Control** view](https://code.visualstudio.com/docs/sourcecontrol/overview) allows you to work with git. |
+| ![Extensions view](./images/ExtensionsView.png) | [**Extensions** view](https://code.visualstudio.com/docs/configure/extensions/extension-marketplace) lets you work with VS Code extensions. |
+| ![Run and Debug view](./images/RunDebugView.png) | **Run and Debug** view switches the GUI to a dedicated [debug view](./debug.md#run-and-debug-view). |
+| ![CMSIS view](./images/CMSISView.png) | [**CMSIS** view](#2-main-area-of-the-cmsis-view) is the main view for working with CMSIS solution-based projects. |
 
 !!! Note
     The ordering of the icons may be different in your VS Code environment.
@@ -40,28 +41,27 @@ information. The main area of the **CMSIS** view shows:
 - **Layer Type** (if available): The software layers in the project with their source files, preconfigured software
   components, and configuration files
 
-### 3. Icons available through the **CMSIS** view
+### 3. Actions available through the **CMSIS** view
 
-- ![Build solution](./images/build-icon.png) **Build solution** calls the compiler toolchain and builds the CMSIS
-  solution.
-- ![Load and Run Application](./images/run-icon.png) **Load & Run application** flashes the binary onto the target and
-  starts the application.
-- ![Load & Debug application](./images/debug-icon.png) **Load & Debug application** flashes the binary onto the target
-  and starts a debug session.
-- ![Open csolution.yml file](./images/openFile.png) **Open csolution.yml file** opens the CMSIS solution YML file for
-  editing.
-- ![Manage Solution Settings](./images/ManageSWComonents.png) **Manage Solution Settings** allows you to manage the
-  CMSIS solution settings.
-- ![.../Views and more actions](./images/more-actions-icon.png) shows further views and more actions.
+| Action | Description |
+|:------:|-------------|
+| ![Build solution](./images/build-icon.png) | [**Build solution**](./create_app.md#build) calls the compiler toolchain and builds the solution. |
+| ![Load and Run Application](./images/run-icon.png) | [**Load & Run application**](./create_app.md#load-and-run) flashes the binary onto the target and starts the application. |
+| ![Load & Debug application](./images/debug-icon.png) | [**Load & Debug application**](./debug.md) flashes the binary onto the target and starts a debug session. |
+| ![Open csolution.yml file](./images/openFile.png) | **Open csolution.yml file** opens the CMSIS solution YML file for editing. |
+| ![Manage Solution Settings](./images/ManageSWComonents.png) | [**Manage Solution Settings**](./manage_settings.md) allows you to manage the solution settings. |
+| ![Views and more actions](./images/more-actions-icon.png) | Shows further views and more actions. |
 
 ### 4. Main area icons
 
 Depending on the file and the context, various icons may appear:
 
-- ![clangd information active](./images/clangdInfo.png) IntelliSense is active for this cproject file.
-- ![Open file](./images/openFile.png) Open the file.
-- ![Manage software components](./images/ManageSWComonents.png) Manage the software components of the cproject file.
-- ![Add groups or files](./images/AddGroupsFiles.png) Add groups or files to the cproject file.
+| Action | Description |
+|:------:|-------------|
+| ![clangd information active](./images/clangdInfo.png) | IntelliSense is active for this cproject file. |
+| ![Open file](./images/openFile.png) | Open the file. |
+| ![Manage software components](./images/ManageSWComonents.png) | Manage the software components of the cproject file. |
+| ![Add groups or files](./images/AddGroupsFiles.png) | Add groups or files to the cproject file. |
 
 ### 5. Status bar
 

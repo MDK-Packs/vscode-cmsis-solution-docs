@@ -3,8 +3,7 @@
 In the **Manage Solution** view, you can select the target, projects, and build types that are included in the
 application image. You can also specify the debug adapter that you are using for target connectivity.
 
-In the **CMSIS view**, click **Manage Solution Settings** ![Cogwheel icon](./images/cogwheel-icon.png). The
-**Manage Solution** view opens:
+In the **CMSIS view**, click ![Cogwheel icon](./images/cogwheel-icon.png) to open the **Manage Solution** view:
 
 ![Manage Solution view](./images/manage-solution-view.png)
 
@@ -56,18 +55,18 @@ Open the `main.c` file and check the IntelliSense features available. To find ou
 ## Debug Adapter
 
 Use this drop-down to select the debug adapter that you are using for target connectivity. A broad range of adapters is
-supported:
+supported. Some of them require further setup steps:
 
 - CMSIS-DAP
 
-- Infineon KitProg3
+- [Infineon KitProg3](./tipsandtricks.md#infineon-kitprog3)
 
-- NXP MCU-Link
+- [NXP MCU-Link](./tipsandtricks.md#nxp-mcu-link)
 
 - Nuvoton Nu-Link
 
-- Microchip PICkit
+- [Microchip PICkit Basic](./tipsandtricks.md#microchip-pickit-basic)
 
-- Segger J-Link
+- [Segger J-Link](./tipsandtricks.md#segger-j-link)
 
-- STMicroelectronics ST-Link
+- [STMicroelectronics ST-Link](./tipsandtricks.md#stmicroelectronics-st-link)

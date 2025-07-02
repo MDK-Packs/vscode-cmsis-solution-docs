@@ -43,45 +43,6 @@ The following table illustrates the variable substition using the [DualCore csol
 
 ## Examples
 
-### pyOCD
-
-Use the following `launch.json` file to start debugging with pyOCD:
-
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "gdbtarget",
-            "request": "launch",
-            "name": "Debug with pyOCD",
-            "program": "${command:cmsis-csolution.getBinaryFile}",
-            "cwd": "${workspaceFolder}",
-            "verbose": true,
-            "gdb": "/Applications/ArmGNUToolchain/13.3.rel1/arm-none-eabi/bin/arm-none-eabi-gdb",
-            "initCommands": [
-                "monitor set reset-type SW_EMULATED",
-                "monitor reset halt"
-            ],
-            "target": {
-                "server": "python",
-                "serverParameters": [
-                    "-mpyocd",
-                    "gdbserver",
-                    "--target",
-                    "${command:cmsis-csolution.getDeviceName}",
-                    "--pack",
-                    "${command:cmsis-csolution.getDfpPath}",
-                    "--port",
-                    "3333"
-                ],
-                "port": "3333"
-            }
-        }
-    ]
-}
-```
-
 ### Arm Debugger
 
 Use the following `launch.json` file to start Arm Debugger:

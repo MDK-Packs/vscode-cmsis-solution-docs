@@ -1,4 +1,4 @@
-# Manage software components
+# Software components
 
 A [software component](https://open-cmsis-pack.github.io/cmsis-toolbox/CreateApplications/#software-components)
 encapsulates a set of related functions. The **Software Components** view shows all the software components selected in
@@ -13,19 +13,25 @@ You can:
 
 ## Software Components view
 
-Open the CMSIS view and click **Manage software components**
-![Manage software components](./images/software-components-icon.png). The **Software Components** view opens:
+Open the **CMSIS view** and click ![Manage software components](./images/software-components-icon.png) to open the
+**Software Components** view:
 
 ![The 'Software Components' ](./images/software-components-view.png)
 
-The default view displays the components available from the packs listed in your solution. Use the **Search** field to
-search the list of components.
+You can:
 
+1. Switch between *components* and *software packs*.
+2. View only components that are *part of the csolution* or components from *all installed packs*.
+3. Set the *context* for which the component selection applies (including layers).
+4. *Select/remove* software components.
+5. View *more information* about the component (name, pack, version, and description).
+6. Select different *variants* of a component.
+7. Open *related documentation*.
+
+<!--
 Layer icons ![Layer icon](./images/layer-icon.png) indicate which components are used in layers. In the current version,
 layers are read-only, so you cannot select or clear them. Click the layer icon of a component to open the `*.clayer.yml`
 file or associated files.
-
-**Learn more** links are available for some components. Click the links to open the related documentation.
 
 ## Modify the software components in your project
 
@@ -49,26 +55,22 @@ only the components that are already selected.
 
 Use the checkboxes to select or clear components as required. For some components, you can also select a vendor, variant,
 or version. The `cproject.yml` file is automatically updated.
+-->
 
 ### Validation
 
-Manage the dependencies between components and solve validation issues from the **Validation** panel. Issues are highlighted in red and have an exclamation mark icon ![Issue icon](./images/issue-icon.png) next to them. You can remove conflicting components from your selection or add missing component dependencies from a suggested list.
+In the **Software Components view**, you can manage the dependencies between components and solve validation issues.
+Issues are highlighted with a yellow exclamation mark icon ![Issue icon](./images/issue-icon.png).
 
 ![Validation errors](./images/validation-error.png)
 
-If there are validation issues, move your cursor over the issues in the **Validation** panel to get more details. Click the
-proposed fixes to find the components in the list. In some cases, you might have to choose between different fix sets. Select
-a fix set in the drop-down list, make the required component choices, and then click **Apply**.
+If there are validation issues:
 
-If a pack is missing in the solution, a **Component's pack is not included in your solution** message displays in the
-**Validation** panel. An error also displays in the **Problems** view. Install the pack with the [`cpackget`](https://open-cmsis-pack.github.io/cmsis-toolbox/build-tools/#cpackget-invocation) command.
+1. Either click on ![Issue icon](./images/issue-icon.png) and select the issue in the pop-up box (a) or
+2. Click the "Resolve" button for access to the pop-up box (a).
+3. Once a components with validation issues is opened, you can use the "eye" icon to see which component is
+   missing/affected (b).
+4. Use the "Apply" button to select the missing components (only available if there is no choice between different
+   components available).
 
-There can also be issues such as:
-
-- A component that you selected is incompatible with the selected hardware and toolchain
-
-- A component that you selected has dependencies which are incompatible with the selected hardware and toolchain
-
-- A component that you selected has unresolvable dependencies
-
-In such cases, you must remove the component. Click **Apply** from the **Validation** panel.
+When done, don't forget to **Save** the changes!

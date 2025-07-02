@@ -2,7 +2,9 @@
 
 ## Configure the extension
 
-Press **Ctrl+,** (Windows and Linux) or **Cmd+,** (macOS) or go to ![Settings cog wheel](./images/settings-cog.png) at the bottom of the **Activity Bar** and select **Settings**. Then, select **CMSIS Solution** to change the extension settings. The available settings are:
+Press **Ctrl+,** (Windows and Linux) or **Cmd+,** (macOS) or go to ![Settings cog wheel](./images/settings-cog.png) at
+the bottom of the **Activity Bar** and select **Settings**. Then, select **CMSIS Solution** to change the extension
+settings. The available settings are:
 
 | Setting | Description |
 |---------|-------------|

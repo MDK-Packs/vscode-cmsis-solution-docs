@@ -1,9 +1,17 @@
 # Arm Keil Studio
 
-**Arm Keil Studio for VS Code** allows to create projects and build embedded applications that use
-[CMSIS-Packs](https://www.keil.arm.com/packs/). It is a user interface for the
-[CMSIS-Toolbox](https://open-cmsis-pack.github.io/cmsis-toolbox/) that supports various compilation tools including Arm
-Compiler 6, GCC, IAR, and LLVM.
+The **Arm® Keil Studio** extension pack for VS Code is a comprehensive software development platform for Arm Cortex-M
+processor-based devices.
+
+The IDE:
+
+- supports single and multi-core processor systems, including Ethos-U NPUs.
+
+- has wide software support for projects based on CMSIS, FreeRTOS, RTX, and Zephyr.
+
+- utilizes CMSIS-Pack content to configure debug adapters and access re-usable software components.
+
+- can be combined with other VS Code debug extensions, such as those for Linux application development.
 
 ## Contents
 
@@ -24,7 +32,7 @@ Compiler 6, GCC, IAR, and LLVM.
 - [**Configuration**](./configuration.md) explains how to manage the extension settings and some specific configuration
   options, for example for run and debug.
 
-- [**Import µVision project**](./importuv.md) explains how to convert uvprojx-based files to the CMSIS Solution format.
+- [**Import µVision project**](./importuv.md) explains how to convert uvprojx-based files to the csolution format.
 
 - [**Run external tools**](./runexternal.md) describes how to use external tools, such as debuggers and flash
   programmers.
