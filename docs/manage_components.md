@@ -6,7 +6,7 @@ the active project of a solution.
 
 You can:
 
-- [Modify the software components](#modify-the-software-components-in-your-project) of the project.
+- Modify the software components of the project.
 
 - Manage the dependencies between components for each target type defined in your solution, or for all the target types at
   once.

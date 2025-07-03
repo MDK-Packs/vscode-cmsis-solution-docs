@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Manage Solution Settings - CMSIS Solution for VS Code</title>
+    <title>Manage Solution - Arm Keil Studio for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Manage Solution Settings";
+        var mkdocs_page_name = "Manage Solution";
         var mkdocs_page_input_path = "manage_settings.md";
         var mkdocs_page_url = null;
       </script>
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="index.html" class="icon icon-home"> CMSIS Solution for VS Code
+          <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -56,30 +56,26 @@
                 <li class="toctree-l1"><a class="reference internal" href="create_app.html">Create New Solution</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Manage Software Components</a>
-                </li>
-              </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Manage Solution Settings</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Manage Solution</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#active-target">Active target</a>
+    <li class="toctree-l2"><a class="reference internal" href="#context-set">Context Set</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#active-target">Active Target</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#active-projects">Active projects</a>
+    <li class="toctree-l3"><a class="reference internal" href="#active-projects">Active Projects</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#run-and-debug">Run and debug</a>
+    <li class="toctree-l3"><a class="reference internal" href="#errors-and-warnings">Errors and warnings</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#errors-and-warnings">Errors and warnings</a>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#debug-adapter">Debug Adapter</a>
     </li>
     </ul>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="build.html">Build</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="flash.html">Load and Run</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software Components</a>
                 </li>
               </ul>
               <ul>
@@ -109,14 +105,14 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">CMSIS Solution for VS Code</a>
+          <a href="index.html">Arm Keil Studio for VS Code</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Manage Solution Settings</li>
+      <li class="breadcrumb-item active">Manage Solution</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/main/docs/manage_settings.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -126,36 +122,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="manage-solution-settings">Manage Solution Settings</h1>
-<p>In the <strong>Manage Solution</strong> view, you can set the context of your solution. The context set selects the target and
-defines the projects and build types that are included in the application image.</p>
-<p>In the <strong>Solution outline</strong>, click <strong>Manage Solution Settings</strong> <img alt="Cogwheel icon" src="images/cogwheel-icon.png" />. The
-<strong>Manage Solutions</strong> view opens:</p>
+                <h1 id="manage-solution">Manage Solution</h1>
+<p>In the <strong>Manage Solution</strong> view, you can select the target, projects, and build types that are included in the
+application image. You can also specify the debug adapter that you are using for target connectivity.</p>
+<p>In the <strong>CMSIS view</strong>, click <img alt="Cogwheel icon" src="images/cogwheel-icon.png" /> to open the <strong>Manage Solution</strong> view:</p>
 <p><img alt="Manage Solution view" src="images/manage-solution-view.png" /></p>
-<p>You can change the <a href="#active-target">active target</a> type, and the <a href="#active-projects">active projects</a> included in the
-build. You can also change the build type of a project, or the run and debug configurations, or you can add new
-configurations.</p>
-<h2 id="active-target">Active target</h2>
-<p>Select a <strong>Target Type</strong> to specify the hardware used to build the solution. Some examples are also compatible with Arm
-Virtual Hardware (AVH) targets, in which case more options are available. For more details, read the <a href="https://arm-software.github.io/AVH/main/overview/html/index.html">AVH solutions overview</a>.</p>
-<p>To specify your target types by editing the YAML file directly, click <strong>Edit targets, build-types and project references in csolution.yml</strong>.</p>
-<h2 id="active-projects">Active projects</h2>
-<p>This section shows the projects that are part of the solution. Use the checkboxes to add or remove projects from the context set. The <strong>Project Name</strong> displays and cannot be changed.</p>
+<h2 id="context-set">Context Set</h2>
+<p>In the <strong>Context Set</strong> section, you can change the <a href="#active-target">active target</a> type, and the
+<a href="#active-projects">active projects</a> included in the build, as well as the build type of a project.</p>
+<h3 id="active-target">Active Target</h3>
+<p>Select a <strong>Target Type</strong> to specify the hardware used to build the solution for.</p>
+<p>To specify your target types by editing the YAML file directly, click
+<strong>Edit targets, build-types and project references in csolution.yml</strong>.</p>
+<h3 id="active-projects">Active Projects</h3>
+<p>Select the <strong>project(s)</strong> that are part of the solution.</p>
 <p>Select a <strong>Build Type</strong> for each project. You can set different build types for different projects in your solution.</p>
-<p>Click <strong>Edit cproject.yml</strong> next to a project to open the <code>&lt;project-name&gt;.cproject.yml</code> file. YAML syntax support helps you
-with editing.</p>
+<p>Click <strong>Edit cproject.yml</strong> next to a project to open the <code>&lt;project-name&gt;.cproject.yml</code> file.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The projects and build types that you can select are defined by contexts for a particular target. Some options might be
-unavailable if they have been excluded for the target selected. To learn more about contexts and how to modify them, see the <a href="https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/YML-Input-Format.md#context">Context</a> and
-<a href="https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/YML-Input-Format.md#conditional-build">Conditional build</a> information in the CMSIS-Toolbox documentation. For example, you can use <code>for-context</code> and <code>not-for-context</code> to include or exclude target types at the <code>project:</code> level in the <code>*.csolution.yml</code> file.</p>
+<p>The projects and build types that you can select are defined by contexts for a particular target. Some options
+might be unavailable if they have been excluded for the target selected. To learn more about contexts and how to
+modify them, see the
+<a href="https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/YML-Input-Format.md#context">Context</a> and
+<a href="https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/YML-Input-Format.md#conditional-build">Conditional build</a>
+information in the CMSIS-Toolbox documentation.<br />
+For example, you can use <code>for-context</code> and <code>not-for-context</code> to include or exclude target types at the <code>project:</code>
+level in the <code>*.csolution.yml</code> file.</p>
 </div>
-<h2 id="run-and-debug">Run and debug</h2>
-<p>Choose a run configuration and a debug configuration to use for your solution. You can select different run and debug configurations for each project included in the solution.</p>
-<p>You can also move your mouse over an entry in the list and click the pen icon to edit an existing configuration with a visual editor:</p>
-<p><img alt="Edit configuration" src="images/run-debug-edit-config.png" /></p>
-<p>Click <strong>+ Add new</strong> to add a new configuration.</p>
-<h2 id="errors-and-warnings">Errors and warnings</h2>
+<h3 id="errors-and-warnings">Errors and warnings</h3>
 <p>You can inspect errors and warnings for a context set. For active projects in the context set, errors and warnings
 display when you move your cursor over the <strong>Context Set</strong> in the status bar. The indicator is red for errors and yellow
 in case of warnings.</p>
@@ -164,12 +158,38 @@ in case of warnings.</p>
 <strong>Manage Solution</strong> view, then this action also re-opens the view.</p>
 <p>You can also go to the <strong>Problems</strong> tab and check for errors.</p>
 <p>Open the <code>main.c</code> file and check the IntelliSense features available. To find out about the different features, read the VS Code documentation on <a href="https://code.visualstudio.com/docs/editor/intellisense">IntelliSense</a>.</p>
+<h2 id="debug-adapter">Debug Adapter</h2>
+<p>Use this drop-down to select the debug adapter that you are using for target connectivity. A broad range of adapters is
+supported. Some of them require further setup steps:</p>
+<ul>
+<li>
+<p>CMSIS-DAP</p>
+</li>
+<li>
+<p><a href="tipsandtricks.html#infineon-kitprog3">Infineon KitProg3</a></p>
+</li>
+<li>
+<p><a href="tipsandtricks.html#nxp-mcu-link">NXP MCU-Link</a></p>
+</li>
+<li>
+<p>Nuvoton Nu-Link</p>
+</li>
+<li>
+<p><a href="tipsandtricks.html#microchip-pickit-basic">Microchip PICkit Basic</a></p>
+</li>
+<li>
+<p><a href="tipsandtricks.html#segger-j-link">Segger J-Link</a></p>
+</li>
+<li>
+<p><a href="tipsandtricks.html#stmicroelectronics-st-link">STMicroelectronics ST-Link</a></p>
+</li>
+</ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="manage_components.html" class="btn btn-neutral float-left" title="Manage Software Components"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="build.html" class="btn btn-neutral float-right" title="Build">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="create_app.html" class="btn btn-neutral float-left" title="Create New Solution"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="manage_components.html" class="btn btn-neutral float-right" title="Software Components">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -196,10 +216,10 @@ in case of warnings.</p>
         </span>
     
     
-      <span><a href="manage_components.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="create_app.html" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="build.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="manage_components.html" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

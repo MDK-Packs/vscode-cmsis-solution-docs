@@ -43,6 +43,6 @@ The IDE:
 
 Version            | Description
 :------------------|:-------------------------
-1.5x.0             | Rework for better clarity
+1.55.0             | Rework for better clarity
 1.54.0             | Added CMSIS-Toolbox Run and Debug Management
 1.48.0             | Initial release for the CMSIS Solution extension version 1.48.0

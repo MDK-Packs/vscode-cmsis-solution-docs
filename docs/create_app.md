@@ -29,8 +29,8 @@ Further settings include:
 
 - With **Initialize Git repository** the related `.gitignore` file is created.
 
-- **Show project opening options** allows you to open the spolution a new instance of VS Code. By default, the solution
-  is loaded into the current VS Code instance.
+- **Show project opening options** allows you to open the solution a new instance of VS Code. By default, it is loaded
+  into the current VS Code instance.
 
 ## Work with examples
 
@@ -204,20 +204,35 @@ To learn about the solution structure, refer to
 
 ## Load and Run
 
-Make sure that your target is connected, before loading the application onto it. You can use `pyOCD` to verify target
-connectivity.
+### Check target information
 
-- Open a **Terminal**, and enter `pyOCD list` to check attached hardware:
+In the **CMSIS** view, click ![More options](./images/more-actions-icon.png) and then select "Target Information" to
+check that your target is connected.
+
+![Target Information](./images/target-information.png)
+
+In the **Terminal**, the result of the `pyocd list` command is shown:
+
 ```sh
-❯ pyocd list
+ *  Executing task: pyocd list --cbuild-run /Users/user/Blinky/Blinky+B-U585I-IOT02A.cbuild-run.yml 
+
   #   Probe/Board      Unique ID                  Target           
 -------------------------------------------------------------------
   0   STLINK-V3        001000254D46501220383832   ✖︎ stm32u585aiix  
       B-U585I-IOT02A
 ```
-- In the **CMSIS** view, click ![Run icon](./images/run-icon.png). This executes the "Load & Run application" command
-  that flashes the project onto the target and issues a reset to start the application.
-- To verify that the step has run correctly, check the **Terminal** output:
+
+!!! Note
+    If your debug adapter is not shown, make sure that all
+    [drivers are installed](./tipsandtricks.md#installing-debug-adapters) and that the target is connected to the PC.
+
+### Download and run the application
+
+In the **CMSIS** view, click ![Run icon](./images/run-icon.png). This executes the "Load & Run application" command
+that flashes the project onto the target and issues a reset to start the application.
+
+To verify that the step has run correctly, check the **Terminal** output:
+
 ```sh
  *  Executing task: pyocd load --probe stlink: --cbuild-run /Users/user/B-U585-Board/Blinky/Blinky+B-U585I-IOT02A.cbuild-run.yml 
 
@@ -264,8 +279,9 @@ connectivity.
 0000662 I Semihost server started on port 4444 (core 0) [server]
 0000718 I GDB server started on port 3333 (core 0) [gdbserver]
 ```
--  When running, ![Run button](./images/run-icon.png) changes to ![Stop button](./images/stop-button.png). Use it to
-  stop the GDB session anytime.
+
+When running, ![Run button](./images/run-icon.png) changes to ![Stop button](./images/stop-button.png). Use it to stop
+the GDB session anytime.
 
 !!! Notes
     - When you have several solutions in one folder, VS Code ignores the `tasks.json` and `launch.json` files that
@@ -276,7 +292,7 @@ connectivity.
       select the appropriate processor for your project in the **Select a processor** drop-down list at the top of the
       window.
 
-### Monitoring printf messages
+### Monitor printf messages
 
 Keil Studio includes the **Serial Monitor** extension that connects to the target's serial output port. If your example
 contains `printf` statements, use the Serial Monitor to observe them.

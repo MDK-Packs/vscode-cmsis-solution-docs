@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Installation - CMSIS Solution for VS Code</title>
+    <title>Installation - Arm Keil Studio for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="index.html" class="icon icon-home"> CMSIS Solution for VS Code
+          <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -47,7 +47,21 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#verify-the-installation">Verify the installation</a>
+    <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-keil-studio">Installing Keil Studio</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#verify-the-installation">Verify the installation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#set-up-a-new-workspace">Set up a new workspace</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#tool-installation">Tool installation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pack-installation">Pack installation</a>
+    </li>
+        </ul>
     </li>
     </ul>
                 </li>
@@ -61,19 +75,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Manage Software Components</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution Settings</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="build.html">Build</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="flash.html">Load and Run</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software Components</a>
                 </li>
               </ul>
               <ul>
@@ -103,7 +109,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">CMSIS Solution for VS Code</a>
+          <a href="index.html">Arm Keil Studio for VS Code</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -123,51 +129,76 @@
                 <h1 id="installation">Installation</h1>
 <!-- markdownlint-disable MD036 -->
 
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Arm Keil Studio is a set of extensions for <a href="https://code.visualstudio.com/">Microsoft Visual Studio Code</a>, which is
+required to be installed on your machine.</p>
+<h2 id="installing-keil-studio">Installing Keil Studio</h2>
 <p>The <a href="https://marketplace.visualstudio.com/items?itemName=Arm.keil-studio-pack"><strong>Arm Keil Studio Pack (MDK v6)</strong></a>
-extension pack includes the CMSIS Solution extension and other extensions that you can use to work with CMSIS solution
-projects.</p>
+extension pack includes the extensions that are required to work with CMSIS solution projects.</p>
 <ol>
-<li>
-<p>In VS Code, open the <strong>Extensions</strong> view and type <code>Keil Studio Pack</code> in the search bar.</p>
-</li>
-<li>
-<p>Click <strong>Install</strong> to start the installation. When the installation is finished, the CMSIS view icon appears in the
-   activity bar.</p>
-</li>
+<li>In VS Code, open the <strong>Extensions</strong> view.</li>
+<li>Type <code>Arm</code> in the search bar.</li>
+<li>Click on "Arm Kei Studio Pack" and README is shown on the right. It contains links to the included extensions. Their
+   READMEs include minimal user guides.
+<img alt="Keil Studio Pack README" src="images/keil-studio-pack-readme.png" /></li>
+<li>Click <strong>Install</strong> to start. You need to trust the publishers "Arm" and "LLVM" to install the extension pack. When
+   the installation is finished, the <strong>CMSIS view icon</strong> <img alt="CMSIS view icon" src="images/CMSISView.png" /> appears in the
+   activity bar.</li>
 </ol>
-<p>You can <a href="create_app.html">create your first application</a> or
-<a href="#verify-the-installation">verify the installation with an example projecy</a> and then check that you can build, run, and
-debug the application.</p>
+<h3 id="verify-the-installation">Verify the installation</h3>
+<p>Once you have installed Keil Studio, you can verify your installation by following the getting started guide that opens
+automatically:</p>
+<p><img alt="Get started with a CMSIS solution" src="images/get-started.png" /></p>
+<p>It's best practice to <a href="create_app.html">create a new CMSIS solution</a> based on a Blinky example, which typically flashes
+an LED on a target board.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you do not want to install all the extensions available in the pack, you can install the
-<a href="https://marketplace.visualstudio.com/items?itemName=Arm.cmsis-csolution">Arm CMSIS Solution</a> extension standalone.
-Search for <code>CMSIS Solution</code> in the <strong>Extensions</strong> view.</p>
+<p>When creating a solution based on an example, all required tools and packs are installed automatically.</p>
 </div>
-<h2 id="verify-the-installation">Verify the installation</h2>
-<p>The <a href="https://www.keil.arm.com/boards/">CMSIS boards list</a> contains many examples that you can use to verify that the
-extension works correctly.</p>
-<p>The following example explains how to start from a Blinky project for the
-<a href="https://www.keil.arm.com/boards/stmicroelectronics-nucleo-f756zg-revb-2251244">STMicroelectronics NUCLEO-F756ZG</a>
-development board. Adapt the steps for your target hardware.</p>
-<ol>
-<li>In the <strong>CMSIS</strong> view, click <strong>Create a New Solution</strong> to open the <strong>Create Solution</strong> view.</li>
-<li>Click the <strong>Target Board</strong> drop-down list. Enter a search term, for example "f756", and then select the
-   "NUCLEO-F756ZG (Rev.B)" board.<br />
-<img alt="Select the NUCLEO-F756ZG" src="images/SelectF756ZG.png" />  </li>
-<li>Click <strong>Select</strong>. By default, the <strong>Target Device</strong> drop-down list shows the name of the device mounted on the board
-that you selected.</li>
-<li>Click the <strong>Templates, Reference Applications, and Example</strong> drop-down list. Enter a search term, for example
-   "Blinky", and then select the "Blinky" example from the web.<br />
-<img alt="Select Blinky example" src="images/SelectBlinky.png" /></li>
-<li>Click <strong>Browse</strong> to set a base forlder for the solution, then click <strong>Create</strong>.<br />
-<img alt="Click Create" src="images/SolutionCreate.png" />  </li>
-<li>Confirm that the Arm Tools Environment Manager extension can automatically activate the workspace and download the
-   tools specified in the <code>vcpkg-configuration.json</code> file included in your project.<br />
-<img alt="Activate the workspace" src="images/activate-environment.png" />  </li>
-</ol>
-<p>Now you can now <a href="build.html">build</a> and <a href="debug.html">debug</a> the example project.  During the build process missing
-software packs may be downloaded.</p>
+<h2 id="set-up-a-new-workspace">Set up a new workspace</h2>
+<p>If you want to install tools and packs separately, you have to create a new workspace in VS Code by opening a blank
+folder.</p>
+<h3 id="tool-installation">Tool installation</h3>
+<p>Required tools (such as a compiler toolchain or the CMSIS-Toolbox) are installed via the
+<strong>Arm Tools Environment Manager</strong>, controlled by the <code>vcpkg-configuration.json</code> file.</p>
+<p>Open the <strong>Arm Tools Environment Manager</strong> via the command pallette (Ctrl/CMd + Shift + p) and select
+<strong>Arm Tools: Configure Arm Tools Environment</strong>. The "Arm Registry" opens:</p>
+<p><img alt="Arm Registry" src="images/arm-registry.png" /></p>
+<p>Select at least an "Arm CMSIS-Toolbox" version as this is required to be able to <a href="#pack-installation">install packs</a>.
+The <strong>Output</strong> pane shows the status of the "Arm Tools" installation.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<ul>
+<li>If you are using Keil Studio for the first time, the <strong>Arm Tools Environment Manager</strong> needs to download required
+  tools from the Internet. While may take a couple of minutes (depending on your internet connection), it is only
+  required once.</li>
+<li>You also need to provide a license. A free, non-commercial
+  <a href="https://www.keil.arm.com/mdk-community/">MDK-Community</a> license can be activated from within the tool. If you
+  need a commercial license, check our <a href="https://store.arm.com/mdk-6/">eStore</a> or contact your preferred
+  <a href="https://www.arm.com/products/development-tools/distributors">distributor</a>.</li>
+</ul>
+</div>
+<h3 id="pack-installation">Pack installation</h3>
+<p>CMSIS-Packs for device and board support as well as software delivery mechanism are an integral part of a CMSIS
+solution. Packs can be discovered online:</p>
+<ul>
+<li><a href="https://www.keil.arm.com/packs">List of CMSIS-Packs</a></li>
+<li><a href="https://www.keil.arm.com/devices">List of devices</a></li>
+<li><a href="https://www.keil.arm.com/boards">List of boards</a></li>
+</ul>
+<p>Each page contains information about how to download a pack with
+<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/build-tools/#cpackget-invocation">cpackget</a>:</p>
+<p><img alt="MDK-Middleware pack page" src="images/mdk-middleware-pack.png" /></p>
+<p>Run this command in a <strong>Terminal</strong> (you will be asked to accept the license agreement):</p>
+<pre><code class="language-sh">❯ cpackget add Keil::MDK-Middleware@8.0.0
+I: Updating public index
+I: Downloading index.pidx...
+I: 100% |█████████████████████████████████████████████████████████| (216/216 kB, 405 kB/s)        
+I: Updating PDSC files of public packs
+I: Adding pack &quot;Keil::MDK-Middleware@8.0.0&quot;
+I: Extracting files to /Users/chrsei01/.cache/arm/packs/Keil/MDK-Middleware/8.0.0...
+I: 100% |█████████████████████████████████████████████████████████| (2180/2180, 2187 it/s)        
+</code></pre>
               
             </div>
           </div><footer>
