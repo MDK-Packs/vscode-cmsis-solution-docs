@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>CMSIS Solution for VS Code</title>
+    <title>Arm Keil Studio for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="index.html" class="icon icon-home"> CMSIS Solution for VS Code
+          <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -63,19 +63,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Manage Software Components</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution Settings</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="build.html">Build</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="flash.html">Load and Run</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software Components</a>
                 </li>
               </ul>
               <ul>
@@ -105,7 +97,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">CMSIS Solution for VS Code</a>
+          <a href="index.html">Arm Keil Studio for VS Code</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -122,35 +114,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="cmsis-solution-extension">CMSIS Solution extension</h1>
-<p>The <strong>CMSIS Solution</strong> extension available for VS Code allows to create projects and build embedded applications that
-use <a href="https://www.keil.arm.com/packs/">CMSIS-Packs</a>. 
-It is a user interface for the <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/">CMSIS-Toolbox</a> that supports various compilation tools including Arm Compiler 6, GCC, IAR, and LLVM.</p>
+                <h1 id="arm-keil-studio">Arm Keil Studio</h1>
+<p>The <strong>Arm® Keil Studio</strong> extension pack for VS Code is a comprehensive software development platform for Arm Cortex-M
+processor-based devices.</p>
+<p>The IDE:</p>
+<ul>
+<li>
+<p>supports single and multi-core processor systems, including Ethos-U NPUs.</p>
+</li>
+<li>
+<p>has wide software support for projects based on CMSIS, FreeRTOS, RTX, and Zephyr.</p>
+</li>
+<li>
+<p>utilizes CMSIS-Pack content to configure debug adapters and access re-usable software components.</p>
+</li>
+<li>
+<p>can be combined with other VS Code debug extensions, such as those for Linux application development.</p>
+</li>
+</ul>
 <h2 id="contents">Contents</h2>
 <ul>
 <li>
-<p><a href="installation.html"><strong>Installation</strong></a> explains how to install the CMSIS Solution extension along with a build
+<p><a href="installation.html"><strong>Installation</strong></a> explains how to install Keil Studio along with a build
   environment for embedded applications that are based on Arm Cortex-M processors.</p>
 </li>
 <li>
-<p><a href="userinterface.html"><strong>User interface</strong></a> shows the main features available in the CMSIS Solution extension GUI.</p>
+<p><a href="userinterface.html"><strong>User interface</strong></a> shows the main features available in the GUI.</p>
 </li>
 <li>
-<p><a href="create_app.html"><strong>Create an embedded project</strong></a> explains how to start a project from scratch.</p>
+<p><a href="create_app.html"><strong>Create new solution</strong></a> explains how to start an embedded project from scratch.</p>
 </li>
 <li>
-<p><a href="manage_components.html"><strong>Manage software components</strong></a> shows how to add or remove software components in a
+<p><a href="manage_settings.html"><strong>Manage solution</strong></a> explains how to configure a <em>csolution project</em>.</p>
+</li>
+<li>
+<p><a href="manage_components.html"><strong>Software components</strong></a> shows how to add or remove software components in a
   solution.</p>
-</li>
-<li>
-<p><a href="manage_settings.html"><strong>Manage solution settings</strong></a> explains how to configure a <em>csolution project</em> for run and
-  debug.</p>
-</li>
-<li>
-<p><a href="build.html"><strong>Build</strong></a> describes how to build a project.</p>
-</li>
-<li>
-<p><a href="flash.html"><strong>Load and run</strong></a> explains how to load and run an application on your hardware.</p>
 </li>
 <li>
 <p><a href="debug.html"><strong>Debug</strong></a> explains how to debug a project.</p>
@@ -160,7 +159,7 @@ It is a user interface for the <a href="https://open-cmsis-pack.github.io/cmsis-
   options, for example for run and debug.</p>
 </li>
 <li>
-<p><a href="importuv.html"><strong>Import µVision project</strong></a> explains how to convert uvprojx-based files to the CMSIS Solution format.</p>
+<p><a href="importuv.html"><strong>Import µVision project</strong></a> explains how to convert uvprojx-based files to the csolution format.</p>
 </li>
 <li>
 <p><a href="runexternal.html"><strong>Run external tools</strong></a> describes how to use external tools, such as debuggers and flash
@@ -179,6 +178,10 @@ It is a user interface for the <a href="https://open-cmsis-pack.github.io/cmsis-
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align: left;">1.55.0</td>
+<td style="text-align: left;">Rework for better clarity</td>
+</tr>
 <tr>
 <td style="text-align: left;">1.54.0</td>
 <td style="text-align: left;">Added CMSIS-Toolbox Run and Debug Management</td>
@@ -241,5 +244,5 @@ It is a user interface for the <a href="https://open-cmsis-pack.github.io/cmsis-
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-05-27 15:02:29.356090+00:00
+Build Date UTC : 2025-07-03 14:11:38.172266+00:00
 -->

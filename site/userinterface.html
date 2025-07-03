@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>User Interface - CMSIS Solution for VS Code</title>
+    <title>User Interface - Arm Keil Studio for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="index.html" class="icon icon-home"> CMSIS Solution for VS Code
+          <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -51,11 +51,21 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">User Interface</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-dedicated-views-from-the-side-bar">1. Dedicated views from the side bar</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-main-area-of-the-cmsis-view">2. Main area of the CMSIS view</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-actions-available-through-the-cmsis-view">3. Actions available through the CMSIS view</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4-main-area-icons">4. Main area icons</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#5-status-bar">5. Status bar</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#available-commands">Available commands</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#cmsis-view">CMSIS view</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#status-bar">Status bar</a>
     </li>
     </ul>
                 </li>
@@ -65,19 +75,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Manage Software Components</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution Settings</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="build.html">Build</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="flash.html">Load and Run</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software Components</a>
                 </li>
               </ul>
               <ul>
@@ -107,7 +109,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">CMSIS Solution for VS Code</a>
+          <a href="index.html">Arm Keil Studio for VS Code</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -125,21 +127,162 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="user-interface">User Interface</h1>
-<p>The <strong>CMSIS Solution</strong> extension for VS Code provides a GUI for project management and build tools with the <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/">CMSIS-Toolbox</a>. Combined with other
-Arm and third-party extensions, it implements a powerful embedded development environment.</p>
-<p>This quick start section explains the commands and capabilities of the <a href="#cmsis-view">CMSIS view</a>
-and the <a href="#status-bar">status bar</a>.</p>
+<p>The <strong>CMSIS Solution</strong> extension provides the Keil Studio GUI for project management and build tools with the
+<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/">CMSIS-Toolbox</a>. Combined with other Arm and third-party extensions,
+it implements a powerful embedded development environment.</p>
+<h2 id="overview">Overview</h2>
+<p><img alt="CMSIS view" src="images/solution-outline.png" /></p>
+<p>The GUI consists of these elements:</p>
+<h3 id="1-dedicated-views-from-the-side-bar">1. Dedicated views from the side bar</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">View</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Explorer view" src="images/ExplorerView.png" /></td>
+<td><a href="https://code.visualstudio.com/docs/getstarted/userinterface#_explorer-view"><strong>Explorer</strong> view</a> lists all local files.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Search view" src="images/SearchView.png" /></td>
+<td><strong>Search</strong> view enables <a href="https://code.visualstudio.com/docs/editing/codebasics#_search-across-files">search/replace</a> across all files.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Source Control view" src="images/SourceControlView.png" /></td>
+<td><a href="https://code.visualstudio.com/docs/sourcecontrol/overview"><strong>Source Control</strong> view</a> allows you to work with git.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Extensions view" src="images/ExtensionsView.png" /></td>
+<td><a href="https://code.visualstudio.com/docs/configure/extensions/extension-marketplace"><strong>Extensions</strong> view</a> lets you work with VS Code extensions.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Run and Debug view" src="images/RunDebugView.png" /></td>
+<td><strong>Run and Debug</strong> view switches the GUI to a dedicated <a href="debug.html#run-and-debug-view">debug view</a>.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="CMSIS view" src="images/CMSISView.png" /></td>
+<td><a href="#2-main-area-of-the-cmsis-view"><strong>CMSIS</strong> view</a> is the main view for working with CMSIS solution-based projects.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The ordering of the icons may be different in your VS Code environment.</p>
+</div>
+<h3 id="2-main-area-of-the-cmsis-view">2. Main area of the <strong>CMSIS</strong> view</h3>
+<p>The CMSIS view <img alt="CMSIS icon" src="images/cmsis-icon.png" /> shows the content of the active projects included in the
+solution. Each project contains configuration settings, source code files, build settings, and other project-specific
+information. The main area of the <strong>CMSIS</strong> view shows:</p>
+<ul>
+<li><strong>Board</strong> and <strong>device</strong> information and related documentation.</li>
+<li><strong>Groups and files</strong>: Groups and user files that you add to the project and that you can edit</li>
+<li><strong>constructed-files</strong>: Contains generated files such as the <code>RTE_Components.h</code> header file for each context</li>
+<li><strong>linker</strong>: Contains a linker script file and a &lt;regions&gt;.h file (or other user-defined header files)</li>
+<li><strong>Components</strong>: Shows the software components selected for the project with their source files, user code templates, and
+  APIs. Click the files to open them in the editor. Click the book icon of a component to open the related documentation.
+  If you are using a generator to configure your device or board, then a <strong>Run Configuration Generator</strong> option is available to start a
+  generator session.</li>
+<li><strong>Layer Type</strong> (if available): The software layers in the project with their source files, preconfigured software
+  components, and configuration files</li>
+</ul>
+<h3 id="3-actions-available-through-the-cmsis-view">3. Actions available through the <strong>CMSIS</strong> view</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Action</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Build solution" src="images/build-icon.png" /></td>
+<td><a href="create_app.html#build"><strong>Build solution</strong></a> calls the compiler toolchain and builds the solution.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Load and Run Application" src="images/run-icon.png" /></td>
+<td><a href="create_app.html#load-and-run"><strong>Load &amp; Run application</strong></a> flashes the binary onto the target and starts the application.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Load &amp; Debug application" src="images/debug-icon.png" /></td>
+<td><a href="debug.html"><strong>Load &amp; Debug application</strong></a> flashes the binary onto the target and starts a debug session.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Open csolution.yml file" src="images/openFile.png" /></td>
+<td><strong>Open csolution.yml file</strong> opens the CMSIS solution YML file for editing.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Manage Solution Settings" src="images/ManageSWComonents.png" /></td>
+<td><a href="manage_settings.html"><strong>Manage Solution Settings</strong></a> allows you to manage the solution settings.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Views and more actions" src="images/more-actions-icon.png" /></td>
+<td>Shows further views and more actions.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-main-area-icons">4. Main area icons</h3>
+<p>Depending on the file and the context, various icons may appear:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Action</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="clangd information active" src="images/clangdInfo.png" /></td>
+<td>IntelliSense is active for this cproject file.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Open file" src="images/openFile.png" /></td>
+<td>Open the file.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Manage software components" src="images/ManageSWComonents.png" /></td>
+<td>Manage the software components of the cproject file.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Add groups or files" src="images/AddGroupsFiles.png" /></td>
+<td>Add groups or files to the cproject file.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-status-bar">5. Status bar</h3>
+<p>The VS Code status bar displays information about the status of your development environment and the project. The number of extensions installed might vary.</p>
+<ul>
+<li>
+<p>Status message of the clangd extension (used for IntelliSense).</p>
+</li>
+<li>
+<p>You can inspect errors and warnings for a context set. For active projects in the context set, errors and warnings display
+  when you move your cursor over the <strong>Context Set</strong> in the status bar. The indicator is red for errors and yellow in case
+  of warnings. Click the indicator to open the <strong>Output</strong> tab for the <strong>CMSIS Solution</strong> category. If you previously closed
+  the <strong>Manage Solution</strong> view, then this action also re-opens the view.
+  <img alt="Context Set errors and warnings" src="images/context-set-popup.png" /></p>
+</li>
+<li>
+<p>The <strong>Arm Tools Environment Manager</strong> extension shows information about the tools installed. Move your mouse over <strong>Arm Tools</strong> to review the list. Click <strong>Arm Tools</strong> to get more options.
+  <img alt="Arm Tools" src="images/arm-tools.png" /></p>
+</li>
+<li>
+<p>If you are using licensed Arm tools, the <strong>active license</strong> displays. Click the active license to manage it.</p>
+</li>
+</ul>
 <h2 id="available-commands">Available commands</h2>
 <p>You can access commands to manage your solution and the projects it includes in the following ways:</p>
 <ul>
 <li>
-<p>From the <a href="#cmsis-view"><strong>CMSIS</strong> view</a>.</p>
+<p>From the <strong>CMSIS</strong> view.</p>
 </li>
 <li>
 <p>When you right-click the <code>*.csolution.yml</code> file from the <strong>Explorer</strong> view.</p>
 </li>
 <li>
-<p>When you click the <a href="#status-bar">Context Set status bar item</a>.</p>
+<p>When you click the <a href="#5-status-bar">Context Set status bar item</a>.</p>
 </li>
 <li>
 <p>When you press Ctrl+Shift+P (Windows and Linux) or Cmd+Shift+P (macOS) to open the Command Palette.</p>
@@ -174,7 +317,7 @@ and the <a href="#status-bar">status bar</a>.</p>
 <td>Open a configuration tools such as CubeMX</td>
 </tr>
 <tr>
-<td><a href="build.html">Build solution</a></td>
+<td><a href="create_app.html#build">Build solution</a></td>
 <td>Build the solution with the current context set</td>
 </tr>
 <tr>
@@ -186,7 +329,7 @@ and the <a href="#status-bar">status bar</a>.</p>
 <td>Debug the solution with the current context set</td>
 </tr>
 <tr>
-<td><a href="flash.html">Run</a></td>
+<td><a href="create_app.html#load-and-run">Run</a></td>
 <td>Run the solution on your target</td>
 </tr>
 <tr>
@@ -211,60 +354,6 @@ and the <a href="#status-bar">status bar</a>.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="cmsis-view">CMSIS view</h2>
-<p>The CMSIS view <img alt="CMSIS icon" src="images/cmsis-icon.png" /> shows the content of the active projects included in the solution. Each
-project contains configuration settings, source code files, build settings, and other project-specific information. The
-extension uses these settings and files to manage and build a software project for a board or device.</p>
-<p><img alt="CMSIS view" src="images/solution-outline.png" /></p>
-<p>The main area shows:</p>
-<ul>
-<li>
-<p><strong>Groups and files</strong>: Groups and user files that you add to the project and that you can edit</p>
-</li>
-<li>
-<p><strong>constructed-files</strong>: Contains generated files such as the <code>RTE_Components.h</code> header file for each context</p>
-</li>
-<li>
-<p><strong>linker</strong>: Contains a linker script file and a &lt;regions&gt;.h file (or other user-defined header files)</p>
-</li>
-<li>
-<p><strong>Components</strong>: Shows the software components selected for the project with their source files, user code templates, and
-  APIs. Click the files to open them in the editor. Click the book icon of a component to open the related documentation.
-  If you are using a generator to configure your device or board, then a <strong>Run Configuration Generator</strong> option is available to start a
-  generator session.</p>
-</li>
-<li>
-<p><strong>Layer Type</strong> (if available): The software layers in the project with their source files, preconfigured software
-  components, and configuration files</p>
-</li>
-</ul>
-<h2 id="status-bar">Status bar</h2>
-<p>The VS Code status bar displays information about the status of your development environment and the project. The number of extensions installed might vary.</p>
-<p>Here is an example of how the status bar can look:</p>
-<p><img alt="Status bar" src="images/status-bar.png" /></p>
-<ul>
-<li>
-<p>If you have a development board connected, the <strong>connected hardware</strong> displays using the <strong>Arm Device Manager</strong> extension.
-  Click the connected hardware to open the extension.</p>
-</li>
-<li>
-<p>The <strong>current debug configuration</strong> displays using the <strong>Arm Debugger</strong> extension</p>
-</li>
-<li>
-<p>You can inspect errors and warnings for a context set. For active projects in the context set, errors and warnings display
-  when you move your cursor over the <strong>Context Set</strong> in the status bar. The indicator is red for errors and yellow in case
-  of warnings. Click the indicator to open the <strong>Output</strong> tab for the <strong>CMSIS Solution</strong> category. If you previously closed
-  the <strong>Manage Solution</strong> view, then this action also re-opens the view.
-  <img alt="Context Set errors and warnings" src="images/context-set-popup.png" /></p>
-</li>
-<li>
-<p>The <strong>Arm Tools Environment Manager</strong> extension shows information about the tools installed. Move your mouse over <strong>Arm Tools</strong> to review the list. Click <strong>Arm Tools</strong> to get more options.
-  <img alt="Arm Tools" src="images/arm-tools.png" /></p>
-</li>
-<li>
-<p>If you are using licensed Arm tools, the <strong>active license</strong> displays. Click the active license to manage it.</p>
-</li>
-</ul>
               
             </div>
           </div><footer>

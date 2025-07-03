@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Import uVision Project - CMSIS Solution for VS Code</title>
+    <title>Import uVision Project - Arm Keil Studio for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="index.html" class="icon icon-home"> CMSIS Solution for VS Code
+          <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -57,19 +57,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Manage Software Components</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution Settings</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="build.html">Build</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="flash.html">Load and Run</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software Components</a>
                 </li>
               </ul>
               <ul>
@@ -115,7 +107,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">CMSIS Solution for VS Code</a>
+          <a href="index.html">Arm Keil Studio for VS Code</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -133,30 +125,17 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="import-a-keil-vision-project">Import a Keil µVision project</h1>
-<p>With the CMSIS Solution extension, you can convert a Keil μVision project to a CMSIS solution.</p>
-<ol>
-<li>
-<p>Open the folder that contains the <code>*.uvprojx</code> that you want to convert in VS Code. Alternatively, import a
-   μVision project from <a href="https://www.keil.arm.com/">keil.arm.com</a>, or clone a project from GitHub.</p>
-</li>
-<li>
-<p>Do one of the following:</p>
-</li>
-<li>
-<p>From the <strong>Explorer</strong> view, right-click the <code>*.uvprojx</code> file and select <strong>Convert μVision project to CMSIS solution</strong>.</p>
-</li>
-<li>
-<p>Alternatively, if you are starting from an empty workspace, you can click <img alt="CMSIS icon" src="images/cmsis-icon.png" /> in the
-<strong>Activity Bar</strong> to open the <strong>CMSIS</strong> view. Then choose one of the following options:</p>
+<p>In Keil Studio, you can convert a Keil μVision project to a CMSIS solution by opening the folder that contains the
+<code>*.uvprojx</code> file that you want to convert. Then, do one of the following:</p>
 <ul>
-<li>
-<p>Click <strong>Convert a μVision Project to CMSIS Solution</strong> and open your <code>*.uvprojx</code> file to convert it.</p>
-</li>
-<li>
-<p>Click <strong>Views and More Actions</strong> <img alt="Views and More Actions icon" src="images/more-actions-icon.png" />, then select <strong>Convert μVision project to CMSIS solution</strong> and open your <code>*.uvprojx</code> file to convert it.</p>
-</li>
+<li>From the <strong>Explorer view</strong>, right-click the <code>*.uvprojx</code> file and select <strong>Convert μVision project to CMSIS solution</strong>.</li>
+<li>From the <strong>CMSIS view</strong>, choose one of the following options:</li>
 </ul>
-</li>
+<p><img alt="Convert from CMSIS view" src="images/cmsis-view-convert.png" /></p>
+<ol>
+<li>Click <strong>Convert a μVision Project to CMSIS Solution</strong> and open your <code>*.uvprojx</code> file to convert it.</li>
+<li>Click <strong>Views and More Actions</strong> <img alt="Views and More Actions icon" src="images/more-actions-icon.png" />, then select
+   <strong>Convert μVision project to CMSIS solution</strong> and open your <code>*.uvprojx</code> file to convert it.</li>
 </ol>
 <p>A dialog box displays. You can carry out the following tasks:</p>
 <pre><code>  - Open the solution in a new workspace with the **Open** option.
@@ -179,11 +158,9 @@
 list of issues you might see.</p>
 <h3 id="using-arm-compiler-5">Using Arm Compiler 5</h3>
 <p>The conversion <em>does not work</em> with Arm Compiler 5-based projects. Only projects using Arm Compiler 6 can be converted.</p>
-<div class="admonition workaround">
-<p class="admonition-title">Workaround</p>
-<p>Update an Arm Compiler 5 project to Arm Compiler 6 in Keil μVision, then convert the project to a CMSIS solution in
-VS Code.</p>
-</div>
+<p><strong>Solution</strong></p>
+<p>Update an Arm Compiler 5 project to Arm Compiler 6 in Keil μVision, then convert the project to a CMSIS solution in VS
+Code.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For more information, see the
@@ -193,30 +170,25 @@ the <a href="https://developer.arm.com/documentation/100068/0620/ating-from-Arm-
 <h3 id="using-dollar-sign-in-linker-misc-controls">Using dollar sign in linker misc controls</h3>
 <p>In µVision, you can use the dollar sign (<code>$</code>) for Linker misc options in the Options for Target dialog:</p>
 <p><img alt="Linker Misc controls" src="images/misc-opt-dollar-sign.png" /></p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>Using this will cause a malformed YML access sequence in the generated cproject.yml file that will fail subsequent builds.</p>
-</div>
+<p>This will cause a malformed YML access sequence in the generated <code>cproject.yml</code> file that will fail during builds.</p>
+<p><strong>Solution</strong></p>
+<p>Remove the <code>$</code> sign and save the project in Keil μVision, then convert the project to a CMSIS solution in VS Code.</p>
 <h3 id="using-dots-in-project-file-names">Using dots in project file names</h3>
-<p>In µVision project names, you can use the dot, e.g. MyProjeckt_1.0.vuprojx. In CMSIS solution project format, dots are used
+<p>In µVision project names, you can use the dot, e.g. MyProject_1.0.uvprojx. In CMSIS solution project format, dots are used
 to separate project names, build type, and target types (refer to
-<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/build-overview/#context">Context</a>).</p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>Using dots in project names will lead to <code>"error csolution: schema check failed, verify syntax"</code>.</p>
-</div>
+<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/build-overview/#context">Context</a>). Thus, using dots in project names
+will lead to:</p>
+<pre><code class="language-txt">error csolution: schema check failed, verify syntax
+</code></pre>
+<p><strong>Solution</strong></p>
+<p>Remove dots from project names.</p>
 <h3 id="project-located-in-paths-containing-a-dollar-sign">Project located in paths containing a dollar sign</h3>
-<p>In some operating systems, paths can contain the dollar (<code>$</code>) sign. Try avoiding the <code>$</code> sing in path names as this will
-cause build to fail. A workaround is available (see below).</p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>Building the project will fail with a similar message:<br />
-<code>error csolution: malformed access sequence: '/$test/Blinky_FRDM-K32L3A6</code></p>
-</div>
-<div class="admonition workaround">
-<p class="admonition-title">Workaround</p>
+<p>In some operating systems, paths can contain the dollar (<code>$</code>) sign. Building the project will fail with a similar
+message:</p>
+<pre><code class="language-txt">error csolution: malformed access sequence: '/$test/Blinky_FRDM-K32L3A6
+</code></pre>
+<p><strong>Solution</strong></p>
 <p>Use the <code>-O</code> option to redirect all output to a directory without the <code>$</code> sign.</p>
-</div>
 <h3 id="component-mismatches-when-using-generators">Component mismatches when using generators</h3>
 <p>Older projects using GPDSC-based generators will see an issue after the conversion. In the original uvprojx file, an entry
 for STM32CubeMX could look like this:</p>
@@ -236,15 +208,11 @@ would look like:</p>
         &lt;/targetInfos&gt;
       &lt;/component&gt;
 </code></pre>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p><code>uv2csolution</code> adds a non-existing pack node <code>Keil::FrameworkCubeMX@^1.0.0</code> which will lead to an error like this:<br />
-<code>error csolution: required pack: Keil::FrameworkCubeMX@^1.0.0 not installed</code></p>
-</div>
-<div class="admonition workaround">
-<p class="admonition-title">Workaround</p>
+<p><code>uv2csolution</code> adds a non-existing pack node <code>Keil::FrameworkCubeMX@^1.0.0</code> which will lead to an error like this:</p>
+<pre><code class="language-txt">error csolution: required pack: Keil::FrameworkCubeMX@^1.0.0 not installed
+</code></pre>
+<p><strong>Solution</strong></p>
 <p>Delete the corresponding line from the <code>cproject.yml</code> file.</p>
-</div>
               
             </div>
           </div><footer>
