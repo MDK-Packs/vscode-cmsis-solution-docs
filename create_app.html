@@ -73,7 +73,11 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#load-and-run">Load and Run</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#monitoring-printf-messages">Monitoring printf messages</a>
+    <li class="toctree-l3"><a class="reference internal" href="#check-target-information">Check target information</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#download-and-run-the-application">Download and run the application</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#monitor-printf-messages">Monitor printf messages</a>
     </li>
         </ul>
     </li>
@@ -166,8 +170,8 @@ solution opened, use the menu (<strong>...</strong>) item <strong>Create a Solut
 <p>With <strong>Initialize Git repository</strong> the related <code>.gitignore</code> file is created.</p>
 </li>
 <li>
-<p><strong>Show project opening options</strong> allows you to open the spolution a new instance of VS Code. By default, the solution
-  is loaded into the current VS Code instance.</p>
+<p><strong>Show project opening options</strong> allows you to open the solution a new instance of VS Code. By default, it is loaded
+  into the current VS Code instance.</p>
 </li>
 </ul>
 <h2 id="work-with-examples">Work with examples</h2>
@@ -336,22 +340,27 @@ bottom right-hand corner to install CMSIS-Toolbox.</p>
 <p>To learn about the solution structure, refer to
 <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/build-overview/">CMSIS-Toolbox documentation</a></p>
 <h2 id="load-and-run">Load and Run</h2>
-<p>Make sure that your target is connected, before loading the application onto it. You can use <code>pyOCD</code> to verify target
-connectivity.</p>
-<ul>
-<li>Open a <strong>Terminal</strong>, and enter <code>pyOCD list</code> to check attached hardware:</li>
-</ul>
-<pre><code class="language-sh">❯ pyocd list
+<h3 id="check-target-information">Check target information</h3>
+<p>In the <strong>CMSIS</strong> view, click <img alt="More options" src="images/more-actions-icon.png" /> and then select "Target Information" to
+check that your target is connected.</p>
+<p><img alt="Target Information" src="images/target-information.png" /></p>
+<p>In the <strong>Terminal</strong>, the result of the <code>pyocd list</code> command is shown:</p>
+<pre><code class="language-sh"> *  Executing task: pyocd list --cbuild-run /Users/user/Blinky/Blinky+B-U585I-IOT02A.cbuild-run.yml 
+
   #   Probe/Board      Unique ID                  Target           
 -------------------------------------------------------------------
   0   STLINK-V3        001000254D46501220383832   ✖︎ stm32u585aiix  
       B-U585I-IOT02A
 </code></pre>
-<ul>
-<li>In the <strong>CMSIS</strong> view, click <img alt="Run icon" src="images/run-icon.png" />. This executes the "Load &amp; Run application" command
-  that flashes the project onto the target and issues a reset to start the application.</li>
-<li>To verify that the step has run correctly, check the <strong>Terminal</strong> output:</li>
-</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your debug adapter is not shown, make sure that all
+<a href="tipsandtricks.html#installing-debug-adapters">drivers are installed</a> and that the target is connected to the PC.</p>
+</div>
+<h3 id="download-and-run-the-application">Download and run the application</h3>
+<p>In the <strong>CMSIS</strong> view, click <img alt="Run icon" src="images/run-icon.png" />. This executes the "Load &amp; Run application" command
+that flashes the project onto the target and issues a reset to start the application.</p>
+<p>To verify that the step has run correctly, check the <strong>Terminal</strong> output:</p>
 <pre><code class="language-sh"> *  Executing task: pyocd load --probe stlink: --cbuild-run /Users/user/B-U585-Board/Blinky/Blinky+B-U585I-IOT02A.cbuild-run.yml 
 
 0000712 I Loading /Users/user/B-U585-Board/Blinky/out/Blinky/B-U585I-IOT02A/Debug/Blinky.axf [load_cmd]
@@ -397,10 +406,8 @@ connectivity.</p>
 0000662 I Semihost server started on port 4444 (core 0) [server]
 0000718 I GDB server started on port 3333 (core 0) [gdbserver]
 </code></pre>
-<ul>
-<li>When running, <img alt="Run button" src="images/run-icon.png" /> changes to <img alt="Stop button" src="images/stop-button.png" />. Use it to
-  stop the GDB session anytime.</li>
-</ul>
+<p>When running, <img alt="Run button" src="images/run-icon.png" /> changes to <img alt="Stop button" src="images/stop-button.png" />. Use it to stop
+the GDB session anytime.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
 <ul>
@@ -413,7 +420,7 @@ solutions to your workspace with the <strong>File</strong> &gt; <strong>Add Fold
   window.</li>
 </ul>
 </div>
-<h3 id="monitoring-printf-messages">Monitoring printf messages</h3>
+<h3 id="monitor-printf-messages">Monitor printf messages</h3>
 <p>Keil Studio includes the <strong>Serial Monitor</strong> extension that connects to the target's serial output port. If your example
 contains <code>printf</code> statements, use the Serial Monitor to observe them.</p>
 <p><img alt="Serial Monitor showing printf messages" src="images/serial-monitor.png" /></p>
