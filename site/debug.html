@@ -67,11 +67,33 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Debug</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#cmsis-view">CMSIS View</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#run-and-debug-view">Run and Debug View</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#debug-on-hardware">Debug on hardware</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#debug-adapter-support">Debug adapter support</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-pyocd">Using pyOCD</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#command-line-usage">Command line usage</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#selecting-a-debug-adapter">Selecting a debug adapter</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-j-link-server">Using J-Link Server</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#arm-debugger">Arm Debugger</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#setup-for-arm-debugger">Setup for Arm Debugger</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#keil-uvision">Keil uVision</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#debug-in-simulation">Debug in simulation</a>
     </li>
     </ul>
                 </li>
@@ -117,58 +139,133 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="debug-the-application">Debug the application</h1>
-<p>Debugging is an essential task for every embedded developer. The <a href="#cmsis-view"><strong>CMSIS View</strong></a> offers action buttons to
-start a debug session. The <a href="#run-and-debug-view"><strong>Run and Debug View</strong></a> lets you connect to the target.</p>
+<p>Debugging is an essential task for every embedded developer. The <a href="userinterface.html#cmsis-view"><strong>CMSIS view</strong></a> offers
+<a href="userinterface.html#3-actions-available-through-the-cmsis-view">action buttons</a> to start a debug session. The
+<a href="userinterface.html#run-and-debug-view"><strong>Run and Debug View</strong></a> lets you connect to the target.</p>
 <p>Refer to the
 <a href="https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger">Arm CMSIS Debugger extension</a> for a
 detailed description of debug features.</p>
-<h2 id="cmsis-view">CMSIS View</h2>
-<p><img alt="CMSIS View Action buttons" src="images/CMSIS-View-ConfDebug.png" /></p>
-<p>The CMSIS View offers these action buttons:</p>
-<ul>
-<li><strong>Load &amp; Run</strong> a <em>csolution</em> application which downloads and starts the application images in the target.</li>
-<li><strong>Load &amp; Debug</strong> a <em>csolution</em> application which downloads the application images and starts the debugger.</li>
-<li><strong>Manage Solution</strong> configures the debug setup with the <code>target-set:</code> node. It also supports multiple configurations
-  using a <code>set:</code> name.</li>
-</ul>
-<p>The action button:</p>
-<ul>
-<li><strong>Load &amp; Run</strong> executes from <code>tasks.json</code> the command <code>CMSIS Load+Run</code>.</li>
-<li><strong>Load &amp; Debug</strong> executes from <code>launch.json</code> the first section with <code>"request": "launch"</code> and <code>cmsis:</code>. If this is
-  not present it uses from <code>tasks.json</code> the command <code>CMSIS Load+Debug</code>.</li>
-</ul>
-<p>Further commands are available under <code>...</code>:</p>
-<ul>
-<li><strong>Load</strong> executes from <code>tasks.json</code> the command <code>CMSIS Load</code>.</li>
-<li><strong>Erase</strong> executes from <code>tasks.json</code> the command <code>CMSIS Erase</code>.</li>
-<li><strong>Run</strong> executes from <code>tasks.json</code> the command <code>CMSIS Run</code>.</li>
-</ul>
-<h2 id="run-and-debug-view">Run and Debug View</h2>
-<p>The <strong>Run and Debug View</strong> in VS Code connects to the target using the request selection shown below.</p>
-<p><img alt="Debug View Debugger request" src="images/Debug-View-ConfDebug.png" /></p>
-<p>The <strong>CMSIS Solution</strong> extension handles multiple processor cores using one debug connection for each core.</p>
-<p><img alt="Generate launch.json and tasks.json" src="images/multicore-debug.png" /></p>
+<!--
+## CMSIS View
+
+![CMSIS View Action buttons](./images/CMSIS-View-ConfDebug.png)
+
+The CMSIS View offers these action buttons:
+
+- **Load & Run** a *csolution* application which downloads and starts the application images in the target.
+- **Load & Debug** a *csolution* application which downloads the application images and starts the debugger.
+- **Manage Solution** configures the debug setup with the `target-set:` node. It also supports multiple configurations
+  using a `set:` name.
+
+The action button:
+
+- **Load & Run** executes from `tasks.json` the command `CMSIS Load+Run`.
+- **Load & Debug** executes from `launch.json` the first section with `"request": "launch"` and `cmsis:`. If this is
+  not present it uses from `tasks.json` the command `CMSIS Load+Debug`.
+
+Further commands are available under `...`:
+
+- **Load** executes from `tasks.json` the command `CMSIS Load`.
+- **Erase** executes from `tasks.json` the command `CMSIS Erase`.
+- **Run** executes from `tasks.json` the command `CMSIS Run`.
+## Run and Debug View
+
+The **Run and Debug View** in VS Code connects to the target using the request selection shown below.
+
+![Debug View Debugger request](./images/Debug-View-ConfDebug.png)
+
+The **CMSIS Solution** extension handles multiple processor cores using one debug connection for each core.
+
+![Generate launch.json and tasks.json](./images/multicore-debug.png)
+-->
+
 <h2 id="debug-on-hardware">Debug on hardware</h2>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Make sure that your project is set up correctly for <a href="configuration.html#configure-run-and-debug">run and debug</a>.</p>
+<p>Make sure that your project and target are set up correctly and that the project can be
+<a href="create_app.html#load-and-run">loaded and run</a>.</p>
 </div>
-<p>Make sure that your target is connected, before loading the application onto it. You can use <code>pyOCD</code> to verify target
-connectivity.</p>
-<ol>
-<li>Open a <strong>Terminal</strong>, and enter <code>pyOCD list</code> to check attached hardware:
-   <img alt="Check connected hardware with pyOCD" src="images/pyOCDlist.png" /></li>
-<li>In the <strong>Solution</strong> outline header, click <img alt="Debug icon" src="images/debug-icon.png" />. This executes the "load and debug"
-   command that flashes the project onto the target and starts a debug session.</li>
-</ol>
+<p>Keil Studio extension handles debugging as follows:</p>
+<p><img alt="Generate launch.json and tasks.json" src="images/multicore-debug.png" /></p>
+<p>For each processor core, one debug server port is created. The underlying protocol is GDB MI using a GDB server. The
+server accesses the processor core via JTAG or SWD through a corresponding debug adapter.</p>
+<h3 id="debug-adapter-support">Debug adapter support</h3>
+<p>Keil Studio support various debug adapters and and GDB server implementations from different vendors:</p>
+<ul>
+<li>Most of the debug adapters (including ST-Link) are served by <a href="#using-pyocd">pyOCD</a> using the
+  <a href="https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger">Arm CMSIS Debugger extension</a>.</li>
+<li>Segger <a href="#using-j-link-server">J-Link Server</a> is supported.</li>
+<li><a href="#arm-debugger">Arm Debugger</a> and the
+  <a href="https://marketplace.visualstudio.com/items?itemName=Arm.arm-debugger">Arm Debugger extension</a> are supported.</li>
+<li>You can also use Arm <a href="#keil-uvision">Keil µVision</a> for debugging a project.</li>
+</ul>
+<h3 id="using-pyocd">Using pyOCD</h3>
+<p><a href="https://pyocd.io/">pyOCD</a> is a Python-based tool and API for debugging and programming. It supports many debug
+adapters via the <a href="https://arm-software.github.io/CMSIS_6/latest/DAP/index.html">CMSIS-DAP</a> protocol.</p>
+<p>In the <strong>CMSIS view</strong>, open the <a href="manage_settings.html">Manage Solution dialog</a> and go to the
+<a href="manage_settings.html#debug-adapter">Debug Adapter section</a>. Select one of the debug adapters named <code>xyz@pyOCD</code>.</p>
+<p>The following JSON files are created automatically:</p>
+<ul>
+<li>In the <code>launch.json</code> file, <code>attach</code> and <code>launch</code> configurations are added that let you attach the debug adapter
+  to an already running GDB instance (for example when you have issued a <a href="create_app.html#load-and-run"><code>load and run</code></a>
+  before) or launch a new debug session.</li>
+<li>In the <code>tasks.json</code> file, the tasks <code>CMSIS Erase</code>, <code>CMSIS Load</code>, and <code>CMSIS Run</code> are created.</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you are using a multicore device and you did not specify a <code>"processorName"</code> in the <code>launch.json</code> file, select the
-appropriate processor for your project in the <strong>Select a processor</strong> drop-down list at the top of the window.</p>
+<p>Before entering a debug session, make sure that you have met the
+<a href="tipsandtricks.html#installing-debug-adapters">prerequisites</a> of your debug adapter.</p>
 </div>
-<p>The <strong>Run and Debug</strong> view displays and the debug session starts. The debugger stops at the <code>main()</code> function of the program:</p>
-<p><img alt="Run to main" src="images/run2main.png" /></p>
-<p>The <strong>Debug Console</strong> tab displays the debugging output.</p>
+<h4 id="command-line-usage">Command line usage</h4>
+<p>pyOCD can be also used on the command line. In a <strong>Terminal</strong>, issue for example:</p>
+<pre><code class="language-sh">pyocd list      --cbuild-run MyProject+TargetHW.cbuild-run.yml   // details of debug connection (scan JTAG, SWD)
+pyocd gdbserver --cbuild-run MyProject+TargetHW.cbuild-run.yml   // start debug server, load command: flash
+pyocd load      --cbuild-run MyProject+TargetHW.cbuild-run.yml   // flash and run application
+pyocd erase     --cbuild-run MyProject+TargetHW.cbuild-run.yml   // erase image on device
+</code></pre>
+<h4 id="selecting-a-debug-adapter">Selecting a debug adapter</h4>
+<div class="admonition todo">
+<p class="admonition-title">Todo</p>
+<p>Explain how to select a CMSIS-DAP probe in case multiple are connected.</p>
+</div>
+<h3 id="using-j-link-server">Using J-Link Server</h3>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Make sure that the <a href="tipsandtricks.html#segger-j-link">J-Link software</a> is installed on your machine before
+attempting to use a J-Link adapter.</p>
+</div>
+<p>In the <strong>CMSIS view</strong>, open the <a href="manage_settings.html">Manage Solution dialog</a> and go to the
+<a href="manage_settings.html#debug-adapter">Debug Adapter section</a>. Select "JLink Server".</p>
+<p>The following JSON files are created automatically:</p>
+<ul>
+<li>The <code>tasks.json</code> file is populated with <code>CMSIS Erase</code>,  <code>CMSIS Load</code>, and <code>CMSIS Run</code> tasks.</li>
+<li>The <code>launch.json</code> file is populated with <code>JLink (launch)</code> and <code>JLink (attach)</code> configurations.</li>
+</ul>
+<h3 id="arm-debugger">Arm Debugger</h3>
+<p>You can use the <a href="https://developer.arm.com/Tools%20and%20Software/Arm%20Debugger">Arm Debugger</a> with Keil Studio.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Before you can launch a debug session using Arm Debugger, you need to:</p>
+<ol>
+<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=Arm.arm-debugger">Arm Debugger VS Code extension</a>.</li>
+<li>Add the Arm Debugger to your <code>vcpkg-configuration.json</code> file, for example:<br />
+<code>"arm:debuggers/arm/armdbg": "6.6.0"</code></li>
+</ol>
+<h4 id="setup-for-arm-debugger">Setup for Arm Debugger</h4>
+<p>In the <strong>CMSIS view</strong>, open the <a href="manage_settings.html">Manage Solution dialog</a> and go to the
+<a href="manage_settings.html#debug-adapter">Debug Adapter section</a>. Select one of the debug adapters named <code>xyz@Arm-Debugger</code>.</p>
+<p>The following JSON files are created automatically:</p>
+<ul>
+<li>In the <code>launch.json</code> file, <code>attach</code> and <code>launch</code> configurations are added that let you attach the debug adapter
+  to an already running GDB instance (for example when you have issued a <a href="create_app.html#load-and-run"><code>load and run</code></a>
+  before) or launch a new debug session.</li>
+<li>In the <code>tasks.json</code> file, the tasks <code>CMSIS Erase</code>, <code>CMSIS Load</code>, and <code>CMSIS Run</code> are created.</li>
+</ul>
+<h3 id="keil-uvision">Keil uVision</h3>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>This only works on a Windows PC as µVision runs on Windows.</p>
+</div>
+<h2 id="debug-in-simulation">Debug in simulation</h2>
               
             </div>
           </div><footer>

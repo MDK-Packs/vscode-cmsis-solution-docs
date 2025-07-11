@@ -51,7 +51,7 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">User Interface</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    <li class="toctree-l2"><a class="reference internal" href="#cmsis-view">CMSIS view</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#1-dedicated-views-from-the-side-bar">1. Dedicated views from the side bar</a>
     </li>
@@ -62,6 +62,12 @@
     <li class="toctree-l3"><a class="reference internal" href="#4-main-area-icons">4. Main area icons</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#5-status-bar">5. Status bar</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#run-and-debug-view">Run and Debug view</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#run-and-debug-controls">Run and Debug controls</a>
     </li>
         </ul>
     </li>
@@ -130,7 +136,7 @@
 <p>The <strong>CMSIS Solution</strong> extension provides the Keil Studio GUI for project management and build tools with the
 <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/">CMSIS-Toolbox</a>. Combined with other Arm and third-party extensions,
 it implements a powerful embedded development environment.</p>
-<h2 id="overview">Overview</h2>
+<h2 id="cmsis-view">CMSIS view</h2>
 <p><img alt="CMSIS view" src="images/solution-outline.png" /></p>
 <p>The GUI consists of these elements:</p>
 <h3 id="1-dedicated-views-from-the-side-bar">1. Dedicated views from the side bar</h3>
@@ -160,7 +166,7 @@ it implements a powerful embedded development environment.</p>
 </tr>
 <tr>
 <td style="text-align: center;"><img alt="Run and Debug view" src="images/RunDebugView.png" /></td>
-<td><strong>Run and Debug</strong> view switches the GUI to a dedicated <a href="debug.html#run-and-debug-view">debug view</a>.</td>
+<td><strong>Run and Debug</strong> view switches the GUI to a dedicated <a href="#run-and-debug-view">debug view</a>.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><img alt="CMSIS view" src="images/CMSISView.png" /></td>
@@ -272,6 +278,75 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 <p>If you are using licensed Arm tools, the <strong>active license</strong> displays. Click the active license to manage it.</p>
 </li>
 </ul>
+<h2 id="run-and-debug-view">Run and Debug view</h2>
+<p>The <strong>Run and Debug View</strong> <img alt="Run and Debug view" src="images/RunDebugView.png" /> in Keil Studio to the target using the
+request selection shown below.</p>
+<p><img alt="Debug View Debugger request" src="images/run-debug-view.png" /></p>
+<ol>
+<li>Select the core you want to <strong>launch</strong> or <strong>attach</strong> to.</li>
+<li>Interact with the cores.</li>
+</ol>
+<h3 id="run-and-debug-controls">Run and Debug controls</h3>
+<p>Depending on the target device (number of cores etc.), a similar run and debug control bar will be visible:</p>
+<p><img alt="Run and Debug controls" src="images/debug-full-controls.png" /> or</p>
+<p><img alt="Run and Debug controls in a multicore environment" src="images/debug-full-controls-multicore.png" /></p>
+<p>The icons enable access to:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Icon</th>
+<th>Action</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Continue" src="images/debug-continue.png" /></td>
+<td>Continue</td>
+<td>Resume normal program execution (up to the next breakpoint).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Pause" src="images/debug-pause.png" /></td>
+<td>Pause</td>
+<td>Inspect code executing at the current location.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Step over" src="images/debug-step-over.png" /></td>
+<td>Step over</td>
+<td>Execute the next statement as a single command without inspecting or following its component steps.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Step into" src="images/debug-step-into.png" /></td>
+<td>Step into</td>
+<td>Enter the next statement to follow its execution line-by-line.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Step out" src="images/debug-step-out.png" /></td>
+<td>Step out</td>
+<td>When inside a function, return to the earlier execution context by completing remaining lines of the current method as though it were a single command.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Restart" src="images/debug-restart.png" /></td>
+<td>Restart</td>
+<td>Terminate the current program execution and start debugging again using the current run configuration.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Stop" src="images/debug-stop.png" /></td>
+<td>Stop</td>
+<td>Terminate the current debug session.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Disconnect" src="images/debug-disconnect.png" /></td>
+<td>Disconnect</td>
+<td>Detach debugger from a core without changing the execution status (running/pause).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Reset" src="images/debug-reset-target.png" /></td>
+<td>Reset</td>
+<td>Reset target device.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="available-commands">Available commands</h2>
 <p>You can access commands to manage your solution and the projects it includes in the following ways:</p>
 <ul>
