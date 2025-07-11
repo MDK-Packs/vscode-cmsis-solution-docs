@@ -359,7 +359,8 @@ check that your target is connected.</p>
 </div>
 <h3 id="download-and-run-the-application">Download and run the application</h3>
 <p>In the <strong>CMSIS</strong> view, click <img alt="Run icon" src="images/run-icon.png" />. This executes the "Load &amp; Run application" command
-that flashes the project onto the target and issues a reset to start the application.</p>
+that executes the commands <code>CMSIS Load</code> and <code>CMSIS Run</code> from the <code>tasks.json</code> file. This flashes the project onto the
+target and issues a reset to start the application.</p>
 <p>To verify that the step has run correctly, check the <strong>Terminal</strong> output:</p>
 <pre><code class="language-sh"> *  Executing task: pyocd load --probe stlink: --cbuild-run /Users/user/B-U585-Board/Blinky/Blinky+B-U585I-IOT02A.cbuild-run.yml 
 
