@@ -4,7 +4,7 @@ The **CMSIS Solution** extension provides the Keil Studio GUI for project manage
 [CMSIS-Toolbox](https://open-cmsis-pack.github.io/cmsis-toolbox/). Combined with other Arm and third-party extensions,
 it implements a powerful embedded development environment.
 
-## Overview
+## CMSIS view
 
 ![CMSIS view](./images/solution-outline.png)
 
@@ -18,7 +18,7 @@ The GUI consists of these elements:
 | ![Search view](./images/SearchView.png) | **Search** view enables [search/replace](https://code.visualstudio.com/docs/editing/codebasics#_search-across-files) across all files. |
 | ![Source Control view](./images/SourceControlView.png) | [**Source Control** view](https://code.visualstudio.com/docs/sourcecontrol/overview) allows you to work with git. |
 | ![Extensions view](./images/ExtensionsView.png) | [**Extensions** view](https://code.visualstudio.com/docs/configure/extensions/extension-marketplace) lets you work with VS Code extensions. |
-| ![Run and Debug view](./images/RunDebugView.png) | **Run and Debug** view switches the GUI to a dedicated [debug view](./debug.md#run-and-debug-view). |
+| ![Run and Debug view](./images/RunDebugView.png) | **Run and Debug** view switches the GUI to a dedicated [debug view](#run-and-debug-view). |
 | ![CMSIS view](./images/CMSISView.png) | [**CMSIS** view](#2-main-area-of-the-cmsis-view) is the main view for working with CMSIS solution-based projects. |
 
 !!! Note
@@ -79,6 +79,38 @@ The VS Code status bar displays information about the status of your development
   ![Arm Tools](./images/arm-tools.png)
 
 - If you are using licensed Arm tools, the **active license** displays. Click the active license to manage it.
+
+## Run and Debug view
+
+The **Run and Debug View** ![Run and Debug view](./images/RunDebugView.png) in Keil Studio to the target using the
+request selection shown below.
+
+![Debug View Debugger request](./images/run-debug-view.png)
+
+1. Select the core you want to **launch** or **attach** to.
+2. Interact with the cores.
+
+### Run and Debug controls
+
+Depending on the target device (number of cores etc.), a similar run and debug control bar will be visible:
+
+![Run and Debug controls](./images/debug-full-controls.png) or
+
+![Run and Debug controls in a multicore environment](./images/debug-full-controls-multicore.png)
+
+The icons enable access to:
+
+| Icon | Action | Description |
+|:----:|--------|-------------|
+| ![Continue](./images/debug-continue.png) | Continue | Resume normal program execution (up to the next breakpoint). |
+| ![Pause](./images/debug-pause.png) | Pause | Inspect code executing at the current location. |
+| ![Step over](./images/debug-step-over.png) | Step over | Execute the next statement as a single command without inspecting or following its component steps. |
+| ![Step into](./images/debug-step-into.png) | Step into | Enter the next statement to follow its execution line-by-line. |
+| ![Step out](./images/debug-step-out.png) | Step out | When inside a function, return to the earlier execution context by completing remaining lines of the current method as though it were a single command. |
+| ![Restart](./images/debug-restart.png) | Restart | Terminate the current program execution and start debugging again using the current run configuration. |
+| ![Stop](./images/debug-stop.png) | Stop |  Terminate the current debug session. |
+| ![Disconnect](./images/debug-disconnect.png) | Disconnect |  Detach debugger from a core without changing the execution status (running/pause). |
+| ![Reset](./images/debug-reset-target.png) | Reset | Reset target device. |
 
 ## Available commands
 

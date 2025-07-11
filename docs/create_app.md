@@ -229,7 +229,8 @@ In the **Terminal**, the result of the `pyocd list` command is shown:
 ### Download and run the application
 
 In the **CMSIS** view, click ![Run icon](./images/run-icon.png). This executes the "Load & Run application" command
-that flashes the project onto the target and issues a reset to start the application.
+that executes the commands `CMSIS Load` and `CMSIS Run` from the `tasks.json` file. This flashes the project onto the
+target and issues a reset to start the application.
 
 To verify that the step has run correctly, check the **Terminal** output:
 
