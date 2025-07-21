@@ -14,7 +14,7 @@ extension pack includes the extensions that are required to work with CMSIS solu
 
 1. In VS Code, open the **Extensions** view.
 2. Type `Arm` in the search bar.
-3. Click on "Arm Kei Studio Pack" and README is shown on the right. It contains links to the included extensions. Their
+3. Click on "Arm Keil Studio Pack" and README is shown on the right. It contains links to the included extensions. Their
    READMEs include minimal user guides.
 ![Keil Studio Pack README](./images/keil-studio-pack-readme.png)
 4. Click **Install** to start. You need to trust the publishers "Arm" and "LLVM" to install the extension pack. When
