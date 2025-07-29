@@ -87,3 +87,28 @@ I: Adding pack "Keil::MDK-Middleware@8.0.0"
 I: Extracting files to /Users/chrsei01/.cache/arm/packs/Keil/MDK-Middleware/8.0.0...
 I: 100% |█████████████████████████████████████████████████████████| (2180/2180, 2187 it/s)        
 ```
+
+## Activating Keil Studio
+
+Some of the Arm tools (for example
+[Arm Compiler for Embedded](https://developer.arm.com/Tools%20and%20Software/Arm%20Compiler%20for%20Embedded) and
+[Arm Debugger](https://developer.arm.com/Tools%20and%20Software/Arm%20Debugger)) require activation. You will be
+flagged with a pop up window:
+
+![Tolls require an activation](./images/activation-required.png)
+
+Click on "Manage Arm license" in the pop up. At the top, a new drop-down opens:
+
+![Activate Arm Keil MDK Community Edition](./images/activate-license.png)
+
+- If you want to evaluate Keil Studio or use it for non-commercial development, select "Activate Arm Keil MDK
+  Community Edition".
+
+- If you have a valid UBL server or activation code, use "Activate or manage Arm licenses" to activate Keil Studio.
+
+!!! Note
+    - Open-source tools, such as
+      [Arm GNU Toolchain](https://developer.arm.com/dev2/Tools%20and%20Software/GNU%20Toolchain) and
+      [Arm CMSIS Debugger](https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger) do not
+      require activation.
+    - For more information visit the [user-based licensing](https://developer.arm.com/ubl) web page.
