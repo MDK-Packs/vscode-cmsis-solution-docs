@@ -101,10 +101,10 @@ Click on "Manage Arm license" in the pop up. At the top, a new drop-down opens:
 
 ![Activate Arm Keil MDK Community Edition](./images/activate-license.png)
 
-- If you are want to evaluate Keil Studio or use it for non-commercial development, select "Activate Arm Keil MDK
+- If you want to evaluate Keil Studio or use it for non-commercial development, select "Activate Arm Keil MDK
   Community Edition".
 
-- If you have a valid UBL server nor activation code, use "Activate od manage Arm licenses" to activate Keil Studio.
+- If you have a valid UBL server nor activation code, use "Activate or manage Arm licenses" to activate Keil Studio.
 
 !!! Note
     - Open-source tools, such as
