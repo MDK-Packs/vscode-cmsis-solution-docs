@@ -68,3 +68,12 @@ J-Link>
 
 For ST-LINK/V2 and ST-LINK/V2-1 support on Windows, download the USB driver here:
 [STSW-LINK009](https://www.st.com/en/development-tools/stsw-link009.html).
+
+## Memory and Peripheral Inspector are missing
+
+If your **Debug** view does not contain
+["PERIPHERALS"](https://marketplace.visualstudio.com/items?itemName=eclipse-cdt.peripheral-inspector) and you cannot
+open the [Memory Inspector](https://marketplace.visualstudio.com/items?itemName=eclipse-cdt.memory-inspector), check if
+the extensions are installed correctly. If you had previously uninstalled the
+[Arm Debugger](https://marketplace.visualstudio.com/items?itemName=Arm.arm-debugger) extension, these two extensions
+might have been removed with it. Just reinstall them via the **Extensions** view.
