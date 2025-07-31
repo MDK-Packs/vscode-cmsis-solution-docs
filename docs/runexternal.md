@@ -18,6 +18,7 @@ In addition to the [VS Code built-in variables](https://code.visualstudio.com/do
 | `${command:cmsis-csolution.getDeviceName}`     | The device name for the Active Target as specified in the csolution.yml |
 | `${command:cmsis-csolution.getDfpName}`        | The Device Family Pack (DFP) for the Active Target |
 | `${command:cmsis-csolution.getDfpPath}`        | The path to the content of the DFP for the Active Target |
+| `${command:cmsis-csolution.getProcessorName}`  | The name of the processor for the Active Target; for multi-processor configurations start-pname |
 | `${command:cmsis-csolution.getSolutionFile}`   | The path to the csolution.yml file for the Active Solution |
 
 !!! Note

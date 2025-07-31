@@ -95,7 +95,7 @@ Some of the Arm tools (for example
 [Arm Debugger](https://developer.arm.com/Tools%20and%20Software/Arm%20Debugger)) require activation. You will be
 flagged with a pop up window:
 
-![Tolls require an activation](./images/activation-required.png)
+![Tools require an activation](./images/activation-required.png)
 
 Click on "Manage Arm license" in the pop up. At the top, a new drop-down opens:
 
