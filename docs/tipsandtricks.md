@@ -113,3 +113,18 @@ The corresponding library file will be present in the `/out`-directory.
 
 !!! Note
     This only works with CMSIS-Toolbox starting v2.11.0.
+
+## Downgrading tool versions
+
+When you downgrade a tool version in the `vcpkg-configuration,json` file, this will only be taken into account if you
+toggle the tools activation.
+
+Do the following:
+
+- Click on the **Arm Tools** entry in the status bar.
+- In the **Manage Arm Tools** dialog, select *Deactivate Environment*. The status bar will show that tools are
+  deactivated: ![Arm Tools deactivated](./images/arm-tools-deactivated.png)
+- Again, click on the **Arm Tools** entry in the status bar.
+- In the **Manage Arm Tools** dialog, select *Reactivate Environment*.
+
+The new settings will now the taken into account and you can start working with the downgraded tool version.
