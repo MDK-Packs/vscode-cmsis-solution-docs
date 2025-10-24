@@ -33,6 +33,11 @@ If you are using a third-party debug adapter, make sure that the latest drivers 
 
 Make sure the debug adapters are running the latest firmware and that the `PATH` variable is set correctly.
 
+### Arm ULINKplus
+
+Make sure that the [V2.x.x firmware](https://developer.arm.com/documentation/101636/0100/Introduction/Firmware-Update)
+is installed.
+
 ### Infineon KitProg3
 
 Make sure that the latest [firmware is installed](https://community.infineon.com/t5/Knowledge-Base-Articles/ModusToolbox-Updating-the-KitProg3-MiniProg4-firmware-from-modus-shell/ta-p/625419#.).
@@ -42,10 +47,20 @@ Make sure that the latest [firmware is installed](https://community.infineon.com
 Use the Python utility [pycmsisdapswitcher](https://pypi.org/project/pycmsisdapswitcher/) to switch the firmware to a
 CMSIS-DAP v2 implementation.
 
+### Nuvoton NuLink
+
+Make sure that the latest
+[firmware is installed](https://github.com/OpenNuvoton/Nuvoton_Tools/blob/master/Latest_NuLink_Firmware/README.md).
+
 ### NXP MCU-Link
 
 Make sure that the latest
 [firmware is installed](https://community.nxp.com/t5/MCUXpresso-General-Knowledge/MCU-Link-installation/ta-p/1180326).
+
+### Raspberrry Pi Debugprobe
+
+Make sure that the latest
+[firmware is installed](https://github.com/raspberrypi/debugprobe/releases).
 
 ### SEGGER J-Link
 

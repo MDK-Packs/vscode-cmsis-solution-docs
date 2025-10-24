@@ -5,15 +5,15 @@ edit_uri: edit/main/docs/
 nav:
     - Home: index.md
     - Installation: installation.md
-    - User Interface: userinterface.md
-    - Create New Solution: create_app.md
-    - Manage Solution: manage_settings.md
-    - Software Components: manage_components.md
+    - User interface: userinterface.md
+    - Work with Solutions: create_app.md
+    - Manage solutions: manage_settings.md
+    - Software components: manage_components.md
     - Debug: debug.md
     - Configuration: configuration.md
-    - Import uVision Project: importuv.md
-    - Run External Tools: runexternal.md
-    - Tips and Tricks: tipsandtricks.md
+    - Import uVision projects: importuv.md
+    - Run external tools: runexternal.md
+    - Tips and tricks: tipsandtricks.md
 theme:
   name: readthedocs
 markdown_extensions:

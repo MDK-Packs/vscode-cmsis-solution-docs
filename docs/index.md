@@ -20,9 +20,10 @@ The IDE:
 
 - [**User interface**](./userinterface.md) shows the main features available in the GUI.
 
-- [**Create new solution**](./create_app.md) explains how to start an embedded project from scratch.
+- [**Work with solutions**](./create_app.md) explains how to start an embedded project from scratch or use pre-built
+  examples.
 
-- [**Manage solution**](./manage_settings.md) explains how to configure a *csolution project*.
+- [**Manage solutions**](./manage_settings.md) explains how to configure *csolution projects*.
 
 - [**Software components**](./manage_components.md) shows how to add or remove software components in a
   solution.
@@ -43,6 +44,7 @@ The IDE:
 
 Version            | Description
 :------------------|:-------------------------
+1.62.0             | Reworked **Manage solutions** and **Debug** chapters
 1.55.0             | Rework for better clarity
 1.54.0             | Added CMSIS-Toolbox Run and Debug Management
 1.48.0             | Initial release for the CMSIS Solution extension version 1.48.0

@@ -1,4 +1,4 @@
-# Create new solution
+# Working with solutions
 
 This section explains how to create a *CMSIS solution-based project* that is using CMSIS-Packs.
 
@@ -14,12 +14,16 @@ Examples, templates, and reference applications depend on the selected board or 
 - [**Examples**](#work-with-examples) are created for a specific hardware or evaluation board. These are typically
   complete projects that directly interface with board and device peripherals.
 
-- [**Reference Applications**](#work-with-reference-applications) use defined interfaces (APIs) and are therefore
+- [**Reference applications**](#work-with-reference-applications) use defined interfaces (APIs) and are therefore
   hardware agnostic. These projects require the installation of related CMSIS-Packs and additional software layers for
   an evaluation board.
 
 - [**Templates**](#work-with-templates) are stub projects that help you getting started. Some CMSIS-Packs may contain
   device-specific templates.
+
+- [**GitHub repositories**](#github-repositories) may contain projects showcasing a specific use case. These repos can
+  be cloned directly into VS Code. The **Source Control** view ![Source control icon](./images/SourceControlView.png)
+  helps maintaining these repos.
 
 Further settings include:
 
@@ -32,7 +36,7 @@ Further settings include:
 - **Show project opening options** allows you to open the solution a new instance of VS Code. By default, it is loaded
   into the current VS Code instance.
 
-## Work with examples
+## Examples
 
 1. Click the **Target Board (Optional)** drop-down list.
 2. Enter a search term tp filter the list and then select your board. The details of the selected board are displayed.
@@ -61,7 +65,7 @@ specific tasks that need to be done before working with the target board:
 
 Continue to [build the project](#build).
 
-## Work with reference applications
+## Reference applications
 
 **Reference applications** show the usage of middleware, software libraries, and custom code that can run on many
 different target hardware boards. Examples display only if you selected a board and a software layer is available for
@@ -98,7 +102,7 @@ More information about the layer requirements and other configuration options ca
 
 Continue to [build the project](#build).
 
-## Work with templates
+## Templates
 
 Templates help you to get started without application-specific code.
 
@@ -149,6 +153,24 @@ The following files are created for the solution:
 Depending on the selected example, you might need to [configure the solution](./configuration.md#configure-a-solution)
 first.
 -->
+
+## GitHub repositories
+
+Nowadays, many projects are available in GitHub repositories. VS Code provides easy access to these repos with the
+[built-in Git support](https://code.visualstudio.com/docs/sourcecontrol/overview). The easiest way to do so is to clone
+a repository directly in VS Code:
+
+- In the **Explorer** view ![Explorer icon](./images/ExplorerView.png), click **Clone Repository** (you can do the same
+  in the **Source Control** view ![Source control icon](./images/SourceControlView.png)).
+- Open the **CMSIS** view ![CMSIS view](./images/CMSISView.png) and use the ... menu to choose an example via
+  **Select Active Solution from workspace**.
+- The related tools and software packs are downloaded and installed.
+
+Continue to [build the project](#build).
+
+!!! Note
+    You can also download the repository content as a ZIP file. In that case, extract the content and open the
+    top-level folder in VS Code (**File - Open Folder...**).
 
 ## Build
 
