@@ -69,11 +69,11 @@ The VS Code status bar displays information about the status of your development
 
 - Status message of the clangd extension (used for IntelliSense).
 
-- You can inspect errors and warnings for a context set. For active projects in the context set, errors and warnings display
-  when you move your cursor over the **Context Set** in the status bar. The indicator is red for errors and yellow in case
-  of warnings. Click the indicator to open the **Output** tab for the **CMSIS Solution** category. If you previously closed
-  the **Manage Solution** view, then this action also re-opens the view.
-  ![Context Set errors and warnings](./images/context-set-popup.png)
+- You can inspect errors and warnings for the active project when you move your cursor over the **Target Set** in the
+  status bar. The indicator is red for errors and yellow in case of warnings. Click the indicator to open the
+  **Output** tab for the **CMSIS Solution** category. If you previously closed the **Manage Solution** view, then this
+  action also re-opens the view.  
+  ![Target Set errors and warnings](./images/target-set-popup.png)
 
 - The **Arm Tools Environment Manager** extension shows information about the tools installed. Move your mouse over **Arm Tools** to review the list. Click **Arm Tools** to get more options.
   ![Arm Tools](./images/arm-tools.png)
