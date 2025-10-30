@@ -1,4 +1,4 @@
-# Working with solutions
+# Work with solutions
 
 This section explains how to create a *CMSIS solution-based project* that is using CMSIS-Packs.
 
@@ -11,14 +11,14 @@ The **Create new solution** dialog allows to start projects based on a **Target 
 
 Examples, templates, and reference applications depend on the selected board or device and on installed CMSIS-Packs.
 
-- [**Examples**](#work-with-examples) are created for a specific hardware or evaluation board. These are typically
+- [**Examples**](#examples) are created for a specific hardware or evaluation board. These are typically
   complete projects that directly interface with board and device peripherals.
 
-- [**Reference applications**](#work-with-reference-applications) use defined interfaces (APIs) and are therefore
+- [**Reference applications**](#reference-applications) use defined interfaces (APIs) and are therefore
   hardware agnostic. These projects require the installation of related CMSIS-Packs and additional software layers for
   an evaluation board.
 
-- [**Templates**](#work-with-templates) are stub projects that help you getting started. Some CMSIS-Packs may contain
+- [**Templates**](#templates) are stub projects that help you getting started. Some CMSIS-Packs may contain
   device-specific templates.
 
 - [**GitHub repositories**](#github-repositories) may contain projects showcasing a specific use case. These repos can
@@ -182,10 +182,6 @@ a build:
 
 - In the **CMSIS** view ![CMSIS view](./images/CMSISView.png), click ![Build icon](./images/build-icon.png).
 
-You can configure a build task in a `tasks.json` file to customize the behavior of the build button. All the examples
-on [keil.arm.com](https://www.keil.arm.com) include a `tasks.json` file. See
-[Configure a build task](./configuration.md#configure-a-build-task) for more details.
-
 Continue to [load and run](#load-and-run) the solution.
 
 ### Build output
@@ -246,7 +242,7 @@ In the **Terminal**, the result of the `pyocd list` command is shown:
 
 !!! Note
     If your debug adapter is not shown, make sure that all
-    [drivers are installed](./tipsandtricks.md#installing-debug-adapters) and that the target is connected to the PC.
+    [drivers are installed](./configuration.md#use-debug-adapters) and that the target is connected to the PC.
 
 ### Download and run the application
 
@@ -256,7 +252,7 @@ target and issues a reset to start the application.
 
 To verify that the step has run correctly, check the **Terminal** output:
 
-```sh
+```text
  *  Executing task: pyocd load --probe stlink: --cbuild-run /Users/user/B-U585-Board/Blinky/Blinky+B-U585I-IOT02A.cbuild-run.yml 
 
 0000712 I Loading /Users/user/B-U585-Board/Blinky/out/Blinky/B-U585I-IOT02A/Debug/Blinky.axf [load_cmd]
@@ -314,6 +310,8 @@ the GDB session anytime.
     - If you are using a multi-core device and you did not specify a `"processorName"` in the `launch.json` file,
       select the appropriate processor for your project in the **Select a processor** drop-down list at the top of the
       window.
+    - If you want to run the application on an Arm FVP simulation model, you need to
+      [configure it](./configuration.md#arm-fvps) in the **Manage Solution** dialog.
 
 ### Monitor printf messages
 
@@ -321,3 +319,101 @@ Keil Studio includes the **Serial Monitor** extension that connects to the targe
 contains `printf` statements, use the Serial Monitor to observe them.
 
 ![Serial Monitor showing printf messages](./images/serial-monitor.png)
+
+## Debug
+
+Debugging is an essential task for every embedded developer.
+
+!!! Attention
+    Before entering a debug session, make sure you have [set up](./configuration.md#configure-run-and-debug) your debug
+    adapter correctly.
+
+In the **CMSIS** view, click ![Debug icon](./images/debug-icon.png). This executes the "Load & Debug application"
+command that executes the commands `CMSIS Load` from the `launch.json` file. This flashes the project onto the target,
+starts a debug session, and runs to `main`:
+
+![Debug session that ran to mian](./images/run-to-main.png)
+
+The **Debug Console** show the output of the debug operations:
+
+```text
+0000223 I Target device: LPC55S69JBD100 [cbuild_run]
+GNU gdb (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 15.2.90.20241229-git
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "--host=aarch64-apple-darwin20.6.0 --target=arm-none-eabi".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://bugs.linaro.org/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+0000575 I core 0: Cortex-M33 r0p3, pname: cm33_core0 [cbuild_run]
+0000575 I core 1: Cortex-M33 r0p3, pname: cm33_core1 [cbuild_run]
+0000575 I start-pname: cm33_core0 [cbuild_run]
+0000610 I Semihost server started on port 4444 (core 0) [server]
+0000658 I GDB server listening on port 3333 (core 0) [gdbserver]
+0000666 I Semihost server started on port 4445 (core 1) [server]
+0000666 I GDB server listening on port 3334 (core 1) [gdbserver]
+GNU gdb (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 15.2.90.20241229-git
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "--host=aarch64-apple-darwin20.6.0 --target=arm-none-eabi".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://bugs.linaro.org/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+warning: Loadable section "RW_m_data" outside of ELF segments
+  in /Users/user/Arm-Examples/Hello_LPCXpresso55S69/out/hello/LPCXpresso55S69/Debug/hello.axf
+warning: Loadable section "RW_m_data" outside of ELF segments
+  in /Users/user/Arm-Examples/Hello_LPCXpresso55S69/out/hello/LPCXpresso55S69/Debug/hello.axf
+0000869 I Client 1 connected on port 3333 from remote address localhost:51675 [gdbserver]
+warning: Loadable section "RW_m_data" outside of ELF segments
+  in /Users/user/Arm-Examples/Hello_LPCXpresso55S69/out/hello/LPCXpresso55S69/Debug/hello.axf
+0x14005f30 in ?? ()
+0000966 I Client 1: Loaded rtx5 RTOS plugin [gdbserver]
+connected to remote target localhost:3333
+set mem inaccessible-by-default off
+set stack-cache off
+set remote interrupt-on-connect off
+target remote localhost:3333
+Remote debugging using localhost:3333
+0000978 I Client 2 connected on port 3333 from remote address localhost:51677 [gdbserver]
+warning: Loadable section "RW_m_data" outside of ELF segments
+  in /Users/user/Arm-Examples/Hello_LPCXpresso55S69/out/hello/LPCXpresso55S69/Debug/hello.axf
+0x14005f30 in ?? ()
+connected auxiliary GDB to target
+monitor reset halt
+Resetting target with halt
+Successfully halted device on reset
+tbreak main
+Temporary breakpoint 1 at 0x2f80: file /Users/user/Arm-Examples/Hello_LPCXpresso55S69/main.c, line 30.
+Note: automatically using hardware breakpoints for read-only addresses.
+
+In the Debug Console view you can interact directly with GDB.
+To display the value of an expression, type that expression which can reference
+variables that are in scope. For example type '2 + 3' or the name of a variable.
+Arbitrary commands can be sent to GDB by prefixing the input with a '>',
+for example type '>show version' or '>help'.
+
+
+Temporary breakpoint 1, main () at /Users/user/Arm-Examples/Hello_LPCXpresso55S69/main.c:30
+30	  BOARD_InitBootPeripherals();
+```
+
+!!! Tip
+    Refer to the
+    [Arm CMSIS Debugger extension](https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger) for a
+    detailed description of debug features.

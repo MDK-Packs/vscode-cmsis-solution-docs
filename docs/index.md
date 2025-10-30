@@ -21,14 +21,12 @@ The IDE:
 - [**User interface**](./userinterface.md) shows the main features available in the GUI.
 
 - [**Work with solutions**](./create_app.md) explains how to start an embedded project from scratch or use pre-built
-  examples.
+  examples. It also takes you through the build, flash, and debug steps.
 
 - [**Manage solutions**](./manage_settings.md) explains how to configure *csolution projects*.
 
 - [**Software components**](./manage_components.md) shows how to add or remove software components in a
   solution.
-
-- [**Debug**](./debug.md) explains how to debug a project.
 
 - [**Configuration**](./configuration.md) explains how to manage the extension settings and some specific configuration
   options, for example for run and debug.

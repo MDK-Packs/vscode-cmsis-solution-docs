@@ -59,20 +59,8 @@ You can also go to the **Problems** tab and check for errors.
 
 ## Debug Adapter
 
-Use this drop-down to select the debug adapter that you are using within the target set. A broad range of adapters is
-supported:
-
-- CMSIS-DAP
-- [Arm ULINKplus](./tipsandtricks.md#arm-ulinkplus)
-- [Infineon KitProg3](./tipsandtricks.md#infineon-kitprog3)
-- [NXP MCU-Link](./tipsandtricks.md#nxp-mcu-link)
-- [Nuvoton NuLink](./tipsandtricks.md#nuvoton-nulink)
-- [Microchip PICkit Basic](./tipsandtricks.md#microchip-pickit-basic)
-- [Raspberry Pi Debugprobe](./tipsandtricks.md#raspberrry-pi-debugprobe)
-- [STMicroelectronics ST-Link](./tipsandtricks.md#stmicroelectronics-st-link)
-- [Segger J-Link](./tipsandtricks.md#segger-j-link)
-- AVH-FVP
-- Keil µVision
+A broad range of adapters is supported. Use this drop-down to select the
+[debug adapter](./configuration.md#use-debug-adapters) that you are using within the target set.
 
 !!! Note
     Some of the debug adapters require further setup steps.
