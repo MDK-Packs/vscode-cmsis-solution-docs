@@ -9,6 +9,7 @@ In addition to the [VS Code built-in variables](https://code.visualstudio.com/do
 
 | Variable  | Description |
 |:----------|:------------|
+| `${command:cmsis-csolution.getActiveTargetSet}`| Get name of active run and debug configuration (format: target-type@set) |
 | `${command:cmsis-csolution.getBinaryFile}`     | The path and name of the first ELF/DWARF file available for the Active Target |
 | `${command:cmsis-csolution.getBinaryFiles}`    | The paths and names of the ELF/DWARF files (comma separated) available for the Active Target |
 | `${command:cmsis-csolution.getBoardName}`      | The board name for the Active Target as specified in the csolution.yml |

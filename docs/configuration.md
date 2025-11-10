@@ -18,28 +18,17 @@ settings. The available settings are:
 
 ## Configure a solution
 
-If you have not already set a compiler, select a compiler for your solution from the **Configure Solution** view. If you
-created a reference application from a reference example, you can also add layers to your solution from the same view.
+The **Configure Solution** view opens automatically, if:
 
-If your project has a `select-compiler:` node, but no `compiler:` node is set in the `csolution.yml` file, or if your
-reference application has no layers defined, then the **Configure Solution** view opens automatically.
-
-If you are working with a reference application, **Add Software Layer** displays, showing the software layers that you can
-use. Layers are available from the CMSIS-Packs installed on your machine.
-
-!!! Note
-    - Not all Board Support Packs (BSPs) have board layers.
-    - Not all layers are compatible with the connections that your reference application requires.
-    - The CMSIS-Packs which contain reference applications and layers generally provide an `Overview.md` file where the connections are detailed.
-
-If there are no compatible layers, errors display.
+- Your solution has a `select-compiler:` node, but no `compiler:` node is set in the `csolution.yml` file, or
+- You are working with a reference application that requires the configuration of a software layer.
 
 ![Configure a solution](./images/configure-solution.png)
 
 - Click **Next** to display the different options available.
 
 - You can indicate where the layers should be copied to in the **Board-Layer**, **Shield-Layer**, and **Socket-Layer**
-  fields. Click **Default** to reset the paths to their default values.
+  fields. Click **Default** to reset the paths to their default values. If there are no compatible layers, errors display.
 
 - If no compiler is set for the reference application, **Select Compiler** displays under the layers selection and shows the
   compilers available in your environment. Select a compiler. For example, AC6 or GCC.
@@ -55,83 +44,150 @@ file of your solution under `target-types: variables:` for the active target.
 
 For all solution types, the compiler is added with the `compiler:` key in the `csolution.yml` file.
 
-## Configure a build task
-
-In VS Code, you can automate certain tasks by configuring a `tasks.json` file. See
-[Integrate with External Tools via Tasks](https://code.visualstudio.com/docs/editor/tasks) for more details.
-
-With the CMSIS Solution extension, you can configure a build task using the `tasks.json` file to build your projects. When
-you run the build task, the extension runs `cbuild` with the options that you defined.
-
 !!! Note
-    The examples on keil.arm.com include a `tasks.json` file that already contains some configuration settings to build
-    your project. You can modify the default configuration if needed.
+    - Not all Board Support Packs (BSPs) have board layers.
+    - Not all layers are compatible with the connections that your reference application requires.
+    - The CMSIS-Packs which contain reference applications and layers generally provide an `Overview.md` file where the
+      connections are detailed.
 
-If you are working with an example that does not have a build task configured, follow these steps:
+## Configure run and debug
 
-- Go to **Terminal** > **Configure Tasks...**.
-
-- In the drop-down list that opens at the top of the window, select the **CMSIS Build** task. A `tasks.json` file opens with
-  the default configuration.
-
-- Modify the configuration.
-
-With IntelliSense, you can see the full set of task properties and values available in the `tasks.json` file. You can bring
-up suggestions using **Trigger Suggest** from the **Command Palette**. You can also display the task properties specific to
-`cbuild` by typing ``cbuild --help`` in the **Terminal**.
-
-- Save the `tasks.json` file.
-
-Alternatively, you can define a default build task using **Terminal** > **Configure Default Build Task...**.
-The **Terminal** > **Run Build Task...** option triggers the execution of default build tasks.
-
-## Configure Run and Debug
-
-When using the CMSIS-Toolbox 2.9.0, the [Run and Debug Management](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#run-and-debug-management) file `*.cbuild-run.yml` provides all information to configure programmers or debuggers.
-With this information the **CMSIS Solution** extension generates the [`launch.json`](https://code.visualstudio.com/docs/editor/debugging) and [`tasks.json`](https://code.visualstudio.com/docs/editor/tasks) configuration files for the
-run and debug features of VS Code.
-
-!!! Note
-    The generation of the [`launch.json`](https://code.visualstudio.com/docs/editor/debugging) and [`tasks.json`](https://code.visualstudio.com/docs/editor/tasks) files is enabled when the *csolution project* contains a [`target-set:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-Input-Format/#target-set) node. Using `target-set:` uses the *cbuild* command option `--active` to select the configuration.  The option `--context-set` and the file `*.cbuild-set.yml` is no longer used.
-
-In VS Code, there are two debug request modes that can be configured in `launch.json`:
-
-- **Launch** starts a debug session and typically stops at the *main* function.
-- **Attach** connects a debug session to a running system.
-
-### Example
-
-The following `*.csolution.yml` file is configured for a CMSIS-DAP Debugger as shown below. Refer to the CMSIS-Toolbox users guide for details on [`target-set`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-Input-Format/#target-set).
-
-```yml
-solution:
-    :
-  target-types:
-    - type: MyBoard_ROM                       # My evaluation kit (Execution from ROM)
-      board: B-U585I-IOT02A                   # Board name as defined by the pack
-      target-set:
-        - set:                                # default configuration
-          debugger:
-            name: CMSIS-DAP                   # uses CMSIS-DAP
-```
-
-The related `*.cbuild-run.yml` file contains the information for the debugger setup. The **CMSIS Solution** extension uses this information with a template file for a debug adapter (in this case for CMSIS-DAP) to update the configuration information in `launch.json` and `tasks.json`.
+In VS Code, you can integrate external tools via a `tasks.json` file. The debug configuration is managed via the
+`launch.json` file. Both files are generated automatically based on your `*.csolution.yml` file:
 
 ![Generate launch.json and tasks.json](./images/configure-debug-run.png)
 
-ToDo: add the generated launch.json + tasks.json from this example
+When creating a **Target Set** in the [**Manage Solution**](./manage_settings.md) view and selecting a
+**Debug Adapter**, the information is stored in the `target-set:` node in the `*.csolution.yml` file (refer to the
+[CMSIS-Toolbox user's guide](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-Input-Format/#target-set) for
+details on `target-set`).
 
-### User Modifications to `launch.json`
+When you save the target set, the **CMSIS Solution** extension calls `cbuild setup` that generates the
+`*.cbuild-run.yml` file which contains the run and debug description of your solution. Using template files for the
+various debug adapters from the [Debug Adapter Registry](https://github.com/Open-CMSIS-Pack/debug-adapter-registry) and
+taking the user inputs into account, the **CMSIS Solution** extension then generates the `launch.json` and `tasks.json`
+files.
 
-By default, the **CMSIS Solution** extension updates the `launch.json` file to reflect the settings in the *csolution project*. Sometimes the user needs control over settings. The `cmsis:` - `updateConfiguration:` value in the `launch.json` file controls the update. Remove `auto` to manually control the settings and this section.
+### Debug adapter support
+
+Keil Studio support various debug adapters and and GDB server implementations from different vendors:
+
+- Most of the debug adapters (including ST-Link) are served by [pyOCD](#pyocd) using the
+  [Arm CMSIS Debugger extension](https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger).
+- Segger [J-Link Server](#jlink-server) is supported.
+- [Arm Debugger](#arm-debugger) is supported.
+- Running on [Arm FVPs](#arm-fvps) is possible.
+- Arm [Keil µVision](#keil-uvision) is supported (only on Windows).
+
+### Use debug adapters
+
+If you are using a third-party debug adapter, make sure that the latest drivers are installed on your machine and that
+the debug adapters are running the latest firmware. Set the `PATH` variable correctly.
+
+| Debug Adapter | Notes |
+|---------------|-------|
+| Arm ULINKplus | Make sure that the [V2.x.x firmware](https://developer.arm.com/documentation/101636/0100/Introduction/Firmware-Update) is installed. |
+| Infineon KitProg3 | Make sure that the latest [firmware is installed](https://community.infineon.com/t5/Knowledge-Base-Articles/ModusToolbox-Updating-the-KitProg3-MiniProg4-firmware-from-modus-shell/ta-p/625419#.). |
+| Microchip PICKit Basic | Use the Python utility [pycmsisdapswitcher](https://pypi.org/project/pycmsisdapswitcher/) to switch the firmware to a CMSIS-DAP v2 implementation. |
+| Nuvoton NuLink | Make sure that the latest [firmware is installed](https://github.com/OpenNuvoton/Nuvoton_Tools/blob/master/Latest_NuLink_Firmware/README.md). |
+| NXP MCU-Link | Make sure that the latest [firmware is installed](https://community.nxp.com/t5/MCUXpresso-General-Knowledge/MCU-Link-installation/ta-p/1180326). |
+| Raspberrry Pi Debugprobe | Make sure that the latest [firmware is installed](https://github.com/raspberrypi/debugprobe/releases). |
+| SEGGER J-Link | For J-Link support, visit [J-Link/J-Trace Downloads](https://www.segger.com/downloads/jlink/). Set the `PATH` variable to the `bin` directory of the installation. |
+| STMicroelectronics ST-Link | For ST-LINK/V2 and ST-LINK/V2-1 support on Windows, download the USB driver here: [STSW-LINK009](https://www.st.com/en/development-tools/stsw-link009.html). |
+
+In the **CMSIS view**, open the [Manage Solution dialog](./manage_settings.md) and go to the
+[Debug Adapter section](./manage_settings.md#debug-adapter). Select one of the debug adapters. Once selected, the
+following JSON files are created automatically:
+
+- In the `launch.json` file, `attach` and `launch` configurations are added that let you attach the debug adapter
+  to an already running GDB instance (for example when you have issued a [`load and run`](./create_app.md#load-and-run)
+  before) or launch a new debug session.
+- In the `tasks.json` file, the tasks `CMSIS Erase`, `CMSIS Load`, and `CMSIS Run` are created.
+
+!!! Note
+    If you wish to preserve manual modification to the JSON files, uncheck "Update launch.json and tasks.json" in the
+    **Debug Adapter for ...** section.
+
+<!--
+#### User modifications to `launch.json`
+
+By default, the **CMSIS Solution** extension updates the `launch.json` file to reflect changed settings. Sometimes, the
+user needs control over settings. The `cmsis:` - `updateConfiguration:` value in the `launch.json` file controls the
+update. Change `"updateConfiguration"` to `"manual"` to control the settings and this section.
 
 ```json
             "cmsis": {
                 "pname": cm33_core0
                 "target-type": MCXN947 
-                "updateConfiguration": auto     // without auto, this section is not modified
+                "updateConfiguration": "manual"     // without auto, this section is not modified
 ```
+-->
+#### Selecting a specific debug adapter
 
+!!! ToDo
+    Explain how to select a probe in case multiple are connected.
+
+### pyOCD
+
+In the [Manage Solution](./manage_settings.md) dialog, select the one of the debug adapters named **xyz@pyOCD**:
+
+- Set the maximum clock speed.
+- Select the debug protocol (`SWD` or `JTAG`).
+
+![Using pyOCD for debugging](./images/pyocd-as-debug-adapter.png)
+
+### JLink Server
+
+In the [Manage Solution](./manage_settings.md) dialog:
+
+- Select the **JLink Server** debug adapter.
+- Set the maximum clock speed.
+- Select the debug protocol (`SWD` or `JTAG`).
+
+![JLink Server as debug adapter](./images/j-link-debug-adapter.png)
+
+### Arm Debugger
+
+You can use the [Arm Debugger](https://developer.arm.com/Tools%20and%20Software/Arm%20Debugger) with Keil Studio.
+
+#### Prerequisites
+
+Before you can launch a debug session using Arm Debugger, you need to:
+
+1. Install the [Arm Debugger VS Code extension](https://marketplace.visualstudio.com/items?itemName=Arm.arm-debugger).
+2. Add the Arm Debugger to your `vcpkg-configuration.json` file, for example:  
+   `  "arm:debuggers/arm/armdbg": "6.6.0"`
+
+#### Setup for Arm Debugger
+
+In the [Manage Solution](./manage_settings.md) dialog, select the one of the debug adapters named **xyz@Arm-Debugger**.
+
+![Arm-Debugger as debug adapter](./images/arm-debugger-as-adapter.png)
+
+### Arm FVPs
+
+In the [Manage Solution](./manage_settings.md) dialog:
+
+- Select the **Arm-FVP** debug adapter
+- Select the model you wish to use
+- Point to your configuration file
+- If you wish to set a simulation limit, add this in the **Misc** box:
+
+![Arm-FVP Debug Adapter Settings](./images/arm-fvp-debug-adapter.png)
+
+### Keil uVision
+
+In the [Manage Solution](./manage_settings.md) dialog:
+
+- Select the **Keil uVision** debug adapter.
+- Set the path to the `UV4.exe` file (the assumption is `%LOCALAPPDATA%\Keil_v5\UV4\UV4.exe`).
+
+![Kei uVision as debug adapter](./images/keil-debug-adapter.png)
+
+!!! Attention
+    This only works on a Windows PC.
+
+<!--
 ### Template Files
 
 Template files for various debug adapters are included in the installation. For reference the template files are provided in the [Debug Adapter Registry](https://github.com/Open-CMSIS-Pack/debug-adapter-registry).
@@ -167,8 +223,9 @@ Placeholder       | Description
 `ports`        | From `*.cbuild-run.yml`: value list of [`gdbserver:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#gdbserver)
 
 The usage of these placeholders is exemplified with the [template files in the Debug Adapter Registry](https://github.com/Open-CMSIS-Pack/debug-adapter-registry/tree/main/templates).
+-->
 
-### Enhancing the Debug Experience
+### Enhancing the debug experience
 
 To ensure the best debug experience with Arm Compiler for Embedded, make sure that your CMSIS solution files contain
 the following.

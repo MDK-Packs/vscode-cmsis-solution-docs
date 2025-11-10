@@ -4,13 +4,9 @@ The **CMSIS Solution** extension provides the Keil Studio GUI for project manage
 [CMSIS-Toolbox](https://open-cmsis-pack.github.io/cmsis-toolbox/). Combined with other Arm and third-party extensions,
 it implements a powerful embedded development environment.
 
-## CMSIS view
-
 ![CMSIS view](./images/solution-outline.png)
 
-The GUI consists of these elements:
-
-### 1. Dedicated views from the side bar
+The GUI consists of these views:
 
 | View | Description |
 |:----:|-------------|
@@ -19,12 +15,13 @@ The GUI consists of these elements:
 | ![Source Control view](./images/SourceControlView.png) | [**Source Control** view](https://code.visualstudio.com/docs/sourcecontrol/overview) allows you to work with git. |
 | ![Extensions view](./images/ExtensionsView.png) | [**Extensions** view](https://code.visualstudio.com/docs/configure/extensions/extension-marketplace) lets you work with VS Code extensions. |
 | ![Run and Debug view](./images/RunDebugView.png) | **Run and Debug** view switches the GUI to a dedicated [debug view](#run-and-debug-view). |
-| ![CMSIS view](./images/CMSISView.png) | [**CMSIS** view](#2-main-area-of-the-cmsis-view) is the main view for working with CMSIS solution-based projects. |
+| ![CMSIS view](./images/CMSISView.png) | [**CMSIS** view](#cmsis-view) is the main view for working with CMSIS solution-based projects. |
+| ![Trace and live view](./images/TraceLiveView.png) | [**Trace and Live** view](#trace-and-live-view) shows trace and live data during debugging. |
 
 !!! Note
     The ordering of the icons may be different in your VS Code environment.
 
-### 2. Main area of the **CMSIS** view
+## CMSIS view
 
 The CMSIS view ![CMSIS icon](./images/cmsis-icon.png) shows the content of the active projects included in the
 solution. Each project contains configuration settings, source code files, build settings, and other project-specific
@@ -41,7 +38,7 @@ information. The main area of the **CMSIS** view shows:
 - **Layer Type** (if available): The software layers in the project with their source files, preconfigured software
   components, and configuration files
 
-### 3. Actions available through the **CMSIS** view
+### Actions available through the **CMSIS** view
 
 | Action | Description |
 |:------:|-------------|
@@ -52,7 +49,7 @@ information. The main area of the **CMSIS** view shows:
 | ![Manage Solution Settings](./images/ManageSWComonents.png) | [**Manage Solution Settings**](./manage_settings.md) allows you to manage the solution settings. |
 | ![Views and more actions](./images/more-actions-icon.png) | Shows further views and more actions. |
 
-### 4. Main area icons
+### Main area icons
 
 Depending on the file and the context, various icons may appear:
 
@@ -63,17 +60,17 @@ Depending on the file and the context, various icons may appear:
 | ![Manage software components](./images/ManageSWComonents.png) | Manage the software components of the cproject file. |
 | ![Add groups or files](./images/AddGroupsFiles.png) | Add groups or files to the cproject file. |
 
-### 5. Status bar
+## Status bar
 
 The VS Code status bar displays information about the status of your development environment and the project. The number of extensions installed might vary.
 
 - Status message of the clangd extension (used for IntelliSense).
 
-- You can inspect errors and warnings for a context set. For active projects in the context set, errors and warnings display
-  when you move your cursor over the **Context Set** in the status bar. The indicator is red for errors and yellow in case
-  of warnings. Click the indicator to open the **Output** tab for the **CMSIS Solution** category. If you previously closed
-  the **Manage Solution** view, then this action also re-opens the view.
-  ![Context Set errors and warnings](./images/context-set-popup.png)
+- You can inspect errors and warnings for the active project when you move your cursor over the **Target Set** in the
+  status bar. The indicator is red for errors and yellow in case of warnings. Click the indicator to open the
+  **Output** tab for the **CMSIS Solution** category. If you previously closed the **Manage Solution** view, then this
+  action also re-opens the view.  
+  ![Target Set errors and warnings](./images/target-set-popup.png)
 
 - The **Arm Tools Environment Manager** extension shows information about the tools installed. Move your mouse over **Arm Tools** to review the list. Click **Arm Tools** to get more options.
   ![Arm Tools](./images/arm-tools.png)
@@ -82,8 +79,8 @@ The VS Code status bar displays information about the status of your development
 
 ## Run and Debug view
 
-The **Run and Debug View** ![Run and Debug view](./images/RunDebugView.png) in Keil Studio to the target using the
-request selection shown below.
+The **Run and Debug View** ![Run and Debug view](./images/RunDebugView.png) in Keil Studio connects to the target using
+the request selection shown below.
 
 ![Debug View Debugger request](./images/run-debug-view.png)
 
@@ -112,6 +109,24 @@ The icons enable access to:
 | ![Disconnect](./images/debug-disconnect.png) | Disconnect |  Detach debugger from a core without changing the execution status (running/pause). |
 | ![Reset](./images/debug-reset-target.png) | Reset | Reset target device. |
 
+## Trace and Live view
+
+The **Trace and Live View** ![Trace and Live view](./images/TraceLiveView.png) currently shows live views of
+expressions.
+
+![Trace and Live View](./images/talv-live-watch.png)
+
+You can add expressions to this view by:
+
+1. Pressing the three dots to the right.
+2. Pressing the `+` sign.
+3. Using the context menu item **Add to Live Watch** in:
+    - source code files.
+    - the **Watch** window.
+    - teh **Variables** window.
+4. From the **Trace and Live View**, you can show an expression in the Memory Inspector. Right-click on the expression
+   and select **Show in Memory Inspector**.
+
 ## Available commands
 
 You can access commands to manage your solution and the projects it includes in the following ways:
@@ -120,7 +135,7 @@ You can access commands to manage your solution and the projects it includes in 
 
 - When you right-click the `*.csolution.yml` file from the **Explorer** view.
 
-- When you click the [Context Set status bar item](#5-status-bar).
+- When you click the [Context Set status bar item](#status-bar).
 
 - When you press Ctrl+Shift+P (Windows and Linux) or Cmd+Shift+P (macOS) to open the Command Palette.
 

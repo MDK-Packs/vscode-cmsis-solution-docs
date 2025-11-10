@@ -1,13 +1,20 @@
 # Debug the application
 
-Debugging is an essential task for every embedded developer. The [**CMSIS view**](./userinterface.md#cmsis-view) offers
-[action buttons](./userinterface.md#3-actions-available-through-the-cmsis-view) to start a debug session. The
-[**Run and Debug View**](./userinterface.md#run-and-debug-view) lets you connect to the target.
+Debugging is an essential task for every embedded developer.
+
+In the **CMSIS** view, click ![Debug icon](./images/debug-icon.png). This executes the "Load & Debug application"
+command that executes the commands `CMSIS Load` from the `launch.json` file. This flashes the project onto the target,
+starts a debug session, and runs to `main`.
 
 Refer to the
 [Arm CMSIS Debugger extension](https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger) for a
 detailed description of debug features.
 
+!!! Attention
+    - Make sure that your project and target are set up correctly and that the project can be
+      [loaded and run](./create_app.md#load-and-run).
+    - Before entering a debug session, make sure that you have met the
+      [prerequisites](./configuration.md#use-debug-adapters) of your debug adapter.
 <!--
 ## CMSIS View
 
@@ -83,7 +90,7 @@ The following JSON files are created automatically:
 
 !!! Note
     Before entering a debug session, make sure that you have met the
-    [prerequisites](./tipsandtricks.md#installing-debug-adapters) of your debug adapter.
+    [prerequisites](./configuration.md#use-debug-adapters) of your debug adapter.
 
 #### Command line usage
 
@@ -104,7 +111,7 @@ pyocd erase     --cbuild-run MyProject+TargetHW.cbuild-run.yml   // erase image 
 ### Using J-Link Server
 
 !!! Attention
-    Make sure that the [J-Link software](./tipsandtricks.md#segger-j-link) is installed on your machine before
+    Make sure that the [J-Link software](./configuration.md#use-debug-adapters) is installed on your machine before
     attempting to use a J-Link adapter.
 
 In the **CMSIS view**, open the [Manage Solution dialog](./manage_settings.md) and go to the
