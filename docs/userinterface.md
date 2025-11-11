@@ -79,12 +79,16 @@ The VS Code status bar displays information about the status of your development
 
 ## Run and Debug view
 
+!!! Tip
+    The [Arm CMSIS Debugger README](https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger)
+    contains a more detailed description of the usage of this view.
+
 The **Run and Debug View** ![Run and Debug view](./images/RunDebugView.png) in Keil Studio connects to the target using
 the request selection shown below.
 
 ![Debug View Debugger request](./images/run-debug-view.png)
 
-1. Select the core you want to **launch** or **attach** to.
+1. Select the core you want to **launch** (start an application) or **attach** to (connect to a running application).
 2. Interact with the cores.
 
 ### Run and Debug controls
@@ -111,21 +115,16 @@ The icons enable access to:
 
 ## Trace and Live view
 
-The **Trace and Live View** ![Trace and Live view](./images/TraceLiveView.png) currently shows live views of
-expressions.
+The **Trace and Live View** ![Trace and Live view](./images/TraceLiveView.png) contains the **LIVE WATCH** section that
+continuously displays the value of an expression while the program is running.  Future versions of this view will also
+show trace information.
 
-![Trace and Live View](./images/talv-live-watch.png)
+You can add expressions to the **LIVE WATCH** by:
 
-You can add expressions to this view by:
+1. Pressing the `+` sign and entering an expression.
+2. Using the context menu item **Add to Live Watch** in the editor or the the **Run and Debug** view.
 
-1. Pressing the three dots to the right.
-2. Pressing the `+` sign.
-3. Using the context menu item **Add to Live Watch** in:
-    - source code files.
-    - the **Watch** window.
-    - teh **Variables** window.
-4. From the **Trace and Live View**, you can show an expression in the Memory Inspector. Right-click on the expression
-   and select **Show in Memory Inspector**.
+![Displaying a variable in the LIVE WATCH](./images/lw-counter.gif)
 
 ## Available commands
 

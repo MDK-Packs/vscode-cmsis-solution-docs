@@ -44,7 +44,7 @@ folder.
 Required tools (such as a compiler toolchain or the CMSIS-Toolbox) are installed via the
 **Arm Tools Environment Manager**, controlled by the `vcpkg-configuration.json` file.
 
-Open the **Arm Tools Environment Manager** via the command pallette (Ctrl/CMd + Shift + p) and select
+Open the **Arm Tools Environment Manager** via the command pallette (Ctrl/Cmd + Shift + p) and select
 **Arm Tools: Configure Arm Tools Environment**. The "Arm Registry" opens:
 
 ![Arm Registry](./images/arm-registry.png)
@@ -54,8 +54,7 @@ The **Output** pane shows the status of the "Arm Tools" installation.
 
 !!! Attention
     - If you are using Keil Studio for the first time, the **Arm Tools Environment Manager** needs to download required
-      tools from the Internet. While may take a couple of minutes (depending on your internet connection), it is only
-      required once.
+      tools from the Internet. This may take a couple of minutes (depending on your internet connection).
     - You also need to provide a license. A free, non-commercial
       [MDK-Community](https://www.keil.arm.com/mdk-community/) license can be activated from within the tool. If you
       need a commercial license, check our [eStore](https://store.arm.com/mdk-6/) or contact your preferred
