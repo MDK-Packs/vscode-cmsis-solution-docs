@@ -70,6 +70,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#github-repositories">GitHub repositories</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#zephyrwest-integration">Zephyr/west integration</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#build">Build</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#build-output">Build output</a>
@@ -164,6 +166,9 @@ solution opened, use the menu (<strong>...</strong>) item <strong>Create a Solut
 <p><a href="#github-repositories"><strong>GitHub repositories</strong></a> may contain projects showcasing a specific use case. These repos can
   be cloned directly into VS Code. The <strong>Source Control</strong> view <img alt="Source control icon" src="images/SourceControlView.png" />
   helps maintaining these repos.</p>
+</li>
+<li>
+<p>The <a href="#zephyrwest-integration"><strong>Zephyr/west integration</strong></a> enables to build and run Zephyr projects in Keil Studio.</p>
 </li>
 </ul>
 <p>Further settings include:</p>
@@ -314,9 +319,17 @@ a repository directly in VS Code:</p>
 <p>Continue to <a href="#build">build the project</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can also download the repository content as a ZIP file. In that case, extract the content and open the
-top-level folder in VS Code (<strong>File - Open Folder...</strong>).</p>
+<ul>
+<li>You can also download the repository content as a ZIP file. In that case, extract the content and open the
+  top-level folder in VS Code (<strong>File - Open Folder...</strong>).</li>
+<li>Ready-to-run examples are available on <a href="https://github.com/Arm-Examples#keil-mdk-version-6-examples">GitHub</a>.</li>
+</ul>
 </div>
+<h2 id="zephyrwest-integration">Zephyr/west integration</h2>
+<p>It is possible to build and debug Zephyr projects that use the <code>west</code> build system with Keil Studio. The CMSIS solution
+extension displays an outline view of the Zephyr project.</p>
+<p><img alt="Zephyr projects in the CMSIS Solution extension" src="images/cmsis-zephyr.png" /></p>
+<p>Refer to <a href="https://github.com/Arm-Examples/cmsis-zephyr">CMSIS-Zephyr</a> for more information.</p>
 <h2 id="build">Build</h2>
 <p>Before you can download the application on your target device, you need to build it. There are various ways to trigger
 a build:</p>
@@ -376,8 +389,12 @@ check that your target is connected.</p>
 </code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If your debug adapter is not shown, make sure that all
-<a href="configuration.html#use-debug-adapters">drivers are installed</a> and that the target is connected to the PC.</p>
+<ul>
+<li>Various debug adapters are supported. Select them using the <a href="manage_settings.html#debug-adapter">manage solutions</a> dialog.
+  The <a href="configuration.html#configure-run-and-debug">configure run and debug</a> chapter explains the details.</li>
+<li>If your debug adapter is not shown, make sure that all
+  <a href="configuration.html#use-debug-adapters">drivers are installed</a> and that the target is connected to the PC.</li>
+</ul>
 </div>
 <h3 id="download-and-run-the-application">Download and run the application</h3>
 <p>In the <strong>CMSIS</strong> view, click <img alt="Run icon" src="images/run-icon.png" />. This executes the "Load &amp; Run application" command
