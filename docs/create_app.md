@@ -25,6 +25,8 @@ Examples, templates, and reference applications depend on the selected board or 
   be cloned directly into VS Code. The **Source Control** view ![Source control icon](./images/SourceControlView.png)
   helps maintaining these repos.
 
+- The [**Zephyr/west integration**](#zephyrwest-integration) enables to build and run Zephyr projects in Keil Studio.
+
 Further settings include:
 
 - The **Solution Sub Folder** is typically a sub-directory in your workspace.
@@ -169,8 +171,18 @@ a repository directly in VS Code:
 Continue to [build the project](#build).
 
 !!! Note
-    You can also download the repository content as a ZIP file. In that case, extract the content and open the
-    top-level folder in VS Code (**File - Open Folder...**).
+    - You can also download the repository content as a ZIP file. In that case, extract the content and open the
+      top-level folder in VS Code (**File - Open Folder...**).
+    - Ready-to-run examples are available on [GitHub](https://github.com/Arm-Examples#keil-mdk-version-6-examples).
+
+## Zephyr/west integration
+
+It is possible to build and debug Zephyr projects that use the `west` build system with Keil Studio. The CMSIS solution
+extension displays an outline view of the Zephyr project.
+
+![Zephyr projects in the CMSIS Solution extension](./images/cmsis-zephyr.png)
+
+Refer to [CMSIS-Zephyr](https://github.com/Arm-Examples/cmsis-zephyr) for more information.
 
 ## Build
 
@@ -241,8 +253,10 @@ In the **Terminal**, the result of the `pyocd list` command is shown:
 ```
 
 !!! Note
-    If your debug adapter is not shown, make sure that all
-    [drivers are installed](./configuration.md#use-debug-adapters) and that the target is connected to the PC.
+    - Various debug adapters are supported. Select them using the [manage solutions](./manage_settings.md#debug-adapter) dialog.
+      The [configure run and debug](./configuration.md#configure-run-and-debug) chapter explains the details.
+    - If your debug adapter is not shown, make sure that all
+      [drivers are installed](./configuration.md#use-debug-adapters) and that the target is connected to the PC.
 
 ### Download and run the application
 
