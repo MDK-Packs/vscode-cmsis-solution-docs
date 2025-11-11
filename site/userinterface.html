@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>User Interface - Arm Keil Studio for VS Code</title>
+    <title>User interface - Arm Keil Studio for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "User Interface";
+        var mkdocs_page_name = "User interface";
         var mkdocs_page_input_path = "userinterface.md";
         var mkdocs_page_url = null;
       </script>
@@ -32,7 +32,10 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
-        </a><div role="search">
+        </a>
+        <div class="version">
+          1.62.0
+        </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
@@ -49,21 +52,17 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">User Interface</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">User interface</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#cmsis-view">CMSIS view</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#1-dedicated-views-from-the-side-bar">1. Dedicated views from the side bar</a>
+    <li class="toctree-l3"><a class="reference internal" href="#actions-available-through-the-cmsis-view">Actions available through the CMSIS view</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#2-main-area-of-the-cmsis-view">2. Main area of the CMSIS view</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#3-actions-available-through-the-cmsis-view">3. Actions available through the CMSIS view</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#4-main-area-icons">4. Main area icons</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#5-status-bar">5. Status bar</a>
+    <li class="toctree-l3"><a class="reference internal" href="#main-area-icons">Main area icons</a>
     </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#status-bar">Status bar</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#run-and-debug-view">Run and Debug view</a>
         <ul>
@@ -71,25 +70,23 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#trace-and-live-view">Trace and Live view</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#available-commands">Available commands</a>
     </li>
     </ul>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="create_app.html">Create New Solution</a>
+                <li class="toctree-l1"><a class="reference internal" href="create_app.html">Work with Solutions</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage solutions</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software Components</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software components</a>
                 </li>
               </ul>
               <ul>
@@ -97,15 +94,15 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="importuv.html">Import uVision Project</a>
+                <li class="toctree-l1"><a class="reference internal" href="importuv.html">Import uVision projects</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="runexternal.html">Run External Tools</a>
+                <li class="toctree-l1"><a class="reference internal" href="runexternal.html">Run external tools</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips and Tricks</a>
+                <li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips and tricks</a>
                 </li>
               </ul>
       </div>
@@ -122,7 +119,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">User Interface</li>
+      <li class="breadcrumb-item active">User interface</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/main/docs/userinterface.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -136,10 +133,8 @@
 <p>The <strong>CMSIS Solution</strong> extension provides the Keil Studio GUI for project management and build tools with the
 <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/">CMSIS-Toolbox</a>. Combined with other Arm and third-party extensions,
 it implements a powerful embedded development environment.</p>
-<h2 id="cmsis-view">CMSIS view</h2>
 <p><img alt="CMSIS view" src="images/solution-outline.png" /></p>
-<p>The GUI consists of these elements:</p>
-<h3 id="1-dedicated-views-from-the-side-bar">1. Dedicated views from the side bar</h3>
+<p>The GUI consists of these views:</p>
 <table>
 <thead>
 <tr>
@@ -170,7 +165,11 @@ it implements a powerful embedded development environment.</p>
 </tr>
 <tr>
 <td style="text-align: center;"><img alt="CMSIS view" src="images/CMSISView.png" /></td>
-<td><a href="#2-main-area-of-the-cmsis-view"><strong>CMSIS</strong> view</a> is the main view for working with CMSIS solution-based projects.</td>
+<td><a href="#cmsis-view"><strong>CMSIS</strong> view</a> is the main view for working with CMSIS solution-based projects.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Trace and live view" src="images/TraceLiveView.png" /></td>
+<td><a href="#trace-and-live-view"><strong>Trace and Live</strong> view</a> shows trace and live data during debugging.</td>
 </tr>
 </tbody>
 </table>
@@ -178,7 +177,7 @@ it implements a powerful embedded development environment.</p>
 <p class="admonition-title">Note</p>
 <p>The ordering of the icons may be different in your VS Code environment.</p>
 </div>
-<h3 id="2-main-area-of-the-cmsis-view">2. Main area of the <strong>CMSIS</strong> view</h3>
+<h2 id="cmsis-view">CMSIS view</h2>
 <p>The CMSIS view <img alt="CMSIS icon" src="images/cmsis-icon.png" /> shows the content of the active projects included in the
 solution. Each project contains configuration settings, source code files, build settings, and other project-specific
 information. The main area of the <strong>CMSIS</strong> view shows:</p>
@@ -194,7 +193,7 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 <li><strong>Layer Type</strong> (if available): The software layers in the project with their source files, preconfigured software
   components, and configuration files</li>
 </ul>
-<h3 id="3-actions-available-through-the-cmsis-view">3. Actions available through the <strong>CMSIS</strong> view</h3>
+<h3 id="actions-available-through-the-cmsis-view">Actions available through the <strong>CMSIS</strong> view</h3>
 <table>
 <thead>
 <tr>
@@ -229,7 +228,7 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 </tr>
 </tbody>
 </table>
-<h3 id="4-main-area-icons">4. Main area icons</h3>
+<h3 id="main-area-icons">Main area icons</h3>
 <p>Depending on the file and the context, various icons may appear:</p>
 <table>
 <thead>
@@ -257,18 +256,18 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 </tr>
 </tbody>
 </table>
-<h3 id="5-status-bar">5. Status bar</h3>
+<h2 id="status-bar">Status bar</h2>
 <p>The VS Code status bar displays information about the status of your development environment and the project. The number of extensions installed might vary.</p>
 <ul>
 <li>
 <p>Status message of the clangd extension (used for IntelliSense).</p>
 </li>
 <li>
-<p>You can inspect errors and warnings for a context set. For active projects in the context set, errors and warnings display
-  when you move your cursor over the <strong>Context Set</strong> in the status bar. The indicator is red for errors and yellow in case
-  of warnings. Click the indicator to open the <strong>Output</strong> tab for the <strong>CMSIS Solution</strong> category. If you previously closed
-  the <strong>Manage Solution</strong> view, then this action also re-opens the view.
-  <img alt="Context Set errors and warnings" src="images/context-set-popup.png" /></p>
+<p>You can inspect errors and warnings for the active project when you move your cursor over the <strong>Target Set</strong> in the
+  status bar. The indicator is red for errors and yellow in case of warnings. Click the indicator to open the
+  <strong>Output</strong> tab for the <strong>CMSIS Solution</strong> category. If you previously closed the <strong>Manage Solution</strong> view, then this
+  action also re-opens the view.<br />
+<img alt="Target Set errors and warnings" src="images/target-set-popup.png" /></p>
 </li>
 <li>
 <p>The <strong>Arm Tools Environment Manager</strong> extension shows information about the tools installed. Move your mouse over <strong>Arm Tools</strong> to review the list. Click <strong>Arm Tools</strong> to get more options.
@@ -279,8 +278,8 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 </li>
 </ul>
 <h2 id="run-and-debug-view">Run and Debug view</h2>
-<p>The <strong>Run and Debug View</strong> <img alt="Run and Debug view" src="images/RunDebugView.png" /> in Keil Studio to the target using the
-request selection shown below.</p>
+<p>The <strong>Run and Debug View</strong> <img alt="Run and Debug view" src="images/RunDebugView.png" /> in Keil Studio connects to the target using
+the request selection shown below.</p>
 <p><img alt="Debug View Debugger request" src="images/run-debug-view.png" /></p>
 <ol>
 <li>Select the core you want to <strong>launch</strong> or <strong>attach</strong> to.</li>
@@ -347,6 +346,23 @@ request selection shown below.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="trace-and-live-view">Trace and Live view</h2>
+<p>The <strong>Trace and Live View</strong> <img alt="Trace and Live view" src="images/TraceLiveView.png" /> currently shows live views of
+expressions.</p>
+<p><img alt="Trace and Live View" src="images/talv-live-watch.png" /></p>
+<p>You can add expressions to this view by:</p>
+<ol>
+<li>Pressing the three dots to the right.</li>
+<li>Pressing the <code>+</code> sign.</li>
+<li>Using the context menu item <strong>Add to Live Watch</strong> in:<ul>
+<li>source code files.</li>
+<li>the <strong>Watch</strong> window.</li>
+<li>teh <strong>Variables</strong> window.</li>
+</ul>
+</li>
+<li>From the <strong>Trace and Live View</strong>, you can show an expression in the Memory Inspector. Right-click on the expression
+   and select <strong>Show in Memory Inspector</strong>.</li>
+</ol>
 <h2 id="available-commands">Available commands</h2>
 <p>You can access commands to manage your solution and the projects it includes in the following ways:</p>
 <ul>
@@ -357,7 +373,7 @@ request selection shown below.</p>
 <p>When you right-click the <code>*.csolution.yml</code> file from the <strong>Explorer</strong> view.</p>
 </li>
 <li>
-<p>When you click the <a href="#5-status-bar">Context Set status bar item</a>.</p>
+<p>When you click the <a href="#status-bar">Context Set status bar item</a>.</p>
 </li>
 <li>
 <p>When you press Ctrl+Shift+P (Windows and Linux) or Cmd+Shift+P (macOS) to open the Command Palette.</p>
@@ -434,7 +450,7 @@ request selection shown below.</p>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="installation.html" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="create_app.html" class="btn btn-neutral float-right" title="Create New Solution">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="create_app.html" class="btn btn-neutral float-right" title="Work with Solutions">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>

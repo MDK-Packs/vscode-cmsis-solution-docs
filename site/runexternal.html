@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Run External Tools - Arm Keil Studio for VS Code</title>
+    <title>Run external tools - Arm Keil Studio for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Run External Tools";
+        var mkdocs_page_name = "Run external tools";
         var mkdocs_page_input_path = "runexternal.md";
         var mkdocs_page_url = null;
       </script>
@@ -32,7 +32,10 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
-        </a><div role="search">
+        </a>
+        <div class="version">
+          1.62.0
+        </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
@@ -49,23 +52,19 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="userinterface.html">User Interface</a>
+                <li class="toctree-l1"><a class="reference internal" href="userinterface.html">User interface</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="create_app.html">Create New Solution</a>
+                <li class="toctree-l1"><a class="reference internal" href="create_app.html">Work with Solutions</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage Solution</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage solutions</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software Components</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a>
+                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software components</a>
                 </li>
               </ul>
               <ul>
@@ -73,11 +72,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="importuv.html">Import uVision Project</a>
+                <li class="toctree-l1"><a class="reference internal" href="importuv.html">Import uVision projects</a>
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Run External Tools</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Run external tools</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
         <ul>
@@ -97,7 +96,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips and Tricks</a>
+                <li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips and tricks</a>
                 </li>
               </ul>
       </div>
@@ -114,7 +113,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Run External Tools</li>
+      <li class="breadcrumb-item active">Run external tools</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/main/docs/runexternal.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -137,6 +136,10 @@ In addition to the <a href="https://code.visualstudio.com/docs/editor/variables-
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getActiveTargetSet}</code></td>
+<td style="text-align: left;">Get name of active run and debug configuration (format: target-type@set)</td>
+</tr>
 <tr>
 <td style="text-align: left;"><code>${command:cmsis-csolution.getBinaryFile}</code></td>
 <td style="text-align: left;">The path and name of the first ELF/DWARF file available for the Active Target</td>
@@ -292,8 +295,8 @@ Event Recorder and Component Viewer to analyze applications.</p>
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="importuv.html" class="btn btn-neutral float-left" title="Import uVision Project"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="tipsandtricks.html" class="btn btn-neutral float-right" title="Tips and Tricks">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="importuv.html" class="btn btn-neutral float-left" title="Import uVision projects"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="tipsandtricks.html" class="btn btn-neutral float-right" title="Tips and tricks">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
