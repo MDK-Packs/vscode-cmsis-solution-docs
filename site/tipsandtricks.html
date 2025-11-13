@@ -94,6 +94,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#downgrading-tool-versions">Downgrading tool versions</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#stm32cubemx-generator-issues">STM32CubeMX generator issues</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -195,6 +197,16 @@ toggle the tools activation.</p>
 <li>In the <strong>Manage Arm Tools</strong> dialog, select <em>Reactivate Environment</em>.</li>
 </ul>
 <p>The new settings will now the taken into account and you can start working with the downgraded tool version.</p>
+<h2 id="stm32cubemx-generator-issues">STM32CubeMX generator issues</h2>
+<p>If STM32CubeMX does not generate/update a <code>*.cgen.yml</code> file, go to:</p>
+<ol>
+<li>Project Manager</li>
+<li>Advanced Settings</li>
+<li>Select <strong>HAL</strong> for at least one peripheral.</li>
+</ol>
+<p>If you rely on <strong>LL</strong> for your peripherals, select/add an unused peripheral:</p>
+<p><img alt="Make STM32CubeMX generate the cgen.yml file" src="images/cubemx-cgen-hal.png" /></p>
+<p>Now, the <strong>GENERATE CODE</strong> button creates/writes the <code>*.cgen.yml</code> file.</p>
               
             </div>
           </div><footer>

@@ -88,3 +88,16 @@ Do the following:
 
 The new settings will now the taken into account and you can start working with the downgraded tool version.
 
+## STM32CubeMX generator issues
+
+If STM32CubeMX does not generate/update a `*.cgen.yml` file, go to:
+
+1. Project Manager
+2. Advanced Settings
+3. Select **HAL** for at least one peripheral.
+
+If you rely on **LL** for your peripherals, select/add an unused peripheral:
+
+![Make STM32CubeMX generate the cgen.yml file](./images/cubemx-cgen-hal.png)
+
+Now, the **GENERATE CODE** button creates/writes the `*.cgen.yml` file.
