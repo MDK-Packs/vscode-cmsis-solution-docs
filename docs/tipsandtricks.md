@@ -90,11 +90,12 @@ The new settings will now the taken into account and you can start working with 
 
 ## STM32CubeMX generator issues
 
-If STM32CubeMX does not generate/update a `*.cgen.yml` file, go to:
+If you are relying on the **LL** drivers, it may happen that STM32CubeMX does not generate/update a `*.cgen.yml` file.
+To get this fixed, go to:
 
 1. Project Manager
 2. Advanced Settings
-3. Select **HAL** for at least one peripheral.
+3. Select **HAL** (default) for at least one peripheral.
 
 If you rely on **LL** for your peripherals, select/add an unused peripheral:
 

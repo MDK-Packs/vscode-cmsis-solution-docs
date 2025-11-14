@@ -198,11 +198,12 @@ toggle the tools activation.</p>
 </ul>
 <p>The new settings will now the taken into account and you can start working with the downgraded tool version.</p>
 <h2 id="stm32cubemx-generator-issues">STM32CubeMX generator issues</h2>
-<p>If STM32CubeMX does not generate/update a <code>*.cgen.yml</code> file, go to:</p>
+<p>If you are relying on the <strong>LL</strong> drivers, it may happen that STM32CubeMX does not generate/update a <code>*.cgen.yml</code> file.
+To get this fixed, go to:</p>
 <ol>
 <li>Project Manager</li>
 <li>Advanced Settings</li>
-<li>Select <strong>HAL</strong> for at least one peripheral.</li>
+<li>Select <strong>HAL</strong> (default) for at least one peripheral.</li>
 </ol>
 <p>If you rely on <strong>LL</strong> for your peripherals, select/add an unused peripheral:</p>
 <p><img alt="Make STM32CubeMX generate the cgen.yml file" src="images/cubemx-cgen-hal.png" /></p>
