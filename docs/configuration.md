@@ -202,14 +202,16 @@ that, the following will be saved in the `.vscode.settings.json` file:
 }
 ```
 
-This is a CMSIS solution-specific setting. If you wish to set the µVision path for all your CMSIS solution projects,
-open the global `settings.json` file:
+This is a workspace-specific setting. If you wish to set the µVision path for all your workspaces, open the global
+`settings.json` file:
 
 1. Click on ![Cog wheel](./images/cogwheel-icon.png) at the bottom left of VS Code.
 2. Select **Settings**.
-3. Click on ![Open Settings (JSON)](./images/openFile.png) at the top right. This opens the global
-   `%APPDATA%\Code\User\settings.json` file.
-4. Enter the path as shown above and save the file.
+3. Make sure that you're viewing the **User** settings
+4. Click on the open file icon at the top right:  
+   ![user Settings](./images/user-settings.png)  
+   This opens the global `%APPDATA%\Code\User\settings.json` file.
+5. Enter the path as shown above and save the file.
 
 <!--
 ### Template Files
