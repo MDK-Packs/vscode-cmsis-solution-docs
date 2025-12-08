@@ -180,12 +180,36 @@ In the [Manage Solution](./manage_settings.md) dialog:
 In the [Manage Solution](./manage_settings.md) dialog:
 
 - Select the **Keil uVision** debug adapter.
-- Set the path to the `UV4.exe` file (the assumption is `%LOCALAPPDATA%\Keil_v5\UV4\UV4.exe`).
+- Set the path to the `UV4.exe` file (the default is `%LOCALAPPDATA%\Keil_v5\UV4\UV4.exe`).
+- This setting is saved in the `*.csolution.yml` file.
 
 ![Kei uVision as debug adapter](./images/keil-debug-adapter.png)
 
 !!! Attention
     This only works on a Windows PC.
+
+#### Changing the default for the current workspace
+
+If you wish to change the default path to µVision for your *current workspace*, you need to create the following entry
+in your  `.vscode/settings.json` file:
+
+```json
+{
+    "cmsis-csolution.debug-adapters": {
+        "Keil uVision": {
+            "uv4": "/path/to/UV4.exe"
+        }
+    }
+}
+```
+
+#### Changing the default for a user
+
+If you wish to set the µVision path for your user, open the global `settings.json` file:
+
+1. Press **Ctrl/Cmd + Shift + p** and type `settings`.
+2. Select **Preferences: Open User Settings (JSON).**. This opens the global `%APPDATA%\Code\User\settings.json` file.
+3. Enter the path as shown above and save the file.
 
 <!--
 ### Template Files
@@ -250,8 +274,6 @@ Insert the following before the `- projects` section:
        - -gdwarf-5
      ASM:
        - -gdwarf-5
-     Link:
-       - --entry=Reset_Handler
 ```
 
 #### cproject.yml
