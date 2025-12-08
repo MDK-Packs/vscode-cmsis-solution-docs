@@ -278,11 +278,16 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 </li>
 </ul>
 <h2 id="run-and-debug-view">Run and Debug view</h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <a href="https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger">Arm CMSIS Debugger README</a>
+contains a more detailed description of the usage of this view.</p>
+</div>
 <p>The <strong>Run and Debug View</strong> <img alt="Run and Debug view" src="images/RunDebugView.png" /> in Keil Studio connects to the target using
 the request selection shown below.</p>
 <p><img alt="Debug View Debugger request" src="images/run-debug-view.png" /></p>
 <ol>
-<li>Select the core you want to <strong>launch</strong> or <strong>attach</strong> to.</li>
+<li>Select the core you want to <strong>launch</strong> (start an application) or <strong>attach</strong> to (connect to a running application).</li>
 <li>Interact with the cores.</li>
 </ol>
 <h3 id="run-and-debug-controls">Run and Debug controls</h3>
@@ -347,22 +352,15 @@ the request selection shown below.</p>
 </tbody>
 </table>
 <h2 id="trace-and-live-view">Trace and Live view</h2>
-<p>The <strong>Trace and Live View</strong> <img alt="Trace and Live view" src="images/TraceLiveView.png" /> currently shows live views of
-expressions.</p>
-<p><img alt="Trace and Live View" src="images/talv-live-watch.png" /></p>
-<p>You can add expressions to this view by:</p>
+<p>The <strong>Trace and Live View</strong> <img alt="Trace and Live view" src="images/TraceLiveView.png" /> contains the <strong>LIVE WATCH</strong> section that
+continuously displays the value of an expression while the program is running.  Future versions of this view will also
+show trace information.</p>
+<p>You can add expressions to the <strong>LIVE WATCH</strong> by:</p>
 <ol>
-<li>Pressing the three dots to the right.</li>
-<li>Pressing the <code>+</code> sign.</li>
-<li>Using the context menu item <strong>Add to Live Watch</strong> in:<ul>
-<li>source code files.</li>
-<li>the <strong>Watch</strong> window.</li>
-<li>teh <strong>Variables</strong> window.</li>
-</ul>
-</li>
-<li>From the <strong>Trace and Live View</strong>, you can show an expression in the Memory Inspector. Right-click on the expression
-   and select <strong>Show in Memory Inspector</strong>.</li>
+<li>Pressing the <code>+</code> sign and entering an expression.</li>
+<li>Using the context menu item <strong>Add to Live Watch</strong> in the editor or the the <strong>Run and Debug</strong> view.</li>
 </ol>
+<p><img alt="Displaying a variable in the LIVE WATCH" src="images/lw-counter.gif" /></p>
 <h2 id="available-commands">Available commands</h2>
 <p>You can access commands to manage your solution and the projects it includes in the following ways:</p>
 <ul>

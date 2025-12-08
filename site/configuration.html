@@ -99,6 +99,10 @@
     <li class="toctree-l3"><a class="reference internal" href="#arm-fvps">Arm FVPs</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#keil-uvision">Keil uVision</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#changing-the-default">Changing the default</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#enhancing-the-debug-experience">Enhancing the debug experience</a>
         <ul>
@@ -374,13 +378,31 @@ update. Change `"updateConfiguration"` to `"manual"` to control the settings and
 <p>In the <a href="manage_settings.html">Manage Solution</a> dialog:</p>
 <ul>
 <li>Select the <strong>Keil uVision</strong> debug adapter.</li>
-<li>Set the path to the <code>UV4.exe</code> file (the assumption is <code>%LOCALAPPDATA%\Keil_v5\UV4\UV4.exe</code>).</li>
+<li>Set the path to the <code>UV4.exe</code> file (the default is <code>%LOCALAPPDATA%\Keil_v5\UV4\UV4.exe</code>).</li>
 </ul>
 <p><img alt="Kei uVision as debug adapter" src="images/keil-debug-adapter.png" /></p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>This only works on a Windows PC.</p>
 </div>
+<h4 id="changing-the-default">Changing the default</h4>
+<p>In the <strong>Manage Solution - Debug Adapter</strong> dialog , you can change the path to your µVision installation directory. If
+you do that, the following will be saved in the <code>.vscode.settings.json</code> file:</p>
+<pre><code class="language-json">{
+    &quot;cmsis-csolution.debug-adapters&quot;: {
+        &quot;Keil uVision&quot;: {
+            &quot;uv4&quot;: &quot;/path/to/UV4.exe&quot;
+        }
+    }
+}
+</code></pre>
+<p>This is a workspace-specific setting. If you wish to set the µVision path for all your workspaces, open the global
+<code>settings.json</code> file:</p>
+<ol>
+<li>Press <strong>Ctrl/Cmd + Shift + p</strong> and type <code>settings</code>.</li>
+<li>Select <strong>Preferences: Open User Settings (JSON).</strong>. This opens the global <code>%APPDATA%\Code\User\settings.json</code> file.</li>
+<li>Enter the path as shown above and save the file.</li>
+</ol>
 <!--
 ### Template Files
 
@@ -437,8 +459,6 @@ the following.</p>
        - -gdwarf-5
      ASM:
        - -gdwarf-5
-     Link:
-       - --entry=Reset_Handler
 </code></pre>
 <h4 id="cprojectyml">cproject.yml</h4>
 <p>In the <code>*.cproject.yml</code> file, add at the end:</p>
