@@ -189,8 +189,8 @@ In the [Manage Solution](./manage_settings.md) dialog:
 
 #### Changing the default
 
-In the Debug Adapter configuration window, you can change the path to your µVision installation directory. If you do
-that, the following will be saved in the `.vscode.settings.json` file:
+In the **Manage Solution - Debug Adapter** dialog , you can change the path to your µVision installation directory. If
+you do that, the following will be saved in the `.vscode.settings.json` file:
 
 ```json
 {
@@ -205,13 +205,9 @@ that, the following will be saved in the `.vscode.settings.json` file:
 This is a workspace-specific setting. If you wish to set the µVision path for all your workspaces, open the global
 `settings.json` file:
 
-1. Click on ![Cog wheel](./images/cogwheel-icon.png) at the bottom left of VS Code.
-2. Select **Settings**.
-3. Make sure that you're viewing the **User** settings
-4. Click on the open file icon at the top right:  
-   ![user Settings](./images/user-settings.png)  
-   This opens the global `%APPDATA%\Code\User\settings.json` file.
-5. Enter the path as shown above and save the file.
+1. Press **Ctrl/Cmd + Shift + p** and type `settings`.
+2. Select **Preferences: Open User Settings (JSON).**. This opens the global `%APPDATA%\Code\User\settings.json` file.
+3. Enter the path as shown above and save the file.
 
 <!--
 ### Template Files
