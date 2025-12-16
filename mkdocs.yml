@@ -1,6 +1,6 @@
 site_name: Arm Keil Studio for VS Code
 extra: 
-  version: 1.62.0
+  version: 1.64.0
 repo_name: GitHub
 repo_url: https://github.com/MDK-Packs/vscode-cmsis-solution-docs
 edit_uri: edit/main/docs/
@@ -8,10 +8,11 @@ nav:
     - Home: index.md
     - Installation: installation.md
     - User interface: userinterface.md
-    - Work with Solutions: create_app.md
+    - Work with CMSIS solutions: create_app.md
+    - Work with Zephyr projects: zephyr.md
     - Manage solutions: manage_settings.md
-    - Software components: manage_components.md
-    - Configuration: configuration.md
+    - Build and run: build_run.md
+    - Debug: debug.md
     - Import uVision projects: importuv.md
     - Run external tools: runexternal.md
     - Tips and tricks: tipsandtricks.md

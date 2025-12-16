@@ -64,7 +64,7 @@ You can also go to the **Problems** tab and check for errors.
 ## Debug Adapter
 
 A broad range of adapters is supported. Use this drop-down to select the
-[debug adapter](./configuration.md#use-debug-adapters) that you are using within the target set.
+[debug adapter](./debug.md#use-debug-adapters) that you are using within the target set.
 
 !!! Note
     Some of the debug adapters require further setup steps.
