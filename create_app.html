@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Work with Solutions - Arm Keil Studio for VS Code</title>
+    <title>Work with CMSIS solutions - Arm Keil Studio for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Work with Solutions";
+        var mkdocs_page_name = "Work with CMSIS solutions";
         var mkdocs_page_input_path = "create_app.md";
         var mkdocs_page_url = null;
       </script>
@@ -34,7 +34,7 @@
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a>
         <div class="version">
-          1.62.0
+          1.64.0
         </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -56,7 +56,7 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Work with Solutions</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Work with CMSIS solutions</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a>
     </li>
@@ -70,27 +70,23 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#github-repositories">GitHub repositories</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#zephyrwest-integration">Zephyr/west integration</a>
+    <li class="toctree-l2"><a class="reference internal" href="#configure-a-solution">Configure a solution</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#build">Build</a>
+    <li class="toctree-l2"><a class="reference internal" href="#software-components">Software components</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#build-output">Build output</a>
+    <li class="toctree-l3"><a class="reference internal" href="#software-components-view">Software Components view</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#validation">Validation</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#load-and-run">Load and Run</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#check-target-information">Check target information</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#download-and-run-the-application">Download and run the application</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#monitor-printf-messages">Monitor printf messages</a>
-    </li>
         </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#debug">Debug</a>
     </li>
     </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Work with Zephyr projects</a>
                 </li>
               </ul>
               <ul>
@@ -98,11 +94,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software components</a>
+                <li class="toctree-l1"><a class="reference internal" href="build_run.html">Build and run</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a>
+                <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a>
                 </li>
               </ul>
               <ul>
@@ -131,7 +127,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Work with Solutions</li>
+      <li class="breadcrumb-item active">Work with CMSIS solutions</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/main/docs/create_app.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -141,7 +137,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="work-with-solutions">Work with solutions</h1>
+                <h1 id="work-with-cmsis-solutions">Work with CMSIS solutions</h1>
 <p>This section explains how to create a <em>CMSIS solution-based project</em> that is using CMSIS-Packs.</p>
 <p>In the <img alt="CMSIS view" src="images/CMSISView.png" /> <strong>CMSIS</strong> view, click <strong>Create a New Solution</strong>. If you already have a
 solution opened, use the menu (<strong>...</strong>) item <strong>Create a Solution</strong>.</p>
@@ -166,9 +162,6 @@ solution opened, use the menu (<strong>...</strong>) item <strong>Create a Solut
 <p><a href="#github-repositories"><strong>GitHub repositories</strong></a> may contain projects showcasing a specific use case. These repos can
   be cloned directly into VS Code. The <strong>Source Control</strong> view <img alt="Source control icon" src="images/SourceControlView.png" />
   helps maintaining these repos.</p>
-</li>
-<li>
-<p>The <a href="#zephyrwest-integration"><strong>Zephyr/west integration</strong></a> enables to build and run Zephyr projects in Keil Studio.</p>
 </li>
 </ul>
 <p>Further settings include:</p>
@@ -214,7 +207,7 @@ project.</p>
 <p>A typical Blinky example includes a <code>REAMDE.md</code> file that contains valuable information about the hardware setup and
 specific tasks that need to be done before working with the target board:</p>
 <p><img alt="Alif E7 Blinky-HP example" src="images/blinky-hp.png" /></p>
-<p>Continue to <a href="#build">build the project</a>.</p>
+<p>Continue to <a href="build_run.html">build the project</a>.</p>
 <h2 id="reference-applications">Reference applications</h2>
 <p><strong>Reference applications</strong> show the usage of middleware, software libraries, and custom code that can run on many
 different target hardware boards. Examples display only if you selected a board and a software layer is available for
@@ -245,13 +238,13 @@ instruction for <a href="installation.html#pack-installation">installing packs</
 <p>Reference applications use
 <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/build-overview/#software-layers">software layers</a> that help scaling
 example projects to many different target boards. To be able to use the selected board with the reference application,
-you need to <a href="configuration.html#configure-a-solution">configure the solution</a> and select an appropriate layer.</p>
+you need to <a href="#configure-a-solution">configure the solution</a> and select an appropriate layer.</p>
 <p>More information about the layer requirements and other configuration options can be found in the documentation:</p>
 <ul>
 <li><a href="https://arm-software.github.io/MDK-Middleware/latest/General/index.html">MDK-Middleware</a></li>
 <li><a href="https://arm-software.github.io/SDS-Framework/main/index.html">SDS Framework Documentation</a></li>
 </ul>
-<p>Continue to <a href="#build">build the project</a>.</p>
+<p>Continue to <a href="build_run.html">build the project</a>.</p>
 <h2 id="templates">Templates</h2>
 <p>Templates help you to get started without application-specific code.</p>
 <ul>
@@ -264,7 +257,7 @@ you need to <a href="configuration.html#configure-a-solution">configure the solu
   whether projects in the solution use secure or non-secure zones</p>
 </li>
 </ul>
-<p>Continue to <a href="#build">build the project</a>.</p>
+<p>Continue to <a href="build_run.html">build the project</a>.</p>
 <!--
 ## Project contents
 
@@ -316,7 +309,7 @@ a repository directly in VS Code:</p>
   <strong>Select Active Solution from workspace</strong>.</li>
 <li>The related tools and software packs are downloaded and installed.</li>
 </ul>
-<p>Continue to <a href="#build">build the project</a>.</p>
+<p>Continue to <a href="build_run.html">build the project</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
@@ -325,246 +318,123 @@ a repository directly in VS Code:</p>
 <li>Ready-to-run examples are available on <a href="https://github.com/Arm-Examples#keil-mdk-version-6-examples">GitHub</a>.</li>
 </ul>
 </div>
-<h2 id="zephyrwest-integration">Zephyr/west integration</h2>
-<p>It is possible to build and debug Zephyr projects that use the <code>west</code> build system with Keil Studio. The CMSIS solution
-extension displays an outline view of the Zephyr project.</p>
-<p><img alt="Zephyr projects in the CMSIS Solution extension" src="images/cmsis-zephyr.png" /></p>
-<p>Refer to <a href="https://github.com/Arm-Examples/cmsis-zephyr">CMSIS-Zephyr</a> for more information.</p>
-<h2 id="build">Build</h2>
-<p>Before you can download the application on your target device, you need to build it. There are various ways to trigger
-a build:</p>
+<h2 id="configure-a-solution">Configure a solution</h2>
+<p>The <strong>Configure Solution</strong> view opens automatically, if:</p>
+<ul>
+<li>Your solution has a <code>select-compiler:</code> node, but no <code>compiler:</code> node is set in the <code>csolution.yml</code> file, or</li>
+<li>You are working with a reference application that requires the configuration of a software layer.</li>
+</ul>
+<p><img alt="Configure a solution" src="images/configure-solution.png" /></p>
 <ul>
 <li>
-<p>In the <strong>Explorer</strong> view <img alt="Explorer icon" src="images/ExplorerView.png" />, right-click the <code>*.csolution.yml</code> file and
-  select <strong>Build solution</strong>.</p>
+<p>Click <strong>Next</strong> to display the different options available.</p>
 </li>
 <li>
-<p>In the <strong>CMSIS</strong> view <img alt="CMSIS view" src="images/CMSISView.png" />, click <img alt="Build icon" src="images/build-icon.png" />.</p>
+<p>You can indicate where the layers should be copied to in the <strong>Board-Layer</strong>, <strong>Shield-Layer</strong>, and <strong>Socket-Layer</strong>
+  fields. Click <strong>Default</strong> to reset the paths to their default values. If there are no compatible layers, errors display.</p>
+</li>
+<li>
+<p>If no compiler is set for the reference application, <strong>Select Compiler</strong> displays under the layers selection and shows the
+  compilers available in your environment. Select a compiler. For example, AC6 or GCC.</p>
+</li>
+<li>
+<p>If you are working with another solution type, only <strong>Select Compiler</strong> displays. Select a compiler.</p>
+</li>
+<li>
+<p>Click <strong>OK</strong>.</p>
 </li>
 </ul>
-<p>Continue to <a href="#load-and-run">load and run</a> the solution.</p>
-<h3 id="build-output">Build output</h3>
-<p>After you initiate the build process, a Terminal opens and displays the build operation:</p>
-<pre><code class="language-txt">Execute: cbuild /Users/user/03_work/02_Projects/ST/Nucleo-F756ZG/Blinky/Blinky.csolution.yml --active NUCLEO-F756ZG --packs
-+---------------------------------------------------
-(1/1) Building context: &quot;Blinky.Debug+NUCLEO-F756ZG&quot;
-Using AC6 V6.24.0 compiler, from: '/Users/user/.vcpkg/artifacts/2139c4c6/compilers.arm.armclang/6.24.0/bin/'
-Building CMake target 'Blinky.Debug+NUCLEO-F756ZG'
-[1/51] Building C object CMakeFiles/Group_Source_Files_retarget_stdio_c.dir/Users/user/03_work/02_Projects/ST/Nucleo-F756ZG/Blinky/retarget_stdio.o
-[2/51] Building ASM object CMakeFiles/Group_CubeMX.dir/Users/user/03_work/02_Projects/ST/Nucleo-F756ZG/Blinky/STM32CubeMX/NUCLEO-F756ZG/STM32CubeMX/MDK-ARM/startup_stm32f756xx.o
-Warning: A1950W: The legacy armasm assembler is deprecated. Consider using the armclang integrated assembler instead.
-0 Errors, 1 Warning
-[3/51] Building C object CMakeFiles/Group_CubeMX.dir/Users/user/03_work/02_Projects/ST/Nucleo-F756ZG/Blinky/STM32CubeMX/NUCLEO-F756ZG/STM32CubeMX/Src/stm32f7xx_hal_timebase_tim.o
-...
-[49/51] Building C object CMakeFiles/Keil_CMSIS_Driver_USART_3_0_0.dir/Users/user/.cache/arm/packs/ARM/CMSIS-Driver_STM32/1.1.0/Drivers/USART_STM32.o
-[50/51] Building C object CMakeFiles/ARM_CMSIS_RTOS2_Keil_RTX5_Source_5_9_0.dir/Users/user/.cache/arm/packs/ARM/CMSIS-RTX/5.9.0/Source/rtx_thread.o
-[51/51] Linking C executable /Users/user/03_work/02_Projects/ST/Nucleo-F756ZG/Blinky/out/Blinky/NUCLEO-F756ZG/Debug/Blinky.axf
-Program Size: Code=31972 RO-data=1076 RW-data=512 ZI-data=38760  
-+------------------------------------------------------------
-Build summary: 1 succeeded, 0 failed - Time Elapsed: 00:00:04
-+============================================================
-Completed: cbuild succeed with exit code 0
-Build complete
-</code></pre>
-<p>The output directory usually contains an ELF (<code>.axf</code>) and a HEX (<code>.hex</code>) file.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If the build fails with an <code>ENOENT</code> error, follow the instructions in the pop-up message that displays in the
-bottom right-hand corner to install CMSIS-Toolbox.</p>
-</div>
-<p>To learn about the solution structure, refer to
-<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/build-overview/">CMSIS-Toolbox documentation</a></p>
-<h2 id="load-and-run">Load and Run</h2>
-<h3 id="check-target-information">Check target information</h3>
-<p>In the <strong>CMSIS</strong> view, click <img alt="More options" src="images/more-actions-icon.png" /> and then select "Target Information" to
-check that your target is connected.</p>
-<p><img alt="Target Information" src="images/target-information.png" /></p>
-<p>In the <strong>Terminal</strong>, the result of the <code>pyocd list</code> command is shown:</p>
-<pre><code class="language-sh"> *  Executing task: pyocd list --cbuild-run /Users/user/Blinky/Blinky+B-U585I-IOT02A.cbuild-run.yml 
-
-  #   Probe/Board      Unique ID                  Target           
--------------------------------------------------------------------
-  0   STLINK-V3        001000254D46501220383832   ✖︎ stm32u585aiix  
-      B-U585I-IOT02A
-</code></pre>
+<p>For reference applications only, a <code>Board.clayer.yml</code> file, a <code>Shield.clayer.yml</code> file, or a <code>Socket.clayer.yml</code> file, along
+with other files that make up the layer, are added in the folders that you selected. The files are available from the
+<strong>Explorer</strong> view. The <code>.clayer.yml</code> files come from the CMSIS-Pack. Layers are automatically added in the <code>csolution.yml</code>
+file of your solution under <code>target-types: variables:</code> for the active target.</p>
+<p>For all solution types, the compiler is added with the <code>compiler:</code> key in the <code>csolution.yml</code> file.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li>Various debug adapters are supported. Select them using the <a href="manage_settings.html#debug-adapter">manage solutions</a> dialog.
-  The <a href="configuration.html#configure-run-and-debug">configure run and debug</a> chapter explains the details.</li>
-<li>If your debug adapter is not shown, make sure that all
-  <a href="configuration.html#use-debug-adapters">drivers are installed</a> and that the target is connected to the PC.</li>
+<li>Not all Board Support Packs (BSPs) have board layers.</li>
+<li>Not all layers are compatible with the connections that your reference application requires.</li>
+<li>The CMSIS-Packs which contain reference applications and layers generally provide an <code>Overview.md</code> file where the
+  connections are detailed.</li>
 </ul>
 </div>
-<h3 id="download-and-run-the-application">Download and run the application</h3>
-<p>In the <strong>CMSIS</strong> view, click <img alt="Run icon" src="images/run-icon.png" />. This executes the "Load &amp; Run application" command
-that executes the commands <code>CMSIS Load</code> and <code>CMSIS Run</code> from the <code>tasks.json</code> file. This flashes the project onto the
-target and issues a reset to start the application.</p>
-<p>To verify that the step has run correctly, check the <strong>Terminal</strong> output:</p>
-<pre><code class="language-text"> *  Executing task: pyocd load --probe stlink: --cbuild-run /Users/user/B-U585-Board/Blinky/Blinky+B-U585I-IOT02A.cbuild-run.yml 
-
-0000712 I Loading /Users/user/B-U585-Board/Blinky/out/Blinky/B-U585I-IOT02A/Debug/Blinky.axf [load_cmd]
-[==================================================] 100%
-0003015 I Erased 49152 bytes (6 sectors), programmed 49152 bytes (48 pages), skipped 0 bytes (0 pages) at 20.96 kB/s [loader]
- *  Terminal will be reused by tasks, press any key to close it. 
-
- *  Executing task: pyocd gdbserver --probe stlink: --connect attach --persist --reset-run --cbuild-run /Users/user/B-U585-Board/Blinky/Blinky+B-U585I-IOT02A.cbuild-run.yml 
-
-0000251 I Target type is stm32u585aiix [board]
-0000434 I DP IDR = 0x0be12477 (v2 MINDP rev0) [dap]
-0000511 I debugvar 'DbgMCU_AHB1_Fz' = 0x0 (0) [cbuild_run]
-0000511 I debugvar 'DbgMCU_AHB3_Fz' = 0x0 (0) [cbuild_run]
-0000511 I debugvar 'DbgMCU_APB1H_Fz' = 0x0 (0) [cbuild_run]
-0000511 I debugvar 'DbgMCU_APB1L_Fz' = 0x0 (0) [cbuild_run]
-0000511 I debugvar 'DbgMCU_APB2_Fz' = 0x0 (0) [cbuild_run]
-0000511 I debugvar 'DbgMCU_APB3_Fz' = 0x0 (0) [cbuild_run]
-0000511 I debugvar 'DbgMCU_CR' = 0x6 (6) [cbuild_run]
-0000511 I debugvar 'DoOptionByteLoading' = 0x0 (0) [cbuild_run]
-0000511 I debugvar 'TraceClk_Pin' = 0x40002 (262146) [cbuild_run]
-0000511 I debugvar 'TraceD0_Pin' = 0x20009 (131081) [cbuild_run]
-0000511 I debugvar 'TraceD1_Pin' = 0x2000a (131082) [cbuild_run]
-0000511 I debugvar 'TraceD2_Pin' = 0x40005 (262149) [cbuild_run]
-0000511 I debugvar 'TraceD3_Pin' = 0x2000c (131084) [cbuild_run]
-0000516 I AHB5-AP#0 IDR = 0x14770015 (AHB5-AP var1 rev1) [discovery]
-0000517 I AHB5-AP#0 Class 0x1 ROM table #0 @ 0xe00fe000 (designer=020:ST part=482) [rom_table]
-0000518 I [0]&lt;e00ff000:ROM class=1 designer=43b:Arm part=4c9&gt; [rom_table]
-0000518 I   AHB5-AP#0 Class 0x1 ROM table #1 @ 0xe00ff000 (designer=43b:Arm part=4c9) [rom_table]
-0000520 I   [0]&lt;e000e000:SCS M33 class=9 designer=43b:Arm part=d21 devtype=00 archid=2a04 devid=0:0:0&gt; [rom_table]
-0000520 I   [1]&lt;e0001000:DWT M33 class=9 designer=43b:Arm part=d21 devtype=00 archid=1a02 devid=0:0:0&gt; [rom_table]
-0000521 I   [2]&lt;e0002000:BPU M33 class=9 designer=43b:Arm part=d21 devtype=00 archid=1a03 devid=0:0:0&gt; [rom_table]
-0000522 I   [3]&lt;e0000000:ITM M33 class=9 designer=43b:Arm part=d21 devtype=43 archid=1a01 devid=0:0:0&gt; [rom_table]
-0000523 I   [5]&lt;e0041000:ETM M33 class=9 designer=43b:Arm part=d21 devtype=13 archid=4a13 devid=0:0:0&gt; [rom_table]
-0000524 I   [6]&lt;e0042000:CTI M33 class=9 designer=43b:Arm part=d21 devtype=14 archid=1a14 devid=40800:0:0&gt; [rom_table]
-0000524 I [1]&lt;e0040000:TPIU M33 class=9 designer=43b:Arm part=d21 devtype=11 archid=0000 devid=ca1:0:0&gt; [rom_table]
-0000525 I [2]&lt;e0044000:DBGMCU class=15 designer=020:ST part=000&gt; [rom_table]
-0000533 I CPU core #0: Cortex-M33 r0p4, v8.0-M architecture [cortex_m]
-0000533 I   Extensions: [DSP, FPU, FPU_V5, MPU] [cortex_m]
-0000533 I   FPU present: FPv5-SP-D16-M [cortex_m]
-0000534 I Setting core #0 (Cortex-M33) default reset sequence to ResetSystem [cbuild_run]
-0000534 I 4 hardware watchpoints [dwt]
-0000537 I 8 hardware breakpoints, 1 literal comparators [fpb]
-0000662 I Semihost server started on port 4444 (core 0) [server]
-0000718 I GDB server started on port 3333 (core 0) [gdbserver]
-</code></pre>
-<p>When running, <img alt="Run button" src="images/run-icon.png" /> changes to <img alt="Stop button" src="images/stop-button.png" />. Use it to stop
-the GDB session anytime.</p>
-<div class="admonition notes">
-<p class="admonition-title">Notes</p>
+<h2 id="software-components">Software components</h2>
+<p>A <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/CreateApplications/#software-components">software component</a>
+encapsulates a set of related functions. The <strong>Software Components</strong> view shows all the software components selected in
+the active project of a solution.</p>
+<p>You can:</p>
 <ul>
-<li>When you have several solutions in one folder, VS Code ignores the <code>tasks.json</code> and <code>launch.json</code> files that
-you created for each solution. Instead, VS Code generates new JSON files at the root of the workspace in a
-<code>.vscode</code> folder and ignores the other JSON files. As a workaround, open one solution first, then add other
-solutions to your workspace with the <strong>File</strong> &gt; <strong>Add Folder to Workspace</strong> option.</li>
-<li>If you are using a multi-core device and you did not specify a <code>"processorName"</code> in the <code>launch.json</code> file,
-  select the appropriate processor for your project in the <strong>Select a processor</strong> drop-down list at the top of the
-  window.</li>
-<li>If you want to run the application on an Arm FVP simulation model, you need to
-  <a href="configuration.html#arm-fvps">configure it</a> in the <strong>Manage Solution</strong> dialog.</li>
+<li>
+<p>Modify the software components of the project.</p>
+</li>
+<li>
+<p>Manage the dependencies between components for each target type defined in your solution, or for all the target types at
+  once.</p>
+</li>
 </ul>
-</div>
-<h3 id="monitor-printf-messages">Monitor printf messages</h3>
-<p>Keil Studio includes the <strong>Serial Monitor</strong> extension that connects to the target's serial output port. If your example
-contains <code>printf</code> statements, use the Serial Monitor to observe them.</p>
-<p><img alt="Serial Monitor showing printf messages" src="images/serial-monitor.png" /></p>
-<h2 id="debug">Debug</h2>
-<p>Debugging is an essential task for every embedded developer.</p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>Before entering a debug session, make sure you have <a href="configuration.html#configure-run-and-debug">set up</a> your debug
-adapter correctly.</p>
-</div>
-<p>In the <strong>CMSIS</strong> view, click <img alt="Debug icon" src="images/debug-icon.png" />. This executes the "Load &amp; Debug application"
-command that executes the commands <code>CMSIS Load</code> from the <code>launch.json</code> file. This flashes the project onto the target,
-starts a debug session, and runs to <code>main</code>:</p>
-<p><img alt="Debug session that ran to mian" src="images/run-to-main.png" /></p>
-<p>The <strong>Debug Console</strong> show the output of the debug operations:</p>
-<pre><code class="language-text">0000223 I Target device: LPC55S69JBD100 [cbuild_run]
-GNU gdb (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 15.2.90.20241229-git
-Copyright (C) 2024 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type &quot;show copying&quot; and &quot;show warranty&quot; for details.
-This GDB was configured as &quot;--host=aarch64-apple-darwin20.6.0 --target=arm-none-eabi&quot;.
-Type &quot;show configuration&quot; for configuration details.
-For bug reporting instructions, please see:
-&lt;https://bugs.linaro.org/&gt;.
-Find the GDB manual and other documentation resources online at:
-    &lt;http://www.gnu.org/software/gdb/documentation/&gt;.
+<h3 id="software-components-view">Software Components view</h3>
+<p>Open the <strong>CMSIS view</strong> and click <img alt="Manage software components" src="images/software-components-icon.png" /> to open the
+<strong>Software Components</strong> view:</p>
+<p><img alt="The 'Software Components' " src="images/software-components-view.png" /></p>
+<p>You can:</p>
+<ol>
+<li>Switch between <em>components</em> and <em>software packs</em>.</li>
+<li>View only components that are <em>part of the csolution</em> or components from <em>all installed packs</em>.</li>
+<li>Set the <em>context</em> for which the component selection applies (including layers).</li>
+<li><em>Select/remove</em> software components.</li>
+<li>View <em>more information</em> about the component (name, pack, version, and description).</li>
+<li>Select different <em>variants</em> of a component.</li>
+<li>Open <em>related documentation</em>.</li>
+</ol>
+<!--
+Layer icons ![Layer icon](./images/layer-icon.png) indicate which components are used in layers. In the current version,
+layers are read-only, so you cannot select or clear them. Click the layer icon of a component to open the `*.clayer.yml`
+file or associated files.
 
-For help, type &quot;help&quot;.
-Type &quot;apropos word&quot; to search for commands related to &quot;word&quot;.
-0000575 I core 0: Cortex-M33 r0p3, pname: cm33_core0 [cbuild_run]
-0000575 I core 1: Cortex-M33 r0p3, pname: cm33_core1 [cbuild_run]
-0000575 I start-pname: cm33_core0 [cbuild_run]
-0000610 I Semihost server started on port 4444 (core 0) [server]
-0000658 I GDB server listening on port 3333 (core 0) [gdbserver]
-0000666 I Semihost server started on port 4445 (core 1) [server]
-0000666 I GDB server listening on port 3334 (core 1) [gdbserver]
-GNU gdb (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 15.2.90.20241229-git
-Copyright (C) 2024 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type &quot;show copying&quot; and &quot;show warranty&quot; for details.
-This GDB was configured as &quot;--host=aarch64-apple-darwin20.6.0 --target=arm-none-eabi&quot;.
-Type &quot;show configuration&quot; for configuration details.
-For bug reporting instructions, please see:
-&lt;https://bugs.linaro.org/&gt;.
-Find the GDB manual and other documentation resources online at:
-    &lt;http://www.gnu.org/software/gdb/documentation/&gt;.
+## Modify the software components in your project
 
-For help, type &quot;help&quot;.
-Type &quot;apropos word&quot; to search for commands related to &quot;word&quot;.
-warning: Loadable section &quot;RW_m_data&quot; outside of ELF segments
-  in /Users/user/Arm-Examples/Hello_LPCXpresso55S69/out/hello/LPCXpresso55S69/Debug/hello.axf
-warning: Loadable section &quot;RW_m_data&quot; outside of ELF segments
-  in /Users/user/Arm-Examples/Hello_LPCXpresso55S69/out/hello/LPCXpresso55S69/Debug/hello.axf
-0000869 I Client 1 connected on port 3333 from remote address localhost:51675 [gdbserver]
-warning: Loadable section &quot;RW_m_data&quot; outside of ELF segments
-  in /Users/user/Arm-Examples/Hello_LPCXpresso55S69/out/hello/LPCXpresso55S69/Debug/hello.axf
-0x14005f30 in ?? ()
-0000966 I Client 1: Loaded rtx5 RTOS plugin [gdbserver]
-connected to remote target localhost:3333
-set mem inaccessible-by-default off
-set stack-cache off
-set remote interrupt-on-connect off
-target remote localhost:3333
-Remote debugging using localhost:3333
-0000978 I Client 2 connected on port 3333 from remote address localhost:51677 [gdbserver]
-warning: Loadable section &quot;RW_m_data&quot; outside of ELF segments
-  in /Users/user/Arm-Examples/Hello_LPCXpresso55S69/out/hello/LPCXpresso55S69/Debug/hello.axf
-0x14005f30 in ?? ()
-connected auxiliary GDB to target
-monitor reset halt
-Resetting target with halt
-Successfully halted device on reset
-tbreak main
-Temporary breakpoint 1 at 0x2f80: file /Users/user/Arm-Examples/Hello_LPCXpresso55S69/main.c, line 30.
-Note: automatically using hardware breakpoints for read-only addresses.
+You can add components from all the packs available, not just the packs that are already selected for a project.
 
-In the Debug Console view you can interact directly with GDB.
-To display the value of an expression, type that expression which can reference
-variables that are in scope. For example type '2 + 3' or the name of a variable.
-Arbitrary commands can be sent to GDB by prefixing the input with a '&gt;',
-for example type '&gt;show version' or '&gt;help'.
+### Modify the context displayed
 
+- In the **Project** drop-down list, select the project for which you want to modify software components.
 
-Temporary breakpoint 1, main () at /Users/user/Arm-Examples/Hello_LPCXpresso55S69/main.c:30
-30    BOARD_InitBootPeripherals();
-</code></pre>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Refer to the
-<a href="https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger">Arm CMSIS Debugger extension</a> for a
-detailed description of debug features.</p>
-</div>
+- In the **Target** drop-down list, select a specific target type. If you want to modify all the target types at once,
+  select **All Targets**. Note that you might have only one target.
+
+- In the **Software packs** drop-down list, you can filter on the components available from the packs listed in your
+  solution with the **Solution: &lt;Solution-name&gt;** option. You can display the components from all installed packs with
+  the **All installed packs** option.
+
+### Select components
+
+Check that the **All** toggle button is selected to display all the components available. Switch to **Selected** to display
+only the components that are already selected.
+
+Use the checkboxes to select or clear components as required. For some components, you can also select a vendor, variant,
+or version. The `cproject.yml` file is automatically updated.
+-->
+
+<h4 id="validation">Validation</h4>
+<p>In the <strong>Software Components view</strong>, you can manage the dependencies between components and solve validation issues.
+Issues are highlighted with a yellow exclamation mark icon <img alt="Issue icon" src="images/issue-icon.png" />.</p>
+<p><img alt="Validation errors" src="images/validation-error.png" /></p>
+<p>If there are validation issues:</p>
+<ol>
+<li>Either click on <img alt="Issue icon" src="images/issue-icon.png" /> and select the issue in the pop-up box (a) or</li>
+<li>Click the "Resolve" button for access to the pop-up box (a).</li>
+<li>Once a components with validation issues is opened, you can use the "eye" icon to see which component is
+   missing/affected (b).</li>
+<li>Use the "Apply" button to select the missing components (only available if there is no choice between different
+   components available).</li>
+</ol>
+<p>When done, don't forget to <strong>Save</strong> the changes!</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="userinterface.html" class="btn btn-neutral float-left" title="User interface"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="manage_settings.html" class="btn btn-neutral float-right" title="Manage solutions">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="zephyr.html" class="btn btn-neutral float-right" title="Work with Zephyr projects">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -594,7 +464,7 @@ detailed description of debug features.</p>
       <span><a href="userinterface.html" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="manage_settings.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="zephyr.html" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

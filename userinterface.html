@@ -34,7 +34,7 @@
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a>
         <div class="version">
-          1.62.0
+          1.64.0
         </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -65,12 +65,6 @@
     <li class="toctree-l2"><a class="reference internal" href="#status-bar">Status bar</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#run-and-debug-view">Run and Debug view</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#run-and-debug-controls">Run and Debug controls</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#trace-and-live-view">Trace and Live view</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#available-commands">Available commands</a>
     </li>
@@ -78,7 +72,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="create_app.html">Work with Solutions</a>
+                <li class="toctree-l1"><a class="reference internal" href="create_app.html">Work with CMSIS solutions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Work with Zephyr projects</a>
                 </li>
               </ul>
               <ul>
@@ -86,11 +84,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software components</a>
+                <li class="toctree-l1"><a class="reference internal" href="build_run.html">Build and run</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a>
+                <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a>
                 </li>
               </ul>
               <ul>
@@ -161,7 +159,7 @@ it implements a powerful embedded development environment.</p>
 </tr>
 <tr>
 <td style="text-align: center;"><img alt="Run and Debug view" src="images/RunDebugView.png" /></td>
-<td><strong>Run and Debug</strong> view switches the GUI to a dedicated <a href="#run-and-debug-view">debug view</a>.</td>
+<td><strong>Run and Debug</strong> view switches the GUI to a dedicated <a href="debug.html#debugger-user-interface">debug view</a>.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><img alt="CMSIS view" src="images/CMSISView.png" /></td>
@@ -169,7 +167,7 @@ it implements a powerful embedded development environment.</p>
 </tr>
 <tr>
 <td style="text-align: center;"><img alt="Trace and live view" src="images/TraceLiveView.png" /></td>
-<td><a href="#trace-and-live-view"><strong>Trace and Live</strong> view</a> shows trace and live data during debugging.</td>
+<td><a href="debug.html#trace-and-live-view"><strong>Trace and Live</strong> view</a> shows trace and live data during debugging.</td>
 </tr>
 </tbody>
 </table>
@@ -204,11 +202,11 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 <tbody>
 <tr>
 <td style="text-align: center;"><img alt="Build solution" src="images/build-icon.png" /></td>
-<td><a href="create_app.html#build"><strong>Build solution</strong></a> calls the compiler toolchain and builds the solution.</td>
+<td><a href="build_run.html"><strong>Build solution</strong></a> calls the compiler toolchain and builds the solution.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><img alt="Load and Run Application" src="images/run-icon.png" /></td>
-<td><a href="create_app.html#load-and-run"><strong>Load &amp; Run application</strong></a> flashes the binary onto the target and starts the application.</td>
+<td><a href="build_run.html#load-and-run"><strong>Load &amp; Run application</strong></a> flashes the binary onto the target and starts the application.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><img alt="Load &amp; Debug application" src="images/debug-icon.png" /></td>
@@ -278,89 +276,55 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 </li>
 </ul>
 <h2 id="run-and-debug-view">Run and Debug view</h2>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The <a href="https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger">Arm CMSIS Debugger README</a>
-contains a more detailed description of the usage of this view.</p>
-</div>
-<p>The <strong>Run and Debug View</strong> <img alt="Run and Debug view" src="images/RunDebugView.png" /> in Keil Studio connects to the target using
-the request selection shown below.</p>
-<p><img alt="Debug View Debugger request" src="images/run-debug-view.png" /></p>
-<ol>
-<li>Select the core you want to <strong>launch</strong> (start an application) or <strong>attach</strong> to (connect to a running application).</li>
-<li>Interact with the cores.</li>
-</ol>
-<h3 id="run-and-debug-controls">Run and Debug controls</h3>
-<p>Depending on the target device (number of cores etc.), a similar run and debug control bar will be visible:</p>
-<p><img alt="Run and Debug controls" src="images/debug-full-controls.png" /> or</p>
-<p><img alt="Run and Debug controls in a multicore environment" src="images/debug-full-controls-multicore.png" /></p>
-<p>The icons enable access to:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Icon</th>
-<th>Action</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;"><img alt="Continue" src="images/debug-continue.png" /></td>
-<td>Continue</td>
-<td>Resume normal program execution (up to the next breakpoint).</td>
-</tr>
-<tr>
-<td style="text-align: center;"><img alt="Pause" src="images/debug-pause.png" /></td>
-<td>Pause</td>
-<td>Inspect code executing at the current location.</td>
-</tr>
-<tr>
-<td style="text-align: center;"><img alt="Step over" src="images/debug-step-over.png" /></td>
-<td>Step over</td>
-<td>Execute the next statement as a single command without inspecting or following its component steps.</td>
-</tr>
-<tr>
-<td style="text-align: center;"><img alt="Step into" src="images/debug-step-into.png" /></td>
-<td>Step into</td>
-<td>Enter the next statement to follow its execution line-by-line.</td>
-</tr>
-<tr>
-<td style="text-align: center;"><img alt="Step out" src="images/debug-step-out.png" /></td>
-<td>Step out</td>
-<td>When inside a function, return to the earlier execution context by completing remaining lines of the current method as though it were a single command.</td>
-</tr>
-<tr>
-<td style="text-align: center;"><img alt="Restart" src="images/debug-restart.png" /></td>
-<td>Restart</td>
-<td>Terminate the current program execution and start debugging again using the current run configuration.</td>
-</tr>
-<tr>
-<td style="text-align: center;"><img alt="Stop" src="images/debug-stop.png" /></td>
-<td>Stop</td>
-<td>Terminate the current debug session.</td>
-</tr>
-<tr>
-<td style="text-align: center;"><img alt="Disconnect" src="images/debug-disconnect.png" /></td>
-<td>Disconnect</td>
-<td>Detach debugger from a core without changing the execution status (running/pause).</td>
-</tr>
-<tr>
-<td style="text-align: center;"><img alt="Reset" src="images/debug-reset-target.png" /></td>
-<td>Reset</td>
-<td>Reset target device.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="trace-and-live-view">Trace and Live view</h2>
-<p>The <strong>Trace and Live View</strong> <img alt="Trace and Live view" src="images/TraceLiveView.png" /> contains the <strong>LIVE WATCH</strong> section that
+<p>Refer to the <a href="debug.html#debugger-user-interface">Debugger user interface</a> section for more information.</p>
+<!--
+!!! Tip
+    The [Arm CMSIS Debugger README](https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger)
+    contains a more detailed description of the usage of this view.
+
+The **Run and Debug View** ![Run and Debug view](./images/RunDebugView.png) in Keil Studio connects to the target using
+the request selection shown below.
+
+![Debug View Debugger request](./images/run-debug-view.png)
+
+1. Select the core you want to **launch** (start an application) or **attach** to (connect to a running application).
+2. Interact with the cores.
+
+### Run and Debug controls
+
+Depending on the target device (number of cores etc.), a similar run and debug control bar will be visible:
+
+![Run and Debug controls](./images/debug-full-controls.png) or
+
+![Run and Debug controls in a multicore environment](./images/debug-full-controls-multicore.png)
+
+The icons enable access to:
+
+| Icon | Action | Description |
+|:----:|--------|-------------|
+| ![Continue](./images/debug-continue.png) | Continue | Resume normal program execution (up to the next breakpoint). |
+| ![Pause](./images/debug-pause.png) | Pause | Inspect code executing at the current location. |
+| ![Step over](./images/debug-step-over.png) | Step over | Execute the next statement as a single command without inspecting or following its component steps. |
+| ![Step into](./images/debug-step-into.png) | Step into | Enter the next statement to follow its execution line-by-line. |
+| ![Step out](./images/debug-step-out.png) | Step out | When inside a function, return to the earlier execution context by completing remaining lines of the current method as though it were a single command. |
+| ![Restart](./images/debug-restart.png) | Restart | Terminate the current program execution and start debugging again using the current run configuration. |
+| ![Stop](./images/debug-stop.png) | Stop |  Terminate the current debug session. |
+| ![Disconnect](./images/debug-disconnect.png) | Disconnect |  Detach debugger from a core without changing the execution status (running/pause). |
+| ![Reset](./images/debug-reset-target.png) | Reset | Reset target device. |
+
+## Trace and Live view
+
+The **Trace and Live View** ![Trace and Live view](./images/TraceLiveView.png) contains the **LIVE WATCH** section that
 continuously displays the value of an expression while the program is running.  Future versions of this view will also
-show trace information.</p>
-<p>You can add expressions to the <strong>LIVE WATCH</strong> by:</p>
-<ol>
-<li>Pressing the <code>+</code> sign and entering an expression.</li>
-<li>Using the context menu item <strong>Add to Live Watch</strong> in the editor or the the <strong>Run and Debug</strong> view.</li>
-</ol>
-<p><img alt="Displaying a variable in the LIVE WATCH" src="images/lw-counter.gif" /></p>
+show trace information.
+
+You can add expressions to the **LIVE WATCH** by:
+
+1. Pressing the `+` sign and entering an expression.
+2. Using the context menu item **Add to Live Watch** in the editor or the the **Run and Debug** view.
+
+![Displaying a variable in the LIVE WATCH](./images/lw-counter.gif)
+-->
 <h2 id="available-commands">Available commands</h2>
 <p>You can access commands to manage your solution and the projects it includes in the following ways:</p>
 <ul>
@@ -390,7 +354,7 @@ show trace information.</p>
 <td>Create a new <em>csolution project</em>.</td>
 </tr>
 <tr>
-<td><a href="configuration.html#configure-a-solution">Configure Solution</a></td>
+<td><a href="create_app.html#configure-a-solution">Configure Solution</a></td>
 <td>Set a compiler and add software layers</td>
 </tr>
 <tr>
@@ -406,7 +370,7 @@ show trace information.</p>
 <td>Open a configuration tools such as CubeMX</td>
 </tr>
 <tr>
-<td><a href="create_app.html#build">Build solution</a></td>
+<td><a href="build_run.html">Build solution</a></td>
 <td>Build the solution with the current context set</td>
 </tr>
 <tr>
@@ -418,7 +382,7 @@ show trace information.</p>
 <td>Debug the solution with the current context set</td>
 </tr>
 <tr>
-<td><a href="create_app.html#load-and-run">Run</a></td>
+<td><a href="build_run.html#load-and-run">Run</a></td>
 <td>Run the solution on your target</td>
 </tr>
 <tr>
@@ -448,7 +412,7 @@ show trace information.</p>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="installation.html" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="create_app.html" class="btn btn-neutral float-right" title="Work with Solutions">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="create_app.html" class="btn btn-neutral float-right" title="Work with CMSIS solutions">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
