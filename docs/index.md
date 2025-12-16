@@ -20,16 +20,16 @@ The IDE:
 
 - [**User interface**](./userinterface.md) shows the main features available in the GUI.
 
-- [**Work with solutions**](./create_app.md) explains how to start an embedded project from scratch or use pre-built
-  examples. It also takes you through the build, flash, and debug steps.
+- [**Work with CMSIS solutions**](./create_app.md) explains how to start an embedded project from scratch or use
+  pre-built examples.
+
+- [**Work with Zephyr applications**](./zephyr.md) explains how to build applications based on Zephyr.
 
 - [**Manage solutions**](./manage_settings.md) explains how to configure *csolution projects*.
 
-- [**Software components**](./manage_components.md) shows how to add or remove software components in a
-  solution.
+- [**Build and run**](./build_run.md) shows how to build and run a CMSIS solution or Zephyr application.
 
-- [**Configuration**](./configuration.md) explains how to manage the extension settings and some specific configuration
-  options, for example for run and debug.
+- [**Debug**](./debug.md) explains how to debug a CMSIS solution or Zephyr application.
 
 - [**Import µVision project**](./importuv.md) explains how to convert uvprojx-based files to the csolution format.
 
@@ -42,6 +42,7 @@ The IDE:
 
 Version            | Description
 :------------------|:-------------------------
+1.64.0             | Added **Work with Zephyr applications** and reworked other chapters
 1.62.0             | Reworked **Manage solutions** and **Debug** chapters
 1.55.0             | Rework for better clarity
 1.54.0             | Added CMSIS-Toolbox Run and Debug Management

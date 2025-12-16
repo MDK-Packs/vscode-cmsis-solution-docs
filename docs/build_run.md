@@ -39,10 +39,6 @@ Build complete
 
 The output directory usually contains an ELF (`.axf`) and a HEX (`.hex`) file.
 
-!!! Note
-    If the build fails with an `ENOENT` error, follow the instructions in the pop-up message that displays in the
-    bottom right-hand corner to install CMSIS-Toolbox.
-
 To learn about the solution structure, refer to
 [CMSIS-Toolbox documentation](https://open-cmsis-pack.github.io/cmsis-toolbox/build-overview/)
 
