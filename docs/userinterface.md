@@ -14,9 +14,9 @@ The GUI consists of these views:
 | ![Search view](./images/SearchView.png) | **Search** view enables [search/replace](https://code.visualstudio.com/docs/editing/codebasics#_search-across-files) across all files. |
 | ![Source Control view](./images/SourceControlView.png) | [**Source Control** view](https://code.visualstudio.com/docs/sourcecontrol/overview) allows you to work with git. |
 | ![Extensions view](./images/ExtensionsView.png) | [**Extensions** view](https://code.visualstudio.com/docs/configure/extensions/extension-marketplace) lets you work with VS Code extensions. |
-| ![Run and Debug view](./images/RunDebugView.png) | **Run and Debug** view switches the GUI to a dedicated [debug view](#run-and-debug-view). |
+| ![Run and Debug view](./images/RunDebugView.png) | **Run and Debug** view switches the GUI to a dedicated [debug view](./debug.md#debugger-user-interface). |
 | ![CMSIS view](./images/CMSISView.png) | [**CMSIS** view](#cmsis-view) is the main view for working with CMSIS solution-based projects. |
-| ![Trace and live view](./images/TraceLiveView.png) | [**Trace and Live** view](#trace-and-live-view) shows trace and live data during debugging. |
+| ![Trace and live view](./images/TraceLiveView.png) | [**Trace and Live** view](./debug.md#trace-and-live-view) shows trace and live data during debugging. |
 
 !!! Note
     The ordering of the icons may be different in your VS Code environment.
@@ -42,8 +42,8 @@ information. The main area of the **CMSIS** view shows:
 
 | Action | Description |
 |:------:|-------------|
-| ![Build solution](./images/build-icon.png) | [**Build solution**](./create_app.md#build) calls the compiler toolchain and builds the solution. |
-| ![Load and Run Application](./images/run-icon.png) | [**Load & Run application**](./create_app.md#load-and-run) flashes the binary onto the target and starts the application. |
+| ![Build solution](./images/build-icon.png) | [**Build solution**](./build_run.md) calls the compiler toolchain and builds the solution. |
+| ![Load and Run Application](./images/run-icon.png) | [**Load & Run application**](./build_run.md#load-and-run) flashes the binary onto the target and starts the application. |
 | ![Load & Debug application](./images/debug-icon.png) | [**Load & Debug application**](./debug.md) flashes the binary onto the target and starts a debug session. |
 | ![Open csolution.yml file](./images/openFile.png) | **Open csolution.yml file** opens the CMSIS solution YML file for editing. |
 | ![Manage Solution Settings](./images/ManageSWComonents.png) | [**Manage Solution Settings**](./manage_settings.md) allows you to manage the solution settings. |
@@ -79,6 +79,9 @@ The VS Code status bar displays information about the status of your development
 
 ## Run and Debug view
 
+Refer to the [Debugger user interface](./debug.md#debugger-user-interface) section for more information.
+
+<!--
 !!! Tip
     The [Arm CMSIS Debugger README](https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger)
     contains a more detailed description of the usage of this view.
@@ -125,7 +128,7 @@ You can add expressions to the **LIVE WATCH** by:
 2. Using the context menu item **Add to Live Watch** in the editor or the the **Run and Debug** view.
 
 ![Displaying a variable in the LIVE WATCH](./images/lw-counter.gif)
-
+-->
 ## Available commands
 
 You can access commands to manage your solution and the projects it includes in the following ways:
@@ -141,14 +144,14 @@ You can access commands to manage your solution and the projects it includes in 
 | Command | Description |
 |---------|-------------|
 | [Create a Solution](./create_app.md) | Create a new *csolution project*.  |
-| [Configure Solution](./configuration.md#configure-a-solution) | Set a compiler and add software layers |
+| [Configure Solution](./create_app.md#configure-a-solution) | Set a compiler and add software layers |
 | [Manage Solution Settings](./manage_settings.md) | Configure the build context and debug setup. |
 | [Manage Software Components](./manage_components.md) | Review, add, or remove software components |
 | Run Configuration Generator                            | Open a configuration tools such as CubeMX |
-| [Build solution](./create_app.md#build) | Build the solution with the current context set |
+| [Build solution](./build_run.md) | Build the solution with the current context set |
 | Rebuild solution                         | Rebuild the solution with the current context set |
 | [Debug](./debug.md)                      | Debug the solution with the current context set |
-| [Run](./create_app.md#load-and-run)      | Run the solution on your target |
+| [Run](./build_run.md#load-and-run)      | Run the solution on your target |
 | Focus on Solution View                   | Open the CMSIS view |
 | Select Active Solution from workspace           | If you have several solutions in your workspace, switch between solutions and select the active solution |
 | [Convert µVision project to CMSIS solution](./importuv.md) | Convert uvprojx files to *csolution project* format |

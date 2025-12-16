@@ -34,7 +34,7 @@
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a>
         <div class="version">
-          1.62.0
+          1.64.0
         </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -68,6 +68,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#activating-keil-studio">Activating Keil Studio</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configure-the-extension">Configure the extension</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -76,7 +78,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="create_app.html">Work with Solutions</a>
+                <li class="toctree-l1"><a class="reference internal" href="create_app.html">Work with CMSIS solutions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Work with Zephyr projects</a>
                 </li>
               </ul>
               <ul>
@@ -84,11 +90,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software components</a>
+                <li class="toctree-l1"><a class="reference internal" href="build_run.html">Build and run</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a>
+                <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a>
                 </li>
               </ul>
               <ul>
@@ -226,6 +232,48 @@ flagged with a pop up window:</p>
 <li>For more information visit the <a href="https://developer.arm.com/ubl">user-based licensing</a> web page.</li>
 </ul>
 </div>
+<h2 id="configure-the-extension">Configure the extension</h2>
+<p>Press <strong>Ctrl+,</strong> (Windows and Linux) or <strong>Cmd+,</strong> (macOS) or go to <img alt="Settings cog wheel" src="images/settings-cog.png" /> at
+the bottom of the <strong>Activity Bar</strong> and select <strong>Settings</strong>. Then, select <strong>CMSIS Solution</strong> to change the extension
+settings. The available settings are:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Actions</td>
+<td>Set run and debug configurations for your solutions and projects.</td>
+</tr>
+<tr>
+<td>Download Packs</td>
+<td>CMSIS-Toolbox downloads required software packs using <code>cpackget</code> during setup and project build. This option enables the option <code>--packs</code> for <code>cbuild</code>.</td>
+</tr>
+<tr>
+<td>Exclude</td>
+<td>Configure a glob pattern for excluding files and folders in searches for csolution files.</td>
+</tr>
+<tr>
+<td>Experimental Features</td>
+<td>Use the checkbox to enable experimental features.</td>
+</tr>
+<tr>
+<td>Generate Clang Setup</td>
+<td>Use the checkbox to automatically generate the required setup (<code>.clangd</code> file and <code>.vscode/settings.json</code>) for the active solution context. For Arm Compiler 6, include pre-defined macros in the <code>.clangd</code> file.</td>
+</tr>
+<tr>
+<td>Output Directory</td>
+<td>Enter an output directory prefix for 'outdir' and 'tmpdir' and relocated build information files (experimental).</td>
+</tr>
+<tr>
+<td>Use Web Services</td>
+<td>Use the checkbox to enable web services to obtain information about devices, boards, and examples. If enabled, information from the internet and locally installed packs is used. If disabled, only information from installed packs is used.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>

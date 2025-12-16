@@ -34,7 +34,7 @@
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a>
         <div class="version">
-          1.62.0
+          1.64.0
         </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -56,7 +56,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="create_app.html">Work with Solutions</a>
+                <li class="toctree-l1"><a class="reference internal" href="create_app.html">Work with CMSIS solutions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Work with Zephyr projects</a>
                 </li>
               </ul>
               <ul>
@@ -64,57 +68,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manage_components.html">Software components</a>
+                <li class="toctree-l1"><a class="reference internal" href="build_run.html">Build and run</a>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Configuration</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#configure-the-extension">Configure the extension</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#configure-a-solution">Configure a solution</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#configure-run-and-debug">Configure run and debug</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#debug-adapter-support">Debug adapter support</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#use-debug-adapters">Use debug adapters</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#selecting-a-specific-debug-adapter">Selecting a specific debug adapter</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#pyocd">pyOCD</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#jlink-server">JLink Server</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#arm-debugger">Arm Debugger</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#setup-for-arm-debugger">Setup for Arm Debugger</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#arm-fvps">Arm FVPs</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#keil-uvision">Keil uVision</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#changing-the-default">Changing the default</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#enhancing-the-debug-experience">Enhancing the debug experience</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#csolutionyml">csolution.yml</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#cprojectyml">cproject.yml</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a>
                 </li>
               </ul>
               <ul>
@@ -154,327 +112,9 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="configuration">Configuration</h1>
-<h2 id="configure-the-extension">Configure the extension</h2>
-<p>Press <strong>Ctrl+,</strong> (Windows and Linux) or <strong>Cmd+,</strong> (macOS) or go to <img alt="Settings cog wheel" src="images/settings-cog.png" /> at
-the bottom of the <strong>Activity Bar</strong> and select <strong>Settings</strong>. Then, select <strong>CMSIS Solution</strong> to change the extension
-settings. The available settings are:</p>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Actions</td>
-<td>Set run and debug configurations for your solutions and projects.</td>
-</tr>
-<tr>
-<td>Download Packs</td>
-<td>CMSIS-Toolbox downloads required software packs using <code>cpackget</code> during setup and project build. This option enables the option <code>--packs</code> for <code>cbuild</code>.</td>
-</tr>
-<tr>
-<td>Exclude</td>
-<td>Configure a glob pattern for excluding files and folders in searches for csolution files.</td>
-</tr>
-<tr>
-<td>Experimental Features</td>
-<td>Use the checkbox to enable experimental features.</td>
-</tr>
-<tr>
-<td>Generate Clang Setup</td>
-<td>Use the checkbox to automatically generate the required setup (<code>.clangd</code> file and <code>.vscode/settings.json</code>) for the active solution context. For Arm Compiler 6, include pre-defined macros in the <code>.clangd</code> file.</td>
-</tr>
-<tr>
-<td>Output Directory</td>
-<td>Enter an output directory prefix for 'outdir' and 'tmpdir' and relocated build information files (experimental).</td>
-</tr>
-<tr>
-<td>Use Web Services</td>
-<td>Use the checkbox to enable web services to obtain information about devices, boards, and examples. If enabled, information from the internet and locally installed packs is used. If disabled, only information from installed packs is used.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="configure-a-solution">Configure a solution</h2>
-<p>The <strong>Configure Solution</strong> view opens automatically, if:</p>
-<ul>
-<li>Your solution has a <code>select-compiler:</code> node, but no <code>compiler:</code> node is set in the <code>csolution.yml</code> file, or</li>
-<li>You are working with a reference application that requires the configuration of a software layer.</li>
-</ul>
-<p><img alt="Configure a solution" src="images/configure-solution.png" /></p>
-<ul>
-<li>
-<p>Click <strong>Next</strong> to display the different options available.</p>
-</li>
-<li>
-<p>You can indicate where the layers should be copied to in the <strong>Board-Layer</strong>, <strong>Shield-Layer</strong>, and <strong>Socket-Layer</strong>
-  fields. Click <strong>Default</strong> to reset the paths to their default values. If there are no compatible layers, errors display.</p>
-</li>
-<li>
-<p>If no compiler is set for the reference application, <strong>Select Compiler</strong> displays under the layers selection and shows the
-  compilers available in your environment. Select a compiler. For example, AC6 or GCC.</p>
-</li>
-<li>
-<p>If you are working with another solution type, only <strong>Select Compiler</strong> displays. Select a compiler.</p>
-</li>
-<li>
-<p>Click <strong>OK</strong>.</p>
-</li>
-</ul>
-<p>For reference applications only, a <code>Board.clayer.yml</code> file, a <code>Shield.clayer.yml</code> file, or a <code>Socket.clayer.yml</code> file, along
-with other files that make up the layer, are added in the folders that you selected. The files are available from the
-<strong>Explorer</strong> view. The <code>.clayer.yml</code> files come from the CMSIS-Pack. Layers are automatically added in the <code>csolution.yml</code>
-file of your solution under <code>target-types: variables:</code> for the active target.</p>
-<p>For all solution types, the compiler is added with the <code>compiler:</code> key in the <code>csolution.yml</code> file.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul>
-<li>Not all Board Support Packs (BSPs) have board layers.</li>
-<li>Not all layers are compatible with the connections that your reference application requires.</li>
-<li>The CMSIS-Packs which contain reference applications and layers generally provide an <code>Overview.md</code> file where the
-  connections are detailed.</li>
-</ul>
-</div>
-<h2 id="configure-run-and-debug">Configure run and debug</h2>
-<p>In VS Code, you can integrate external tools via a <code>tasks.json</code> file. The debug configuration is managed via the
-<code>launch.json</code> file. Both files are generated automatically based on your <code>*.csolution.yml</code> file:</p>
-<p><img alt="Generate launch.json and tasks.json" src="images/configure-debug-run.png" /></p>
-<p>When creating a <strong>Target Set</strong> in the <a href="manage_settings.html"><strong>Manage Solution</strong></a> view and selecting a
-<strong>Debug Adapter</strong>, the information is stored in the <code>target-set:</code> node in the <code>*.csolution.yml</code> file (refer to the
-<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/YML-Input-Format/#target-set">CMSIS-Toolbox user's guide</a> for
-details on <code>target-set</code>).</p>
-<p>When you save the target set, the <strong>CMSIS Solution</strong> extension calls <code>cbuild setup</code> that generates the
-<code>*.cbuild-run.yml</code> file which contains the run and debug description of your solution. Using template files for the
-various debug adapters from the <a href="https://github.com/Open-CMSIS-Pack/debug-adapter-registry">Debug Adapter Registry</a> and
-taking the user inputs into account, the <strong>CMSIS Solution</strong> extension then generates the <code>launch.json</code> and <code>tasks.json</code>
-files.</p>
-<h3 id="debug-adapter-support">Debug adapter support</h3>
-<p>Keil Studio support various debug adapters and and GDB server implementations from different vendors:</p>
-<ul>
-<li>Most of the debug adapters (including ST-Link) are served by <a href="#pyocd">pyOCD</a> using the
-  <a href="https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger">Arm CMSIS Debugger extension</a>.</li>
-<li>Segger <a href="#jlink-server">J-Link Server</a> is supported.</li>
-<li><a href="#arm-debugger">Arm Debugger</a> is supported.</li>
-<li>Running on <a href="#arm-fvps">Arm FVPs</a> is possible.</li>
-<li>Arm <a href="#keil-uvision">Keil µVision</a> is supported (only on Windows).</li>
-</ul>
-<h3 id="use-debug-adapters">Use debug adapters</h3>
-<p>If you are using a third-party debug adapter, make sure that the latest drivers are installed on your machine and that
-the debug adapters are running the latest firmware. Set the <code>PATH</code> variable correctly.</p>
-<table>
-<thead>
-<tr>
-<th>Debug Adapter</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Arm ULINKplus</td>
-<td>Make sure that the <a href="https://developer.arm.com/documentation/101636/0100/Introduction/Firmware-Update">V2.x.x firmware</a> is installed.</td>
-</tr>
-<tr>
-<td>Infineon KitProg3</td>
-<td>Make sure that the latest <a href="https://community.infineon.com/t5/Knowledge-Base-Articles/ModusToolbox-Updating-the-KitProg3-MiniProg4-firmware-from-modus-shell/ta-p/625419#.">firmware is installed</a>.</td>
-</tr>
-<tr>
-<td>Microchip PICKit Basic</td>
-<td>Use the Python utility <a href="https://pypi.org/project/pycmsisdapswitcher/">pycmsisdapswitcher</a> to switch the firmware to a CMSIS-DAP v2 implementation.</td>
-</tr>
-<tr>
-<td>Nuvoton NuLink</td>
-<td>Make sure that the latest <a href="https://github.com/OpenNuvoton/Nuvoton_Tools/blob/master/Latest_NuLink_Firmware/README.md">firmware is installed</a>.</td>
-</tr>
-<tr>
-<td>NXP MCU-Link</td>
-<td>Make sure that the latest <a href="https://community.nxp.com/t5/MCUXpresso-General-Knowledge/MCU-Link-installation/ta-p/1180326">firmware is installed</a>.</td>
-</tr>
-<tr>
-<td>Raspberrry Pi Debugprobe</td>
-<td>Make sure that the latest <a href="https://github.com/raspberrypi/debugprobe/releases">firmware is installed</a>.</td>
-</tr>
-<tr>
-<td>SEGGER J-Link</td>
-<td>For J-Link support, visit <a href="https://www.segger.com/downloads/jlink/">J-Link/J-Trace Downloads</a>. Set the <code>PATH</code> variable to the <code>bin</code> directory of the installation.</td>
-</tr>
-<tr>
-<td>STMicroelectronics ST-Link</td>
-<td>For ST-LINK/V2 and ST-LINK/V2-1 support on Windows, download the USB driver here: <a href="https://www.st.com/en/development-tools/stsw-link009.html">STSW-LINK009</a>.</td>
-</tr>
-</tbody>
-</table>
-<p>In the <strong>CMSIS view</strong>, open the <a href="manage_settings.html">Manage Solution dialog</a> and go to the
-<a href="manage_settings.html#debug-adapter">Debug Adapter section</a>. Select one of the debug adapters. Once selected, the
-following JSON files are created automatically:</p>
-<ul>
-<li>In the <code>launch.json</code> file, <code>attach</code> and <code>launch</code> configurations are added that let you attach the debug adapter
-  to an already running GDB instance (for example when you have issued a <a href="create_app.html#load-and-run"><code>load and run</code></a>
-  before) or launch a new debug session.</li>
-<li>In the <code>tasks.json</code> file, the tasks <code>CMSIS Erase</code>, <code>CMSIS Load</code>, and <code>CMSIS Run</code> are created.</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you wish to preserve manual modification to the JSON files, uncheck "Update launch.json and tasks.json" in the
-<strong>Debug Adapter for ...</strong> section.</p>
-</div>
-<!--
-#### User modifications to `launch.json`
-
-By default, the **CMSIS Solution** extension updates the `launch.json` file to reflect changed settings. Sometimes, the
-user needs control over settings. The `cmsis:` - `updateConfiguration:` value in the `launch.json` file controls the
-update. Change `"updateConfiguration"` to `"manual"` to control the settings and this section.
-
-
-<pre><code class="language-json">            &quot;cmsis&quot;: {
-                &quot;pname&quot;: cm33_core0
-                &quot;target-type&quot;: MCXN947 
-                &quot;updateConfiguration&quot;: &quot;manual&quot;     // without auto, this section is not modified
-</code></pre>
-
--->
-<h4 id="selecting-a-specific-debug-adapter">Selecting a specific debug adapter</h4>
-<div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<p>Explain how to select a probe in case multiple are connected.</p>
-</div>
-<h3 id="pyocd">pyOCD</h3>
-<p>In the <a href="manage_settings.html">Manage Solution</a> dialog, select the one of the debug adapters named <strong>xyz@pyOCD</strong>:</p>
-<ul>
-<li>Set the maximum clock speed.</li>
-<li>Select the debug protocol (<code>SWD</code> or <code>JTAG</code>).</li>
-</ul>
-<p><img alt="Using pyOCD for debugging" src="images/pyocd-as-debug-adapter.png" /></p>
-<h3 id="jlink-server">JLink Server</h3>
-<p>In the <a href="manage_settings.html">Manage Solution</a> dialog:</p>
-<ul>
-<li>Select the <strong>JLink Server</strong> debug adapter.</li>
-<li>Set the maximum clock speed.</li>
-<li>Select the debug protocol (<code>SWD</code> or <code>JTAG</code>).</li>
-</ul>
-<p><img alt="JLink Server as debug adapter" src="images/j-link-debug-adapter.png" /></p>
-<h3 id="arm-debugger">Arm Debugger</h3>
-<p>You can use the <a href="https://developer.arm.com/Tools%20and%20Software/Arm%20Debugger">Arm Debugger</a> with Keil Studio.</p>
-<h4 id="prerequisites">Prerequisites</h4>
-<p>Before you can launch a debug session using Arm Debugger, you need to:</p>
-<ol>
-<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=Arm.arm-debugger">Arm Debugger VS Code extension</a>.</li>
-<li>Add the Arm Debugger to your <code>vcpkg-configuration.json</code> file, for example:<br />
-<code>"arm:debuggers/arm/armdbg": "6.6.0"</code></li>
-</ol>
-<h4 id="setup-for-arm-debugger">Setup for Arm Debugger</h4>
-<p>In the <a href="manage_settings.html">Manage Solution</a> dialog, select the one of the debug adapters named <strong>xyz@Arm-Debugger</strong>.</p>
-<p><img alt="Arm-Debugger as debug adapter" src="images/arm-debugger-as-adapter.png" /></p>
-<h3 id="arm-fvps">Arm FVPs</h3>
-<p>In the <a href="manage_settings.html">Manage Solution</a> dialog:</p>
-<ul>
-<li>Select the <strong>Arm-FVP</strong> debug adapter</li>
-<li>Select the model you wish to use</li>
-<li>Point to your configuration file</li>
-<li>If you wish to set a simulation limit, add this in the <strong>Misc</strong> box:</li>
-</ul>
-<p><img alt="Arm-FVP Debug Adapter Settings" src="images/arm-fvp-debug-adapter.png" /></p>
-<h3 id="keil-uvision">Keil uVision</h3>
-<p>In the <a href="manage_settings.html">Manage Solution</a> dialog:</p>
-<ul>
-<li>Select the <strong>Keil uVision</strong> debug adapter.</li>
-<li>Set the path to the <code>UV4.exe</code> file (the default is <code>%LOCALAPPDATA%\Keil_v5\UV4\UV4.exe</code>).</li>
-</ul>
-<p><img alt="Kei uVision as debug adapter" src="images/keil-debug-adapter.png" /></p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>This only works on a Windows PC.</p>
-</div>
-<h4 id="changing-the-default">Changing the default</h4>
-<p>In the <strong>Manage Solution - Debug Adapter</strong> dialog , you can change the path to your µVision installation directory. If
-you do that, the following will be saved in the <code>.vscode.settings.json</code> file:</p>
-<pre><code class="language-json">{
-    &quot;cmsis-csolution.debug-adapters&quot;: {
-        &quot;Keil uVision&quot;: {
-            &quot;uv4&quot;: &quot;/path/to/UV4.exe&quot;
-        }
-    }
-}
-</code></pre>
-<p>This is a workspace-specific setting. If you wish to set the µVision path for all your workspaces, open the global
-<code>settings.json</code> file:</p>
-<ol>
-<li>Press <strong>Ctrl/Cmd + Shift + p</strong> and type <code>settings</code>.</li>
-<li>Select <strong>Preferences: Open User Settings (JSON).</strong>. This opens the global <code>%APPDATA%\Code\User\settings.json</code> file.</li>
-<li>Enter the path as shown above and save the file.</li>
-</ol>
-<!--
-### Template Files
-
-Template files for various debug adapters are included in the installation. For reference the template files are provided in the [Debug Adapter Registry](https://github.com/Open-CMSIS-Pack/debug-adapter-registry).
-
-A [template file in `*.json` format](https://github.com/Open-CMSIS-Pack/debug-adapter-registry/tree/main/templates) contains the following sections:
-
-
-<pre><code class="language-json">    &quot;launch&quot;:                           // section for launch.json
-        &quot;singlecore-launch&quot;:            // debugger launch request for single-core system
-        &quot;singlecore-attach&quot;:            // debugger attach request for single-core system
-        &quot;multicore-start-launch&quot;:       // debugger launch request for the start processor in multi-core system. 
-        &quot;multicore-start-attach&quot;:       // debugger attach request for the start processor in multi-core system. 
-        &quot;multicore-other&quot;:              // debugger attach request for other processors in multi-core system.
-
-    &quot;tasks&quot;:                            // section for tasks.json
-        &quot;label&quot;: &quot;CMSIS Load+Run&quot;,      // command &quot;CMSIS Load+Run&quot;  
-        &quot;label&quot;: &quot;CMSIS Run&quot;,           // command &quot;CMSIS Run&quot;
-        &quot;label&quot;: &quot;CMSIS Load&quot;,          // command &quot;CMSIS Load&quot;
-        &quot;label&quot;: &quot;CMSIS Erase&quot;,         // command &quot;CMSIS Erase&quot;
-</code></pre>
-
-
-The template files are processed with the [Eta](https://eta.js.org/) template engine. It inserts data of the `*.cbuild-run.yml` file into the various sections of the template file using placeholders listed in the table below. Each section is processed depending on the system type.
-
-Placeholder       | Description
-:-----------------|:----------------
-`solution_folder` | Relative path from the workspace folder to the directory that stores the `*.csolution.yml` file
-`device_name`  | From `*.cbuild-run.yml`: value of [`device:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#file-structure-of-cbuild-runyml)
-`target_type`  | From `*.cbuild-run.yml`: value of [`target-type:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#file-structure-of-cbuild-runyml)
-`start_pname`  | From `*.cbuild-run.yml`: value of [`start_pname:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#debugger)
-`image_files`  | From `*.cbuild-run.yml`: value list of [`output:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#output) with `image` information
-`symbol_files` | From `*.cbuild-run.yml`: value list of [`output:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#output) with `symbols` information
-`pname`        | Processor name in a multi-core system that is currently processed by the template engine
-`ports`        | From `*.cbuild-run.yml`: value list of [`gdbserver:`](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-CBuild-Format/#gdbserver)
-
-The usage of these placeholders is exemplified with the [template files in the Debug Adapter Registry](https://github.com/Open-CMSIS-Pack/debug-adapter-registry/tree/main/templates).
--->
-
-<h3 id="enhancing-the-debug-experience">Enhancing the debug experience</h3>
-<p>To ensure the best debug experience with Arm Compiler for Embedded, make sure that your CMSIS solution files contain
-the following.</p>
-<h4 id="csolutionyml">csolution.yml</h4>
-<p>In the <code>*.csolution.yml</code> file, insert the following block in <code>- target-types\- type</code> section:</p>
-<pre><code class="language-yml">      target-set:
-        - set: 
-          debugger:
-            name: # set to name of your debug adapter
-</code></pre>
-<p>Insert the following before the <code>- projects</code> section:</p>
-<pre><code class="language-yml">  misc:
-   - for-compiler: AC6
-     C-CPP:
-       - -gdwarf-5
-     ASM:
-       - -gdwarf-5
-</code></pre>
-<h4 id="cprojectyml">cproject.yml</h4>
-<p>In the <code>*.cproject.yml</code> file, add at the end:</p>
-<pre><code class="language-yml">  output:
-    type:
-     - elf
-     - hex
-     - map
-</code></pre>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="manage_components.html" class="btn btn-neutral float-left" title="Software components"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="importuv.html" class="btn btn-neutral float-right" title="Import uVision projects">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
   <hr/>
 
@@ -500,10 +140,6 @@ the following.</p>
         </span>
     
     
-      <span><a href="manage_components.html" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="importuv.html" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
