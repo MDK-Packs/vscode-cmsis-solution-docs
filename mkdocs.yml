@@ -9,7 +9,7 @@ nav:
     - Installation: installation.md
     - User interface: userinterface.md
     - Work with CMSIS solutions: create_app.md
-    - Work with Zephyr projects: zephyr.md
+    - Work with Zephyr applications: zephyr.md
     - Manage solutions: manage_settings.md
     - Build and run: build_run.md
     - Debug: debug.md

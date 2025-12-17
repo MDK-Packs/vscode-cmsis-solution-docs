@@ -1,13 +1,13 @@
-# Work with Zephyr projects
+# Work with Zephyr applications
 
-It is possible to build and debug Zephyr projects that use the `west` build system with Keil Studio. The CMSIS solution
-extension displays an outline view of the Zephyr project.
+It is possible to build and debug Zephyr applications that use the `west` build system with Keil Studio. The CMSIS
+solution extension displays an outline view of the Zephyr project.
 
-![Zephyr projects in the CMSIS Solution extension](./images/cmsis-zephyr.png)
+![Zephyr applications in the CMSIS Solution extension](./images/cmsis-zephyr.png)
 
 ## Prerequisites
 
-To work with Zephyr-based projects, make sure that the following is set up on your machine.
+To work with Zephyr-based applications, make sure that the following is set up on your machine.
 
 ### Zephyr installation
 
@@ -23,9 +23,6 @@ For the build process, it is required to set environment variables for the CMSIS
 - Select if you want to set the *Environment Variables* for the
   [**User**](https://code.visualstudio.com/docs/configure/settings#_user-settings) or the current
   [**Workspace**](https://code.visualstudio.com/docs/configure/settings#_workspace-settings).
-!!! Attention
-    The workspace settings are stored in the `.vscode\settings.json` file. If you use "Initialize Git repository" when
-    creating a csolution, this file is ignored by default.
 - Use **Add Item** to add the following environment variables:
 
 | Item        | Value |
@@ -33,6 +30,9 @@ For the build process, it is required to set environment variables for the CMSIS
 | ZEPHYR_BASE | $HOME/zephyrproject/zephyr |
 | PATH        | $HOME/zephyrproject/.venv/bin |
 | VIRTUAL_ENV | $HOME/zephyrproject/.venv |
+
+!!! Note
+    On Windows, specify the `PATH` as `$HOME/zephyrproject/.venv/Scripts`
 
 - This will be translated into the following JSON code:
 
@@ -44,13 +44,14 @@ For the build process, it is required to set environment variables for the CMSIS
         },
 ```
 
-!!! Note
-    Using the `activate` command in a Terminal window will activate this virtual environment.
+!!! Attention
+    The workspace settings are stored in the `.vscode\settings.json` file. If you use "Initialize Git repository" when
+    creating a csolution, this file is ignored by default.
 
-## Project settings
+## Settings
 
-Copy the Zephyr project directory that you want to use to your CMSIS solution workspace/folder. Refer to the example
-available on GitHub: [CMSIS-Zephyr](https://github.com/Arm-Examples/CMSIS-Zephyr)
+Copy the Zephyr application directory that you want to use to your CMSIS solution workspace/folder. Refer to the
+example available on GitHub: [CMSIS-Zephyr](https://github.com/Arm-Examples/CMSIS-Zephyr).
 
 ### Csolution settings
 
@@ -65,11 +66,11 @@ available on GitHub: [CMSIS-Zephyr](https://github.com/Arm-Examples/CMSIS-Zephyr
         app-path: ./blinky
 ```
 
-### Zephyr project settings
+### Zephyr application settings
 
 When using the [Arm GNU Toolchain](https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain) for building the
-project via `vcpkg`, make sure that the C library shipped with the toolchain used. This can be ensured with the
-following settings in the Zephyr `prj.conf` file:
+project via `vcpkg`, make sure that the C library shipped with the toolchain. This can be ensured with the following
+settings in the Zephyr `prj.conf` file:
 
 ```conf
 # Use Newlib from the Arm GNU Toolchain

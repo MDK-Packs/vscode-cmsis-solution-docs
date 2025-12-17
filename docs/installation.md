@@ -120,10 +120,12 @@ settings. The available settings are:
 
 | Setting | Description |
 |---------|-------------|
-| Actions | Set run and debug configurations for your solutions and projects. |
+| Auto Debug Launch | Create or update `launch.json` and `tasks.json` with the [Debug Adapter configuration](./debug.md#debug-adapter-support) of the CMSIS solution project. |
 | Download Packs | CMSIS-Toolbox downloads required software packs using `cpackget` during setup and project build. This option enables the option `--packs` for `cbuild`. |
+| Environment Variables| Specify additional environment variables to be set for build, run, and terminals. |
 | Exclude | Configure a glob pattern for excluding files and folders in searches for csolution files. |
 | Experimental Features | Use the checkbox to enable experimental features. |
 | Generate Clang Setup | Use the checkbox to automatically generate the required setup (`.clangd` file and `.vscode/settings.json`) for the active solution context. For Arm Compiler 6, include pre-defined macros in the `.clangd` file. |
 | Output Directory | Enter an output directory prefix for 'outdir' and 'tmpdir' and relocated build information files (experimental). |
+| Probe-ID | Specufy the unique identifier of a probe to be used for debugging. |
 | Use Web Services | Use the checkbox to enable web services to obtain information about devices, boards, and examples. If enabled, information from the internet and locally installed packs is used. If disabled, only information from installed packs is used. |
