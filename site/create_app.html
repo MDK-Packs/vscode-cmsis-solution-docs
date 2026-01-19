@@ -80,6 +80,8 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rtos-example">RTOS Example</a>
+    </li>
         </ul>
     </li>
     </ul>
@@ -429,6 +431,28 @@ Issues are highlighted with a yellow exclamation mark icon <img alt="Issue icon"
    components available).</li>
 </ol>
 <p>When done, don't forget to <strong>Save</strong> the changes!</p>
+<h3 id="rtos-example">RTOS Example</h3>
+<p>This example shows how to add a real-time operating systems (RTOS), such as Keil RTX5:</p>
+<ol>
+<li>Enable <strong>CMSIS - RTOS2 (API) - Keil RTX5</strong>.</li>
+<li>Choose your <strong>Variant</strong>: Select <strong>Library</strong> or <strong>Source</strong>.</li>
+<li>Enable <strong>CMSIS - OS Tick (API) - SysTick</strong>.</li>
+<li>Click <strong>Save</strong></li>
+</ol>
+<p><img alt="Selecting a real-time operating system" src="images/select-rtos-sw-component.png" /></p>
+<p>After saving, the <code>*.cproject.yml</code> file contains:</p>
+<pre><code class="language-yml">project:
+
+  components:
+    # SysTick timer component added:
+    - component: CMSIS:OS Tick:SysTick
+    # Keil RTX5 in Source variant added:
+    - component: CMSIS:RTOS2:Keil RTX5&amp;Source
+
+  packs:
+    # CMSIS-Pack containing the RTOS component added: 
+    - pack: ARM::CMSIS-RTX
+</code></pre>
               
             </div>
           </div><footer>
