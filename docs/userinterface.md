@@ -146,7 +146,7 @@ You can access commands to manage your solution and the projects it includes in 
 | [Create a Solution](./create_app.md) | Create a new *csolution project*.  |
 | [Configure Solution](./create_app.md#configure-a-solution) | Set a compiler and add software layers |
 | [Manage Solution Settings](./manage_settings.md) | Configure the build context and debug setup. |
-| [Manage Software Components](./manage_components.md) | Review, add, or remove software components |
+| [Manage Software Components](./create_app.md#software-components) | Review, add, or remove software components |
 | Run Configuration Generator                            | Open a configuration tools such as CubeMX |
 | [Build solution](./build_run.md) | Build the solution with the current context set |
 | Rebuild solution                         | Rebuild the solution with the current context set |
