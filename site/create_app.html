@@ -432,10 +432,13 @@ Issues are highlighted with a yellow exclamation mark icon <img alt="Issue icon"
 </ol>
 <p>When done, don't forget to <strong>Save</strong> the changes!</p>
 <h3 id="rtos-example">RTOS Example</h3>
-<p>This example shows how to add a real-time operating systems (RTOS), such as Keil RTX5:</p>
+<p>This example shows how to add a real-time operating systems (RTOS), such as Keil RTX5.</p>
+<p>Before adding the component, add the CMSIS-RTX pack to your local installation. In a Terminal, run:</p>
+<pre><code class="language-sh">cpackget add ARM::CMSIS-RTX
+</code></pre>
+<p>Once the pack is installed, open the <strong>Software Components</strong> view, click on <strong>All installed packs</strong> and select:</p>
 <ol>
-<li>Enable <strong>CMSIS - RTOS2 (API) - Keil RTX5</strong>.</li>
-<li>Choose your <strong>Variant</strong>: Select <strong>Library</strong> or <strong>Source</strong>.</li>
+<li>Enable <strong>CMSIS - RTOS2 (API) - Keil RTX5</strong> and choose your <strong>Variant</strong> (select <strong>Library</strong> or <strong>Source</strong>).</li>
 <li>Enable <strong>CMSIS - OS Tick (API) - SysTick</strong>.</li>
 <li>Click <strong>Save</strong></li>
 </ol>
