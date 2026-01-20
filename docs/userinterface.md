@@ -60,6 +60,20 @@ Depending on the file and the context, various icons may appear:
 | ![Manage software components](./images/ManageSWComonents.png) | Manage the software components of the cproject file. |
 | ![Add groups or files](./images/AddGroupsFiles.png) | Add groups or files to the cproject file. |
 
+### Configuration Wizard
+
+[Configuration Wizard annotations](https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/configWizard.html)
+help creating GUI-like elements in IDEs for configuration files. Using a GUI-like approach makes it easier for the user
+to check and adapt configuration files to the application needs.
+
+For files containing configuration wizard annotations, open the GUI view by using the **Open Preview** button
+![Open Preview](./images/open-conf-wiz-view-icon.png) in the top right corner of the file window.
+
+The view will be opened next to the original source file. You can switch back using the **Show Source** button
+![Open source file view](./images/open-source-file-view-icon.png).
+
+![RTE_Device.h file in configuration wizard view](./images/rte-devce-config-wiz-view.png)
+
 ## Status bar
 
 The VS Code status bar displays information about the status of your development environment and the project. The number of extensions installed might vary.
