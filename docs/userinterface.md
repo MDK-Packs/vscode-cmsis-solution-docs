@@ -146,27 +146,27 @@ You can add expressions to the **LIVE WATCH** by:
 
 You can access commands to manage your solution and the related projects in the following ways:
 
-- From the [**CMSIS** view](.
+- From the [**CMSIS** view](#cmsis-view).
 - With right-click to the `*.csolution.yml` file in the [**Explorer**](https://code.visualstudio.com/docs/getstarted/userinterface#_explorer-view) view.
 - With the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) that opens with Ctrl+Shift+P (Windows and Linux) or Cmd+Shift+P (macOS).
 
 | Command | Description |
 |:--------|:------------|
-| Open Solution in Workspace...            | If you have several solutions in your workspace, switch between solutions and select the active solution |
+| Open Solution in Workspace...            | If your workspace contains several solutions, select the active solution to work with. |
 | [Create Solution...](./create_app.md)    | Create a new *csolution project*.  |
-| [Convert a µVision project to CMSIS solution...](./importuv.md) | Convert uvprojx files to *csolution project* format |
-| Close Solution                           | Close the current active solution |
-| [Manage Solution Settings](./manage_settings.md) | Configure the target set (active target, projects, images, and debug adapter) for the solution |
-| [Configure Solution](./create_app.md#configure-a-solution) | Set a compiler and add software layers |
-| [Manage Software Components](./create_app.md#software-components) | Review, add, or remove software components |
-| [Build solution](./build_run.md)         | Build the solution with the current target set |
-| Rebuild solution                         | Rebuild the solution with the current target set |
-| Clean all out and tmp directories        | Clean all out and tmp directories for the active solution |
-| Refresh (reload packs, update RTE)       | Reload information from all installed packs and run `cbuild setup update-rte` |
-| [Load & Run application](./build_run.md#load-and-run)       | Load the application to target and run it with active GDB server ([Debugger](./debug.md) can be attached) |
-| [Load & Debug application](./debug.md)                      | Load the application to target and start the debugger |
-| Erase target device            | Erase the target device |
-| Load application to target     | Load the application to target |
-| Run application on target      | Run the current application in the target with active GDB server ([Debugger](./debug.md) can be attached) |
-| Target Information             | Show information about debug adapter and target |
-| Focus on Solution View                   | Open the [CMSIS view](#cmsis-view) |
+| [Convert a µVision project to CMSIS solution...](./importuv.md) | Convert uvprojx files to *csolution project* format. |
+| Close Solution                           | Close the current active solution. |
+| [Manage Solution Settings](./manage_settings.md) | Configure the target set (active target, projects, images, and debug adapter) for the solution. |
+| [Configure Solution](./create_app.md#configure-a-solution) | Set a compiler and add software layers. |
+| [Manage Software Components](./create_app.md#software-components) | Review, add, or remove software components. |
+| [Build solution](./build_run.md)         | Build the solution with the current target set. |
+| Rebuild solution                         | Rebuild the solution with the current target set. |
+| Clean all out and tmp directories        | Clean all out and tmp directories for the active solution. |
+| Refresh (reload packs, update RTE)       | Reload information from all installed packs and run `cbuild setup update-rte`. |
+| [Load & Run application](./build_run.md#load-and-run)       | Load the application to target and run it with active GDB server ([Debugger](./debug.md) can be attached). |
+| [Load & Debug application](./debug.md)                      | Load the application to target and start the debugger. |
+| Erase target device            | Erase the target device. |
+| Load application to target     | Load the application to target. |
+| Run application on target      | Run the current application in the target with active GDB server ([Debugger](./debug.md) can be attached). |
+| Target Information             | Show information about debug adapter and target. |
+| Focus on Solution View                   | Open the [CMSIS view](#cmsis-view). |
