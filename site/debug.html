@@ -112,19 +112,19 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#multi-core-debug">Multi-Core Debug</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#configure-run-and-debug">Configure run and debug</a>
+    <li class="toctree-l2"><a class="reference internal" href="#debug-adapter-support">Debug adapter support</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#debug-adapter-support">Debug adapter support</a>
+    <li class="toctree-l3"><a class="reference internal" href="#select-debug-adapter">Select debug adapter</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#use-debug-adapters">Use debug adapters</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#selecting-a-specific-debug-adapter">Selecting a specific debug adapter</a>
+    <li class="toctree-l3"><a class="reference internal" href="#set-debug-adapter-id">Set debug adapter ID</a>
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configure-run-and-debug">Configure run and debug</a>
+        <ul>
     <li class="toctree-l3"><a class="reference internal" href="#pyocd">pyOCD</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#jlink-server">JLink Server</a>
+    <li class="toctree-l3"><a class="reference internal" href="#j-link-server">J-Link Server</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#arm-debugger">Arm Debugger</a>
         <ul>
@@ -529,30 +529,16 @@ application is run with the <code>&gt; continue</code> command.</p>
 <li>A <a href="#disassembly">Disassembly View</a> opens only for a selected processor; otherwise the command is shown as disabled.</li>
 </ul>
 </blockquote>
-<h2 id="configure-run-and-debug">Configure run and debug</h2>
-<p>In VS Code, you can integrate external tools via a <code>tasks.json</code> file. The debug configuration is managed via the
-<code>launch.json</code> file. Both files are generated automatically based on your <code>*.csolution.yml</code> file:</p>
-<p><img alt="Generate launch.json and tasks.json" src="images/configure-debug-run.png" /></p>
-<p>When creating a <strong>Target Set</strong> in the <a href="manage_settings.html"><strong>Manage Solution</strong></a> view and selecting a
-<strong>Debug Adapter</strong>, the information is stored in the <code>target-set:</code> node in the <code>*.csolution.yml</code> file (refer to the
-<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/YML-Input-Format/#target-set">CMSIS-Toolbox user's guide</a> for
-details on <code>target-set</code>).</p>
-<p>When you save the target set, the <strong>CMSIS Solution</strong> extension calls <code>cbuild setup</code> that generates the
-<code>*.cbuild-run.yml</code> file which contains the run and debug description of your solution. Using template files for the
-various debug adapters from the <a href="https://github.com/Open-CMSIS-Pack/debug-adapter-registry">Debug Adapter Registry</a> and
-taking the user inputs into account, the <strong>CMSIS Solution</strong> extension then generates the <code>launch.json</code> and <code>tasks.json</code>
-files.</p>
-<h3 id="debug-adapter-support">Debug adapter support</h3>
+<h2 id="debug-adapter-support">Debug adapter support</h2>
 <p>Keil Studio support various debug adapters and and GDB server implementations from different vendors:</p>
 <ul>
 <li>Most of the debug adapters (including ST-Link) are served by <a href="#pyocd">pyOCD</a> using the
   <a href="https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger">Arm CMSIS Debugger extension</a>.</li>
-<li>Segger <a href="#jlink-server">J-Link Server</a> is supported.</li>
+<li>Segger <a href="#j-link-server">J-Link Server</a> is supported.</li>
 <li><a href="#arm-debugger">Arm Debugger</a> is supported.</li>
 <li>Running on <a href="#arm-fvps">Arm FVPs</a> is possible.</li>
 <li>Arm <a href="#keil-uvision">Keil µVision</a> is supported (only on Windows).</li>
 </ul>
-<h3 id="use-debug-adapters">Use debug adapters</h3>
 <p>If you are using a third-party debug adapter, make sure that the latest drivers are installed on your machine and that
 the debug adapters are running the latest firmware. Set the <code>PATH</code> variable correctly.</p>
 <table>
@@ -584,7 +570,7 @@ the debug adapters are running the latest firmware. Set the <code>PATH</code> va
 <td>Make sure that the latest <a href="https://community.nxp.com/t5/MCUXpresso-General-Knowledge/MCU-Link-installation/ta-p/1180326">firmware is installed</a>.</td>
 </tr>
 <tr>
-<td>Raspberrry Pi Debugprobe</td>
+<td>Raspberry Pi Debugprobe</td>
 <td>Make sure that the latest <a href="https://github.com/raspberrypi/debugprobe/releases">firmware is installed</a>.</td>
 </tr>
 <tr>
@@ -597,6 +583,7 @@ the debug adapters are running the latest firmware. Set the <code>PATH</code> va
 </tr>
 </tbody>
 </table>
+<h3 id="select-debug-adapter">Select debug adapter</h3>
 <p>In the <strong>CMSIS view</strong>, open the <a href="manage_settings.html">Manage Solution dialog</a> and go to the
 <a href="manage_settings.html#debug-adapter">Debug Adapter section</a>. Select one of the debug adapters. Once selected, the
 following JSON files are created automatically:</p>
@@ -626,28 +613,71 @@ update. Change `"updateConfiguration"` to `"manual"` to control the settings and
 </code></pre>
 
 -->
-<h4 id="selecting-a-specific-debug-adapter">Selecting a specific debug adapter</h4>
-<div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<p>Explain how to select a probe in case multiple are connected.</p>
-</div>
+
+<h3 id="set-debug-adapter-id">Set debug adapter ID</h3>
+<p>In case you have multiple debug adapters connected to your computer, you can set the ID of the probe you wish to use in
+the <strong>CMSIS Solution</strong> extension settings.</p>
+<p>Open the settings by pressing <code>CTRL/CMD</code> + <code>,</code>.</p>
+<ol>
+<li>Enter <code>probe</code> in the search field.</li>
+<li>Select if you want to set the probe ID for your user or only for the current workspace (recommended).</li>
+<li>Enter the <code>Unique ID</code> you have retrieved using <a href="build_run.html#check-target-information">Target Information</a>.</li>
+</ol>
+<p><img alt="Set Probe ID" src="images/set-probe-id.png" /></p>
+<h2 id="configure-run-and-debug">Configure run and debug</h2>
+<p>In VS Code, you can integrate external tools via a <code>tasks.json</code> file. The debug configuration is managed via the
+<code>launch.json</code> file. Both files are generated automatically based on your <code>*.csolution.yml</code> file:</p>
+<p><img alt="Generate launch.json and tasks.json" src="images/configure-debug-run.png" /></p>
+<p>When creating a <strong>Target Set</strong> in the <a href="manage_settings.html"><strong>Manage Solution</strong></a> view and selecting a
+<strong>Debug Adapter</strong>, the information is stored in the <code>target-set:</code> node in the <code>*.csolution.yml</code> file (refer to the
+<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/YML-Input-Format/#target-set">CMSIS-Toolbox user's guide</a> for
+details on <code>target-set</code>).</p>
+<p>When you save the target set, the <strong>CMSIS Solution</strong> extension calls <code>cbuild setup</code> that generates the
+<code>*.cbuild-run.yml</code> file which contains the run and debug description of your solution. Using template files for the
+various debug adapters from the <a href="https://github.com/Open-CMSIS-Pack/debug-adapter-registry">Debug Adapter Registry</a> and
+taking the user inputs into account, the <strong>CMSIS Solution</strong> extension then generates the <code>launch.json</code> and <code>tasks.json</code>
+files.</p>
 <h3 id="pyocd">pyOCD</h3>
 <p>In the <a href="manage_settings.html">Manage Solution</a> dialog, select the one of the debug adapters named <strong>xyz@pyOCD</strong>:</p>
+<p>For the <strong>Debug Interface</strong>, you can:</p>
 <ul>
 <li>Set the maximum clock speed.</li>
 <li>Select the debug protocol (<code>SWD</code> or <code>JTAG</code>).</li>
-<li>Enable or disable the use of <strong>Telnet</strong> for semihosting.</li>
 </ul>
-<p><img alt="Using pyOCD for debugging" src="images/pyocd-as-debug-adapter.png" /></p>
-<h3 id="jlink-server">JLink Server</h3>
-<p>In the <a href="manage_settings.html">Manage Solution</a> dialog:</p>
+<p><img alt="pyOCD Debug Interface Settings" src="images/pyocd-as-debug-adapter.png" /></p>
+<p>For <strong>Telnet</strong>, you can:</p>
 <ul>
-<li>Select the <strong>JLink Server</strong> debug adapter.</li>
+<li>Enable or disable the use of <strong>Telnet</strong> for semihosting.</li>
+<li>Set the <strong>Telnet Mode</strong> to:<ul>
+<li>Telnet Server: if you want to connect to the target with a standalone Telnet Client application.</li>
+<li>Debug Console: redirects the output to the VS Code <strong>DEBUG CONSOLE</strong> panel.</li>
+<li>Serial Monitor: redirects the output to the <strong>SERIAL MONITOR</strong> extension.</li>
+<li>Text File: saves the output to a file in the project workspace.</li>
+<li>Disabled: does not redirect the serial output.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Using pyOCD with Telnet" src="images/pyocd-telnet.png" /></p>
+<h3 id="j-link-server">J-Link Server</h3>
+<p>In the <a href="manage_settings.html">Manage Solution</a> dialog select <strong>J-Link Server</strong>.</p>
+<p>For the <strong>Debug Interface</strong>, you can:</p>
+<ul>
 <li>Set the maximum clock speed.</li>
 <li>Select the debug protocol (<code>SWD</code> or <code>JTAG</code>).</li>
-<li>Enable or disable the use of <strong>Telnet</strong> for semihosting.</li>
 </ul>
 <p><img alt="JLink Server as debug adapter" src="images/j-link-debug-adapter.png" /></p>
+<p>For <strong>Telnet</strong>, you can:</p>
+<ul>
+<li>Enable or disable the use of <strong>Telnet</strong> for semihosting.</li>
+<li>Set the <strong>Telnet Mode</strong> to:<ul>
+<li>Telnet Server: if you want to connect to the target with a standalone Telnet Client application.</li>
+<li>Debug Console: redirects the output to the VS Code <strong>DEBUG CONSOLE</strong> panel.</li>
+<li>Serial Monitor: redirects the output to the <strong>SERIAL MONITOR</strong> extension.</li>
+<li>Disabled: does not redirect the serial output.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Using J-Link with Telnet" src="images/jlink-telnet.png" /></p>
 <h3 id="arm-debugger">Arm Debugger</h3>
 <p>You can use the <a href="https://developer.arm.com/Tools%20and%20Software/Arm%20Debugger">Arm Debugger</a> with Keil Studio.</p>
 <h4 id="prerequisites">Prerequisites</h4>

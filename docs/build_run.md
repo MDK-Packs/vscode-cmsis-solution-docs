@@ -66,7 +66,7 @@ In the **Terminal**, the result of the `pyocd list` command is shown:
     - Various debug adapters are supported. Select them using the [manage solutions](./manage_settings.md#debug-adapter) dialog.
       The [configure run and debug](./debug.md#configure-run-and-debug) chapter explains the details.
     - If your debug adapter is not shown, make sure that all
-      [drivers are installed](./debug.md#use-debug-adapters) and that the target is connected to the PC.
+      [drivers are installed](./debug.md#debug-adapter-support) and that the target is connected to the PC.
 
 ### Download and run the application
 
