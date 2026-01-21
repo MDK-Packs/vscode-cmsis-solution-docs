@@ -102,3 +102,18 @@ If you rely on **LL** for your peripherals, select/add an unused peripheral:
 ![Make STM32CubeMX generate the cgen.yml file](./images/cubemx-cgen-hal.png)
 
 Now, the **GENERATE CODE** button creates/writes the `*.cgen.yml` file.
+
+## Change variable display radix
+
+In the **Watch** and **Live Watch** views, you can change the radix of variables by using the
+`set output-radix base` command in the **Debug Console**. For example,
+
+```txt
+> set output-radix 16
+```
+
+changes the radix to hexadecimal. Supported choices for base are decimal `8`, `10`, or `16`.
+
+!!! NOTE
+    - The `>` is part of the entered command instructing the console processing to use GDB CLI.
+    - Refer to [Numbers](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Numbers.html) for more information.
