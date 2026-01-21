@@ -63,13 +63,13 @@ Depending on the file and the context, various icons may appear:
 ### Configuration Wizard
 
 [Configuration Wizard annotations](https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/configWizard.html)
-help creating GUI-like elements in IDEs for configuration files. Using a GUI-like approach makes it easier for the user
-to check and adapt configuration files to the application needs.
+enable GUI-like elements in IDEs for configuration source files. This graphical approach makes it easier for users
+to review and edit configuration settings as required by the application.
 
-For files containing configuration wizard annotations, open the GUI view by using the **Open Preview** button
+For files containing configuration wizard annotations, open the graphical view by pressing the **Open Preview** button
 ![Open Preview](./images/open-conf-wiz-view-icon.png) in the top right corner of the file window.
 
-The view will be opened next to the original source file. You can switch back using the **Show Source** button
+The view will be opened next to the original source file. You can switch back pressing the **Show Source** button
 ![Open source file view](./images/open-source-file-view-icon.png).
 
 ![RTE_Device.h file in configuration wizard view](./images/rte-devce-config-wiz-view.png)
