@@ -9,7 +9,7 @@ it implements a powerful embedded development environment.
 The GUI consists of these views:
 
 | View | Description |
-|:----:|-------------|
+|:----:|:------------|
 | ![Explorer view](./images/ExplorerView.png) | [**Explorer** view](https://code.visualstudio.com/docs/getstarted/userinterface#_explorer-view) lists all local files. |
 | ![Search view](./images/SearchView.png) | **Search** view enables [search/replace](https://code.visualstudio.com/docs/editing/codebasics#_search-across-files) across all files. |
 | ![Source Control view](./images/SourceControlView.png) | [**Source Control** view](https://code.visualstudio.com/docs/sourcecontrol/overview) allows you to work with git. |
@@ -41,20 +41,20 @@ information. The main area of the **CMSIS** view shows:
 ### Actions available through the **CMSIS** view
 
 | Action | Description |
-|:------:|-------------|
+|:------:|:------------|
 | ![Build solution](./images/build-icon.png) | [**Build solution**](./build_run.md) calls the compiler toolchain and builds the solution. |
 | ![Load and Run Application](./images/run-icon.png) | [**Load & Run application**](./build_run.md#load-and-run) flashes the binary onto the target and starts the application. |
 | ![Load & Debug application](./images/debug-icon.png) | [**Load & Debug application**](./debug.md) flashes the binary onto the target and starts a debug session. |
 | ![Open csolution.yml file](./images/openFile.png) | **Open csolution.yml file** opens the CMSIS solution YML file for editing. |
-| ![Manage Solution Settings](./images/ManageSWComonents.png) | [**Manage Solution Settings**](./manage_settings.md) allows you to manage the solution settings. |
-| ![Views and more actions](./images/more-actions-icon.png) | Shows further views and more actions. |
+| ![Manage Solution Settings](./images/settings-cog.png) | Open the [**Manage Solution**](./manage_settings.md) view to configure project and debug settings. |
+| ![Views and more actions](./images/more-actions-icon.png) | Show further [commands](#available-commands). |
 
 ### Main area icons
 
 Depending on the file and the context, various icons may appear:
 
 | Action | Description |
-|:------:|-------------|
+|:------:|:------------|
 | ![clangd information active](./images/clangdInfo.png) | IntelliSense is active for this cproject file. |
 | ![Open file](./images/openFile.png) | Open the file. |
 | ![Manage software components](./images/ManageSWComonents.png) | Manage the software components of the cproject file. |
@@ -76,18 +76,17 @@ The view will be opened next to the original source file. You can switch back pr
 
 ## Status bar
 
-The VS Code status bar displays information about the status of your development environment and the project. The number of extensions installed might vary.
+The VS Code status bar displays information about the status of your development environment and the project.
 
-- Status message of the clangd extension (used for IntelliSense).
+- Status message of the clangd extension that provides smart features.
 
-- You can inspect errors and warnings for the active project when you move your cursor over the **Target Set** in the
-  status bar. The indicator is red for errors and yellow in case of warnings. Click the indicator to open the
-  **Output** tab for the **CMSIS Solution** category. If you previously closed the **Manage Solution** view, then this
-  action also re-opens the view.  
-  ![Target Set errors and warnings](./images/target-set-popup.png)
+- You can inspect errors and warnings for the active csolution project when you move the cursor over the **Target Set** in the
+  status bar. The indicator is red for errors and yellow for warnings. Click the indicator to open the
+  **Output - CMSIS Solution** [panel](https://code.visualstudio.com/api/ux-guidelines/panel) and the [**Manage Solution**](./manage_settings.md) view.<br/>
+  ![Target Set errors and warnings](./images/target-set-popup.png "Target Set")
 
-- The **Arm Tools Environment Manager** extension shows information about the tools installed. Move your mouse over **Arm Tools** to review the list. Click **Arm Tools** to get more options.
-  ![Arm Tools](./images/arm-tools.png)
+- The [**Arm Tools Environment Manager**](https://marketplace.visualstudio.com/items?itemName=Arm.environment-manager) extension downloads, installs, and manages software development tools. Move your mouse over **Arm Tools** to review the current list of installed tools. Click **Arm Tools** to get more options.<br/>
+  ![Arm Tools](./images/arm-tools.png "Arm Tools")
 
 - If you are using licensed Arm tools, the **active license** displays. Click the active license to manage it.
 
@@ -119,7 +118,7 @@ Depending on the target device (number of cores etc.), a similar run and debug c
 The icons enable access to:
 
 | Icon | Action | Description |
-|:----:|--------|-------------|
+|:----:|:-------|:------------|
 | ![Continue](./images/debug-continue.png) | Continue | Resume normal program execution (up to the next breakpoint). |
 | ![Pause](./images/debug-pause.png) | Pause | Inspect code executing at the current location. |
 | ![Step over](./images/debug-step-over.png) | Step over | Execute the next statement as a single command without inspecting or following its component steps. |
@@ -145,29 +144,29 @@ You can add expressions to the **LIVE WATCH** by:
 -->
 ## Available commands
 
-You can access commands to manage your solution and the projects it includes in the following ways:
+You can access commands to manage your solution and the related projects in the following ways:
 
-- From the **CMSIS** view.
-
-- When you right-click the `*.csolution.yml` file from the **Explorer** view.
-
-- When you click the [Context Set status bar item](#status-bar).
-
-- When you press Ctrl+Shift+P (Windows and Linux) or Cmd+Shift+P (macOS) to open the Command Palette.
+- From the [**CMSIS** view](.
+- With right-click to the `*.csolution.yml` file in the [**Explorer**](https://code.visualstudio.com/docs/getstarted/userinterface#_explorer-view) view.
+- With the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) that opens with Ctrl+Shift+P (Windows and Linux) or Cmd+Shift+P (macOS).
 
 | Command | Description |
-|---------|-------------|
-| [Create a Solution](./create_app.md) | Create a new *csolution project*.  |
+|:--------|:------------|
+| Open Solution in Workspace...            | If you have several solutions in your workspace, switch between solutions and select the active solution |
+| [Create Solution...](./create_app.md)    | Create a new *csolution project*.  |
+| [Convert a µVision project to CMSIS solution...](./importuv.md) | Convert uvprojx files to *csolution project* format |
+| Close Solution                           | Close the current active solution |
+| [Manage Solution Settings](./manage_settings.md) | Configure the target set (active target, projects, images, and debug adapter) for the solution |
 | [Configure Solution](./create_app.md#configure-a-solution) | Set a compiler and add software layers |
-| [Manage Solution Settings](./manage_settings.md) | Configure the build context and debug setup. |
 | [Manage Software Components](./create_app.md#software-components) | Review, add, or remove software components |
-| Run Configuration Generator                            | Open a configuration tools such as CubeMX |
-| [Build solution](./build_run.md) | Build the solution with the current context set |
-| Rebuild solution                         | Rebuild the solution with the current context set |
-| [Debug](./debug.md)                      | Debug the solution with the current context set |
-| [Run](./build_run.md#load-and-run)      | Run the solution on your target |
-| Focus on Solution View                   | Open the CMSIS view |
-| Select Active Solution from workspace           | If you have several solutions in your workspace, switch between solutions and select the active solution |
-| [Convert µVision project to CMSIS solution](./importuv.md) | Convert uvprojx files to *csolution project* format |
-| Refresh (reload packs, update RTE)       | Reload information from all installed packs and run `cbuild setup update-rte` |
+| [Build solution](./build_run.md)         | Build the solution with the current target set |
+| Rebuild solution                         | Rebuild the solution with the current target set |
 | Clean all out and tmp directories        | Clean all out and tmp directories for the active solution |
+| Refresh (reload packs, update RTE)       | Reload information from all installed packs and run `cbuild setup update-rte` |
+| [Load & Run application](./build_run.md#load-and-run)       | Load the application to target and run it with active GDB server ([Debugger](./debug.md) can be attached) |
+| [Load & Debug application](./debug.md)                      | Load the application to target and start the debugger |
+| Erase target device            | Erase the target device |
+| Load application to target     | Load the application to target |
+| Run application on target      | Run the current application in the target with active GDB server ([Debugger](./debug.md) can be attached) |
+| Target Information             | Show information about debug adapter and target |
+| Focus on Solution View                   | Open the [CMSIS view](#cmsis-view) |
