@@ -353,36 +353,16 @@ The `start-pname` indicates the processor that starts first and boots the system
 > - The SEGGER JLink GDB server uses a _launch_ command to connect to a running processor whereas other GDB servers use an _attach_ command.
 > - A [Disassembly View](#disassembly) opens only for a selected processor; otherwise the command is shown as disabled.
 
-## Configure run and debug
-
-In VS Code, you can integrate external tools via a `tasks.json` file. The debug configuration is managed via the
-`launch.json` file. Both files are generated automatically based on your `*.csolution.yml` file:
-
-![Generate launch.json and tasks.json](./images/configure-debug-run.png)
-
-When creating a **Target Set** in the [**Manage Solution**](./manage_settings.md) view and selecting a
-**Debug Adapter**, the information is stored in the `target-set:` node in the `*.csolution.yml` file (refer to the
-[CMSIS-Toolbox user's guide](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-Input-Format/#target-set) for
-details on `target-set`).
-
-When you save the target set, the **CMSIS Solution** extension calls `cbuild setup` that generates the
-`*.cbuild-run.yml` file which contains the run and debug description of your solution. Using template files for the
-various debug adapters from the [Debug Adapter Registry](https://github.com/Open-CMSIS-Pack/debug-adapter-registry) and
-taking the user inputs into account, the **CMSIS Solution** extension then generates the `launch.json` and `tasks.json`
-files.
-
-### Debug adapter support
+## Debug adapter support
 
 Keil Studio support various debug adapters and and GDB server implementations from different vendors:
 
 - Most of the debug adapters (including ST-Link) are served by [pyOCD](#pyocd) using the
   [Arm CMSIS Debugger extension](https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger).
-- Segger [J-Link Server](#jlink-server) is supported.
+- Segger [J-Link Server](#j-link-server) is supported.
 - [Arm Debugger](#arm-debugger) is supported.
 - Running on [Arm FVPs](#arm-fvps) is possible.
 - Arm [Keil µVision](#keil-uvision) is supported (only on Windows).
-
-### Use debug adapters
 
 If you are using a third-party debug adapter, make sure that the latest drivers are installed on your machine and that
 the debug adapters are running the latest firmware. Set the `PATH` variable correctly.
@@ -394,9 +374,11 @@ the debug adapters are running the latest firmware. Set the `PATH` variable corr
 | Microchip PICKit Basic | Use the Python utility [pycmsisdapswitcher](https://pypi.org/project/pycmsisdapswitcher/) to switch the firmware to a CMSIS-DAP v2 implementation. |
 | Nuvoton NuLink | Make sure that the latest [firmware is installed](https://github.com/OpenNuvoton/Nuvoton_Tools/blob/master/Latest_NuLink_Firmware/README.md). |
 | NXP MCU-Link | Make sure that the latest [firmware is installed](https://community.nxp.com/t5/MCUXpresso-General-Knowledge/MCU-Link-installation/ta-p/1180326). |
-| Raspberrry Pi Debugprobe | Make sure that the latest [firmware is installed](https://github.com/raspberrypi/debugprobe/releases). |
+| Raspberry Pi Debugprobe | Make sure that the latest [firmware is installed](https://github.com/raspberrypi/debugprobe/releases). |
 | SEGGER J-Link | For J-Link support, visit [J-Link/J-Trace Downloads](https://www.segger.com/downloads/jlink/). Set the `PATH` variable to the `bin` directory of the installation. |
 | STMicroelectronics ST-Link | For ST-LINK/V2 and ST-LINK/V2-1 support on Windows, download the USB driver here: [STSW-LINK009](https://www.st.com/en/development-tools/stsw-link009.html). |
+
+### Select debug adapter
 
 In the **CMSIS view**, open the [Manage Solution dialog](./manage_settings.md) and go to the
 [Debug Adapter section](./manage_settings.md#debug-adapter). Select one of the debug adapters. Once selected, the
@@ -425,31 +407,82 @@ update. Change `"updateConfiguration"` to `"manual"` to control the settings and
                 "updateConfiguration": "manual"     // without auto, this section is not modified
 ```
 -->
-#### Selecting a specific debug adapter
 
-!!! ToDo
-    Explain how to select a probe in case multiple are connected.
+### Set debug adapter ID
+
+In case you have multiple debug adapters connected to your computer, you can set the ID of the probe you wish to use in
+the **CMSIS Solution** extension settings.
+
+Open the settings by pressing `CTRL/CMD` + `,`.
+
+1. Enter `probe` in the search field.
+2. Select if you want to set the probe ID for your user or only for the current workspace (recommended).
+3. Enter the `Unique ID` you have retrieved using [Target Information](./build_run.md#check-target-information).
+
+![Set Probe ID](./images/set-probe-id.png)
+
+## Configure run and debug
+
+In VS Code, you can integrate external tools via a `tasks.json` file. The debug configuration is managed via the
+`launch.json` file. Both files are generated automatically based on your `*.csolution.yml` file:
+
+![Generate launch.json and tasks.json](./images/configure-debug-run.png)
+
+When creating a **Target Set** in the [**Manage Solution**](./manage_settings.md) view and selecting a
+**Debug Adapter**, the information is stored in the `target-set:` node in the `*.csolution.yml` file (refer to the
+[CMSIS-Toolbox user's guide](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-Input-Format/#target-set) for
+details on `target-set`).
+
+When you save the target set, the **CMSIS Solution** extension calls `cbuild setup` that generates the
+`*.cbuild-run.yml` file which contains the run and debug description of your solution. Using template files for the
+various debug adapters from the [Debug Adapter Registry](https://github.com/Open-CMSIS-Pack/debug-adapter-registry) and
+taking the user inputs into account, the **CMSIS Solution** extension then generates the `launch.json` and `tasks.json`
+files.
 
 ### pyOCD
 
 In the [Manage Solution](./manage_settings.md) dialog, select the one of the debug adapters named **xyz@pyOCD**:
 
+For the **Debug Interface**, you can:
+
 - Set the maximum clock speed.
 - Select the debug protocol (`SWD` or `JTAG`).
+
+![pyOCD Debug Interface Settings](./images/pyocd-as-debug-adapter.png)
+
+For **Telnet**, you can:
+
 - Enable or disable the use of **Telnet** for semihosting.
+- Set the **Telnet Mode** to:
+    - Telnet Server: if you want to connect to the target with a standalone Telnet Client application.
+    - Debug Console: redirects the output to the VS Code **DEBUG CONSOLE** panel.
+    - Serial Monitor: redirects the output to the **SERIAL MONITOR** extension.
+    - Text File: saves the output to a file in the project workspace.
+    - Disabled: does not redirect the serial output.
 
-![Using pyOCD for debugging](./images/pyocd-as-debug-adapter.png)
+![Using pyOCD with Telnet](./images/pyocd-telnet.png)
 
-### JLink Server
+### J-Link Server
 
-In the [Manage Solution](./manage_settings.md) dialog:
+In the [Manage Solution](./manage_settings.md) dialog select **J-Link Server**.
 
-- Select the **JLink Server** debug adapter.
+For the **Debug Interface**, you can:
+
 - Set the maximum clock speed.
 - Select the debug protocol (`SWD` or `JTAG`).
-- Enable or disable the use of **Telnet** for semihosting.
 
 ![JLink Server as debug adapter](./images/j-link-debug-adapter.png)
+
+For **Telnet**, you can:
+
+- Enable or disable the use of **Telnet** for semihosting.
+- Set the **Telnet Mode** to:
+    - Telnet Server: if you want to connect to the target with a standalone Telnet Client application.
+    - Debug Console: redirects the output to the VS Code **DEBUG CONSOLE** panel.
+    - Serial Monitor: redirects the output to the **SERIAL MONITOR** extension.
+    - Disabled: does not redirect the serial output.
+
+![Using J-Link with Telnet](./images/jlink-telnet.png)
 
 ### Arm Debugger
 
