@@ -38,7 +38,7 @@ The IDE:
 
 - [**Tips and tricks**](./tipsandtricks.md) provides tips and tricks to help you solve specific issues.
 
-- [**Read further**](./read_further.md) contains links to supporting documentation, videos, and webinars.
+- [**Related documentation**](./reldocs.md) contains links to supporting documentation, videos, and webinars.
 
 - [**Features and roadmap**](./featureroadmap.md) presents the implemented features and our current feature roadmap.
 

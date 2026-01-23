@@ -1,4 +1,4 @@
-# Read further
+# Related documentation
 
 These valuable resources help you getting further knowledge and insights into Keil MDK (its editions, licensing, legacy
 tools and example repositories).
