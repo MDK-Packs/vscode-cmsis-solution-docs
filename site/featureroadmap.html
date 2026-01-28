@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Features and roadmap - Arm Keil Studio for VS Code</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Features and roadmap";
+        var mkdocs_page_input_path = "featureroadmap.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
+        </a>
+        <div class="version">
+          1.64.0
+        </div><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="userinterface.html">User interface</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="create_app.html">Work with CMSIS solutions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Work with Zephyr applications</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="manage_settings.html">Manage solutions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="build_run.html">Build and run</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="importuv.html">Import uVision projects</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="runexternal.html">Run external tools</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips and tricks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="read_further.html">Read further</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Features and roadmap</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#project-management">Project management</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#project-creation-and-organization">Project creation and organization</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#build-system">Build system</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#build-output-and-feedback">Build output and feedback</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#integration-and-extensibility">Integration and extensibility</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#compiler-support">Compiler support</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#debug">Debug</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#core-debug-control">Core debug control</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#register-and-memory-inspection">Register and memory inspection</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#source-level-debugging">Source-level debugging</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#real-time-and-trace-features">Real-time and trace features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#component-viewer-and-event-recorder">Component Viewer and Event Recorder</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rtos-awareness">RTOS awareness</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#analysis-and-visualization">Analysis and visualization</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simulation">Simulation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#debug-probe-support">Debug probe support</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Arm Keil Studio for VS Code</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Features and roadmap</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/main/docs/featureroadmap.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="roadmap">Roadmap</h1>
+<p>For the following tables, this legend applies: &#9989; available, &#10060; not planned</p>
+<h2 id="project-management">Project management</h2>
+<h3 id="project-creation-and-organization">Project creation and organization</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project creation</td>
+<td>Create, open, and manage CMSIS solution projects</td>
+<td>&#9989;/<a href="create_app.html">link</a></td>
+</tr>
+<tr>
+<td>Multi-project solution</td>
+<td>Manage multiple related projects within a single CMSIS solution</td>
+<td>&#9989;/<a href="create_app.html">link</a></td>
+</tr>
+<tr>
+<td>Multi-solution workspace</td>
+<td>Manage multiple solutions within one workspace</td>
+<td>&#9989; (VS Code built-in)</td>
+</tr>
+<tr>
+<td>Target types</td>
+<td>Multiple targets (e.g., HW, models) within one solution</td>
+<td>&#9989;/<a href="manage_settings.html">link</a></td>
+</tr>
+<tr>
+<td>Build types</td>
+<td>Multiple build types (e.g., Debug, Release) within one solution</td>
+<td>&#9989;/<a href="manage_settings.html">link</a></td>
+</tr>
+<tr>
+<td>File groups</td>
+<td>Logical grouping of source, header, and library files</td>
+<td>&#9989;/<a href="userinterface.html#cmsis-view">link</a></td>
+</tr>
+<tr>
+<td>Layer support</td>
+<td>Easily retarget hardware connections</td>
+<td>&#9989;/<a href="create_app.html#configuration">link</a></td>
+</tr>
+<tr>
+<td>Software components</td>
+<td>Manage software components on a project/layer level</td>
+<td>&#9989;/<a href="create_app.html#software-components">link</a></td>
+</tr>
+<tr>
+<td>CMSIS-Packs</td>
+<td>Manage CMSIS-Packs and versions graphically</td>
+<td>Early 2026</td>
+</tr>
+<tr>
+<td>Zephyr project support</td>
+<td>Build and debug Zephyr-based applications</td>
+<td>&#9989;/<a href="zephyr.html">link</a></td>
+</tr>
+<tr>
+<td>Configuration Wizard</td>
+<td>GUI-assisted generation and modification of configuration code</td>
+<td>&#9989;/<a href="userinterface.html#configuration-wizard">link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="build-system">Build system</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Integrated build</td>
+<td>Based on CMSIS-Toolbox</td>
+<td>&#9989;/<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/">link</a></td>
+</tr>
+<tr>
+<td>Incremental build</td>
+<td>Dependency tracking to rebuild only changed files</td>
+<td>&#9989;/<a href="build_run.html">link</a></td>
+</tr>
+<tr>
+<td>Toolchain options</td>
+<td>Per-target configuration of compiler, assembler, linker, and debugger</td>
+<td>&#9989;</td>
+</tr>
+<tr>
+<td>west support</td>
+<td>Build Zephyr projects natively</td>
+<td>&#9989;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="build-output-and-feedback">Build output and feedback</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Map file</td>
+<td>Memory map of the image</td>
+<td>&#9989;</td>
+</tr>
+<tr>
+<td>Build log</td>
+<td>Detailed output of errors, warnings, and build status</td>
+<td>&#9989;/<a href="build_run.html#build-output">link</a></td>
+</tr>
+<tr>
+<td>Error navigation</td>
+<td>Direct navigation from build messages to source code</td>
+<td>&#9989;/<a href="build_run.html#build-output">link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="integration-and-extensibility">Integration and extensibility</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>External tools</td>
+<td>Invoke third-party tools via configurable commands</td>
+<td>&#9989;/<a href="runexternal.html">link</a></td>
+</tr>
+<tr>
+<td>Version control</td>
+<td>Excellent integration with Git</td>
+<td>&#9989; (VS Code built-in)</td>
+</tr>
+<tr>
+<td>AI coding agents</td>
+<td>Integration with third-party coding agents</td>
+<td>&#9989; (via VS Code extensions)</td>
+</tr>
+<tr>
+<td>Additional extensions</td>
+<td>Use third-party extensions with Keil Studio</td>
+<td>&#9989; (VS Code built-in)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="compiler-support">Compiler support</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arm Compiler for Embedded (AC6)</td>
+<td>Professional toolchain from Arm</td>
+<td>&#9989;</td>
+</tr>
+<tr>
+<td>Arm Toolchain for Embedded (ATfE)</td>
+<td>Open-source, LLVM-based toolchain from Arm</td>
+<td>&#9989;</td>
+</tr>
+<tr>
+<td>Arm GNU Toolchain (GCC)</td>
+<td>Open-source, GCC-based toolchain from Arm</td>
+<td>&#9989;</td>
+</tr>
+<tr>
+<td>Clangd support</td>
+<td>For comprehensive code completion</td>
+<td>&#9989;</td>
+</tr>
+<tr>
+<td>Library generation</td>
+<td>Generate libraries using library manager</td>
+<td>&#9989;</td>
+</tr>
+<tr>
+<td>Compiler and assembler control options</td>
+<td>Interface for configuring compiler flags and options</td>
+<td>&#9989;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="debug">Debug</h2>
+<h3 id="core-debug-control">Core debug control</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Debug Features</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Run control</td>
+<td>Run, halt, reset, step into, step over, step out</td>
+<td>&#9989;/<a href="debug.html#debug-toolbar">link</a></td>
+</tr>
+<tr>
+<td>Breakpoints</td>
+<td>Various types of breakpoints</td>
+<td>&#9989;/<a href="debug.html#breakpoints">link</a></td>
+</tr>
+<tr>
+<td>Watchpoints</td>
+<td>Data read/write/access breakpoints (DWT)</td>
+<td>Late 2026</td>
+</tr>
+<tr>
+<td>Multi-core</td>
+<td>Single GUI for multiple cores in a device</td>
+<td>&#9989;/<a href="debug.html#multi-core-debug">link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="register-and-memory-inspection">Register and memory inspection</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Debug Features</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core registers</td>
+<td>R0–R15, PSR, MSP, PSP, CONTROL</td>
+<td>&#9989;/<a href="debug.html#variables">link</a></td>
+</tr>
+<tr>
+<td>Core peripheral registers</td>
+<td>NVIC, SysTick, MPU</td>
+<td>Early 2026</td>
+</tr>
+<tr>
+<td>Peripheral registers</td>
+<td>CMSIS-SVD decoded peripheral views</td>
+<td>&#9989;/<a href="debug.html#peripherals">link</a></td>
+</tr>
+<tr>
+<td>Memory inspection</td>
+<td>Configurable memory views</td>
+<td>&#9989;/<a href="debug.html#memory-inspector">link</a></td>
+</tr>
+<tr>
+<td>Memory inspection</td>
+<td>Memory access breakpoints</td>
+<td>&#9989;/<a href="debug.html#memory-inspector">link</a></td>
+</tr>
+<tr>
+<td>Memory inspection</td>
+<td>Memory window live update</td>
+<td>&#9989;/<a href="debug.html#memory-inspector">link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="source-level-debugging">Source-level debugging</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Debug Features</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stack analysis</td>
+<td>Call stack view</td>
+<td>&#9989;/<a href="debug.html#call-stack">link</a></td>
+</tr>
+<tr>
+<td>Stack analysis</td>
+<td>Local variable inspection</td>
+<td>&#9989;/<a href="debug.html#variables">link</a></td>
+</tr>
+<tr>
+<td>Disassembly</td>
+<td>Disassembly window</td>
+<td>&#9989;/<a href="debug.html#disassembly">link</a></td>
+</tr>
+<tr>
+<td>Disassembly</td>
+<td>Sync Disassembly and source</td>
+<td>Late 2026</td>
+</tr>
+<tr>
+<td>Variable inspection</td>
+<td>Inline variable display</td>
+<td>&#9989;/<a href="debug.html#variables">link</a></td>
+</tr>
+<tr>
+<td>Variable inspection</td>
+<td>Variable hover inspection</td>
+<td>&#9989;/<a href="debug.html#variables">link</a></td>
+</tr>
+<tr>
+<td>Execution flow</td>
+<td>Function call trace</td>
+<td>tbd</td>
+</tr>
+</tbody>
+</table>
+<h3 id="real-time-and-trace-features">Real-time and trace features</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Debug Features</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Serial wire output</td>
+<td>ITM <code>printf</code>-style output</td>
+<td>Early 2026</td>
+</tr>
+<tr>
+<td>Variable tracing</td>
+<td>Real-time data watch</td>
+<td>&#9989;/<a href="debug.html#watch">link</a></td>
+</tr>
+<tr>
+<td>Event tracing</td>
+<td>Exception trace</td>
+<td>Mid 2026</td>
+</tr>
+<tr>
+<td>Event tracing</td>
+<td>Interrupt trace</td>
+<td>Mid 2026</td>
+</tr>
+<tr>
+<td>Sampling</td>
+<td>CPU time</td>
+<td>&#9989;/<a href="debug.html#cpu-time">link</a></td>
+</tr>
+<tr>
+<td>Embedded trace buffer</td>
+<td>ETB instruction trace</td>
+<td>Mid 2026</td>
+</tr>
+<tr>
+<td>Micro trace buffer</td>
+<td>MTB instruction trace</td>
+<td>Late 2026</td>
+</tr>
+<tr>
+<td>Instruction trace</td>
+<td>Embedded trace macrocell</td>
+<td>&#10060;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="component-viewer-and-event-recorder">Component Viewer and Event Recorder</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Debug Features</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Component Viewer</td>
+<td>Display and live update</td>
+<td>Early 2026</td>
+</tr>
+<tr>
+<td>Event Recorder</td>
+<td>Show event information</td>
+<td>Mid 2026</td>
+</tr>
+<tr>
+<td>Event Recorder</td>
+<td>Save/log</td>
+<td>Mid 2026</td>
+</tr>
+<tr>
+<td>Event Recorder</td>
+<td>Event filtering</td>
+<td>Mid 2026</td>
+</tr>
+<tr>
+<td>Event Recorder</td>
+<td>Event statistics</td>
+<td>Mid 2026</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rtos-awareness">RTOS awareness</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Debug Features</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RTOS support</td>
+<td>Keil RTX5, FreeRTOS, Zephyr awareness</td>
+<td>&#9989;/<a href="debug.html#rtos-views">link</a></td>
+</tr>
+<tr>
+<td>Thread visibility</td>
+<td>Thread list</td>
+<td>&#9989;/<a href="debug.html#rtos-views">link</a></td>
+</tr>
+<tr>
+<td>Thread visibility</td>
+<td>Thread state display</td>
+<td>&#9989;/<a href="debug.html#rtos-views">link</a></td>
+</tr>
+<tr>
+<td>Stack usage</td>
+<td>Per-task stack usage</td>
+<td>&#9989;/<a href="debug.html#rtos-views">link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="analysis-and-visualization">Analysis and visualization</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Debug Features</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logic Analyzer</td>
+<td>Graphical variable and signal display</td>
+<td>Late 2026</td>
+</tr>
+<tr>
+<td>System Analyzer</td>
+<td>Data trace, core clock, ITM, current/voltage</td>
+<td>Late 2026</td>
+</tr>
+<tr>
+<td>Serial monitor</td>
+<td>Communication via serial/TCP ports</td>
+<td>&#9989;/<a href="debug.html#serial-monitor">link</a></td>
+</tr>
+<tr>
+<td>Performance analysis</td>
+<td>Execution time analysis</td>
+<td>&#10060;</td>
+</tr>
+<tr>
+<td>Performance analysis</td>
+<td>Function profiling</td>
+<td>&#10060;</td>
+</tr>
+<tr>
+<td>Execution statistics</td>
+<td>Code coverage</td>
+<td>&#10060;</td>
+</tr>
+<tr>
+<td>Execution statistics</td>
+<td>Timing statistics</td>
+<td>only via Event Recorder</td>
+</tr>
+</tbody>
+</table>
+<h3 id="simulation">Simulation</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Debug Features</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fast models (FVPs)</td>
+<td>Instruction-accurate CPU simulation</td>
+<td>&#9989;/<a href="debug.html#arm-fvps">link</a></td>
+</tr>
+<tr>
+<td>Debug FVPs</td>
+<td>Debugging on FVPs</td>
+<td>Mid 2026</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>FVP simulation models are not available in the MDK-Essential edition.</p>
+</div>
+<h3 id="debug-probe-support">Debug probe support</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Debug Features</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Debug probes</td>
+<td>ULINK2/UILNKplus support</td>
+<td>&#9989;/<a href="debug.html#debug-adapter-support">link</a></td>
+</tr>
+<tr>
+<td>Debug probes</td>
+<td>UILNKpro support</td>
+<td>Late 2026</td>
+</tr>
+<tr>
+<td>Debug probes</td>
+<td>CMSIS-DAP support</td>
+<td>&#9989;/<a href="debug.html#debug-adapter-support">link</a></td>
+</tr>
+<tr>
+<td>Debug probes</td>
+<td>J-Link support</td>
+<td>&#9989;/<a href="debug.html#debug-adapter-support">link</a></td>
+</tr>
+<tr>
+<td>Debug interfaces</td>
+<td>SWD</td>
+<td>&#9989;</td>
+</tr>
+<tr>
+<td>Debug interfaces</td>
+<td>JTAG</td>
+<td>&#9989;</td>
+</tr>
+<tr>
+<td>Debug interfaces</td>
+<td>Target detection</td>
+<td>&#9989;/<a href="build_run.html#check-target-information">link</a></td>
+</tr>
+<tr>
+<td>Debug interfaces</td>
+<td>Connect configuration</td>
+<td>Early 2026</td>
+</tr>
+<tr>
+<td>Flash programming</td>
+<td>Flash download</td>
+<td>&#9989;/<a href="build_run.html#load-and-run">link</a></td>
+</tr>
+<tr>
+<td>Flash programming</td>
+<td>Flash verification</td>
+<td>Mid 2026</td>
+</tr>
+<tr>
+<td>Flash programming</td>
+<td>Configuration</td>
+<td>Late 2026</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="read_further.html" class="btn btn-neutral float-left" title="Read further"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="read_further.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

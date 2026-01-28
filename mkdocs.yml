@@ -16,6 +16,8 @@ nav:
     - Import uVision projects: importuv.md
     - Run external tools: runexternal.md
     - Tips and tricks: tipsandtricks.md
+    - Related documentation: reldocs.md
+    - Features and roadmap: featureroadmap.md
 theme:
   name: readthedocs
 markdown_extensions:
