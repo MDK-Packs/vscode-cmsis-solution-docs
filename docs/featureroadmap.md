@@ -20,7 +20,7 @@ For the following tables, this legend applies:
 | File groups              | Logical grouping of source, header, and library files           | &#128994;/[link](./userinterface.md#cmsis-view)           |
 | Layer support            | Easily retarget hardware connections                            | &#128994;/[link](./create_app.md#configuration)           |
 | Software components      | Manage software components on a project/layer level             | &#128994;/[link](./create_app.md#software-components)     |
-| Manage packs             | Manage CMSIS-Packs and versions graphically                     | Early 2026                                              |
+| Manage packs             | Manage CMSIS-Packs and versions graphically                     | &#128993;                                                 |
 | Zephyr project support   | Build and debug Zephyr-based applications                       | &#128994;/[link](./zephyr.md)                             |
 | Configuration Wizard     | GUI-assisted generation and modification of configuration code  | &#128994;/[link](./userinterface.md#configuration-wizard) |
 
