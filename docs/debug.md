@@ -439,6 +439,34 @@ various debug adapters from the [Debug Adapter Registry](https://github.com/Open
 taking the user inputs into account, the **CMSIS Solution** extension then generates the `launch.json` and `tasks.json`
 files.
 
+### Custom `launch.json` and `tasks.json` settings
+
+User defined launch configurations and tasks can be added directly into the workspace files. When updating these
+files custom or modified entries are kept untouched if detected:
+
+- `.vscode/launch.json`
+  Each auto-generated configuration has an additional property `cmsis.updateConfiguration="auto"`. By either removing
+  this property, or by setting it to `manual` will exclude it from further automatic updates.
+- `.vscode/tasks.json`
+  All auto-generated tasks have labels starting with `CMSIS`. Such tasks are removed on updates. Custom tasks
+  must assure they use names not starting with `CMSIS`.
+
+Instead of adding custom content into these automatically updated files causing version system modifications all the
+time, one can extract those into configuration subfolders and only keep these under version control:
+
+- `.vscode/launch.json.d/*.json`
+  Each JSON file must respect the `launch.json` schema. All contained `configurations` are merged into the workspace
+  `.vscode/launch.json` file by `name` property. Auto-generated configurations can be overwritten if required without
+  attention to the `cmsis.updateConfiguration` property.
+- `.vscode/tasks.json.d/*.json`
+  Each JSON file must respect the `tasks.json` schema. All contained `tasks` are merged into the workspace
+  `.vscode/tasks.json` file by `label` property. Auto-generated `CMSIS` tasks can be overwritten if required.
+
+For multi-solution workspaces, i.e., having multiple `.csolution.yml` files in subfolders, solution-specific
+files in solution's `.vscode/launch.json.d/` and `.vscode/tasks.json.d/` directories are included for the
+active solution applying the same rules as above. This can be used to include solution specific content into the
+workspace configuration based on the currently used solution.
+
 ### pyOCD
 
 In the [Manage Solution](./manage_settings.md) dialog, select the one of the debug adapters named **xyz@pyOCD**:
