@@ -4,19 +4,19 @@
 
 ### Project creation and organization
 
-| Feature                                                                   | Description                                                                 |
-| ------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| &#128994; [Project creation](./create_app.md)                             | Create, open, and manage CMSIS solution projects                            |
-| &#128994; [Multi-project solution](./create_app.md)                       | Manage multiple related projects within a single CMSIS solution             |
-| &#128994; Multi-solution workspace                                        | Manage multiple solutions within one workspace (Timeline: VS Code built-in) |
-| &#128994; [Target types](./manage_settings.md)                            | Multiple targets (e.g., HW, models) within one solution                     |
-| &#128994; [Build types](./manage_settings.md)                             | Multiple build types (e.g., Debug, Release) within one solution             |
-| &#128994; [File groups](./userinterface.md#cmsis-view)                    | Logical grouping of source, header, and library files                       |
-| &#128994; [Layer support](./create_app.md#configuration)                  | Easily retarget hardware connections                                        |
-| &#128994; [Software components](./create_app.md#software-components)      | Manage software components on a project/layer level                         |
-| &#128993; Manage packs                                                    | Manage CMSIS-Packs and versions graphically                                 |
-| &#128994; [Zephyr project support](./zephyr.md)                           | Build and debug Zephyr-based applications                                   |
-| &#128994; [Configuration Wizard](./userinterface.md#configuration-wizard) | GUI-assisted generation and modification of configuration code              |
+| Feature                                                                        | Description                                                       |
+| ------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| &#128994; [Project creation](./create_app.md)                                  | Create, open, and manage CMSIS solution projects                  |
+| &#128994; [Multi-project solution](./create_app.md)                            | Manage multiple related projects within a single CMSIS solution   |
+| &#128994; Multi-solution workspace                                             | Manage multiple solutions within one workspace (VS Code built-in) |
+| &#128994; [Target types](./manage_settings.md)                                 | Multiple targets (e.g., HW, models) within one solution           |
+| &#128994; [Build types](./manage_settings.md)                                  | Multiple build types (e.g., Debug, Release) within one solution   |
+| &#128994; [File groups](./userinterface.md#cmsis-view)                         | Logical grouping of source, header, and library files             |
+| &#128994; [Layer support](./create_app.md#configuration)                       | Easily retarget hardware connections                              |
+| &#128994; [Software components](./create_app.md#software-components-and-packs) | Manage software components on a project/layer level               |
+| &#128993; Manage packs                                                         | Manage CMSIS-Packs and versions graphically                       |
+| &#128994; [Zephyr project support](./zephyr.md)                                | Build and debug Zephyr-based applications                         |
+| &#128994; [Configuration Wizard](./userinterface.md#configuration-wizard)      | GUI-assisted generation and modification of configuration code    |
 
 ### Build system
 
@@ -37,12 +37,12 @@
 
 ### Integration and extensibility
 
-| Feature                                      | Description                                                                   |
-| -------------------------------------------- | ----------------------------------------------------------------------------- |
-| &#128994; [External tools](./runexternal.md) | Invoke third-party tools via configurable commands                            |
-| &#128994; Version control                    | Excellent integration with Git (Timeline: VS Code built-in)                   |
-| &#128994; AI coding agents                   | Integration with third-party coding agents (Timeline: via VS Code extensions) |
-| &#128994; Additional extensions              | Use third-party extensions with Keil Studio (Timeline: VS Code built-in)      |
+| Feature                                      | Description                                                         |
+| -------------------------------------------- | ------------------------------------------------------------------- |
+| &#128994; [External tools](./runexternal.md) | Invoke third-party tools via configurable commands                  |
+| &#128994; Version control                    | Excellent integration with Git (VS Code built-in)                   |
+| &#128994; AI coding agents                   | Integration with third-party coding agents (via VS Code extensions) |
+| &#128994; Additional extensions              | Use third-party extensions with Keil Studio (VS Code built-in)      |
 
 ## Compiler support
 
@@ -130,7 +130,7 @@
 | &#128308; Performance analysis                        | Execution time analysis                               |
 | &#128308; Performance analysis                        | Function profiling                                    |
 | &#128308; Execution statistics                        | Code coverage                                         |
-| &#128993; Execution statistics                        | Timing statistics (Timeline: only via Event Recorder) |
+| &#128993; Execution statistics                        | Timing statistics (only via Event Recorder) |
 
 ### Simulation
 

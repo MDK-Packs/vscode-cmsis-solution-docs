@@ -1,6 +1,6 @@
 site_name: Arm Keil Studio for VS Code
 extra: 
-  version: 1.64.0
+  version: 1.66.0
 repo_name: GitHub
 repo_url: https://github.com/MDK-Packs/vscode-cmsis-solution-docs
 edit_uri: edit/main/docs/
