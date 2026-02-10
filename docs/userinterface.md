@@ -158,7 +158,7 @@ You can access commands to manage your solution and the related projects in the 
 | Close Solution                           | Close the current active solution. |
 | [Manage Solution Settings](./manage_settings.md) | Configure the target set (active target, projects, images, and debug adapter) for the solution. |
 | [Configure Solution](./create_app.md#configure-a-solution) | Set a compiler and add software layers. |
-| [Manage Software Components](./create_app.md#software-components) | Review, add, or remove software components. |
+| [Manage Software Components](./create_app.md#software-components-and-packs) | Review, add, or remove software components. |
 | [Build solution](./build_run.md)         | Build the solution with the current target set. |
 | Rebuild solution                         | Rebuild the solution with the current target set. |
 | Clean all out and tmp directories        | Clean all out and tmp directories for the active solution. |

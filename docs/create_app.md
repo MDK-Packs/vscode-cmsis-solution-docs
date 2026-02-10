@@ -147,7 +147,7 @@ The following files are created for the solution:
 !!! CAUTION
     If you see this warning:
     ![Task errors output](./images/task-errors.png)
-    Click **Show output** to configure the solution. You can add board, shield, or socket layers to your reference
+    Click **Show output** to¬ configure the solution. You can add board, shield, or socket layers to your reference
     application. You can also select a compiler for reference applications and other solution types.
 
 Depending on the selected example, you might need to [configure the solution](./configuration.md#configure-a-solution)
@@ -207,29 +207,24 @@ For all solution types, the compiler is added with the `compiler:` key in the `c
     - The CMSIS-Packs which contain reference applications and layers generally provide an `Overview.md` file where the
       connections are detailed.
 
-## Software components
+## Software components and packs
 
 A [software component](https://open-cmsis-pack.github.io/cmsis-toolbox/CreateApplications/#software-components)
-encapsulates a set of related functions. The **Software Components** view shows all the software components selected in
-the active project of a solution.
-
-You can:
-
-- Modify the software components of the project.
-
-- Manage the dependencies between components for each target type defined in your solution, or for all the target types at
-  once.
+encapsulates a set of related functions and is delivered in a
+[software pack](https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/index.html). The
+**Software Components** view enables you to manage the software components and software packs selected in the active
+project of a solution.
 
 ### Software Components view
 
 Open the **CMSIS view** and click ![Manage software components](./images/software-components-icon.png) to open the
 **Software Components** view:
 
-![The 'Software Components' ](./images/software-components-view.png)
+![The 'Software Components' view](./images/software-components-view.png)
 
 You can:
 
-1. Switch between *components* and *software packs*.
+1. Switch between *components* and [*software packs*](#software-packs).
 2. View only components that are *part of the csolution* or components from *all installed packs*.
 3. Set the *context* for which the component selection applies (including layers).
 4. *Select/remove* software components.
@@ -284,7 +279,7 @@ If there are validation issues:
 
 When done, don't forget to **Save** the changes!
 
-### RTOS Example
+### RTOS example
 
 This example shows how to add a real-time operating systems (RTOS), such as Keil RTX5.
 
@@ -317,3 +312,38 @@ project:
     # CMSIS-Pack containing the RTOS component added: 
     - pack: ARM::CMSIS-RTX
 ```
+
+### Software packs
+
+![The 'Software Components - Software packs' view](./images/software-packs.png)
+
+You can:
+
+1. Switch between [*components*](#software-components-view) and *software packs*.
+2. View only software packs that are *part of the csolution* or view *all installed packs*.
+3. Select the scope for which the software pack selection applies (solution/project/layer).
+4. Examine on which level the packs are references (csolution/cproject/clayer).
+5. [*Manage software packs*](#manage-software-packs).
+6. Open *related documentation*.
+
+#### Manage software packs
+
+Click on either icon: ![Manage software packs](./images/manage-packs.png) to open the **Manage Pack** dialog:
+
+![Manage Pack dialog](./images/manage-pack-dialog.png)
+
+In the **Current References** section, you can:
+
+- Set the specific
+  [version](https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/pdsc_package_pg.html#VersionType) for a
+  pack to be used on the csolution/cproject/clayer level. Use these version specifiers:
+    - `Unspecified`: use the latest installed version of a pack
+    - `@`: exact version
+    - `@>=`: equal or higher
+    - `@^`: equal or higher with same major version
+    - `@~`: Equal or higher with same major *and* minor version
+- Add a pack to a csolution/cproject/clayer.
+
+Below that, the *used pack* version is shown. It is computed from the requirements above.
+
+In the **Update Pack** section, you can see the latest installed version and check for updates.
