@@ -321,7 +321,7 @@ You can:
 
 1. Switch between [*components*](#software-components-view) and *software packs*.
 2. View only software packs that are *part of the csolution* or view *all installed packs*.
-3. Set the *context* for which the software pack selection applies (including layers).
+3. Select the scope for which the software pack selection applies (solution/project/layer).
 4. Examine on which level the packs are references (csolution/cproject/clayer).
 5. [*Manage software packs*](#manage-software-packs).
 6. Open *related documentation*.
