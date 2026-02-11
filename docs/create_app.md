@@ -321,7 +321,8 @@ You can:
 
 1. Switch between [*components*](#software-components-view) and *software packs*.
 2. View only software packs that are *part of the csolution* or view *all installed packs*.
-3. Select the scope for which the software pack selection applies (solution/project/layer).
+3. Using the drop down, select the cproject/clayer scope. It always shows all packs but "highlights" (greyed) the packs
+   specified in "scope".
 4. Examine on which level the packs are references (csolution/cproject/clayer).
 5. [*Manage software packs*](#manage-software-packs).
 6. Open *related documentation*.
@@ -337,7 +338,7 @@ In the **Current References** section, you can:
 - Set the specific
   [version](https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/pdsc_package_pg.html#VersionType) for a
   pack to be used on the csolution/cproject/clayer level. Use these version specifiers:
-    - `Unspecified`: use the latest installed version of a pack
+    - `Unspecified`: use the latest installed version of a pack and the `cbuild-pack.yml` for locked versions.
     - `@`: exact version
     - `@>=`: equal or higher
     - `@^`: equal or higher with same major version
@@ -346,4 +347,8 @@ In the **Current References** section, you can:
 
 Below that, the *used pack* version is shown. It is computed from the requirements above.
 
-In the **Update Pack** section, you can see the latest installed version and check for updates.
+In the **Update Pack** section, you can see the latest installed version and check for updates. The button on the left
+is enabled when there is a more recent version of a pack installed, but the `cbuild-pack.yml` locks it to a
+smaller version. When pressing the button, the `cbuild-pack.yml` entry will be removed on save and the latest installed
+pack version will be set and used. The button to the right opens the version page of a public pack on
+[keil.arm.com](https://www.keil.arm.com/packs) which then also shows you the latest available pack version.
