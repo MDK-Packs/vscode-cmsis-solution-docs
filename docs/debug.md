@@ -467,6 +467,10 @@ files in solution's `.vscode/launch.json.d/` and `.vscode/tasks.json.d/` directo
 active solution applying the same rules as above. This can be used to include solution specific content into the
 workspace configuration based on the currently used solution.
 
+!!! Note
+    To trigger an update of the `launch.json` and `tasks.json` files, press `Ctrl/Cmd+Shift+p` and select
+    **Update Debug Tasks and Launch Configurations**.
+
 ### pyOCD
 
 In the [Manage Solution](./manage_settings.md) dialog, select the one of the debug adapters named **xyz@pyOCD**:
