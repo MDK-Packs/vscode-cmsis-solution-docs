@@ -468,7 +468,8 @@ Issues are highlighted with a yellow exclamation mark icon <img alt="Issue icon"
 <ol>
 <li>Switch between <a href="#software-components-view"><em>components</em></a> and <em>software packs</em>.</li>
 <li>View only software packs that are <em>part of the csolution</em> or view <em>all installed packs</em>.</li>
-<li>Select the scope for which the software pack selection applies (solution/project/layer).</li>
+<li>Using the drop down, select the cproject/clayer scope. It always shows all packs but "highlights" (greyed) the packs
+   specified in "scope".</li>
 <li>Examine on which level the packs are references (csolution/cproject/clayer).</li>
 <li><a href="#manage-software-packs"><em>Manage software packs</em></a>.</li>
 <li>Open <em>related documentation</em>.</li>
@@ -481,7 +482,7 @@ Issues are highlighted with a yellow exclamation mark icon <img alt="Issue icon"
 <li>Set the specific
   <a href="https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/pdsc_package_pg.html#VersionType">version</a> for a
   pack to be used on the csolution/cproject/clayer level. Use these version specifiers:<ul>
-<li><code>Unspecified</code>: use the latest installed version of a pack</li>
+<li><code>Unspecified</code>: use the latest installed version of a pack and the <code>cbuild-pack.yml</code> for locked versions.</li>
 <li><code>@</code>: exact version</li>
 <li><code>@&gt;=</code>: equal or higher</li>
 <li><code>@^</code>: equal or higher with same major version</li>
@@ -491,7 +492,11 @@ Issues are highlighted with a yellow exclamation mark icon <img alt="Issue icon"
 <li>Add a pack to a csolution/cproject/clayer.</li>
 </ul>
 <p>Below that, the <em>used pack</em> version is shown. It is computed from the requirements above.</p>
-<p>In the <strong>Update Pack</strong> section, you can see the latest installed version and check for updates.</p>
+<p>In the <strong>Update Pack</strong> section, you can see the latest installed version and check for updates. The button on the left
+is enabled when there is a more recent version of a pack installed, but the <code>cbuild-pack.yml</code> locks it to a
+smaller version. When pressing the button, the <code>cbuild-pack.yml</code> entry will be removed on save and the latest installed
+pack version will be set and used. The button to the right opens the version page of a public pack on
+<a href="https://www.keil.arm.com/packs">keil.arm.com</a> which then also shows you the latest available pack version.</p>
               
             </div>
           </div><footer>
