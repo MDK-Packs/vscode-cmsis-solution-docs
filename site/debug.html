@@ -34,7 +34,7 @@
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a>
         <div class="version">
-          1.64.0
+          1.66.0
         </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -122,6 +122,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#configure-run-and-debug">Configure run and debug</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#custom-launchjson-and-tasksjson-settings">Custom launch.json and tasks.json settings</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#pyocd">pyOCD</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#j-link-server">J-Link Server</a>
@@ -170,7 +172,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="read_further.html">Read further</a>
+                <li class="toctree-l1"><a class="reference internal" href="reldocs.html">Related documentation</a>
                 </li>
               </ul>
               <ul>
@@ -645,6 +647,32 @@ details on <code>target-set</code>).</p>
 various debug adapters from the <a href="https://github.com/Open-CMSIS-Pack/debug-adapter-registry">Debug Adapter Registry</a> and
 taking the user inputs into account, the <strong>CMSIS Solution</strong> extension then generates the <code>launch.json</code> and <code>tasks.json</code>
 files.</p>
+<h3 id="custom-launchjson-and-tasksjson-settings">Custom <code>launch.json</code> and <code>tasks.json</code> settings</h3>
+<p>User defined launch configurations and tasks can be added directly into the workspace files. When updating these
+files custom or modified entries are kept untouched if detected:</p>
+<ul>
+<li><code>.vscode/launch.json</code>
+  Each auto-generated configuration has an additional property <code>cmsis.updateConfiguration="auto"</code>. By either removing
+  this property, or by setting it to <code>manual</code> will exclude it from further automatic updates.</li>
+<li><code>.vscode/tasks.json</code>
+  All auto-generated tasks have labels starting with <code>CMSIS</code>. Such tasks are removed on updates. Custom tasks
+  must assure they use names not starting with <code>CMSIS</code>.</li>
+</ul>
+<p>Instead of adding custom content into these automatically updated files causing version system modifications all the
+time, one can extract those into configuration subfolders and only keep these under version control:</p>
+<ul>
+<li><code>.vscode/launch.json.d/*.json</code>
+  Each JSON file must respect the <code>launch.json</code> schema. All contained <code>configurations</code> are merged into the workspace
+  <code>.vscode/launch.json</code> file by <code>name</code> property. Auto-generated configurations can be overwritten if required without
+  attention to the <code>cmsis.updateConfiguration</code> property.</li>
+<li><code>.vscode/tasks.json.d/*.json</code>
+  Each JSON file must respect the <code>tasks.json</code> schema. All contained <code>tasks</code> are merged into the workspace
+  <code>.vscode/tasks.json</code> file by <code>label</code> property. Auto-generated <code>CMSIS</code> tasks can be overwritten if required.</li>
+</ul>
+<p>For multi-solution workspaces, i.e., having multiple <code>.csolution.yml</code> files in subfolders, solution-specific
+files in solution's <code>.vscode/launch.json.d/</code> and <code>.vscode/tasks.json.d/</code> directories are included for the
+active solution applying the same rules as above. This can be used to include solution specific content into the
+workspace configuration based on the currently used solution.</p>
 <h3 id="pyocd">pyOCD</h3>
 <p>In the <a href="manage_settings.html">Manage Solution</a> dialog, select the one of the debug adapters named <strong>xyz@pyOCD</strong>:</p>
 <p>For the <strong>Debug Interface</strong>, you can:</p>
