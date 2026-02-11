@@ -34,7 +34,7 @@
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a>
         <div class="version">
-          1.64.0
+          1.66.0
         </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -72,7 +72,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#configure-a-solution">Configure a solution</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#software-components">Software components</a>
+    <li class="toctree-l2"><a class="reference internal" href="#software-components-and-packs">Software components and packs</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#software-components-view">Software Components view</a>
         <ul>
@@ -80,7 +80,13 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#rtos-example">RTOS Example</a>
+    <li class="toctree-l3"><a class="reference internal" href="#rtos-example">RTOS example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#software-packs">Software packs</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#manage-software-packs">Manage software packs</a>
+    </li>
+        </ul>
     </li>
         </ul>
     </li>
@@ -116,7 +122,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="read_further.html">Read further</a>
+                <li class="toctree-l1"><a class="reference internal" href="reldocs.html">Related documentation</a>
                 </li>
               </ul>
               <ul>
@@ -301,7 +307,7 @@ The following files are created for the solution:
 !!! CAUTION
     If you see this warning:
     ![Task errors output](./images/task-errors.png)
-    Click **Show output** to configure the solution. You can add board, shield, or socket layers to your reference
+    Click **Show output** to¬ configure the solution. You can add board, shield, or socket layers to your reference
     application. You can also select a compiler for reference applications and other solution types.
 
 Depending on the selected example, you might need to [configure the solution](./configuration.md#configure-a-solution)
@@ -368,27 +374,19 @@ file of your solution under <code>target-types: variables:</code> for the active
   connections are detailed.</li>
 </ul>
 </div>
-<h2 id="software-components">Software components</h2>
+<h2 id="software-components-and-packs">Software components and packs</h2>
 <p>A <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/CreateApplications/#software-components">software component</a>
-encapsulates a set of related functions. The <strong>Software Components</strong> view shows all the software components selected in
-the active project of a solution.</p>
-<p>You can:</p>
-<ul>
-<li>
-<p>Modify the software components of the project.</p>
-</li>
-<li>
-<p>Manage the dependencies between components for each target type defined in your solution, or for all the target types at
-  once.</p>
-</li>
-</ul>
+encapsulates a set of related functions and is delivered in a
+<a href="https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/index.html">software pack</a>. The
+<strong>Software Components</strong> view enables you to manage the software components and software packs selected in the active
+project of a solution.</p>
 <h3 id="software-components-view">Software Components view</h3>
 <p>Open the <strong>CMSIS view</strong> and click <img alt="Manage software components" src="images/software-components-icon.png" /> to open the
 <strong>Software Components</strong> view:</p>
-<p><img alt="The 'Software Components' " src="images/software-components-view.png" /></p>
+<p><img alt="The 'Software Components' view" src="images/software-components-view.png" /></p>
 <p>You can:</p>
 <ol>
-<li>Switch between <em>components</em> and <em>software packs</em>.</li>
+<li>Switch between <em>components</em> and <a href="#software-packs"><em>software packs</em></a>.</li>
 <li>View only components that are <em>part of the csolution</em> or components from <em>all installed packs</em>.</li>
 <li>Set the <em>context</em> for which the component selection applies (including layers).</li>
 <li><em>Select/remove</em> software components.</li>
@@ -439,7 +437,7 @@ Issues are highlighted with a yellow exclamation mark icon <img alt="Issue icon"
    components available).</li>
 </ol>
 <p>When done, don't forget to <strong>Save</strong> the changes!</p>
-<h3 id="rtos-example">RTOS Example</h3>
+<h3 id="rtos-example">RTOS example</h3>
 <p>This example shows how to add a real-time operating systems (RTOS), such as Keil RTX5.</p>
 <p>Before adding the component, add the CMSIS-RTX pack to your local installation. In a Terminal, run:</p>
 <pre><code class="language-sh">cpackget add ARM::CMSIS-RTX
@@ -464,6 +462,36 @@ Issues are highlighted with a yellow exclamation mark icon <img alt="Issue icon"
     # CMSIS-Pack containing the RTOS component added: 
     - pack: ARM::CMSIS-RTX
 </code></pre>
+<h3 id="software-packs">Software packs</h3>
+<p><img alt="The 'Software Components - Software packs' view" src="images/software-packs.png" /></p>
+<p>You can:</p>
+<ol>
+<li>Switch between <a href="#software-components-view"><em>components</em></a> and <em>software packs</em>.</li>
+<li>View only software packs that are <em>part of the csolution</em> or view <em>all installed packs</em>.</li>
+<li>Select the scope for which the software pack selection applies (solution/project/layer).</li>
+<li>Examine on which level the packs are references (csolution/cproject/clayer).</li>
+<li><a href="#manage-software-packs"><em>Manage software packs</em></a>.</li>
+<li>Open <em>related documentation</em>.</li>
+</ol>
+<h4 id="manage-software-packs">Manage software packs</h4>
+<p>Click on either icon: <img alt="Manage software packs" src="images/manage-packs.png" /> to open the <strong>Manage Pack</strong> dialog:</p>
+<p><img alt="Manage Pack dialog" src="images/manage-pack-dialog.png" /></p>
+<p>In the <strong>Current References</strong> section, you can:</p>
+<ul>
+<li>Set the specific
+  <a href="https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/pdsc_package_pg.html#VersionType">version</a> for a
+  pack to be used on the csolution/cproject/clayer level. Use these version specifiers:<ul>
+<li><code>Unspecified</code>: use the latest installed version of a pack</li>
+<li><code>@</code>: exact version</li>
+<li><code>@&gt;=</code>: equal or higher</li>
+<li><code>@^</code>: equal or higher with same major version</li>
+<li><code>@~</code>: Equal or higher with same major <em>and</em> minor version</li>
+</ul>
+</li>
+<li>Add a pack to a csolution/cproject/clayer.</li>
+</ul>
+<p>Below that, the <em>used pack</em> version is shown. It is computed from the requirements above.</p>
+<p>In the <strong>Update Pack</strong> section, you can see the latest installed version and check for updates.</p>
               
             </div>
           </div><footer>
