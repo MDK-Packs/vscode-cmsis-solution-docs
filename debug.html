@@ -95,6 +95,10 @@
     <li class="toctree-l3"><a class="reference internal" href="#cpu-time">CPU Time</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#trace-and-live-view">Trace and Live view</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#component-viewer">COMPONENT VIEWER</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#peripherals">PERIPHERALS</a>
     </li>
@@ -447,7 +451,18 @@ are updated while the application is running on your target.</p>
 <li>Pressing the <code>+</code> sign and entering an expression.</li>
 <li>Using the context menu item <strong>Add to Live Watch</strong> in the editor or the the <strong>Run and Debug</strong> view.</li>
 </ol>
-<p><img alt="Displaying a variable in the LIVE WATCH" src="https://github.com/Open-CMSIS-Pack/vscode-cmsis-debugger/raw/main//images/lw-counter.gif" /></p>
+<p><img alt="Displaying a variable in the LIVE WATCH" src="images/cmsis-debugger/lw-counter.gif" /></p>
+<h4 id="component-viewer">COMPONENT VIEWER</h4>
+<p>This view shows detailed information and helps to analyze the operation of software components. The required
+infrastructure can be easily added to user applications.</p>
+<p>Refer to the <a href="https://arm-software.github.io/CMSIS-View/latest/cmp_viewer.html">Component Viewer documentation</a> for
+detailed advice on how to show information from user software using using an SCVD file.</p>
+<p>The Component Viewer shows information about:</p>
+<ul>
+<li>Information from software components that is provided in memory for example by static variables or structures.</li>
+<li>Objects that are addressed by an object handles or dynamic arrays.</li>
+</ul>
+<p><img alt="Showing software component properties in the COMPONENT VIEWER" src="images/cmsis-debugger/component-viewer.png" /></p>
 <h3 id="peripherals">PERIPHERALS</h3>
 <p>The <strong>PERIPHERALS</strong> view shows the device peripheral registers and allows to change their values. It uses the CMSIS-SVD files that are provided by silicon vendors and distributed as part of the CMSIS Device Family Packs (DFP).</p>
 <p><img alt="Peripheral Inspector" src="images/cmsis-debugger/peripheral-inspector.png" /></p>
