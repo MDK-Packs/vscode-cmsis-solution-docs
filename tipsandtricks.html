@@ -92,15 +92,21 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#documentation-does-not-open">Documentation does not open</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#memory-and-peripheral-inspector-are-missing">Memory and Peripheral Inspector are missing</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#create-a-library-file">Create a library file</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#downgrading-tool-versions">Downgrading tool versions</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#stm32cubemx-generator-issues">STM32CubeMX generator issues</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#change-variable-display-radix">Change variable display radix</a>
+    <li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#memory-and-peripheral-inspector-are-missing">Memory and Peripheral Inspector are missing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#change-variable-display-radix">Change variable display radix</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cannot-connect-uart-when-debugging">Cannot connect UART when debugging</a>
+    </li>
+        </ul>
     </li>
     </ul>
                 </li>
@@ -163,13 +169,6 @@ available.</p>
 <p>Install it on your machine.</p>
 </li>
 </ul>
-<h2 id="memory-and-peripheral-inspector-are-missing">Memory and Peripheral Inspector are missing</h2>
-<p>If your <strong>Debug</strong> view does not contain
-<a href="https://marketplace.visualstudio.com/items?itemName=eclipse-cdt.peripheral-inspector">"PERIPHERALS"</a> and you cannot
-open the <a href="https://marketplace.visualstudio.com/items?itemName=eclipse-cdt.memory-inspector">Memory Inspector</a>, check if
-the extensions are installed correctly. If you had previously uninstalled the
-<a href="https://marketplace.visualstudio.com/items?itemName=Arm.arm-debugger">Arm Debugger</a> extension, these two extensions
-might have been removed with it. Just reinstall them via the <strong>Extensions</strong> view.</p>
 <h2 id="create-a-library-file">Create a library file</h2>
 <p>With Keil Studio, it is possible to create a library file. All you need to do is to change the <strong>output type</strong> in the
 <code>*.cproject.yml</code> file to <code>lib</code>:</p>
@@ -222,7 +221,15 @@ To get this fixed, go to:</p>
 <p>If you rely on <strong>LL</strong> for your peripherals, select/add an unused peripheral:</p>
 <p><img alt="Make STM32CubeMX generate the cgen.yml file" src="images/cubemx-cgen-hal.png" /></p>
 <p>Now, the <strong>GENERATE CODE</strong> button creates/writes the <code>*.cgen.yml</code> file.</p>
-<h2 id="change-variable-display-radix">Change variable display radix</h2>
+<h2 id="debugging">Debugging</h2>
+<h3 id="memory-and-peripheral-inspector-are-missing">Memory and Peripheral Inspector are missing</h3>
+<p>If your <strong>Debug</strong> view does not contain
+<a href="https://marketplace.visualstudio.com/items?itemName=eclipse-cdt.peripheral-inspector">"PERIPHERALS"</a> and you cannot
+open the <a href="https://marketplace.visualstudio.com/items?itemName=eclipse-cdt.memory-inspector">Memory Inspector</a>, check if
+the extensions are installed correctly. If you had previously uninstalled the
+<a href="https://marketplace.visualstudio.com/items?itemName=Arm.arm-debugger">Arm Debugger</a> extension, these two extensions
+might have been removed with it. Just reinstall them via the <strong>Extensions</strong> view.</p>
+<h3 id="change-variable-display-radix">Change variable display radix</h3>
 <p>In the <strong>Watch</strong> and <strong>Live Watch</strong> views, you can change the radix of variables by using the
 <code>set output-radix base</code> command in the <strong>Debug Console</strong>. For example,</p>
 <pre><code class="language-txt">&gt; set output-radix 16
@@ -235,6 +242,21 @@ To get this fixed, go to:</p>
 <li>Refer to <a href="https://sourceware.org/gdb/current/onlinedocs/gdb.html/Numbers.html">Numbers</a> for more information.</li>
 </ul>
 </div>
+<h3 id="cannot-connect-uart-when-debugging">Cannot connect UART when debugging</h3>
+<p><strong>Symptom</strong></p>
+<p>Using older <strong>DAPLink</strong> or <strong>LPC-Link2</strong> implementations, it is not possible to have a debug connection and monitor the
+output of the UART on the SERIAL MONITOR at the same time. Once the serial connection is opened, the debug connect
+stalls and throws these two errors:</p>
+<pre><code class="language-txt">Cannot execute this command while the target is running.
+Use the &quot;interrupt&quot; command to stop the target and then try again.
+</code></pre>
+<p>And</p>
+<pre><code class="language-txt">Unable to read memory.
+</code></pre>
+<p><strong>Solution</strong></p>
+<p>Using an NXP board with the new MCU-Link FW, this problem does not occur.</p>
+<p>For older boards, there is no new DAPLink firmware available. Please avoid using the UART when debugging or use an
+external debug adapter.</p>
               
             </div>
           </div><footer>
