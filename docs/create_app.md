@@ -39,7 +39,7 @@ Further settings include:
 ## Examples
 
 1. Click the **Target Board (Optional)** drop-down list.
-2. Enter a search term tp filter the list and then select your board. The details of the selected board are displayed.
+2. Enter a search term to filter the list and then select your board. The details of the selected board are displayed.
 3. Click **Select**.
 
 Next, select the example project. There are two types of example projects (available either from **Local** packs and/or
@@ -58,7 +58,7 @@ Specify a **Solution Base Folder** and click **Create**.
     activate the workspace and download the tools specified in the `vcpkg-configuration.json` file included in a
     project.
 
-A typical Blinky example includes a `REAMDE.md` file that contains valuable information about the hardware setup and
+A typical Blinky example includes a `README.md` file that contains valuable information about the hardware setup and
 specific tasks that need to be done before working with the target board:
 
 ![Alif E7 Blinky-HP example](./images/blinky-hp.png)
@@ -272,7 +272,7 @@ If there are validation issues:
 
 1. Either click on ![Issue icon](./images/issue-icon.png) and select the issue in the pop-up box (a) or
 2. Click the "Resolve" button for access to the pop-up box (a).
-3. Once a components with validation issues is opened, you can use the "eye" icon to see which component is
+3. Once a component with validation issues is opened, you can use the "eye" icon to see which component is
    missing/affected (b).
 4. Use the "Apply" button to select the missing components (only available if there is no choice between different
    components available).

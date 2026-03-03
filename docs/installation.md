@@ -44,7 +44,7 @@ folder.
 Required tools (such as a compiler toolchain or the CMSIS-Toolbox) are installed via the
 **Arm Tools Environment Manager**, controlled by the `vcpkg-configuration.json` file.
 
-Open the **Arm Tools Environment Manager** via the command pallette (Ctrl/Cmd + Shift + p) and select
+Open the **Arm Tools Environment Manager** via the command palette (Ctrl/Cmd + Shift + p) and select
 **Arm Tools: Configure Arm Tools Environment**. The "Arm Registry" opens:
 
 ![Arm Registry](./images/arm-registry.png)
@@ -127,5 +127,5 @@ settings. The available settings are:
 | Experimental Features | Use the checkbox to enable experimental features. |
 | Generate Clang Setup | Use the checkbox to automatically generate the required setup (`.clangd` file and `.vscode/settings.json`) for the active solution context. For Arm Compiler 6, include pre-defined macros in the `.clangd` file. |
 | Output Directory | Enter an output directory prefix for 'outdir' and 'tmpdir' and relocated build information files (experimental). |
-| Probe-ID | Specufy the unique identifier of a probe to be used for debugging. |
+| Probe-ID | Specify the unique identifier of a probe to be used for debugging. |
 | Use Web Services | Use the checkbox to enable web services to obtain information about devices, boards, and examples. If enabled, information from the internet and locally installed packs is used. If disabled, only information from installed packs is used. |

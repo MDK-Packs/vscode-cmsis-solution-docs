@@ -72,7 +72,7 @@ For files containing configuration wizard annotations, open the graphical view b
 The view will be opened next to the original source file. You can switch back pressing the **Show Source** button
 ![Open source file view](./images/open-source-file-view-icon.png).
 
-![RTE_Device.h file in configuration wizard view](./images/rte-devce-config-wiz-view.png)
+![RTE_Device.h file in configuration wizard view](./images/rte-device-config-wiz-view.png)
 
 ## Status bar
 
