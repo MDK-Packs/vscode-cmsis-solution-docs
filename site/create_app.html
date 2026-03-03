@@ -70,6 +70,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#github-repositories">GitHub repositories</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#open-existing-solution">Open existing solution</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#configure-a-solution">Configure a solution</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#software-components-and-packs">Software components and packs</a>
@@ -201,7 +203,7 @@ solution opened, use the menu (<strong>...</strong>) item <strong>Create a Solut
 <h2 id="examples">Examples</h2>
 <ol>
 <li>Click the <strong>Target Board (Optional)</strong> drop-down list.</li>
-<li>Enter a search term tp filter the list and then select your board. The details of the selected board are displayed.</li>
+<li>Enter a search term to filter the list and then select your board. The details of the selected board are displayed.</li>
 <li>Click <strong>Select</strong>.</li>
 </ol>
 <p>Next, select the example project. There are two types of example projects (available either from <strong>Local</strong> packs and/or
@@ -222,7 +224,7 @@ from the <strong>Web</strong>):</p>
 activate the workspace and download the tools specified in the <code>vcpkg-configuration.json</code> file included in a
 project.</p>
 </div>
-<p>A typical Blinky example includes a <code>REAMDE.md</code> file that contains valuable information about the hardware setup and
+<p>A typical Blinky example includes a <code>README.md</code> file that contains valuable information about the hardware setup and
 specific tasks that need to be done before working with the target board:</p>
 <p><img alt="Alif E7 Blinky-HP example" src="images/blinky-hp.png" /></p>
 <p>Continue to <a href="build_run.html">build the project</a>.</p>
@@ -336,6 +338,11 @@ a repository directly in VS Code:</p>
 <li>Ready-to-run examples are available on <a href="https://github.com/Arm-Examples#keil-mdk-version-6-examples">GitHub</a>.</li>
 </ul>
 </div>
+<h2 id="open-existing-solution">Open existing solution</h2>
+<p>If you want to open an existing solution, go to <strong>File - Open Folder...</strong> and select the folder that contains the
+<code>vcpkg-configuration.json</code> and/or <code>*.csolution.yml</code> file.</p>
+<p>If you want to use the <a href="https://code.visualstudio.com/docs/editing/workspaces/workspaces">VS code workspace</a> feature,
+you can also use <strong>File - Add Folder to Workspace...</strong>. </p>
 <h2 id="configure-a-solution">Configure a solution</h2>
 <p>The <strong>Configure Solution</strong> view opens automatically, if:</p>
 <ul>
@@ -433,7 +440,7 @@ Issues are highlighted with a yellow exclamation mark icon <img alt="Issue icon"
 <ol>
 <li>Either click on <img alt="Issue icon" src="images/issue-icon.png" /> and select the issue in the pop-up box (a) or</li>
 <li>Click the "Resolve" button for access to the pop-up box (a).</li>
-<li>Once a components with validation issues is opened, you can use the "eye" icon to see which component is
+<li>Once a component with validation issues is opened, you can use the "eye" icon to see which component is
    missing/affected (b).</li>
 <li>Use the "Apply" button to select the missing components (only available if there is no choice between different
    components available).</li>

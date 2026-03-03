@@ -173,6 +173,14 @@ Continue to [build the project](./build_run.md).
       top-level folder in VS Code (**File - Open Folder...**).
     - Ready-to-run examples are available on [GitHub](https://github.com/Arm-Examples#keil-mdk-version-6-examples).
 
+## Open existing solution
+
+If you want to open an existing solution, go to **File - Open Folder...** and select the folder that contains the
+`vcpkg-configuration.json` and/or `*.csolution.yml` file.
+
+If you want to use the [VS code workspace](https://code.visualstudio.com/docs/editing/workspaces/workspaces) feature,
+you can also use **File - Add Folder to Workspace...**. 
+
 ## Configure a solution
 
 The **Configure Solution** view opens automatically, if:
