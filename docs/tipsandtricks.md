@@ -4,8 +4,15 @@ This chapter contains useful information to help you solve specific issues.
 
 ## Create vcpkg configuration file
 
-If your solution does not contain the `vcpkg-configuration.json`, right-click anywhere in the workspace and select
-**Configure Arm Tools Environment**. The **Arm Tools Environment Manager** extension then generates this file.
+If your solution does not contain a `vcpkg-configuration.json` file, click on
+![Arm Tools: 0](./images/arm-tools-zero.png) in the status bar and then on
+![Add Arm Tools Configuration](./images/add-arm-tools-config.png)
+
+The **Arm Tools Environment Manager** extension creates this file and opens the GUI view. Select the tools you want to
+use in your project (at least a compiler toolchain, cmake, and Ninja). Use the latest versions available if you do not
+have specific version requirements.
+
+Switch to the JSON file view and press **Ctrl/Cmd+s** to save the file.
 
 ## Set current solution in workspace
 
