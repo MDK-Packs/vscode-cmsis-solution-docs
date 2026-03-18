@@ -343,10 +343,12 @@ name. Function breakpoints are shown with a red triangle in the <strong>BREAKPOI
 <ul>
 <li>
 <p>Create a conditional breakpoint</p>
-<ul>
-<li>Right-click in the editor margin and select Add Conditional Breakpoint.</li>
-<li>Use the Add Conditional Breakpoint command in the Command Palette (⇧⌘P).</li>
-</ul>
+</li>
+<li>
+<p>Right-click in the editor margin and select Add Conditional Breakpoint.</p>
+</li>
+<li>
+<p>Use the Add Conditional Breakpoint command in the Command Palette (⇧⌘P).</p>
 </li>
 <li>
 <p>Choose the type of condition you want to set (expression, hit count, or wait for a breakpoint).</p>
@@ -357,10 +359,12 @@ name. Function breakpoints are shown with a red triangle in the <strong>BREAKPOI
 <ul>
 <li>
 <p>Edit an existing breakpoint</p>
-<ul>
-<li>Right-click on the breakpoint in the editor margin and select Edit Breakpoint.</li>
-<li>Select the pencil icon next for an existing breakpoint in the <strong>BREAKPOINTS section</strong> of the <strong>Run and Debug view</strong>.</li>
-</ul>
+</li>
+<li>
+<p>Right-click on the breakpoint in the editor margin and select Edit Breakpoint.</p>
+</li>
+<li>
+<p>Select the pencil icon next for an existing breakpoint in the <strong>BREAKPOINTS section</strong> of the <strong>Run and Debug view</strong>.</p>
 </li>
 <li>
 <p>Edit the condition (expression, hit count, or wait for breakpoint).</p>
@@ -674,25 +678,29 @@ files custom or modified entries are kept untouched if detected:</p>
   must assure they use names not starting with <code>CMSIS</code>.</li>
 </ul>
 <p>Instead of adding custom content into these automatically updated files causing version system modifications all the
-time, one can extract those into configuration subfolders and only keep these under version control:</p>
+time, one can extract those into configuration subfolders parallel to the <code>.csolution.yml</code> they belong to and only keep
+these under version control:</p>
 <ul>
-<li><code>.vscode/launch.json.d/*.json</code>
-  Each JSON file must respect the <code>launch.json</code> schema. All contained <code>configurations</code> are merged into the workspace
-  <code>.vscode/launch.json</code> file by <code>name</code> property. Auto-generated configurations can be overwritten if required without
-  attention to the <code>cmsis.updateConfiguration</code> property.</li>
-<li><code>.vscode/tasks.json.d/*.json</code>
-  Each JSON file must respect the <code>tasks.json</code> schema. All contained <code>tasks</code> are merged into the workspace
-  <code>.vscode/tasks.json</code> file by <code>label</code> property. Auto-generated <code>CMSIS</code> tasks can be overwritten if required.</li>
+<li><code>&lt;solution dir&gt;/.vscode.d/launch.json</code>
+  All contained <code>configurations</code> are merged into the workspace <code>.vscode/launch.json</code> file by <code>name</code> property.
+  Auto-generated configurations can be overwritten if required without attention to the <code>cmsis.updateConfiguration</code>
+  property.</li>
+<li><code>&lt;solution dir&gt;/.vscode.d/tasks.json</code>
+  All contained <code>tasks</code> and <code>inputs</code> are merged into the workspace <code>.vscode/tasks.json</code> file. Tasks are mapped by <code>label</code>
+  property and inputs are mapped my <code>id</code> property. Auto-generated <code>CMSIS</code> tasks can be overwritten if required.</li>
 </ul>
-<p>For multi-solution workspaces, i.e., having multiple <code>.csolution.yml</code> files in subfolders, solution-specific
-files in solution's <code>.vscode/launch.json.d/</code> and <code>.vscode/tasks.json.d/</code> directories are included for the
-active solution applying the same rules as above. This can be used to include solution specific content into the
-workspace configuration based on the currently used solution.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To trigger an update of the <code>launch.json</code> and <code>tasks.json</code> files, press <code>Ctrl/Cmd+Shift+p</code> and select
 <strong>Update Debug Tasks and Launch Configurations</strong>.</p>
 </div>
+<p>The workspace <code>launch.json</code> and <code>tasks.json</code> files are updated in the following order:</p>
+<ol>
+<li>Auto-generated configurations/tasks are added/updated for selected debug probe.</li>
+<li>Outdated formerly auto-generated configurations/tasks are removed.</li>
+<li>Configurations/tasks from user files are merged, existing elements are overwritten based on the respective
+   identification properties.</li>
+</ol>
 <h3 id="pyocd">pyOCD</h3>
 <p>In the <a href="manage_settings.html">Manage Solution</a> dialog, select the one of the debug adapters named <strong>xyz@pyOCD</strong>:</p>
 <p>For the <strong>Debug Interface</strong>, you can:</p>
@@ -704,14 +712,12 @@ workspace configuration based on the currently used solution.</p>
 <p>For <strong>Telnet</strong>, you can:</p>
 <ul>
 <li>Enable or disable the use of <strong>Telnet</strong> for semihosting.</li>
-<li>Set the <strong>Telnet Mode</strong> to:<ul>
+<li>Set the <strong>Telnet Mode</strong> to:</li>
 <li>Telnet Server: if you want to connect to the target with a standalone Telnet Client application.</li>
 <li>Debug Console: redirects the output to the VS Code <strong>DEBUG CONSOLE</strong> panel.</li>
 <li>Serial Monitor: redirects the output to the <strong>SERIAL MONITOR</strong> extension.</li>
 <li>Text File: saves the output to a file in the project workspace.</li>
 <li>Disabled: does not redirect the serial output.</li>
-</ul>
-</li>
 </ul>
 <p><img alt="Using pyOCD with Telnet" src="images/pyocd-telnet.png" /></p>
 <h3 id="j-link-server">J-Link Server</h3>
@@ -725,13 +731,11 @@ workspace configuration based on the currently used solution.</p>
 <p>For <strong>Telnet</strong>, you can:</p>
 <ul>
 <li>Enable or disable the use of <strong>Telnet</strong> for semihosting.</li>
-<li>Set the <strong>Telnet Mode</strong> to:<ul>
+<li>Set the <strong>Telnet Mode</strong> to:</li>
 <li>Telnet Server: if you want to connect to the target with a standalone Telnet Client application.</li>
 <li>Debug Console: redirects the output to the VS Code <strong>DEBUG CONSOLE</strong> panel.</li>
 <li>Serial Monitor: redirects the output to the <strong>SERIAL MONITOR</strong> extension.</li>
 <li>Disabled: does not redirect the serial output.</li>
-</ul>
-</li>
 </ul>
 <p><img alt="Using J-Link with Telnet" src="images/jlink-telnet.png" /></p>
 <h3 id="arm-debugger">Arm Debugger</h3>
