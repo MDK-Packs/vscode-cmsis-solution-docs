@@ -135,8 +135,8 @@ To add a conditional breakpoint:
 
 - Create a conditional breakpoint
 
-    - Right-click in the editor margin and select Add Conditional Breakpoint.
-    - Use the Add Conditional Breakpoint command in the Command Palette (⇧⌘P).
+  - Right-click in the editor margin and select Add Conditional Breakpoint.
+  - Use the Add Conditional Breakpoint command in the Command Palette (⇧⌘P).
 
 - Choose the type of condition you want to set (expression, hit count, or wait for a breakpoint).
 
@@ -146,8 +146,8 @@ To add a condition to an existing breakpoint:
 
 - Edit an existing breakpoint
 
-    - Right-click on the breakpoint in the editor margin and select Edit Breakpoint.
-    - Select the pencil icon next for an existing breakpoint in the **BREAKPOINTS section** of the **Run and Debug view**.
+  - Right-click on the breakpoint in the editor margin and select Edit Breakpoint.
+  - Select the pencil icon next for an existing breakpoint in the **BREAKPOINTS section** of the **Run and Debug view**.
 
 - Edit the condition (expression, hit count, or wait for breakpoint).
 
@@ -467,24 +467,27 @@ files custom or modified entries are kept untouched if detected:
   must assure they use names not starting with `CMSIS`.
 
 Instead of adding custom content into these automatically updated files causing version system modifications all the
-time, one can extract those into configuration subfolders and only keep these under version control:
+time, one can extract those into configuration subfolders parallel to the `.csolution.yml` they belong to and only keep
+these under version control:
 
-- `.vscode/launch.json.d/*.json`
-  Each JSON file must respect the `launch.json` schema. All contained `configurations` are merged into the workspace
-  `.vscode/launch.json` file by `name` property. Auto-generated configurations can be overwritten if required without
-  attention to the `cmsis.updateConfiguration` property.
-- `.vscode/tasks.json.d/*.json`
-  Each JSON file must respect the `tasks.json` schema. All contained `tasks` are merged into the workspace
-  `.vscode/tasks.json` file by `label` property. Auto-generated `CMSIS` tasks can be overwritten if required.
-
-For multi-solution workspaces, i.e., having multiple `.csolution.yml` files in subfolders, solution-specific
-files in solution's `.vscode/launch.json.d/` and `.vscode/tasks.json.d/` directories are included for the
-active solution applying the same rules as above. This can be used to include solution specific content into the
-workspace configuration based on the currently used solution.
+- `<solution dir>/.vscode.d/launch.json`
+  All contained `configurations` are merged into the workspace `.vscode/launch.json` file by `name` property.
+  Auto-generated configurations can be overwritten if required without attention to the `cmsis.updateConfiguration`
+  property.
+- `<solution dir>/.vscode.d/tasks.json`
+  All contained `tasks` and `inputs` are merged into the workspace `.vscode/tasks.json` file. Tasks are mapped by `label`
+  property and inputs are mapped my `id` property. Auto-generated `CMSIS` tasks can be overwritten if required.
 
 !!! Note
     To trigger an update of the `launch.json` and `tasks.json` files, press `Ctrl/Cmd+Shift+p` and select
     **Update Debug Tasks and Launch Configurations**.
+
+The workspace `launch.json` and `tasks.json` files are updated in the following order:
+
+1. Auto-generated configurations/tasks are added/updated for selected debug probe.
+2. Outdated formerly auto-generated configurations/tasks are removed.
+3. Configurations/tasks from user files are merged, existing elements are overwritten based on the respective
+   identification properties.
 
 ### pyOCD
 
@@ -501,11 +504,11 @@ For **Telnet**, you can:
 
 - Enable or disable the use of **Telnet** for semihosting.
 - Set the **Telnet Mode** to:
-    - Telnet Server: if you want to connect to the target with a standalone Telnet Client application.
-    - Debug Console: redirects the output to the VS Code **DEBUG CONSOLE** panel.
-    - Serial Monitor: redirects the output to the **SERIAL MONITOR** extension.
-    - Text File: saves the output to a file in the project workspace.
-    - Disabled: does not redirect the serial output.
+  - Telnet Server: if you want to connect to the target with a standalone Telnet Client application.
+  - Debug Console: redirects the output to the VS Code **DEBUG CONSOLE** panel.
+  - Serial Monitor: redirects the output to the **SERIAL MONITOR** extension.
+  - Text File: saves the output to a file in the project workspace.
+  - Disabled: does not redirect the serial output.
 
 ![Using pyOCD with Telnet](./images/pyocd-telnet.png)
 
@@ -524,10 +527,10 @@ For **Telnet**, you can:
 
 - Enable or disable the use of **Telnet** for semihosting.
 - Set the **Telnet Mode** to:
-    - Telnet Server: if you want to connect to the target with a standalone Telnet Client application.
-    - Debug Console: redirects the output to the VS Code **DEBUG CONSOLE** panel.
-    - Serial Monitor: redirects the output to the **SERIAL MONITOR** extension.
-    - Disabled: does not redirect the serial output.
+  - Telnet Server: if you want to connect to the target with a standalone Telnet Client application.
+  - Debug Console: redirects the output to the VS Code **DEBUG CONSOLE** panel.
+  - Serial Monitor: redirects the output to the **SERIAL MONITOR** extension.
+  - Disabled: does not redirect the serial output.
 
 ![Using J-Link with Telnet](./images/jlink-telnet.png)
 
@@ -541,7 +544,7 @@ Before you can launch a debug session using Arm Debugger, you need to:
 
 1. Install the [Arm Debugger VS Code extension](https://marketplace.visualstudio.com/items?itemName=Arm.arm-debugger).
 2. Add the Arm Debugger to your `vcpkg-configuration.json` file, for example:  
-   `  "arm:debuggers/arm/armdbg": "6.6.0"`
+   `"arm:debuggers/arm/armdbg": "6.6.0"`
 
 #### Setup for Arm Debugger
 
@@ -575,7 +578,7 @@ In the [Manage Solution](./manage_settings.md) dialog:
 
 #### Changing the default for the current workspace
 
-If you wish to change the default path to µVision for your *current workspace*, you need to create the following entry
+If you wish to change the default path to µVision for your _current workspace_, you need to create the following entry
 in your  `.vscode/settings.json` file:
 
 ```json
