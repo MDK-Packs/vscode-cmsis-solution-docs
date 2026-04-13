@@ -127,6 +127,16 @@
     <li class="toctree-l2"><a class="reference internal" href="#configure-run-and-debug">Configure run and debug</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#custom-launchjson-and-tasksjson-settings">Custom launch.json and tasks.json settings</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#generation-pipeline">Generation pipeline</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#direct-edits-in-vscode">Direct edits in .vscode</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#vscoded-drop-ins">.vscode.d drop-ins</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#merge-precedence">Merge precedence</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#pyocd">pyOCD</a>
     </li>
@@ -667,39 +677,121 @@ various debug adapters from the <a href="https://github.com/Open-CMSIS-Pack/debu
 taking the user inputs into account, the <strong>CMSIS Solution</strong> extension then generates the <code>launch.json</code> and <code>tasks.json</code>
 files.</p>
 <h3 id="custom-launchjson-and-tasksjson-settings">Custom <code>launch.json</code> and <code>tasks.json</code> settings</h3>
-<p>User defined launch configurations and tasks can be added directly into the workspace files. When updating these
-files custom or modified entries are kept untouched if detected:</p>
-<ul>
-<li><code>.vscode/launch.json</code>
-  Each auto-generated configuration has an additional property <code>cmsis.updateConfiguration="auto"</code>. By either removing
-  this property, or by setting it to <code>manual</code> will exclude it from further automatic updates.</li>
-<li><code>.vscode/tasks.json</code>
-  All auto-generated tasks have labels starting with <code>CMSIS</code>. Such tasks are removed on updates. Custom tasks
-  must assure they use names not starting with <code>CMSIS</code>.</li>
-</ul>
-<p>Instead of adding custom content into these automatically updated files causing version system modifications all the
-time, one can extract those into configuration subfolders parallel to the <code>.csolution.yml</code> they belong to and only keep
-these under version control:</p>
-<ul>
-<li><code>&lt;solution dir&gt;/.vscode.d/launch.json</code>
-  All contained <code>configurations</code> are merged into the workspace <code>.vscode/launch.json</code> file by <code>name</code> property.
-  Auto-generated configurations can be overwritten if required without attention to the <code>cmsis.updateConfiguration</code>
-  property.</li>
-<li><code>&lt;solution dir&gt;/.vscode.d/tasks.json</code>
-  All contained <code>tasks</code> and <code>inputs</code> are merged into the workspace <code>.vscode/tasks.json</code> file. Tasks are mapped by <code>label</code>
-  property and inputs are mapped my <code>id</code> property. Auto-generated <code>CMSIS</code> tasks can be overwritten if required.</li>
-</ul>
+<h4 id="generation-pipeline">Generation pipeline</h4>
+<p>The <strong>CMSIS Solution</strong> extension creates the workspace <code>.vscode/launch.json</code> and <code>.vscode/tasks.json</code> files from
+several sources:</p>
+<pre><code class="language-text">target-set in *.csolution.yml
+  -&gt; cbuild setup
+  -&gt; *.cbuild-run.yml
+  -&gt; debug adapter template expansion
+  -&gt; workspace .vscode/launch.json and .vscode/tasks.json
+  -&gt; final merge of solution-local .vscode.d drop-in files
+</code></pre>
+<p>The <code>target-set:</code> information is stored in the <code>*.csolution.yml</code> file. Running <code>cbuild setup</code> generates the
+<code>*.cbuild-run.yml</code> file, and the debug adapter templates use that information to create the auto-generated workspace
+entries.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To trigger an update of the <code>launch.json</code> and <code>tasks.json</code> files, press <code>Ctrl/Cmd+Shift+p</code> and select
 <strong>Update Debug Tasks and Launch Configurations</strong>.</p>
 </div>
+<h4 id="direct-edits-in-vscode">Direct edits in <code>.vscode</code></h4>
+<p>User defined launch configurations and tasks can be added directly into the workspace files. When updating these
+files, custom or modified entries are kept untouched if detected:</p>
+<ul>
+<li><code>.vscode/launch.json</code>
+  Each auto-generated configuration has an additional property <code>cmsis.updateConfiguration="auto"</code>. By either removing
+  this property, or by setting it to <code>manual</code>, the configuration is excluded from further automatic updates.</li>
+<li><code>.vscode/tasks.json</code>
+  All auto-generated tasks have labels starting with <code>CMSIS</code>. Such tasks are removed on updates. Custom tasks
+  must use names not starting with <code>CMSIS</code>.</li>
+</ul>
+<h4 id="vscoded-drop-ins"><code>.vscode.d</code> drop-ins</h4>
+<p>Instead of placing custom content into the automatically updated workspace files, you can keep solution-specific
+overrides in configuration subfolders parallel to the <code>.csolution.yml</code> file they belong to and keep only those files
+under version control.</p>
+<p>Example workspace layout with two solutions:</p>
+<pre><code class="language-text">&lt;workspace&gt;/
+  .vscode/
+    launch.json
+    tasks.json
+  Blinky/
+    blinky.csolution.yml
+    .vscode.d/
+      launch.json
+      tasks.json
+  Sensor/
+    sensor.csolution.yml
+    .vscode.d/
+      launch.json
+      tasks.json
+</code></pre>
+<p>The extension consumes only the following content from the drop-in files:</p>
+<ul>
+<li><code>&lt;solution dir&gt;/.vscode.d/launch.json</code>
+  The <code>configurations</code> array. Configurations are matched and merged by the <code>name</code> property.</li>
+<li><code>&lt;solution dir&gt;/.vscode.d/tasks.json</code>
+  The <code>tasks</code> and <code>inputs</code> arrays. Tasks are matched and merged by <code>label</code>, and inputs are matched and merged by <code>id</code>.</li>
+</ul>
+<p>The <code>.vscode.d</code> files do not replace the whole workspace <code>.vscode/launch.json</code> or <code>.vscode/tasks.json</code> files. They
+only overwrite matching entries during the final merge step. Non-matching workspace entries remain untouched.</p>
+<p>Example <code>launch.json</code> drop-in:</p>
+<pre><code class="language-json">{
+  &quot;configurations&quot;: [
+    {
+      &quot;name&quot;: &quot;CMSIS Debug (MCXN947)&quot;,
+      &quot;runToEntryPoint&quot;: &quot;main&quot;
+    },
+    {
+      &quot;name&quot;: &quot;My Custom Attach&quot;,
+      &quot;type&quot;: &quot;cortex-debug&quot;,
+      &quot;request&quot;: &quot;attach&quot;
+    }
+  ]
+}
+</code></pre>
+<p>In this example, the existing <code>CMSIS Debug (MCXN947)</code> configuration is overwritten because the <code>name</code> matches, while
+<code>My Custom Attach</code> is added as an additional configuration.</p>
+<p>Example <code>tasks.json</code> drop-in:</p>
+<pre><code class="language-json">{
+  &quot;tasks&quot;: [
+    {
+      &quot;label&quot;: &quot;CMSIS Load&quot;,
+      &quot;dependsOn&quot;: [
+        &quot;My Pre-Load Step&quot;
+      ]
+    },
+    {
+      &quot;label&quot;: &quot;My Pre-Load Step&quot;,
+      &quot;type&quot;: &quot;shell&quot;,
+      &quot;command&quot;: &quot;echo preparing target&quot;
+    }
+  ],
+  &quot;inputs&quot;: [
+    {
+      &quot;id&quot;: &quot;cmsis-image&quot;,
+      &quot;type&quot;: &quot;pickString&quot;,
+      &quot;description&quot;: &quot;Select image&quot;
+    },
+    {
+      &quot;id&quot;: &quot;my-extra-input&quot;,
+      &quot;type&quot;: &quot;promptString&quot;,
+      &quot;description&quot;: &quot;Extra argument&quot;
+    }
+  ]
+}
+</code></pre>
+<p>In this example, <code>CMSIS Load</code> is overwritten because the <code>label</code> matches, <code>My Pre-Load Step</code> is added as a new task,
+<code>cmsis-image</code> is overwritten because the <code>id</code> matches, and <code>my-extra-input</code> is added as a new input.</p>
+<h4 id="merge-precedence">Merge precedence</h4>
 <p>The workspace <code>launch.json</code> and <code>tasks.json</code> files are updated in the following order:</p>
 <ol>
-<li>Auto-generated configurations/tasks are added/updated for selected debug probe.</li>
-<li>Outdated formerly auto-generated configurations/tasks are removed.</li>
-<li>Configurations/tasks from user files are merged, existing elements are overwritten based on the respective
-   identification properties.</li>
+<li>Auto-generated configurations and tasks are added or updated for the selected debug probe using the generated
+   <code>*.cbuild-run.yml</code> content and the debug adapter templates.</li>
+<li>Outdated formerly auto-generated configurations and tasks are removed.</li>
+<li>Configurations, tasks, and inputs from the solution-local <code>.vscode.d</code> files are merged into the workspace files.
+   Existing elements are overwritten only when the respective identification properties match:
+   <code>name</code> for launch configurations, <code>label</code> for tasks, and <code>id</code> for inputs.</li>
 </ol>
 <h3 id="pyocd">pyOCD</h3>
 <p>In the <a href="manage_settings.html">Manage Solution</a> dialog, select the one of the debug adapters named <strong>xyz@pyOCD</strong>:</p>
