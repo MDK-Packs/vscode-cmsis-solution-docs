@@ -60,6 +60,14 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#main-area-icons">Main area icons</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configure-intellisense-with-clangd">Configure IntelliSense with clangd</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#compiler-predefined-macros">Compiler predefined macros</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#troubleshoot-intellisense">Troubleshoot IntelliSense</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#configuration-wizard">Configuration Wizard</a>
     </li>
         </ul>
@@ -264,6 +272,59 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 </tr>
 </tbody>
 </table>
+<h3 id="configure-intellisense-with-clangd">Configure IntelliSense with clangd</h3>
+<p>The CMSIS Solution extension configures the <a href="https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd">clangd language server</a>
+for the active project. Running <code>cbuild setup</code> generates a
+<code>compile_commands.json</code> compilation database and compiler macro headers in the
+project output directory. When <strong>Generate Clang Setup</strong> is enabled in the CMSIS
+Solution settings, the extension creates or updates the project <code>.clangd</code> file
+to use this generated build information.</p>
+<p>For solutions containing multiple projects, click <strong>Activate Clangd
+Information</strong> next to the required <code>*.cproject.yml</code> file. The <strong>Clangd
+Information Active</strong> icon identifies the project that currently provides
+IntelliSense information.</p>
+<p><img alt="Select the active project for clangd" src="images/clangd-active-project.png" /></p>
+<h4 id="compiler-predefined-macros">Compiler predefined macros</h4>
+<p>CMSIS-Toolbox generates separate predefined macro headers for C and C++ in the project output directory:</p>
+<ul>
+<li><code>compile_macros_c.h</code> for C source and header files.</li>
+<li><code>compile_macros_cxx.h</code> for C++ source and header files.</li>
+</ul>
+<p>For non-CLANG toolchains, the generated <code>.clangd</code> configuration includes the
+appropriate header according to the source file extension. Keeping the C and
+C++ macro sets separate prevents C++-only compiler macros from affecting C
+files. A native CLANG toolchain does not require these compatibility headers.</p>
+<p>With the correct project active, clangd resolves compiler-specific conditional
+code and provides completion, navigation, hover information, and diagnostics
+that match the selected build context.</p>
+<p><img alt="Compiler-specific conditional code in the editor" src="images/clangd-compiler-macros.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The extension regenerates the project <code>.clangd</code> file when the solution
+context changes or when the VS Code window is reloaded. This configuration
+applies only to source and header files in the directory tree below the
+<code>.clangd</code> file. Files outside this tree do not use the project configuration
+and may therefore show different diagnostics. The file can contain absolute
+paths to generated build information and is not intended for persistent
+manual customization.</p>
+</div>
+<h4 id="troubleshoot-intellisense">Troubleshoot IntelliSense</h4>
+<p>If editor diagnostics or completion do not match a successful build:</p>
+<ol>
+<li>Check that <strong>Generate Clang Setup</strong> is enabled in the CMSIS Solution
+  extension settings.</li>
+<li>Run <strong>Refresh (reload packs, update RTE)</strong> and wait for solution conversion
+  to complete.</li>
+<li>Check that <code>compile_commands.json</code>, <code>compile_macros_c.h</code>, and
+  <code>compile_macros_cxx.h</code> exist in the active context output directory.</li>
+<li>Click <strong>Activate Clangd Information</strong> next to the project that contains the
+  source file.</li>
+<li>Open a C or C++ source or header file, then check the clangd status in the
+  VS Code status bar. If indexing remains stale after regenerating the build
+  information, run the <code>clangd: Restart language server</code> command from the
+  Command Palette. If the problem persists, reload the VS Code window to
+  regenerate <code>.clangd</code> and restart the extensions.</li>
+</ol>
 <h3 id="configuration-wizard">Configuration Wizard</h3>
 <p><a href="https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/configWizard.html">Configuration Wizard annotations</a>
 enable GUI-like elements in IDEs for configuration source files. This graphical approach makes it easier for users
