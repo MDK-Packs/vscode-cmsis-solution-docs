@@ -95,13 +95,13 @@ that match the selected build context.
 ![Compiler-specific conditional code in the editor](./images/clangd-compiler-macros.png)
 
 !!! Note
-  The extension regenerates the project `.clangd` file when the solution
-  context changes or when the VS Code window is reloaded. This configuration
-  applies only to source and header files in the directory tree below the
-  `.clangd` file. Files outside this tree do not use the project configuration
-  and may therefore show different diagnostics. The file can contain absolute
-  paths to generated build information and is not intended for persistent
-  manual customization.
+    The extension regenerates the project `.clangd` file when the solution
+    context changes or when the VS Code window is reloaded. This configuration
+    applies only to source and header files in the directory tree below the
+    `.clangd` file. Files outside this tree do not use the project configuration
+    and may therefore show different diagnostics. The file can contain absolute
+    paths to generated build information and is not intended for persistent
+    manual customization.
 
 #### Troubleshoot IntelliSense
 
@@ -115,7 +115,7 @@ If editor diagnostics or completion do not match a successful build:
   `compile_macros_cxx.h` exist in the active context output directory.
 4. Click **Activate Clangd Information** next to the project that contains the
   source file.
-5. Check the clangd status in the VS Code status bar. Restart the clangd
+5. Check the clangd status in the VS Code [status bar](#status-bar). Restart the clangd
   language server if indexing remains stale after regenerating the build
   information. If the problem persists, reload the VS Code window to regenerate
   `.clangd` and restart the extensions.
