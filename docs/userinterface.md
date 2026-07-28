@@ -115,10 +115,12 @@ If editor diagnostics or completion do not match a successful build:
   `compile_macros_cxx.h` exist in the active context output directory.
 4. Click **Activate Clangd Information** next to the project that contains the
   source file.
-5. Check the clangd status in the VS Code [status bar](#status-bar). Restart the clangd
-  language server if indexing remains stale after regenerating the build
-  information. If the problem persists, reload the VS Code window to regenerate
-  `.clangd` and restart the extensions.
+5. Open a C or C++ source or header file, then check the clangd status in the
+  VS Code status bar. If indexing remains stale after regenerating the build
+  information, run the `clangd: Restart language server` command from the
+  Command Palette. If the problem persists, reload the VS Code window to
+  regenerate `.clangd` and restart the extensions.
+
 
 ### Configuration Wizard
 
