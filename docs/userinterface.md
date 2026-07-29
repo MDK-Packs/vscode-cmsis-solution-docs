@@ -40,7 +40,7 @@ information. The main area of the **CMSIS** view shows:
 
 ### No solution loaded
 
-If you have no CMSIS solution opened in VS Code, the view shows the following:
+If no CMSIS solution is active in VS Code, the view shows the following:
 
 ![CMSIS view without a solution loaded](./images/cmsis-view-no-solution.png)
 
@@ -137,7 +137,6 @@ If editor diagnostics or completion do not match a successful build:
   Command Palette. If the problem persists, reload the VS Code window to
   regenerate `.clangd` and restart the extensions.
 
-
 ### Configuration Wizard
 
 [Configuration Wizard annotations](https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/configWizard.html)
@@ -154,19 +153,17 @@ The view will be opened next to the original source file. You can switch back pr
 
 ## Status bar
 
-The VS Code status bar displays information about the status of your development environment and the project.
+The VS Code status bar displays information about the status of your development environment and the project:
 
-- Status message of the clangd extension that provides smart features.
+![Status bar](./images/status-bar.png)
 
-- You can inspect errors and warnings for the active csolution project when you move the cursor over the **Target Set** in the
-  status bar. The indicator is red for errors and yellow for warnings. Click the indicator to open the
-  **Output - CMSIS Solution** [panel](https://code.visualstudio.com/api/ux-guidelines/panel) and the [**Manage Solution**](./manage_settings.md) view.<br/>
-  ![Target Set errors and warnings](./images/target-set-popup.png "Target Set")
-
-- The [**Arm Tools Environment Manager**](https://marketplace.visualstudio.com/items?itemName=Arm.environment-manager) extension downloads, installs, and manages software development tools. Move your mouse over **Arm Tools** to review the current list of installed tools. Click **Arm Tools** to get more options.<br/>
-  ![Arm Tools](./images/arm-tools.png "Arm Tools")
-
-- If you are using licensed Arm tools, the **active license** displays. Click the active license to manage it.
+| Status bar item | Description |
+|-----------------|-------------|
+| clangd status   | Displays the status message of the **[clangd](#configure-intellisense-with-clangd)** extension that provides IntelliSense. |
+| Solution target |You can inspect errors and warnings for the active csolution project when you move the cursor over the **Solution target** in the status bar. The indicator is red for errors and yellow for warnings. Click the indicator to open the **Output - CMSIS Solution** [panel](https://code.visualstudio.com/api/ux-guidelines/panel) and the [**Manage Solution**](./manage_settings.md) view. |
+| Project setup message | **Building compilation database...** displays while the `compile_commands.json` file is created. |
+| Tool installation information | The [**Arm Tools Environment Manager**](https://marketplace.visualstudio.com/items?itemName=Arm.environment-manager) extension downloads, installs, and manages software development tools. Move your mouse over **Arm Tools** to review the current list of installed tools. Click on **Arm Tools** to get more options. |
+| Active tool license | If you are using licensed Arm tools, the **active license** displays. Click it to [manage](./installation.md#activating-keil-studio) the active license. |
 
 ## Run and Debug view
 
