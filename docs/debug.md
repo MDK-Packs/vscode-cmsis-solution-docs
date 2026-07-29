@@ -21,21 +21,73 @@ The **Run and Debug** view provides:
 - [**CALL STACK**](#call-stack) section that shows active RTOS threads along with the call stack.
 - [**BREAKPOINTS**](#breakpoints) section for managing stop points in application execution to inspect the state.
 
-> **TIP**<br>
+> &#128204; **TIP**
+>
 > Click on a _line number badge_ to navigate to the source code line.
 
 Other debugger specific views or features:
 
+- [**CPU Time**](#cpu-time) shows execution timing and statistics of the past five breakpoints.
 - [**Live Watch**](#trace-and-live-view) offers run-time viewing of user-defined expressions, for example, variable
   values.
+- [**Component Viewer**](#component-viewer) shows detailed information to help analyze the operation of software
+  components.
+- [**Core Peripherals**](#core-peripherals) view gives insight into the programming of CPU specific core peripherals.
+- [**Peripherals**](#peripherals) show the device peripheral registers and allow changing their values.
+- [**Memory Inspector**](#memory-inspector) provides a powerful and configurable memory viewer.
 - [**Disassembly**](#disassembly) shows assembly instructions and supports run control, for example with stepping and
   breakpoints.
 - [**Debug Console**](#debug-console) lists debug output messages and allows entering expressions or GDB commands.
-- [**Peripherals**](#peripherals) show the device peripheral registers and allow changing their values.
 - [**Serial Monitor**](#serial-monitor) uses serial or TCP communication to interact with application I/O functions
   (`printf`, `getc`, etc.).
-- [**CPU Time**](#cpu-time) shows execution timing and statistics of the past five breakpoints.
 - [**Multi-Core Debug**](#multi-core-debug) to view and control several processors in a device.
+
+### Target interaction while running
+
+Depending on the debug view and the debug probe used, target interaction with a Cortex-M CPU may or may not possible
+while running. The following table shows target interaction capabilities while running (with J-Link GDB server or using
+pyOCD):
+
+| View | Read | Edit |
+|------|------|------|
+| [**Memory Inspector**](#memory-inspector) | &#9989;  | &#9989;  |
+| [**Peripherals**](#peripherals)           | &#9989;  | &#9989;  |
+| [**Live Watch**](#trace-and-live-view)    | &#9989;  | &#10060; |
+| [**Component Viewer**](#component-viewer) | &#9989;  | &#10060; |
+| [**Core Peripherals**](#core-peripherals) | &#9989;  | &#10060; |
+| [**VARIABLES**](#variables)               | &#10060; | &#10060; |
+| [**WATCH**](#watch)                       | &#10060; | &#10060; |
+| [**CALL STACK**](#call-stack)             | &#10060; | &#10060; |
+
+### Number formats
+
+Expressions can be represented in different number formats. The debuggers default format is `natural`. If you wish to
+change the radix, there are multiple ways to do so:
+
+- To change it globally, right-click for example in an editor window and select **Set Global Output Radix to ...**.
+  This allows you to switch the global radix between `decimal` and `hexadecimal`.
+- To change the radix of a single expression, you can edit it for example in the
+  [**Live Watch**](#trace-and-live-view) or [**WATCH**](#watch) view. Then, add a "`,`"
+  to the expression, directly followed by one of these format specifiers (make sure no space is between the `,` and the
+  format specifier):
+
+| Specifier | Format |
+|-----------|--------|
+| `x` | `hexadecimal` |
+| `d` | `decimal` |
+| `o` | `octal` |
+| `t` or `b` | `binary` |
+| `z` | `zero-hexadecimal` (includes leading zeros) |
+
+- You can also use this syntax in the [**DEBUG CONSOLE**](#debug-console).
+
+#### Examples
+
+```txt
+counter,d
+value,o
+number,t
+```
 
 ### Debug toolbar
 
@@ -106,7 +158,7 @@ For more control of breakpoints, use the **BREAKPOINTS** section that lists and 
 
 ![BREAKPOINTS section](./images/cmsis-debugger/breakpoints-section.png)
 
-> 📝 **Note:**
+> &#128221; **Note:**
 >
 > You can set breakpoints anytime during your debug session. However, when setting a breakpoint while running an
 > application, the target stops for a short period of time.
@@ -135,8 +187,8 @@ To add a conditional breakpoint:
 
 - Create a conditional breakpoint
 
-  - Right-click in the editor margin and select Add Conditional Breakpoint.
-  - Use the Add Conditional Breakpoint command in the Command Palette (⇧⌘P).
+    - Right-click in the editor margin and select Add Conditional Breakpoint.
+    - Use the Add Conditional Breakpoint command in the Command Palette (⇧⌘P).
 
 - Choose the type of condition you want to set (expression, hit count, or wait for a breakpoint).
 
@@ -146,12 +198,12 @@ To add a condition to an existing breakpoint:
 
 - Edit an existing breakpoint
 
-  - Right-click on the breakpoint in the editor margin and select Edit Breakpoint.
-  - Select the pencil icon next for an existing breakpoint in the **BREAKPOINTS section** of the **Run and Debug view**.
+    - Right-click on the breakpoint in the editor margin and select Edit Breakpoint.
+    - Select the pencil icon next for an existing breakpoint in the **BREAKPOINTS section** of the **Run and Debug view**.
 
 - Edit the condition (expression, hit count, or wait for breakpoint).
 
-> 📝 **Note:**
+> &#128221; **Note:**
 >
 > For checking the the breakpoint condition, the target is halted for a short period of time.
 
@@ -164,7 +216,7 @@ breakpoint is shown (Write/Read/Access).
 
 ![Creating a data breakpoint](./images/cmsis-debugger/data-breakpoints.gif)
 
-> 📝 **Note:**
+> &#128221; **Note:**
 >
 > When hitting a data breakpoint, the program execution does not stop exactly on that line of code. Depending on the
 > underlying CPU architecture, stopping can be delayed by up to 5 cycles. Use the
@@ -231,30 +283,65 @@ Most Arm Cortex-M processors (except Cortex-M0/M0+/M23) include a `DWT->CYCCNT` 
 
 The **Trace and Live View**
 ![Trace and Live view](./images/cmsis-debugger/TraceLiveView.png)
-(available from the VS Code Activity Bar) currently shows the **LIVE WATCH**. You can add expressions to this view that
-are updated while the application is running on your target.
+(available from the VS Code Activity Bar) currently contains the [**LIVE WATCH**](#live-watch), the
+[**COMPONENT VIEWER**](#component-viewer), and the [**CORE PERIPHERALS**](#core-peripherals) views.
 
-You can add expressions to the **LIVE WATCH** by:
+The CMSIS Debugger stores dynamic view state per debug configuration in the `vscode-cmsis-debugger.viewState` VS Code workspace setting. The stored state includes view-specific configurations, e.g. the last filter text and periodic update options for the [**COMPONENT VIEWER**](#component-viewer), and the `enabled`/`disabled` state of the [CPU Time](#cpu-time) display.
+
+When you start the same debug configuration again, its previous state is restored automatically. To clear the stored state, run the **CMSIS Debugger: Reset All Dynamic View States** command from the Command Palette.
+
+#### LIVE WATCH
+
+You can add expressions to this view that are updated while the application is running on your target by:
 
 1. Pressing the `+` sign and entering an expression.
 2. Using the context menu item **Add to Live Watch** in the editor or the the **Run and Debug** view.
 
-![Displaying a variable in the LIVE WATCH](./images/cmsis-debugger/lw-counter.gif)
+![Displaying a variable in the LIVE WATCH](https://github.com/Open-CMSIS-Pack/vscode-cmsis-debugger/raw/main//images/lw-counter.gif)
 
 #### COMPONENT VIEWER
 
-This view shows detailed information and helps to analyze the operation of software components. The required
+This view shows detailed information to help analyze the operation of software components. The required
 infrastructure can be easily added to user applications.
 
 Refer to the [Component Viewer documentation](https://arm-software.github.io/CMSIS-View/latest/cmp_viewer.html) for
-detailed advice on how to show information from user software using using an SCVD file.
+detailed advice on how to show information from user software using an SCVD file.
 
 The Component Viewer shows information about:
 
 - Information from software components that is provided in memory for example by static variables or structures.
-- Objects that are addressed by an object handles or dynamic arrays.
+- Objects that are addressed by handles or dynamic arrays.
 
 ![Showing software component properties in the COMPONENT VIEWER](./images/cmsis-debugger/component-viewer.png)
+
+The **Component Viewer toolbar** offers the following action buttons:
+
+![Component Viewer Buttons](./images/cmsis-debugger/comp-viewer-buttons.png)
+
+| Button | Description |
+|--------|-------------|
+| Filter | Filter the displayed components and their entries |
+| Clear Filter | Remove component filtering |
+| Disable Periodic Update | Components are not updated while the target is running |
+| Expand All | Show all components at once |
+| Collapse All | Only show  top-level component name |
+
+The **Disable Periodic Update** button stops updates for all components. If you wish to lock a single component, use
+the component's ![Lock Component Display](./images/cmsis-debugger/comp-view-lock-comp.png) button to disable periodic updates.
+
+#### CORE PERIPHERALS
+
+The **CORE PERIPHERALS** view gives insight into the programming of CPU specific core peripherals.
+
+The Core Peripherals view shows information about the following components if implemented by the CPU:
+
+- Memory Protection Unit
+- Nested Vectored Interrupt Controller
+- System Config and Control
+- System Tick Timer
+- Fault Reports
+
+![Showing core peripheral contents in the COMPONENT PERIPHERALS view](./images/cmsis-debugger/core-peripherals.png)
 
 ### PERIPHERALS
 
@@ -291,19 +378,19 @@ The command **Open Disassembly View** (available from [command palette](https://
 
 ![Disassembly View](./images/cmsis-debugger/disassembly-view.png)
 
-> 📝 **Note:**
+> &#128221; **Note:**
 >
 > - Enable the [VS Code setting](https://code.visualstudio.com/docs/configure/settings) **Features > Debug > Disassembly View: Show Source Code** to show assembler instructions interleaved with source code.
 
 ### RTOS Views
 
 For RTOS awareness, the [RTOS Views](https://marketplace.visualstudio.com/items?itemName=mcu-debug.rtos-views)
-extension needs to be added to CS Code. This extension supports a wide range of real-time operating systems, such as
+extension needs to be added to VS Code. This extension supports a wide range of real-time operating systems, such as
 FreeRTOS, Zephyr, embOS,and Keil RTX5.
 
 ![RTOS Views with FreeRTOS](./images/cmsis-debugger/rtos-views.png)
 
-> 📝 **Note:**
+> &#128221; **Note:**
 >
 > - This is not a live view. It only gets updated when the program execution is stopped.
 > - To enable the view, you need to go to the debug view and press Ctrl/Cmd - Shift - P. Select

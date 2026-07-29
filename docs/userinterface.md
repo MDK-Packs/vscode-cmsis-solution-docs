@@ -38,7 +38,23 @@ information. The main area of the **CMSIS** view shows:
 - **Layer Type** (if available): The software layers in the project with their source files, preconfigured software
   components, and configuration files
 
+### No solution loaded
+
+If you have no CMSIS solution opened in VS Code, the view shows the following:
+
+![CMSIS view without a solution loaded](./images/cmsis-view-no-solution.png)
+
+This allows you to:
+
+- [Create a solution](./create_app.md#work-with-cmsis-solutions) from scratch.
+- [Convert a µVision project](./importuv.md) to a CMSIS solution.
+- [Browse Arm Examples](https://github.com/Arm-Examples) that show the usage of Arm technology on various platforms.
+
+The links below the buttons take you to the documentation and the overview of the VS Code extension.
+
 ### Actions available through the **CMSIS** view
+
+Once a CMSIS solution is loaded, the following action buttons are available:
 
 | Action | Description |
 |:------:|:------------|
