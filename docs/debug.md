@@ -297,7 +297,7 @@ You can add expressions to this view that are updated while the application is r
 1. Pressing the `+` sign and entering an expression.
 2. Using the context menu item **Add to Live Watch** in the editor or the the **Run and Debug** view.
 
-![Displaying a variable in the LIVE WATCH](https://github.com/Open-CMSIS-Pack/vscode-cmsis-debugger/raw/main//images/lw-counter.gif)
+![Displaying a variable in the LIVE WATCH](./images/cmsis-debugger/lw-counter.gif)
 
 #### COMPONENT VIEWER
 

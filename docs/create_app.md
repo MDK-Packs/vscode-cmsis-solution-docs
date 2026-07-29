@@ -374,3 +374,7 @@ In the **Update Pack** section, you can manage the pack version:
 |--------|-------------|
 | ![Remove pack version lock](./images/pack-remove-lock.png) | **Enabled** if there is a more recent version of a pack installed, but it is locked to a smaller version. When pressing the button, the `cbuild-pack.yml` entry will be removed on save and the latest installed pack version will be set and used. **Disabled** if the latest pack version is used. |
 | ![Update pack version information](./images/pack-update-info.png) | Open the version history page of a [public pack](https://www.keil.arm.com/packs). |
+
+!!! Note
+    The pack lock file does not take effect if an "exact" version (for example `@1.3.0`) is specified. In this case,
+    the version number needs to be edited explicitly.
