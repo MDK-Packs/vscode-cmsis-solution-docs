@@ -34,7 +34,7 @@
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a>
         <div class="version">
-          1.66.0
+          1.70.0
         </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -497,24 +497,67 @@ installation.</p>
 <p><img alt="Manage Pack dialog" src="images/manage-pack-dialog.png" /></p>
 <p>In the <strong>Current References</strong> section, you can:</p>
 <ul>
-<li>Set the specific
-  <a href="https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/pdsc_package_pg.html#VersionType">version</a> for a
-  pack to be used on the csolution/cproject/clayer level. Use these version specifiers:<ul>
-<li><code>Unspecified</code>: use the latest installed version of a pack and the <code>cbuild-pack.yml</code> for locked versions.</li>
-<li><code>@</code>: exact version</li>
-<li><code>@&gt;=</code>: equal or higher</li>
-<li><code>@^</code>: equal or higher with same major version</li>
-<li><code>@~</code>: Equal or higher with same major <em>and</em> minor version</li>
+<li>Set the specific <a href="https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/pdsc_package_pg.html#VersionType">version</a>
+for a pack to be used on the csolution/cproject/clayer level using these version specifiers:</li>
 </ul>
-</li>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Specifier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>Unspecified</code></td>
+<td>use the latest installed version of a pack and the <code>cbuild-pack.yml</code> for locked versions.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>@</code></td>
+<td>exact version</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>@&gt;=</code></td>
+<td>equal or higher</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>@^</code></td>
+<td>equal or higher with same major version</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>@~</code></td>
+<td>Equal or higher with same major <em>and</em> minor version</td>
+</tr>
+</tbody>
+</table>
+<ul>
 <li>Add a pack to a csolution/cproject/clayer.</li>
 </ul>
 <p>Below that, the <em>used pack</em> version is shown. It is computed from the requirements above.</p>
-<p>In the <strong>Update Pack</strong> section, you can see the latest installed version and check for updates. The button on the left
-is enabled when there is a more recent version of a pack installed, but the <code>cbuild-pack.yml</code> locks it to a
-smaller version. When pressing the button, the <code>cbuild-pack.yml</code> entry will be removed on save and the latest installed
-pack version will be set and used. The button to the right opens the version page of a public pack on
-<a href="https://www.keil.arm.com/packs">keil.arm.com</a> which then also shows you the latest available pack version.</p>
+<p>In the <strong>Update Pack</strong> section, you can manage the pack version:</p>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Remove pack version lock" src="images/pack-remove-lock.png" /></td>
+<td><strong>Enabled</strong> if there is a more recent version of a pack installed, but it is locked to a smaller version. When pressing the button, the <code>cbuild-pack.yml</code> entry will be removed on save and the latest installed pack version will be set and used. <strong>Disabled</strong> if the latest pack version is used.</td>
+</tr>
+<tr>
+<td><img alt="Update pack version information" src="images/pack-update-info.png" /></td>
+<td>Open the version history page of a <a href="https://www.keil.arm.com/packs">public pack</a>.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The pack lock file does not take effect if an "exact" version (for example <code>@1.3.0</code>) is specified. In this case,
+the version number needs to be edited explicitly.</p>
+</div>
               
             </div>
           </div><footer>

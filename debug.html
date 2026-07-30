@@ -34,7 +34,7 @@
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a>
         <div class="version">
-          1.66.0
+          1.70.0
         </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -76,6 +76,14 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#debugger-user-interface">Debugger User Interface</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#target-interaction-while-running">Target interaction while running</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#number-formats">Number formats</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#debug-toolbar">Debug toolbar</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#variables">VARIABLES</a>
@@ -96,7 +104,11 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#trace-and-live-view">Trace and Live view</a>
         <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#live-watch">LIVE WATCH</a>
+    </li>
     <li class="toctree-l4"><a class="reference internal" href="#component-viewer">COMPONENT VIEWER</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#core-peripherals">CORE PERIPHERALS</a>
     </li>
         </ul>
     </li>
@@ -237,22 +249,130 @@
 <li><a href="#breakpoints"><strong>BREAKPOINTS</strong></a> section for managing stop points in application execution to inspect the state.</li>
 </ul>
 <blockquote>
-<p><strong>TIP</strong><br>
-Click on a <em>line number badge</em> to navigate to the source code line.</p>
+<p>&#128204; <strong>TIP</strong></p>
+<p>Click on a <em>line number badge</em> to navigate to the source code line.</p>
 </blockquote>
 <p>Other debugger specific views or features:</p>
 <ul>
+<li><a href="#cpu-time"><strong>CPU Time</strong></a> shows execution timing and statistics of the past five breakpoints.</li>
 <li><a href="#trace-and-live-view"><strong>Live Watch</strong></a> offers run-time viewing of user-defined expressions, for example, variable
   values.</li>
+<li><a href="#component-viewer"><strong>Component Viewer</strong></a> shows detailed information to help analyze the operation of software
+  components.</li>
+<li><a href="#core-peripherals"><strong>Core Peripherals</strong></a> view gives insight into the programming of CPU specific core peripherals.</li>
+<li><a href="#peripherals"><strong>Peripherals</strong></a> show the device peripheral registers and allow changing their values.</li>
+<li><a href="#memory-inspector"><strong>Memory Inspector</strong></a> provides a powerful and configurable memory viewer.</li>
 <li><a href="#disassembly"><strong>Disassembly</strong></a> shows assembly instructions and supports run control, for example with stepping and
   breakpoints.</li>
 <li><a href="#debug-console"><strong>Debug Console</strong></a> lists debug output messages and allows entering expressions or GDB commands.</li>
-<li><a href="#peripherals"><strong>Peripherals</strong></a> show the device peripheral registers and allow changing their values.</li>
 <li><a href="#serial-monitor"><strong>Serial Monitor</strong></a> uses serial or TCP communication to interact with application I/O functions
   (<code>printf</code>, <code>getc</code>, etc.).</li>
-<li><a href="#cpu-time"><strong>CPU Time</strong></a> shows execution timing and statistics of the past five breakpoints.</li>
 <li><a href="#multi-core-debug"><strong>Multi-Core Debug</strong></a> to view and control several processors in a device.</li>
 </ul>
+<h3 id="target-interaction-while-running">Target interaction while running</h3>
+<p>Depending on the debug view and the debug probe used, target interaction with a Cortex-M CPU may or may not possible
+while running. The following table shows target interaction capabilities while running (with J-Link GDB server or using
+pyOCD):</p>
+<table>
+<thead>
+<tr>
+<th>View</th>
+<th>Read</th>
+<th>Edit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#memory-inspector"><strong>Memory Inspector</strong></a></td>
+<td>&#9989;</td>
+<td>&#9989;</td>
+</tr>
+<tr>
+<td><a href="#peripherals"><strong>Peripherals</strong></a></td>
+<td>&#9989;</td>
+<td>&#9989;</td>
+</tr>
+<tr>
+<td><a href="#trace-and-live-view"><strong>Live Watch</strong></a></td>
+<td>&#9989;</td>
+<td>&#10060;</td>
+</tr>
+<tr>
+<td><a href="#component-viewer"><strong>Component Viewer</strong></a></td>
+<td>&#9989;</td>
+<td>&#10060;</td>
+</tr>
+<tr>
+<td><a href="#core-peripherals"><strong>Core Peripherals</strong></a></td>
+<td>&#9989;</td>
+<td>&#10060;</td>
+</tr>
+<tr>
+<td><a href="#variables"><strong>VARIABLES</strong></a></td>
+<td>&#10060;</td>
+<td>&#10060;</td>
+</tr>
+<tr>
+<td><a href="#watch"><strong>WATCH</strong></a></td>
+<td>&#10060;</td>
+<td>&#10060;</td>
+</tr>
+<tr>
+<td><a href="#call-stack"><strong>CALL STACK</strong></a></td>
+<td>&#10060;</td>
+<td>&#10060;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="number-formats">Number formats</h3>
+<p>Expressions can be represented in different number formats. The debuggers default format is <code>natural</code>. If you wish to
+change the radix, there are multiple ways to do so:</p>
+<ul>
+<li>To change it globally, right-click for example in an editor window and select <strong>Set Global Output Radix to ...</strong>.
+  This allows you to switch the global radix between <code>decimal</code> and <code>hexadecimal</code>.</li>
+<li>To change the radix of a single expression, you can edit it for example in the
+  <a href="#trace-and-live-view"><strong>Live Watch</strong></a> or <a href="#watch"><strong>WATCH</strong></a> view. Then, add a "<code>,</code>"
+  to the expression, directly followed by one of these format specifiers (make sure no space is between the <code>,</code> and the
+  format specifier):</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Specifier</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x</code></td>
+<td><code>hexadecimal</code></td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td><code>decimal</code></td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td><code>octal</code></td>
+</tr>
+<tr>
+<td><code>t</code> or <code>b</code></td>
+<td><code>binary</code></td>
+</tr>
+<tr>
+<td><code>z</code></td>
+<td><code>zero-hexadecimal</code> (includes leading zeros)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>You can also use this syntax in the <a href="#debug-console"><strong>DEBUG CONSOLE</strong></a>.</li>
+</ul>
+<h4 id="examples">Examples</h4>
+<pre><code class="language-txt">counter,d
+value,o
+number,t
+</code></pre>
 <h3 id="debug-toolbar">Debug toolbar</h3>
 <p>During debugging, the <strong>Debug toolbar</strong> contains actions to control the flow of the debug session, such as stepping through code, pausing execution, and stopping the debug session.</p>
 <p><img alt="Debug toolbar" src="images/cmsis-debugger/debug-toolbar.png" /></p>
@@ -331,7 +451,7 @@ circle. The same might happen if the source is edited while a debug session with
 <p>For more control of breakpoints, use the <strong>BREAKPOINTS</strong> section that lists and manages all breakpoints.</p>
 <p><img alt="BREAKPOINTS section" src="images/cmsis-debugger/breakpoints-section.png" /></p>
 <blockquote>
-<p>📝 <strong>Note:</strong></p>
+<p>&#128221; <strong>Note:</strong></p>
 <p>You can set breakpoints anytime during your debug session. However, when setting a breakpoint while running an
 application, the target stops for a short period of time.</p>
 </blockquote>
@@ -353,12 +473,10 @@ name. Function breakpoints are shown with a red triangle in the <strong>BREAKPOI
 <ul>
 <li>
 <p>Create a conditional breakpoint</p>
-</li>
-<li>
-<p>Right-click in the editor margin and select Add Conditional Breakpoint.</p>
-</li>
-<li>
-<p>Use the Add Conditional Breakpoint command in the Command Palette (⇧⌘P).</p>
+<ul>
+<li>Right-click in the editor margin and select Add Conditional Breakpoint.</li>
+<li>Use the Add Conditional Breakpoint command in the Command Palette (⇧⌘P).</li>
+</ul>
 </li>
 <li>
 <p>Choose the type of condition you want to set (expression, hit count, or wait for a breakpoint).</p>
@@ -369,19 +487,17 @@ name. Function breakpoints are shown with a red triangle in the <strong>BREAKPOI
 <ul>
 <li>
 <p>Edit an existing breakpoint</p>
-</li>
-<li>
-<p>Right-click on the breakpoint in the editor margin and select Edit Breakpoint.</p>
-</li>
-<li>
-<p>Select the pencil icon next for an existing breakpoint in the <strong>BREAKPOINTS section</strong> of the <strong>Run and Debug view</strong>.</p>
+<ul>
+<li>Right-click on the breakpoint in the editor margin and select Edit Breakpoint.</li>
+<li>Select the pencil icon next for an existing breakpoint in the <strong>BREAKPOINTS section</strong> of the <strong>Run and Debug view</strong>.</li>
+</ul>
 </li>
 <li>
 <p>Edit the condition (expression, hit count, or wait for breakpoint).</p>
 </li>
 </ul>
 <blockquote>
-<p>📝 <strong>Note:</strong></p>
+<p>&#128221; <strong>Note:</strong></p>
 <p>For checking the the breakpoint condition, the target is halted for a short period of time.</p>
 </blockquote>
 <h5 id="data-breakpoints">Data breakpoints</h5>
@@ -391,7 +507,7 @@ read/is accessed. Data breakpoints are shown with a red hexagon in the <strong>B
 breakpoint is shown (Write/Read/Access).</p>
 <p><img alt="Creating a data breakpoint" src="images/cmsis-debugger/data-breakpoints.gif" /></p>
 <blockquote>
-<p>📝 <strong>Note:</strong></p>
+<p>&#128221; <strong>Note:</strong></p>
 <p>When hitting a data breakpoint, the program execution does not stop exactly on that line of code. Depending on the
 underlying CPU architecture, stopping can be delayed by up to 5 cycles. Use the
 <a href="#call-stack">Call Stack</a> view to determine what caused the execution to stop.</p>
@@ -458,25 +574,73 @@ and/or hit count.</p>
 <h3 id="trace-and-live-view">Trace and Live view</h3>
 <p>The <strong>Trace and Live View</strong>
 <img alt="Trace and Live view" src="images/cmsis-debugger/TraceLiveView.png" />
-(available from the VS Code Activity Bar) currently shows the <strong>LIVE WATCH</strong>. You can add expressions to this view that
-are updated while the application is running on your target.</p>
-<p>You can add expressions to the <strong>LIVE WATCH</strong> by:</p>
+(available from the VS Code Activity Bar) currently contains the <a href="#live-watch"><strong>LIVE WATCH</strong></a>, the
+<a href="#component-viewer"><strong>COMPONENT VIEWER</strong></a>, and the <a href="#core-peripherals"><strong>CORE PERIPHERALS</strong></a> views.</p>
+<p>The CMSIS Debugger stores dynamic view state per debug configuration in the <code>vscode-cmsis-debugger.viewState</code> VS Code workspace setting. The stored state includes view-specific configurations, e.g. the last filter text and periodic update options for the <a href="#component-viewer"><strong>COMPONENT VIEWER</strong></a>, and the <code>enabled</code>/<code>disabled</code> state of the <a href="#cpu-time">CPU Time</a> display.</p>
+<p>When you start the same debug configuration again, its previous state is restored automatically. To clear the stored state, run the <strong>CMSIS Debugger: Reset All Dynamic View States</strong> command from the Command Palette.</p>
+<h4 id="live-watch">LIVE WATCH</h4>
+<p>You can add expressions to this view that are updated while the application is running on your target by:</p>
 <ol>
 <li>Pressing the <code>+</code> sign and entering an expression.</li>
 <li>Using the context menu item <strong>Add to Live Watch</strong> in the editor or the the <strong>Run and Debug</strong> view.</li>
 </ol>
 <p><img alt="Displaying a variable in the LIVE WATCH" src="images/cmsis-debugger/lw-counter.gif" /></p>
 <h4 id="component-viewer">COMPONENT VIEWER</h4>
-<p>This view shows detailed information and helps to analyze the operation of software components. The required
+<p>This view shows detailed information to help analyze the operation of software components. The required
 infrastructure can be easily added to user applications.</p>
 <p>Refer to the <a href="https://arm-software.github.io/CMSIS-View/latest/cmp_viewer.html">Component Viewer documentation</a> for
-detailed advice on how to show information from user software using using an SCVD file.</p>
+detailed advice on how to show information from user software using an SCVD file.</p>
 <p>The Component Viewer shows information about:</p>
 <ul>
 <li>Information from software components that is provided in memory for example by static variables or structures.</li>
-<li>Objects that are addressed by an object handles or dynamic arrays.</li>
+<li>Objects that are addressed by handles or dynamic arrays.</li>
 </ul>
 <p><img alt="Showing software component properties in the COMPONENT VIEWER" src="images/cmsis-debugger/component-viewer.png" /></p>
+<p>The <strong>Component Viewer toolbar</strong> offers the following action buttons:</p>
+<p><img alt="Component Viewer Buttons" src="images/cmsis-debugger/comp-viewer-buttons.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Filter</td>
+<td>Filter the displayed components and their entries</td>
+</tr>
+<tr>
+<td>Clear Filter</td>
+<td>Remove component filtering</td>
+</tr>
+<tr>
+<td>Disable Periodic Update</td>
+<td>Components are not updated while the target is running</td>
+</tr>
+<tr>
+<td>Expand All</td>
+<td>Show all components at once</td>
+</tr>
+<tr>
+<td>Collapse All</td>
+<td>Only show  top-level component name</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>Disable Periodic Update</strong> button stops updates for all components. If you wish to lock a single component, use
+the component's <img alt="Lock Component Display" src="images/cmsis-debugger/comp-view-lock-comp.png" /> button to disable periodic updates.</p>
+<h4 id="core-peripherals">CORE PERIPHERALS</h4>
+<p>The <strong>CORE PERIPHERALS</strong> view gives insight into the programming of CPU specific core peripherals.</p>
+<p>The Core Peripherals view shows information about the following components if implemented by the CPU:</p>
+<ul>
+<li>Memory Protection Unit</li>
+<li>Nested Vectored Interrupt Controller</li>
+<li>System Config and Control</li>
+<li>System Tick Timer</li>
+<li>Fault Reports</li>
+</ul>
+<p><img alt="Showing core peripheral contents in the COMPONENT PERIPHERALS view" src="images/cmsis-debugger/core-peripherals.png" /></p>
 <h3 id="peripherals">PERIPHERALS</h3>
 <p>The <strong>PERIPHERALS</strong> view shows the device peripheral registers and allows to change their values. It uses the CMSIS-SVD files that are provided by silicon vendors and distributed as part of the CMSIS Device Family Packs (DFP).</p>
 <p><img alt="Peripheral Inspector" src="images/cmsis-debugger/peripheral-inspector.png" /></p>
@@ -503,18 +667,18 @@ detailed advice on how to show information from user software using using an SCV
 <p>The command <strong>Open Disassembly View</strong> (available from <a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">command palette</a> or context menus) shows the assembler instructions of the program intermixed with the source code. Using this view allows single stepping or managing breakpoints at the CPU instruction level.</p>
 <p><img alt="Disassembly View" src="images/cmsis-debugger/disassembly-view.png" /></p>
 <blockquote>
-<p>📝 <strong>Note:</strong></p>
+<p>&#128221; <strong>Note:</strong></p>
 <ul>
 <li>Enable the <a href="https://code.visualstudio.com/docs/configure/settings">VS Code setting</a> <strong>Features &gt; Debug &gt; Disassembly View: Show Source Code</strong> to show assembler instructions interleaved with source code.</li>
 </ul>
 </blockquote>
 <h3 id="rtos-views">RTOS Views</h3>
 <p>For RTOS awareness, the <a href="https://marketplace.visualstudio.com/items?itemName=mcu-debug.rtos-views">RTOS Views</a>
-extension needs to be added to CS Code. This extension supports a wide range of real-time operating systems, such as
+extension needs to be added to VS Code. This extension supports a wide range of real-time operating systems, such as
 FreeRTOS, Zephyr, embOS,and Keil RTX5.</p>
 <p><img alt="RTOS Views with FreeRTOS" src="images/cmsis-debugger/rtos-views.png" /></p>
 <blockquote>
-<p>📝 <strong>Note:</strong></p>
+<p>&#128221; <strong>Note:</strong></p>
 <ul>
 <li>This is not a live view. It only gets updated when the program execution is stopped.</li>
 <li>To enable the view, you need to go to the debug view and press Ctrl/Cmd - Shift - P. Select

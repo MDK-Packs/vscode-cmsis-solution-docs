@@ -34,7 +34,7 @@
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a>
         <div class="version">
-          1.66.0
+          1.70.0
         </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -56,6 +56,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#cmsis-view">CMSIS view</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#no-solution-loaded">No solution loaded</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#actions-available-through-the-cmsis-view">Actions available through the CMSIS view</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#main-area-icons">Main area icons</a>
@@ -209,7 +211,18 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 <li><strong>Layer Type</strong> (if available): The software layers in the project with their source files, preconfigured software
   components, and configuration files</li>
 </ul>
+<h3 id="no-solution-loaded">No solution loaded</h3>
+<p>If no CMSIS solution is active in VS Code, the view shows the following:</p>
+<p><img alt="CMSIS view without a solution loaded" src="images/cmsis-view-no-solution.png" /></p>
+<p>This allows you to:</p>
+<ul>
+<li><a href="create_app.html#work-with-cmsis-solutions">Create a solution</a> from scratch.</li>
+<li><a href="importuv.html">Convert a µVision project</a> to a CMSIS solution.</li>
+<li><a href="https://github.com/Arm-Examples">Browse Arm Examples</a> that show the usage of Arm technology on various platforms.</li>
+</ul>
+<p>The links below the buttons take you to the documentation and the overview of the VS Code extension.</p>
 <h3 id="actions-available-through-the-cmsis-view">Actions available through the <strong>CMSIS</strong> view</h3>
+<p>Once a CMSIS solution is loaded, the following action buttons are available:</p>
 <table>
 <thead>
 <tr>
@@ -335,25 +348,42 @@ to review and edit configuration settings as required by the application.</p>
 <img alt="Open source file view" src="images/open-source-file-view-icon.png" />.</p>
 <p><img alt="RTE_Device.h file in configuration wizard view" src="images/rte-device-config-wiz-view.png" /></p>
 <h2 id="status-bar">Status bar</h2>
-<p>The VS Code status bar displays information about the status of your development environment and the project.</p>
-<ul>
-<li>
-<p>Status message of the clangd extension that provides smart features.</p>
-</li>
-<li>
-<p>You can inspect errors and warnings for the active csolution project when you move the cursor over the <strong>Target Set</strong> in the
-  status bar. The indicator is red for errors and yellow for warnings. Click the indicator to open the
-  <strong>Output - CMSIS Solution</strong> <a href="https://code.visualstudio.com/api/ux-guidelines/panel">panel</a> and the <a href="manage_settings.html"><strong>Manage Solution</strong></a> view.<br/>
-  <img alt="Target Set errors and warnings" src="images/target-set-popup.png" title="Target Set" /></p>
-</li>
-<li>
-<p>The <a href="https://marketplace.visualstudio.com/items?itemName=Arm.environment-manager"><strong>Arm Tools Environment Manager</strong></a> extension downloads, installs, and manages software development tools. Move your mouse over <strong>Arm Tools</strong> to review the current list of installed tools. Click <strong>Arm Tools</strong> to get more options.<br/>
-  <img alt="Arm Tools" src="images/arm-tools.png" title="Arm Tools" /></p>
-</li>
-<li>
-<p>If you are using licensed Arm tools, the <strong>active license</strong> displays. Click the active license to manage it.</p>
-</li>
-</ul>
+<p>The VS Code status bar displays information about the status of your development environment and the project:</p>
+<p><img alt="Status bar" src="images/status-bar.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Status bar item</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clangd status</td>
+<td>Displays the status message of the <strong><a href="#configure-intellisense-with-clangd">clangd</a></strong> extension that provides IntelliSense.</td>
+</tr>
+<tr>
+<td>Solution target</td>
+<td>You can inspect errors and warnings for the active csolution project when you move the cursor over the <strong>Solution target</strong> in the status bar. The indicator is red for errors and yellow for warnings. Click the indicator to open the <strong>Output - CMSIS Solution</strong> <a href="https://code.visualstudio.com/api/ux-guidelines/panel">panel</a> and the <a href="manage_settings.html"><strong>Manage Solution</strong></a> view.</td>
+</tr>
+<tr>
+<td>cbuild setup message</td>
+<td><strong>Building compilation database...</strong> displays while the <code>compile_commands.json</code> file is created (during <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/ReferenceApplications/#step-2-run-cbuild-setup">cbuild setup</a>).</td>
+</tr>
+<tr>
+<td>Tool installation information</td>
+<td>The <a href="https://marketplace.visualstudio.com/items?itemName=Arm.environment-manager"><strong>Arm Tools Environment Manager</strong></a> extension downloads, installs, and manages software development tools. Move your mouse over <strong>Arm Tools</strong> to review the current list of installed tools. Click on <strong>Arm Tools</strong> to get more options.</td>
+</tr>
+<tr>
+<td>Active tool license</td>
+<td>If you are using licensed Arm tools, the <strong>active license</strong> displays. Click it to <a href="installation.html#activating-keil-studio">manage</a> the active license.</td>
+</tr>
+<tr>
+<td>clangd indexing message</td>
+<td>Shows the clangd indexing progress once a C, C++, or header file is opened in the editor.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="run-and-debug-view">Run and Debug view</h2>
 <p>Refer to the <a href="debug.html#debugger-user-interface">Debugger user interface</a> section for more information.</p>
 <!--
