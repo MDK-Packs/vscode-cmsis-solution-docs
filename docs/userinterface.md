@@ -161,7 +161,7 @@ The VS Code status bar displays information about the status of your development
 |-----------------|-------------|
 | clangd status   | Displays the status message of the **[clangd](#configure-intellisense-with-clangd)** extension that provides IntelliSense. |
 | Solution target |You can inspect errors and warnings for the active csolution project when you move the cursor over the **Solution target** in the status bar. The indicator is red for errors and yellow for warnings. Click the indicator to open the **Output - CMSIS Solution** [panel](https://code.visualstudio.com/api/ux-guidelines/panel) and the [**Manage Solution**](./manage_settings.md) view. |
-| Project setup message | **Building compilation database...** displays while the `compile_commands.json` file is created. |
+| cbuild setup message | **Building compilation database...** displays while the `compile_commands.json` file is created (during [cbuild setup](https://open-cmsis-pack.github.io/cmsis-toolbox/ReferenceApplications/#step-2-run-cbuild-setup)). |
 | Tool installation information | The [**Arm Tools Environment Manager**](https://marketplace.visualstudio.com/items?itemName=Arm.environment-manager) extension downloads, installs, and manages software development tools. Move your mouse over **Arm Tools** to review the current list of installed tools. Click on **Arm Tools** to get more options. |
 | Active tool license | If you are using licensed Arm tools, the **active license** displays. Click it to [manage](./installation.md#activating-keil-studio) the active license. |
 | clangd indexing message | Shows the clangd indexing progress once a C, C++, or header file is opened in the editor. |
