@@ -164,6 +164,7 @@ The VS Code status bar displays information about the status of your development
 | Project setup message | **Building compilation database...** displays while the `compile_commands.json` file is created. |
 | Tool installation information | The [**Arm Tools Environment Manager**](https://marketplace.visualstudio.com/items?itemName=Arm.environment-manager) extension downloads, installs, and manages software development tools. Move your mouse over **Arm Tools** to review the current list of installed tools. Click on **Arm Tools** to get more options. |
 | Active tool license | If you are using licensed Arm tools, the **active license** displays. Click it to [manage](./installation.md#activating-keil-studio) the active license. |
+| clangd indexing message | Shows the clangd indexing progress once a C, C++, or header file is opened in the editor. |
 
 ## Run and Debug view
 
