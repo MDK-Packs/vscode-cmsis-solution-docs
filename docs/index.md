@@ -46,6 +46,7 @@ The IDE:
 
 Version            | Description
 :------------------|:-------------------------
+1.70.0             | Updates for v1.68.0. and v1.70.0
 1.66.0             | Added **Software pack**, **Related Documentation**, and **Features and roadmap** chapters
 1.64.0             | Added **Work with Zephyr applications** and reworked other chapters
 1.62.0             | Reworked **Manage solutions** and **Debug** chapters

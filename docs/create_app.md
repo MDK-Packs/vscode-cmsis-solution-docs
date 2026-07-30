@@ -353,20 +353,28 @@ Click on either icon: ![Manage software packs](./images/manage-packs.png) to ope
 
 In the **Current References** section, you can:
 
-- Set the specific
-  [version](https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/pdsc_package_pg.html#VersionType) for a
-  pack to be used on the csolution/cproject/clayer level. Use these version specifiers:
-    - `Unspecified`: use the latest installed version of a pack and the `cbuild-pack.yml` for locked versions.
-    - `@`: exact version
-    - `@>=`: equal or higher
-    - `@^`: equal or higher with same major version
-    - `@~`: Equal or higher with same major *and* minor version
+- Set the specific [version](https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/pdsc_package_pg.html#VersionType)
+for a pack to be used on the csolution/cproject/clayer level using these version specifiers:
+
+| Specifier | Description |
+|:---------:|-------------|
+| `Unspecified` | use the latest installed version of a pack and the `cbuild-pack.yml` for locked versions. |
+| `@` | exact version |
+| `@>=` | equal or higher |
+| `@^` | equal or higher with same major version |
+| `@~` | Equal or higher with same major *and* minor version |
+
 - Add a pack to a csolution/cproject/clayer.
 
 Below that, the *used pack* version is shown. It is computed from the requirements above.
 
-In the **Update Pack** section, you can see the latest installed version and check for updates. The button on the left
-is enabled when there is a more recent version of a pack installed, but the `cbuild-pack.yml` locks it to a
-smaller version. When pressing the button, the `cbuild-pack.yml` entry will be removed on save and the latest installed
-pack version will be set and used. The button to the right opens the version page of a public pack on
-[keil.arm.com](https://www.keil.arm.com/packs) which then also shows you the latest available pack version.
+In the **Update Pack** section, you can manage the pack version:
+
+| Button | Description |
+|--------|-------------|
+| ![Remove pack version lock](./images/pack-remove-lock.png) | **Enabled** if there is a more recent version of a pack installed, but it is locked to a smaller version. When pressing the button, the `cbuild-pack.yml` entry will be removed on save and the latest installed pack version will be set and used. **Disabled** if the latest pack version is used. |
+| ![Update pack version information](./images/pack-update-info.png) | Open the version history page of a [public pack](https://www.keil.arm.com/packs). |
+
+!!! Note
+    The pack lock file does not take effect if an "exact" version (for example `@1.3.0`) is specified. In this case,
+    the version number needs to be edited explicitly.

@@ -68,14 +68,14 @@
 
 ### Register and memory inspection
 
-| Category                                                   | Debug Features                     |
-| ---------------------------------------------------------- | ---------------------------------- |
-| &#128994; [Core registers](./debug.md#variables)           | R0–R15, PSR, MSP, PSP, CONTROL     |
-| &#128993; Core peripheral registers                        | NVIC, SysTick, MPU                 |
-| &#128994; [Peripheral registers](./debug.md#peripherals)   | CMSIS-SVD decoded peripheral views |
-| &#128994; [Memory inspection](./debug.md#memory-inspector) | Configurable memory views          |
-| &#128994; [Memory inspection](./debug.md#memory-inspector) | Memory access breakpoints          |
-| &#128994; [Memory inspection](./debug.md#memory-inspector) | Memory window live update          |
+| Category                                                           | Debug Features                     |
+| ------------------------------------------------------------------ | ---------------------------------- |
+| &#128994; [Core registers](./debug.md#variables)                   | R0–R15, PSR, MSP, PSP, CONTROL     |
+| &#128994; [Core peripheral registers](./debug.md#core-peripherals) | NVIC, SysTick, MPU                 |
+| &#128994; [Peripheral registers](./debug.md#peripherals)           | CMSIS-SVD decoded peripheral views |
+| &#128994; [Memory inspection](./debug.md#memory-inspector)         | Configurable memory views          |
+| &#128994; [Memory inspection](./debug.md#memory-inspector)         | Memory access breakpoints          |
+| &#128994; [Memory inspection](./debug.md#memory-inspector)         | Memory window live update          |
 
 ### Source-level debugging
 
@@ -137,7 +137,7 @@
 | Category                                            | Debug Features                      |
 | --------------------------------------------------- | ----------------------------------- |
 | &#128994; [Fast models (FVPs)](./debug.md#arm-fvps) | Instruction-accurate CPU simulation |
-| &#128993; Debug FVPs                                | Debugging on FVPs                   |
+| &#128994; Debug FVPs                                | Debugging on FVPs                   |
 
 !!! Note
     FVP simulation models are not available in the MDK-Essential edition.

@@ -38,7 +38,23 @@ information. The main area of the **CMSIS** view shows:
 - **Layer Type** (if available): The software layers in the project with their source files, preconfigured software
   components, and configuration files
 
+### No solution loaded
+
+If no CMSIS solution is active in VS Code, the view shows the following:
+
+![CMSIS view without a solution loaded](./images/cmsis-view-no-solution.png)
+
+This allows you to:
+
+- [Create a solution](./create_app.md#work-with-cmsis-solutions) from scratch.
+- [Convert a µVision project](./importuv.md) to a CMSIS solution.
+- [Browse Arm Examples](https://github.com/Arm-Examples) that show the usage of Arm technology on various platforms.
+
+The links below the buttons take you to the documentation and the overview of the VS Code extension.
+
 ### Actions available through the **CMSIS** view
+
+Once a CMSIS solution is loaded, the following action buttons are available:
 
 | Action | Description |
 |:------:|:------------|
@@ -121,7 +137,6 @@ If editor diagnostics or completion do not match a successful build:
   Command Palette. If the problem persists, reload the VS Code window to
   regenerate `.clangd` and restart the extensions.
 
-
 ### Configuration Wizard
 
 [Configuration Wizard annotations](https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/configWizard.html)
@@ -138,19 +153,18 @@ The view will be opened next to the original source file. You can switch back pr
 
 ## Status bar
 
-The VS Code status bar displays information about the status of your development environment and the project.
+The VS Code status bar displays information about the status of your development environment and the project:
 
-- Status message of the clangd extension that provides smart features.
+![Status bar](./images/status-bar.png)
 
-- You can inspect errors and warnings for the active csolution project when you move the cursor over the **Target Set** in the
-  status bar. The indicator is red for errors and yellow for warnings. Click the indicator to open the
-  **Output - CMSIS Solution** [panel](https://code.visualstudio.com/api/ux-guidelines/panel) and the [**Manage Solution**](./manage_settings.md) view.<br/>
-  ![Target Set errors and warnings](./images/target-set-popup.png "Target Set")
-
-- The [**Arm Tools Environment Manager**](https://marketplace.visualstudio.com/items?itemName=Arm.environment-manager) extension downloads, installs, and manages software development tools. Move your mouse over **Arm Tools** to review the current list of installed tools. Click **Arm Tools** to get more options.<br/>
-  ![Arm Tools](./images/arm-tools.png "Arm Tools")
-
-- If you are using licensed Arm tools, the **active license** displays. Click the active license to manage it.
+| Status bar item | Description |
+|-----------------|-------------|
+| clangd status   | Displays the status message of the **[clangd](#configure-intellisense-with-clangd)** extension that provides IntelliSense. |
+| Solution target |You can inspect errors and warnings for the active csolution project when you move the cursor over the **Solution target** in the status bar. The indicator is red for errors and yellow for warnings. Click the indicator to open the **Output - CMSIS Solution** [panel](https://code.visualstudio.com/api/ux-guidelines/panel) and the [**Manage Solution**](./manage_settings.md) view. |
+| cbuild setup message | **Building compilation database...** displays while the `compile_commands.json` file is created (during [cbuild setup](https://open-cmsis-pack.github.io/cmsis-toolbox/ReferenceApplications/#step-2-run-cbuild-setup)). |
+| Tool installation information | The [**Arm Tools Environment Manager**](https://marketplace.visualstudio.com/items?itemName=Arm.environment-manager) extension downloads, installs, and manages software development tools. Move your mouse over **Arm Tools** to review the current list of installed tools. Click on **Arm Tools** to get more options. |
+| Active tool license | If you are using licensed Arm tools, the **active license** displays. Click it to [manage](./installation.md#activating-keil-studio) the active license. |
+| clangd indexing message | Shows the clangd indexing progress once a C, C++, or header file is opened in the editor. |
 
 ## Run and Debug view
 
