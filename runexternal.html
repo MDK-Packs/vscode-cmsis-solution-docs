@@ -86,11 +86,23 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#substitution-examples">Substitution examples</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#arm-debugger">Arm Debugger</a>
+    </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cmsis-tools-environment">CMSIS tools environment</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#arm-debugger">Arm Debugger</a>
+    <li class="toctree-l3"><a class="reference internal" href="#file-structure">File structure</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#environment">environment:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#tools">tools:</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#use-vision-for-debugging">Use µVision for debugging</a>
     </li>
@@ -257,8 +269,8 @@ In addition to the <a href="https://code.visualstudio.com/docs/editor/variables-
 </tr>
 </tbody>
 </table>
-<h2 id="examples">Examples</h2>
-<h3 id="arm-debugger">Arm Debugger</h3>
+<h3 id="examples">Examples</h3>
+<h4 id="arm-debugger">Arm Debugger</h4>
 <p>Use the following <code>launch.json</code> file to start Arm Debugger:</p>
 <pre><code class="language-json">{
     &quot;version&quot;: &quot;0.2.0&quot;,
@@ -275,6 +287,159 @@ In addition to the <a href="https://code.visualstudio.com/docs/editor/variables-
     ]
 }
 </code></pre>
+<h2 id="cmsis-tools-environment">CMSIS tools environment</h2>
+<p>The CMSIS Solution extension exports the resolved tools environment of the active solution for use by external tools
+and AI agents. The generated file is located at <code>&lt;solution-dir&gt;/.cmsis/tools-environment.yml</code>. It is created or
+updated after the extension resolves the environment and processes the solution.</p>
+<p>The file contains only the <code>PATH</code> entries and environment variables contributed or used by the Arm extensions and
+the Arm Tools Environment Manager. Unrelated entries inherited from the host process are omitted. Entries in
+<code>environment.path</code> are listed in their resolved precedence order. When launching a process, prepend them to <code>PATH</code> in
+the same order.</p>
+<p>The following example is shortened and uses generic paths:</p>
+<pre><code class="language-yml">cmsis-tools-environment:
+  version: 1.0.0
+  generated-by: arm.cmsis-csolution version 1.70.1
+  solution: ../Hello-Ethos-U65.csolution.yml
+  environment:
+    path:
+      - &lt;user&gt;/.vscode/extensions/arm.cmsis-csolution/tools/cmsis-toolbox/bin
+      - &lt;user&gt;/.vcpkg/artifacts/&lt;hash&gt;/compilers.arm.armclang/6.24.0/bin
+    variables:
+      CMSIS_PACK_ROOT: &lt;user&gt;/AppData/Local/Arm/Packs
+      AC6_TOOLCHAIN_6_24_0: &lt;user&gt;/.vcpkg/artifacts/&lt;hash&gt;/compilers.arm.armclang/6.24.0/bin
+  tools:
+    - name: CMSIS-Toolbox
+      version: 2.14.1
+      origin: built-in
+      provider:
+        type: vscode-extension
+        id: arm.cmsis-csolution
+      directory: &lt;user&gt;/.vscode/extensions/arm.cmsis-csolution/tools/cmsis-toolbox/bin
+      manual: https://open-cmsis-pack.github.io/cmsis-toolbox/
+    - name: compilers.arm.armclang
+      version: 6.24.0
+      origin: installed
+      provider:
+        type: vcpkg
+        id: arm.environment-manager
+      directory: &lt;user&gt;/.vcpkg/artifacts/&lt;hash&gt;/compilers.arm.armclang/6.24.0
+</code></pre>
+<h3 id="file-structure">File structure</h3>
+<table>
+<thead>
+<tr>
+<th><code>cmsis-tools-environment:</code></th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&nbsp;&nbsp; <code>version:</code></td>
+<td>Version of the tools environment file format.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp; <code>generated-by:</code></td>
+<td>Extension ID and version that generated the file.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp; <code>solution:</code></td>
+<td>Path to the active <code>*.csolution.yml</code> file, relative to the generated file.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp; <a href="#environment"><code>environment:</code></a></td>
+<td>Resolved path entries and environment variables.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp; <a href="#tools"><code>tools:</code></a></td>
+<td>Tools provided by VS Code extensions or installed with vcpkg.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="environment"><code>environment:</code></h4>
+<p>The <code>environment:</code> node contains the environment required to invoke the resolved tools.</p>
+<table>
+<thead>
+<tr>
+<th><code>environment:</code></th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&nbsp;&nbsp; <code>path:</code></td>
+<td>List of directories in executable lookup order. Prepend the entries to the process <code>PATH</code> in the listed order.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp; <code>variables:</code></td>
+<td>Map of resolved CMSIS and tool-specific environment variables. <code>PATH</code> is not repeated in this map.</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>variables:</code> map includes <code>CMSIS_PACK_ROOT</code>, <code>CMSIS_COMPILER_ROOT</code>, variables configured with the CMSIS Solution
+<code>Environment Variables</code> setting, and variables contributed by the Arm Tools Environment Manager. An entry is present
+only when it applies to the resolved environment.</p>
+<h4 id="tools"><code>tools:</code></h4>
+<p>The <code>tools:</code> node contains one entry for each selected tool or tool suite. If built-in and installed tools provide the
+same command, only the tool whose directory occurs first in <code>environment.path</code> is listed.</p>
+<table>
+<thead>
+<tr>
+<th><code>tools:</code></th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>- name:</code></td>
+<td>Human-readable built-in tool name or canonical vcpkg package name.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp; <code>version:</code></td>
+<td>Tool or package version. This element can be omitted for an installed tool when its version cannot be resolved.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp; <code>origin:</code></td>
+<td>Tool origin: <code>built-in</code> or <code>installed</code>.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp; <a href="#provider"><code>provider:</code></a></td>
+<td>Provider type and identifier.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp; <code>directory:</code></td>
+<td>Tool directory. For a recognized vcpkg artifact, this is the package version root.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp; <code>manual:</code></td>
+<td>Documentation URL provided for a built-in tool.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="provider"><code>provider:</code></h5>
+<table>
+<thead>
+<tr>
+<th><code>provider:</code></th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&nbsp;&nbsp; <code>type:</code></td>
+<td>Provider type: <code>vscode-extension</code> for a bundled tool or <code>vcpkg</code> for an installed tool.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp; <code>id:</code></td>
+<td>ID of the VS Code extension that provides or manages the tool.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The extension generates and updates <code>.cmsis/tools-environment.yml</code>; do not edit it manually. Environment variable
+values are stored as plain text. Do not configure credentials or other secrets as CMSIS Solution or vcpkg
+environment variables.</p>
+</div>
 <!--### Programmer
 
 ToDo show usage of command-line programmer (i.e. STCube Programmer)
