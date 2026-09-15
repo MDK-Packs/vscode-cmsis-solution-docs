@@ -43,9 +43,9 @@ The following table illustrates the variable substition using the [DualCore csol
 | `${command:cmsis-csolution.getDfpPath}`       | .../NXP/K32L3A60_DFP/19.0.0  |
 | `${command:cmsis-csolution.getSolutionFile}`  | .../DualCore/HelloWorld.csolution.yml |
 
-## Examples
+### Examples
 
-### Arm Debugger
+#### Arm Debugger
 
 Use the following `launch.json` file to start Arm Debugger:
 
@@ -65,6 +65,98 @@ Use the following `launch.json` file to start Arm Debugger:
     ]
 }
 ```
+
+## CMSIS tools environment
+
+The CMSIS Solution extension exports the resolved tools environment of the active solution for use by external tools
+and AI agents. The generated file is located at `<solution-dir>/.cmsis/tools-environment.yml`. It is created or
+updated after the extension resolves the environment and processes the solution.
+
+The file contains only the `PATH` entries and environment variables contributed or used by the Arm extensions and
+the Arm Tools Environment Manager. Unrelated entries inherited from the host process are omitted. Entries in
+`environment.path` are listed in their resolved precedence order. When launching a process, prepend them to `PATH` in
+the same order.
+
+The following example is shortened and uses generic paths:
+
+```yml
+cmsis-tools-environment:
+  version: 1.0.0
+  generated-by: arm.cmsis-csolution version 1.70.1
+  solution: ../Hello-Ethos-U65.csolution.yml
+  environment:
+    path:
+      - <user>/.vscode/extensions/arm.cmsis-csolution/tools/cmsis-toolbox/bin
+      - <user>/.vcpkg/artifacts/<hash>/compilers.arm.armclang/6.24.0/bin
+    variables:
+      CMSIS_PACK_ROOT: <user>/AppData/Local/Arm/Packs
+      AC6_TOOLCHAIN_6_24_0: <user>/.vcpkg/artifacts/<hash>/compilers.arm.armclang/6.24.0/bin
+  tools:
+    - name: CMSIS-Toolbox
+      version: 2.14.1
+      origin: built-in
+      provider:
+        type: vscode-extension
+        id: arm.cmsis-csolution
+      directory: <user>/.vscode/extensions/arm.cmsis-csolution/tools/cmsis-toolbox/bin
+      manual: https://open-cmsis-pack.github.io/cmsis-toolbox/
+    - name: compilers.arm.armclang
+      version: 6.24.0
+      origin: installed
+      provider:
+        type: vcpkg
+        id: arm.environment-manager
+      directory: <user>/.vcpkg/artifacts/<hash>/compilers.arm.armclang/6.24.0
+```
+
+### File structure
+
+`cmsis-tools-environment:` | Content
+--- | ---
+&nbsp;&nbsp; `version:` | Version of the tools environment file format.
+&nbsp;&nbsp; `generated-by:` | Extension ID and version that generated the file.
+&nbsp;&nbsp; `solution:` | Path to the active `*.csolution.yml` file, relative to the generated file.
+&nbsp;&nbsp; [`environment:`](#environment) | Resolved path entries and environment variables.
+&nbsp;&nbsp; [`tools:`](#tools) | Tools provided by VS Code extensions or installed with vcpkg.
+
+#### `environment:`
+
+The `environment:` node contains the environment required to invoke the resolved tools.
+
+`environment:` | Content
+--- | ---
+&nbsp;&nbsp; `path:` | List of directories in executable lookup order. Prepend the entries to the process `PATH` in the listed order.
+&nbsp;&nbsp; `variables:` | Map of resolved CMSIS and tool-specific environment variables. `PATH` is not repeated in this map.
+
+The `variables:` map includes `CMSIS_PACK_ROOT`, `CMSIS_COMPILER_ROOT`, variables configured with the CMSIS Solution
+`Environment Variables` setting, and variables contributed by the Arm Tools Environment Manager. An entry is present
+only when it applies to the resolved environment.
+
+#### `tools:`
+
+The `tools:` node contains one entry for each selected tool or tool suite. If built-in and installed tools provide the
+same command, only the tool whose directory occurs first in `environment.path` is listed.
+
+`tools:` | Content
+--- | ---
+`- name:` | Human-readable built-in tool name or canonical vcpkg package name.
+&nbsp;&nbsp;&nbsp;&nbsp; `version:` | Tool or package version. This element can be omitted for an installed tool when its version cannot be resolved.
+&nbsp;&nbsp;&nbsp;&nbsp; `origin:` | Tool origin: `built-in` or `installed`.
+&nbsp;&nbsp;&nbsp;&nbsp; [`provider:`](#provider) | Provider type and identifier.
+&nbsp;&nbsp;&nbsp;&nbsp; `directory:` | Tool directory. For a recognized vcpkg artifact, this is the package version root.
+&nbsp;&nbsp;&nbsp;&nbsp; `manual:` | Documentation URL provided for a built-in tool.
+
+##### `provider:`
+
+`provider:` | Content
+--- | ---
+&nbsp;&nbsp; `type:` | Provider type: `vscode-extension` for a bundled tool or `vcpkg` for an installed tool.
+&nbsp;&nbsp; `id:` | ID of the VS Code extension that provides or manages the tool.
+
+!!! Attention
+    The extension generates and updates `.cmsis/tools-environment.yml`; do not edit it manually. Environment variable
+    values are stored as plain text. Do not configure credentials or other secrets as CMSIS Solution or vcpkg
+    environment variables.
 
 <!--### Programmer
 
