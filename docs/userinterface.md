@@ -65,6 +65,13 @@ Once a CMSIS solution is loaded, the following action buttons are available:
 | ![Manage Solution Settings](./images/settings-cog.png) | Open the [**Manage Solution**](./manage_settings.md) view to configure project and debug settings. |
 | ![Views and more actions](./images/more-actions-icon.png) | Show further [commands](#available-commands). |
 
+#### Search in solution sources
+
+Select **Search in Solution Sources** to open the VS Code **Search** view with a search
+scope limited to files that belong to the current solution configuration. The scope includes the source files of the
+selected projects, source files supplied by CMSIS packs, and the project YML files. Files excluded from the current
+configuration are not searched.
+
 ### Main area icons
 
 Depending on the file and the context, various icons may appear:
@@ -232,6 +239,7 @@ You can access commands to manage your solution and the related projects in the 
 | [Create Solution...](./create_app.md)    | Create a new *csolution project*.  |
 | [Convert a µVision project to CMSIS solution...](./importuv.md) | Convert uvprojx files to *csolution project* format. |
 | Close Solution                           | Close the current active solution. |
+| [Search in Solution Sources](#search-in-solution-sources) | Search project sources, sources supplied by CMSIS packs, and project YML files that belong to the current solution configuration. |
 | [Manage Solution Settings](./manage_settings.md) | Configure the target set (active target, projects, images, and debug adapter) for the solution. |
 | [Configure Solution](./create_app.md#configure-a-solution) | Set a compiler and add software layers. |
 | [Manage Software Components](./create_app.md#software-components-and-packs) | Review, add, or remove software components. |
