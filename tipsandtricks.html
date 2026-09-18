@@ -100,6 +100,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#use-an-external-flash-loader">Use an external flash loader</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#memory-and-peripheral-inspector-are-missing">Memory and Peripheral Inspector are missing</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#change-variable-display-radix">Change variable display radix</a>
@@ -227,6 +229,27 @@ To get this fixed, go to:</p>
 <p><img alt="Make STM32CubeMX generate the cgen.yml file" src="images/cubemx-cgen-hal.png" /></p>
 <p>Now, the <strong>GENERATE CODE</strong> button creates/writes the <code>*.cgen.yml</code> file.</p>
 <h2 id="debugging">Debugging</h2>
+<h3 id="use-an-external-flash-loader">Use an external flash loader</h3>
+<p>To program additional memory, such as off-chip flash, specify the memory region and its programming algorithm in the
+<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/YML-Input-Format/#memory"><code>memory:</code> node</a> of the applicable target type
+in the <code>*.csolution.yml</code> file:</p>
+<pre><code class="language-yml">solution:
+  target-types:
+    - type: MyHardware
+      device: STMicroelectronics::STM32F746NGHx
+      memory:
+        - name: Ext-Flash
+          access: rx
+          start: 0x40000000
+          size: 0x200000
+          algorithm: Flash/Ext-Flash.flm
+          ram-start: 0x20000000
+          ram-size: 0x20000
+</code></pre>
+<p>CMSIS-Toolbox uses this information to generate the <code>programming:</code> node in the <code>*.cbuild-run.yml</code> file. The flash
+loader is therefore available to debug adapters that support
+<a href="https://open-cmsis-pack.github.io/cmsis-toolbox/build-overview/#run-and-debug-management">CMSIS Run and Debug Management</a>,
+and is not specific to pyOCD.</p>
 <h3 id="memory-and-peripheral-inspector-are-missing">Memory and Peripheral Inspector are missing</h3>
 <p>If your <strong>Debug</strong> view does not contain
 <a href="https://marketplace.visualstudio.com/items?itemName=eclipse-cdt.peripheral-inspector">"PERIPHERALS"</a> and you cannot

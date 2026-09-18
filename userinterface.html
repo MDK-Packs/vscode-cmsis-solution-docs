@@ -59,6 +59,10 @@
     <li class="toctree-l3"><a class="reference internal" href="#no-solution-loaded">No solution loaded</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#actions-available-through-the-cmsis-view">Actions available through the CMSIS view</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#search-in-solution-sources">Search in solution sources</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#main-area-icons">Main area icons</a>
     </li>
@@ -257,6 +261,11 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 </tr>
 </tbody>
 </table>
+<h4 id="search-in-solution-sources">Search in solution sources</h4>
+<p>Select <strong>Search in Solution Sources</strong> to open the VS Code <strong>Search</strong> view with a search
+scope limited to files that belong to the current solution configuration. The scope includes the source files of the
+selected projects, source files supplied by CMSIS packs, and the project YML files. Files excluded from the current
+configuration are not searched.</p>
 <h3 id="main-area-icons">Main area icons</h3>
 <p>Depending on the file and the context, various icons may appear:</p>
 <table>
@@ -464,6 +473,10 @@ You can add expressions to the **LIVE WATCH** by:
 <tr>
 <td style="text-align: left;">Close Solution</td>
 <td style="text-align: left;">Close the current active solution.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#search-in-solution-sources">Search in Solution Sources</a></td>
+<td style="text-align: left;">Search project sources, sources supplied by CMSIS packs, and project YML files that belong to the current solution configuration.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="manage_settings.html">Manage Solution Settings</a></td>

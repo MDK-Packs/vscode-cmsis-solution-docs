@@ -90,6 +90,8 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#arm-debugger">Arm Debugger</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#use-vision-for-debugging">Use µVision for debugging</a>
+    </li>
         </ul>
     </li>
         </ul>
@@ -103,8 +105,6 @@
     <li class="toctree-l4"><a class="reference internal" href="#tools">tools:</a>
     </li>
         </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#use-vision-for-debugging">Use µVision for debugging</a>
     </li>
         </ul>
     </li>
@@ -148,7 +148,13 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="run-external-tools">Run external tools</h1>
-<p>VS Code uses the <a href="https://code.visualstudio.com/docs/editor/debugging">launch.json</a> and <a href="https://code.visualstudio.com/docs/editor/tasks">tasks.json</a> configuration files to integrate with external tools. The following section shows how to configure these files for typical use cases.</p>
+<p>The CMSIS Solution extension provides information that external tools and integrations can use in two ways:</p>
+<ul>
+<li><a href="#variables">Variables</a> provide solution and target information to VS Code configuration files, such as
+  <code>launch.json</code> and <code>tasks.json</code>.</li>
+<li><a href="#cmsis-tools-environment">CMSIS tools environment</a> exposes the resolved tools environment to processes running
+  outside VS Code and to AI agents in the generated <code>.cmsis/tools-environment.yml</code> file.</li>
+</ul>
 <h2 id="variables">Variables</h2>
 <p>VS Code supports <a href="https://code.visualstudio.com/docs/editor/variables-reference">variable substitution</a> in the <a href="https://code.visualstudio.com/docs/editor/debugging">Debugging</a> and <a href="https://code.visualstudio.com/docs/editor/tasks">Tasks</a> configuration files and selected settings. Variable substitution uses the <code>${variableName}</code> syntax, for example in <code>launch.json</code> and <code>tasks.json</code> files.
 In addition to the <a href="https://code.visualstudio.com/docs/editor/variables-reference">VS Code built-in variables</a>, the CMSIS Solution extension provides the following variables.</p>
@@ -208,6 +214,10 @@ In addition to the <a href="https://code.visualstudio.com/docs/editor/variables-
 <td style="text-align: left;"><code>${command:cmsis-csolution.getSolutionFile}</code></td>
 <td style="text-align: left;">The path to the csolution.yml file for the Active Solution</td>
 </tr>
+<tr>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getSolutionName}</code></td>
+<td style="text-align: left;">The base name of the Active Solution without the path and <code>.csolution.yml</code> suffix</td>
+</tr>
 </tbody>
 </table>
 <div class="admonition note">
@@ -218,7 +228,7 @@ In addition to the <a href="https://code.visualstudio.com/docs/editor/variables-
 </ul>
 </div>
 <h3 id="substitution-examples">Substitution examples</h3>
-<p>The following table illustrates the variable substition using the <a href="https://github.com/Open-CMSIS-Pack/csolution-examples/tree/main/DualCore">DualCore csolution example</a>. Note that <code>...</code> stands for the absolute path on the host computer that stores the <em>csolution project</em> or the <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/installation/#environment-variables">CMSIS pack content</a>.</p>
+<p>The following table illustrates the variable substitution using the <a href="https://github.com/Open-CMSIS-Pack/csolution-examples/tree/main/DualCore">DualCore csolution example</a>. Note that <code>...</code> stands for the absolute path on the host computer that stores the <em>csolution project</em> or the <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/installation/#environment-variables">CMSIS pack content</a>.</p>
 <table>
 <thead>
 <tr>
@@ -267,6 +277,10 @@ In addition to the <a href="https://code.visualstudio.com/docs/editor/variables-
 <td style="text-align: left;"><code>${command:cmsis-csolution.getSolutionFile}</code></td>
 <td style="text-align: left;">.../DualCore/HelloWorld.csolution.yml</td>
 </tr>
+<tr>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getSolutionName}</code></td>
+<td style="text-align: left;">HelloWorld</td>
+</tr>
 </tbody>
 </table>
 <h3 id="examples">Examples</h3>
@@ -287,10 +301,32 @@ In addition to the <a href="https://code.visualstudio.com/docs/editor/variables-
     ]
 }
 </code></pre>
+<h4 id="use-vision-for-debugging">Use µVision for debugging</h4>
+<p>The <a href="https://developer.arm.com/documentation/101407/0541/Debugging">µVision debugger</a> offers advanced debug features such as
+Event Recorder and Component Viewer to analyze applications.</p>
+<p>To call µVision with the <em>csolution project</em> that you are using in VS Code, add the following task to the <code>.vscode\tasks.json</code>  file. The <code>command:</code> is the path to the µVision executable on your computer.</p>
+<pre><code class="language-json">    &quot;tasks&quot;: [
+        {
+            &quot;label&quot;: &quot;Start uVision&quot;,
+            &quot;type&quot;: &quot;process&quot;,
+            &quot;command&quot;: &quot;C:\\Keil_v5\\UV4\\UV4.exe&quot;,
+            &quot;args&quot;: [
+                &quot;${command:cmsis-csolution.getSolutionFile}&quot;
+            ],
+            &quot;problemMatcher&quot;: []
+        }
+    ]
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This only works in Windows environments with µVision installed on the local machine.</p>
+</div>
 <h2 id="cmsis-tools-environment">CMSIS tools environment</h2>
-<p>The CMSIS Solution extension exports the resolved tools environment of the active solution for use by external tools
-and AI agents. The generated file is located at <code>&lt;solution-dir&gt;/.cmsis/tools-environment.yml</code>. It is created or
-updated after the extension resolves the environment and processes the solution.</p>
+<p>The CMSIS tools environment allows external processes to use
+the same tools that are available in the VS Code environment. The CMSIS Solution extension exports the resolved
+tools environment of the active solution for use by external tools and AI agents. The generated file is located at
+<code>&lt;solution-dir&gt;/.cmsis/tools-environment.yml</code>. It is created or updated after the extension resolves the environment
+and processes the solution.</p>
 <p>The file contains only the <code>PATH</code> entries and environment variables contributed or used by the Arm extensions and
 the Arm Tools Environment Manager. Unrelated entries inherited from the host process are omitted. Entries in
 <code>environment.path</code> are listed in their resolved precedence order. When launching a process, prepend them to <code>PATH</code> in
@@ -447,27 +483,6 @@ ToDo show usage of command-line programmer (i.e. STCube Programmer)
 ### Debug server
 
 ToDo show usage of Cortex Debug configured for JLink-->
-
-<h3 id="use-vision-for-debugging">Use µVision for debugging</h3>
-<p>The <a href="https://developer.arm.com/documentation/101407/0541/Debugging">µVision debugger</a> offers advanced debug features such as
-Event Recorder and Component Viewer to analyze applications.</p>
-<p>To call µVision with the <em>csolution project</em> that you are using in VS Code, add the following task to the <code>.vscode\tasks.json</code>  file. The <code>command:</code> is the path to the µVision executable on your computer.</p>
-<pre><code class="language-json">    &quot;tasks&quot;: [
-        {
-            &quot;label&quot;: &quot;Start uVision&quot;,
-            &quot;type&quot;: &quot;process&quot;,
-            &quot;command&quot;: &quot;C:\\Keil_v5\\UV4\\UV4.exe&quot;,
-            &quot;args&quot;: [
-                &quot;${command:cmsis-csolution.getSolutionFile}&quot;
-            ],
-            &quot;problemMatcher&quot;: []
-        }
-    ]
-</code></pre>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This only works in Windows environments with µVision installed on the local machine.</p>
-</div>
               
             </div>
           </div><footer>
