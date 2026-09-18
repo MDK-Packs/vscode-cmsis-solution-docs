@@ -103,6 +103,32 @@ Now, the **GENERATE CODE** button creates/writes the `*.cgen.yml` file.
 
 ## Debugging
 
+### Use an external flash loader
+
+To program additional memory, such as off-chip flash, specify the memory region and its programming algorithm in the
+[`memory:` node](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-Input-Format/#memory) of the applicable target type
+in the `*.csolution.yml` file:
+
+```yml
+solution:
+  target-types:
+    - type: MyHardware
+      device: STMicroelectronics::STM32F746NGHx
+      memory:
+        - name: Ext-Flash
+          access: rx
+          start: 0x40000000
+          size: 0x200000
+          algorithm: Flash/Ext-Flash.flm
+          ram-start: 0x20000000
+          ram-size: 0x20000
+```
+
+CMSIS-Toolbox uses this information to generate the `programming:` node in the `*.cbuild-run.yml` file. The flash
+loader is therefore available to debug adapters that support
+[CMSIS Run and Debug Management](https://open-cmsis-pack.github.io/cmsis-toolbox/build-overview/#run-and-debug-management),
+and is not specific to pyOCD.
+
 ### Memory and Peripheral Inspector are missing
 
 If your **Debug** view does not contain

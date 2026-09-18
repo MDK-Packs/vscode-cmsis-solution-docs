@@ -1,6 +1,11 @@
 # Run external tools
 
-VS Code uses the [launch.json](https://code.visualstudio.com/docs/editor/debugging) and [tasks.json](https://code.visualstudio.com/docs/editor/tasks) configuration files to integrate with external tools. The following section shows how to configure these files for typical use cases.
+The CMSIS Solution extension provides information that external tools and integrations can use in two ways:
+
+- [Variables](#variables) provide solution and target information to VS Code configuration files, such as
+  `launch.json` and `tasks.json`.
+- [CMSIS tools environment](#cmsis-tools-environment) exposes the resolved tools environment to processes running
+  outside VS Code and to AI agents in the generated `.cmsis/tools-environment.yml` file.
 
 ## Variables
 
@@ -21,6 +26,7 @@ In addition to the [VS Code built-in variables](https://code.visualstudio.com/do
 | `${command:cmsis-csolution.getDfpPath}`        | The path to the content of the DFP for the Active Target |
 | `${command:cmsis-csolution.getProcessorName}`  | The name of the processor for the Active Target; for multi-processor configurations start-pname |
 | `${command:cmsis-csolution.getSolutionFile}`   | The path to the csolution.yml file for the Active Solution |
+| `${command:cmsis-csolution.getSolutionName}`   | The base name of the Active Solution without the path and `.csolution.yml` suffix |
 
 !!! Note
     - Active Solution refers to the *csolution project* that is currently loaded.
@@ -28,7 +34,7 @@ In addition to the [VS Code built-in variables](https://code.visualstudio.com/do
 
 ### Substitution examples
 
-The following table illustrates the variable substition using the [DualCore csolution example](https://github.com/Open-CMSIS-Pack/csolution-examples/tree/main/DualCore). Note that `...` stands for the absolute path on the host computer that stores the *csolution project* or the [CMSIS pack content](https://open-cmsis-pack.github.io/cmsis-toolbox/installation/#environment-variables).
+The following table illustrates the variable substitution using the [DualCore csolution example](https://github.com/Open-CMSIS-Pack/csolution-examples/tree/main/DualCore). Note that `...` stands for the absolute path on the host computer that stores the *csolution project* or the [CMSIS pack content](https://open-cmsis-pack.github.io/cmsis-toolbox/installation/#environment-variables).
 
 | Variable  | Substitution |
 |:----------|:-------------|
@@ -42,6 +48,7 @@ The following table illustrates the variable substition using the [DualCore csol
 | `${command:cmsis-csolution.getDfpName}`       | NXP::K32L3A60_DFP@19.0.0 |
 | `${command:cmsis-csolution.getDfpPath}`       | .../NXP/K32L3A60_DFP/19.0.0  |
 | `${command:cmsis-csolution.getSolutionFile}`  | .../DualCore/HelloWorld.csolution.yml |
+| `${command:cmsis-csolution.getSolutionName}`  | HelloWorld |
 
 ### Examples
 
@@ -66,11 +73,37 @@ Use the following `launch.json` file to start Arm Debugger:
 }
 ```
 
+#### Use µVision for debugging
+
+The [µVision debugger](https://developer.arm.com/documentation/101407/0541/Debugging) offers advanced debug features such as
+Event Recorder and Component Viewer to analyze applications.
+
+To call µVision with the *csolution project* that you are using in VS Code, add the following task to the `.vscode\tasks.json`  file. The `command:` is the path to the µVision executable on your computer.
+
+```json
+    "tasks": [
+        {
+            "label": "Start uVision",
+            "type": "process",
+            "command": "C:\\Keil_v5\\UV4\\UV4.exe",
+            "args": [
+                "${command:cmsis-csolution.getSolutionFile}"
+            ],
+            "problemMatcher": []
+        }
+    ]
+```
+
+!!! Note
+    This only works in Windows environments with µVision installed on the local machine.
+
 ## CMSIS tools environment
 
-The CMSIS Solution extension exports the resolved tools environment of the active solution for use by external tools
-and AI agents. The generated file is located at `<solution-dir>/.cmsis/tools-environment.yml`. It is created or
-updated after the extension resolves the environment and processes the solution.
+The CMSIS tools environment allows external processes to use
+the same tools that are available in the VS Code environment. The CMSIS Solution extension exports the resolved
+tools environment of the active solution for use by external tools and AI agents. The generated file is located at
+`<solution-dir>/.cmsis/tools-environment.yml`. It is created or updated after the extension resolves the environment
+and processes the solution.
 
 The file contains only the `PATH` entries and environment variables contributed or used by the Arm extensions and
 the Arm Tools Environment Manager. Unrelated entries inherited from the host process are omitted. Entries in
@@ -165,27 +198,3 @@ ToDo show usage of command-line programmer (i.e. STCube Programmer)
 ### Debug server
 
 ToDo show usage of Cortex Debug configured for JLink-->
-
-### Use µVision for debugging
-
-The [µVision debugger](https://developer.arm.com/documentation/101407/0541/Debugging) offers advanced debug features such as
-Event Recorder and Component Viewer to analyze applications.
-
-To call µVision with the *csolution project* that you are using in VS Code, add the following task to the `.vscode\tasks.json`  file. The `command:` is the path to the µVision executable on your computer.
-
-```json
-    "tasks": [
-        {
-            "label": "Start uVision",
-            "type": "process",
-            "command": "C:\\Keil_v5\\UV4\\UV4.exe",
-            "args": [
-                "${command:cmsis-csolution.getSolutionFile}"
-            ],
-            "problemMatcher": []
-        }
-    ]
-```
-
-!!! Note
-    This only works in Windows environments with µVision installed on the local machine.
