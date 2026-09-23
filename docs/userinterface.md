@@ -62,15 +62,16 @@ Once a CMSIS solution is loaded, the following action buttons are available:
 | ![Load and Run Application](./images/run-icon.png) | [**Load & Run application**](./build_run.md#load-and-run) flashes the binary onto the target and starts the application. |
 | ![Load & Debug application](./images/debug-icon.png) | [**Load & Debug application**](./debug.md) flashes the binary onto the target and starts a debug session. |
 | ![Open csolution.yml file](./images/openFile.png) | **Open csolution.yml file** opens the CMSIS solution YML file for editing. |
+| ![Search in Solution Sources](./images/search-icon.png) | [Search](#search-in-solution-sources) in the current solution configuration. |
 | ![Manage Solution Settings](./images/settings-cog.png) | Open the [**Manage Solution**](./manage_settings.md) view to configure project and debug settings. |
 | ![Views and more actions](./images/more-actions-icon.png) | Show further [commands](#available-commands). |
 
 #### Search in solution sources
 
-Select **Search in Solution Sources** to open the VS Code **Search** view with a search
-scope limited to files that belong to the current solution configuration. The scope includes the source files of the
-selected projects, source files supplied by CMSIS packs, and the project YML files. Files excluded from the current
-configuration are not searched.
+Select **Search in Solution Sources** to open the VS Code **Search** view with a search scope limited to files that
+belong to the current solution configuration. The scope includes the source files of the selected projects, source
+files supplied by CMSIS-Packs, and the project YML files. Files that are excluded from the current configuration are
+not searched.
 
 ### Main area icons
 
@@ -157,6 +158,14 @@ The view will be opened next to the original source file. You can switch back pr
 ![Open source file view](./images/open-source-file-view-icon.png).
 
 ![RTE_Device.h file in configuration wizard view](./images/rte-device-config-wiz-view.png)
+
+The configuration wizard view is error tolerant but notifies the user in case of malformed annotations:
+
+![Configuration Wizard Issues](./images/config-wizard-issues.png)
+
+!!! Note
+    When you select an option in the Configuration Wizard view and switch to the text editor, the cursor moves to the
+    corresponding location in the configuration file.
 
 ## Status bar
 

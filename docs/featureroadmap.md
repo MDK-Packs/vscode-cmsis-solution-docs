@@ -16,6 +16,7 @@
 | &#128994; [Software components](./create_app.md#software-components-and-packs) | Manage software components on a project/layer level               |
 | &#128994; [Manage packs](./create_app.md#manage-software-packs)                | Manage CMSIS-Packs and versions graphically                       |
 | &#128994; [Zephyr project support](./zephyr.md)                                | Build and debug Zephyr-based applications                         |
+| &#128994; [Native CMake project support](./native_cmake.md)                    | Build and debug native CMake-based applications                   |
 | &#128994; [Configuration Wizard](./userinterface.md#configuration-wizard)      | GUI-assisted generation and modification of configuration code    |
 
 ### Build system
@@ -26,6 +27,7 @@
 | &#128994; [Incremental build](./build_run.md)                                  | Dependency tracking to rebuild only changed files                     |
 | &#128994; Toolchain options                                                    | Per-target configuration of compiler, assembler, linker, and debugger |
 | &#128994; west support                                                         | Build Zephyr projects natively                                        |
+| &#128994; CMake support                                                        | Build native CMake projects                                           |
 
 ### Build output and feedback
 

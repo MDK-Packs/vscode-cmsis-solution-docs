@@ -25,18 +25,20 @@ The IDE:
 
 - [**Work with Zephyr applications**](./zephyr.md) explains how to build applications based on Zephyr.
 
+- [**Work with native CMake applications**](./native_cmake.md) outlines how to build native CMake-based applications.
+
 - [**Manage solutions**](./manage_settings.md) explains how to configure *csolution projects*.
 
-- [**Build and run**](./build_run.md) shows how to build and run a CMSIS solution or Zephyr application.
+- [**Build and run**](./build_run.md) an application.
 
-- [**Debug**](./debug.md) explains how to debug a CMSIS solution or Zephyr application.
+- [**Debug**](./debug.md) an application.
 
 - [**Import µVision project**](./importuv.md) explains how to convert uvprojx-based files to the csolution format.
 
 - [**Run external tools**](./runexternal.md) describes how to use external tools, such as debuggers and flash
   programmers.
 
-- [**Tips and tricks**](./tipsandtricks.md) provides tips and tricks to help you solve specific issues.
+- [**Tips and tricks**](./tipsandtricks.md) provides help for solving specific issues.
 
 - [**Related documentation**](./reldocs.md) contains links to supporting documentation, videos, and webinars.
 
@@ -46,6 +48,7 @@ The IDE:
 
 Version            | Description
 :------------------|:-------------------------
+1.72.0             | Added **Working with native CMake applications**, more tips and tricks, minor enhancements
 1.70.0             | Updates for v1.68.0. and v1.70.0
 1.66.0             | Added **Software pack**, **Related Documentation**, and **Features and roadmap** chapters
 1.64.0             | Added **Work with Zephyr applications** and reworked other chapters

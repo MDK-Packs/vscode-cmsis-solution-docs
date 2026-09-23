@@ -278,14 +278,11 @@ Issues are highlighted with a yellow exclamation mark icon ![Issue icon](./image
 
 If there are validation issues:
 
-1. Either click on ![Issue icon](./images/issue-icon.png) and select the issue in the pop-up box (a) or
-2. Click the "Resolve" button for access to the pop-up box (a).
-3. Once a component with validation issues is opened, you can use the "eye" icon to see which component is
-   missing/affected (b).
-4. Use the "Apply" button to select the missing components (only available if there is no choice between different
+1. Hover over ![Issue icon](./images/issue-icon.png) or the **Resolve** button for more information.
+2. Click the **Resolve** button to automatically select missing components.
+3. Use the **Apply** button to select the missing components (only available if there is no choice between different
    components available).
-
-When done, don't forget to **Save** the changes!
+4. When done, **Save** the changes.
 
 ### RTOS example
 
