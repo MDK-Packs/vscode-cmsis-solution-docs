@@ -5,6 +5,10 @@ the native CMake project.
 
 ![Native CMake project outline view](./images/cmsis-cmake.png)
 
+The **Manage Solution target** dialog can still be used to select the target for build, load, and debug.
+
+![Manage Native CMake Solution](./images/manage-solution-cmake.png)
+
 ## Prerequisites
 
 Make sure that your `vcpkg_configuration.json` file contains an entry for CMake and Ninja (and a compiler toolchain):

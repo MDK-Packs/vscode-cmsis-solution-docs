@@ -228,7 +228,3 @@ solution:
           C:
             - -funwind-tables
 ```
-
-!!! Caution
-    Do not add this option to [`cdefault.yml`](build-overview.md#cdefaultyml), as it changes the generated code for all
-    build types, including release builds.
