@@ -34,7 +34,7 @@
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a>
         <div class="version">
-          1.70.0
+          1.72.0
         </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -93,6 +93,10 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Work with Zephyr applications</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="native_cmake.html">Work with native CMake applications</a>
                 </li>
               </ul>
               <ul>
@@ -252,6 +256,10 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 <td style="text-align: left;"><strong>Open csolution.yml file</strong> opens the CMSIS solution YML file for editing.</td>
 </tr>
 <tr>
+<td style="text-align: center;"><img alt="Search in Solution Sources" src="images/search-icon.png" /></td>
+<td style="text-align: left;"><a href="#search-in-solution-sources">Search</a> in the current solution configuration.</td>
+</tr>
+<tr>
 <td style="text-align: center;"><img alt="Manage Solution Settings" src="images/settings-cog.png" /></td>
 <td style="text-align: left;">Open the <a href="manage_settings.html"><strong>Manage Solution</strong></a> view to configure project and debug settings.</td>
 </tr>
@@ -262,10 +270,10 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 </tbody>
 </table>
 <h4 id="search-in-solution-sources">Search in solution sources</h4>
-<p>Select <strong>Search in Solution Sources</strong> to open the VS Code <strong>Search</strong> view with a search
-scope limited to files that belong to the current solution configuration. The scope includes the source files of the
-selected projects, source files supplied by CMSIS packs, and the project YML files. Files excluded from the current
-configuration are not searched.</p>
+<p>Select <strong>Search in Solution Sources</strong> to open the VS Code <strong>Search</strong> view with a search scope limited to files that
+belong to the current solution configuration. The scope includes the source files of the selected projects, source
+files supplied by CMSIS-Packs, and the project YML files. Files that are excluded from the current configuration are
+not searched.</p>
 <h3 id="main-area-icons">Main area icons</h3>
 <p>Depending on the file and the context, various icons may appear:</p>
 <table>
@@ -356,6 +364,13 @@ to review and edit configuration settings as required by the application.</p>
 <p>The view will be opened next to the original source file. You can switch back pressing the <strong>Show Source</strong> button
 <img alt="Open source file view" src="images/open-source-file-view-icon.png" />.</p>
 <p><img alt="RTE_Device.h file in configuration wizard view" src="images/rte-device-config-wiz-view.png" /></p>
+<p>The configuration wizard view is error tolerant but notifies the user in case of malformed annotations:</p>
+<p><img alt="Configuration Wizard Issues" src="images/config-wizard-issues.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you select an option in the Configuration Wizard view and switch to the text editor, the cursor moves to the
+corresponding location in the configuration file.</p>
+</div>
 <h2 id="status-bar">Status bar</h2>
 <p>The VS Code status bar displays information about the status of your development environment and the project:</p>
 <p><img alt="Status bar" src="images/status-bar.png" /></p>

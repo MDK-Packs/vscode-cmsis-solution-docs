@@ -34,7 +34,7 @@
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a>
         <div class="version">
-          1.70.0
+          1.72.0
         </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -99,6 +99,10 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Work with Zephyr applications</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="native_cmake.html">Work with native CMake applications</a>
                 </li>
               </ul>
               <ul>
@@ -438,14 +442,12 @@ Issues are highlighted with a yellow exclamation mark icon <img alt="Issue icon"
 <p><img alt="Validation errors" src="images/validation-error.png" /></p>
 <p>If there are validation issues:</p>
 <ol>
-<li>Either click on <img alt="Issue icon" src="images/issue-icon.png" /> and select the issue in the pop-up box (a) or</li>
-<li>Click the "Resolve" button for access to the pop-up box (a).</li>
-<li>Once a component with validation issues is opened, you can use the "eye" icon to see which component is
-   missing/affected (b).</li>
-<li>Use the "Apply" button to select the missing components (only available if there is no choice between different
+<li>Hover over <img alt="Issue icon" src="images/issue-icon.png" /> or the <strong>Resolve</strong> button for more information.</li>
+<li>Click the <strong>Resolve</strong> button to automatically select missing components.</li>
+<li>Use the <strong>Apply</strong> button to select the missing components (only available if there is no choice between different
    components available).</li>
+<li>When done, <strong>Save</strong> the changes.</li>
 </ol>
-<p>When done, don't forget to <strong>Save</strong> the changes!</p>
 <h3 id="rtos-example">RTOS example</h3>
 <p>This example shows how to add a real-time operating systems (RTOS), such as Keil RTX5.</p>
 <p>Before adding the component, add the CMSIS-RTX pack to your local installation. In a Terminal, run:</p>

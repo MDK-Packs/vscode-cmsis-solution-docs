@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Work with Zephyr applications - Arm Keil Studio for VS Code</title>
+    <title>Work with native CMake applications - Arm Keil Studio for VS Code</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Work with Zephyr applications";
-        var mkdocs_page_input_path = "zephyr.md";
+        var mkdocs_page_name = "Work with native CMake applications";
+        var mkdocs_page_input_path = "native_cmake.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -59,30 +59,22 @@
                 <li class="toctree-l1"><a class="reference internal" href="create_app.html">Work with CMSIS solutions</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Work with Zephyr applications</a>
+                </li>
+              </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Work with Zephyr applications</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Work with native CMake applications</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#zephyr-installation">Zephyr installation</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#set-environment-variables">Set environment variables</a>
-    </li>
-        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#csolution-settings">Csolution settings</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#zephyr-application-settings">Zephyr application settings</a>
-    </li>
         </ul>
     </li>
     </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="native_cmake.html">Work with native CMake applications</a>
                 </li>
               </ul>
               <ul>
@@ -131,9 +123,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Work with Zephyr applications</li>
+      <li class="breadcrumb-item active">Work with native CMake applications</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/main/docs/zephyr.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/MDK-Packs/vscode-cmsis-solution-docs/edit/main/docs/native_cmake.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -141,99 +133,58 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="work-with-zephyr-applications">Work with Zephyr applications</h1>
-<p>It is possible to build and debug Zephyr applications that use the <code>west</code> build system with Keil Studio. The CMSIS
-solution extension displays an outline view of the Zephyr project.</p>
-<p><img alt="Zephyr applications in the CMSIS Solution extension" src="images/cmsis-zephyr.png" /></p>
+                <h1 id="work-with-native-cmake-applications">Work with native CMake applications</h1>
+<p>It is possible to build and debug native CMake applications with Keil Studio. The <strong>CMSIS</strong> view displays an outline of
+the native CMake project.</p>
+<p><img alt="Native CMake project outline view" src="images/cmsis-cmake.png" /></p>
 <p>The <strong>Manage Solution target</strong> dialog can still be used to select the target for build, load, and debug.</p>
-<p><img alt="Manage Zephyr Solution" src="images/manage-solution-zephyr.png" /></p>
+<p><img alt="Manage Native CMake Solution" src="images/manage-solution-cmake.png" /></p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>To work with Zephyr-based applications, make sure that the following is set up on your machine.</p>
-<h3 id="zephyr-installation">Zephyr installation</h3>
-<p>Follow the <a href="https://docs.zephyrproject.org/latest/develop/getting_started/index.html">Zephyr Getting Started Guide</a> for
-your host operating system and install Zephyr in a central location on your machine.</p>
-<h3 id="set-environment-variables">Set environment variables</h3>
-<p>For the build process, it is required to set environment variables for the CMSIS Solution extension.</p>
-<ul>
-<li>Open the <a href="https://code.visualstudio.com/docs/configure/settings#_extension-settings">Extension settings</a> and
-  navigate to <strong>CMSIS Solution</strong>.</li>
-<li>Select if you want to set the <em>Environment Variables</em> for the
-  <a href="https://code.visualstudio.com/docs/configure/settings#_user-settings"><strong>User</strong></a> or the current
-  <a href="https://code.visualstudio.com/docs/configure/settings#_workspace-settings"><strong>Workspace</strong></a>.</li>
-<li>Use <strong>Add Item</strong> to add the following environment variables:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Item</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ZEPHYR_BASE</td>
-<td>$HOME/zephyrproject/zephyr</td>
-</tr>
-<tr>
-<td>PATH</td>
-<td>$HOME/zephyrproject/.venv/bin</td>
-</tr>
-<tr>
-<td>VIRTUAL_ENV</td>
-<td>$HOME/zephyrproject/.venv</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>On Windows, specify the <code>PATH</code> as <code>$HOME/zephyrproject/.venv/Scripts</code></p>
-</div>
-<ul>
-<li>This will be translated into the following JSON code:</li>
-</ul>
-<pre><code class="language-json">    &quot;cmsis-csolution.environmentVariables&quot;: {
-        &quot;ZEPHYR_BASE&quot;: &quot;$HOME/zephyrproject/zephyr&quot;,
-        &quot;PATH&quot;: &quot;$HOME/zephyrproject/.venv/bin&quot;,
-        &quot;VIRTUAL_ENV&quot;: &quot;$HOME/zephyrproject/.venv&quot;
-        },
+<p>Make sure that your <code>vcpkg_configuration.json</code> file contains an entry for CMake and Ninja (and a compiler toolchain):</p>
+<pre><code class="language-json">{
+    &quot;registries&quot;: [
+        {
+            &quot;name&quot;: &quot;arm&quot;,
+            &quot;kind&quot;: &quot;artifact&quot;,
+            &quot;location&quot;: &quot;https://artifacts.tools.arm.com/vcpkg-registry&quot;
+        }
+    ],
+    &quot;requires&quot;: {
+        &quot;arm:tools/kitware/cmake&quot;: &quot;4.3.3&quot;,
+        &quot;arm:tools/ninja-build/ninja&quot;: &quot;1.13.2&quot;,
+        &quot;arm:compilers/arm/arm-none-eabi-gcc&quot;: &quot;15.3.1&quot;
+    }
+}
 </code></pre>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>The workspace settings are stored in the <code>.vscode\settings.json</code> file. If you use "Initialize Git repository" when
-creating a csolution, this file is ignored by default.</p>
-</div>
 <h2 id="settings">Settings</h2>
-<p>Copy the Zephyr application directory that you want to use to your CMSIS solution workspace/folder. Refer to the
-example available on GitHub: <a href="https://github.com/Arm-Examples/CMSIS-Zephyr">CMSIS-Zephyr</a>.</p>
+<p>Copy the CMake application directory that you want to use to your CMSIS solution workspace/folder. Refer to the example
+available on GitHub: <a href="https://github.com/Arm-Examples/CMSIS-CMake">CMSIS-CMake</a>.</p>
 <h3 id="csolution-settings">Csolution settings</h3>
-<ul>
-<li>In a <code>csolution.yml</code> file, you may have
-  <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/YML-Input-Format/#west-build">west build</a>-specific settings.</li>
-<li>You must not have a <code>cproject.yml</code> file present. Instead, the <code>csolution.yml</code> file points to the Zephyr project path:</li>
-</ul>
-<pre><code class="language-yml">  # List related projects.
+<p>Native CMake projects are listed under <code>projects:</code> in the <code>*.csolution.yml</code> file and use the solution's <code>target-types:</code>
+and <code>build-types:</code>. Their declared output images are included in the generated <code>*.cbuild-run.yml</code> file and can
+therefore be combined with images from other project contexts for programming and debugging.</p>
+<p>The native project remains responsible for its <code>CMakeLists.txt</code>, toolchain setup, build targets, and generated files.
+Paths under <code>images:</code> identify outputs relative to the native project's context output directory.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-yml">solution:
+  target-types:
+    - type: DualCoreDevice
+      device: Vendor::DualCoreDevice
+
   projects:
-    - west:
-        app-path: ./blinky
+    - cmake:
+        source: ./core0
+        device: :Core0
+        images:
+          - image: build/core0.elf
+            type: elf
 </code></pre>
-<h3 id="zephyr-application-settings">Zephyr application settings</h3>
-<p>When using the <a href="https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain">Arm GNU Toolchain</a> for building the
-project via <code>vcpkg</code>, make sure that the C library shipped with the toolchain. This can be ensured with the following
-settings in the Zephyr <code>prj.conf</code> file:</p>
-<pre><code class="language-conf"># Use Newlib from the Arm GNU Toolchain
-CONFIG_NEWLIB_LIBC=y
-# Disable Picolibc
-CONFIG_PICOLIBC=n
-CONFIG_PICOLIBC_USE_MODULE=n
-CONFIG_MINIMAL_LIBC=n
-</code></pre>
-<p>For managing run and debug configurations, continue to <a href="manage_settings.html">manage the solution</a>.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="create_app.html" class="btn btn-neutral float-left" title="Work with CMSIS solutions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="native_cmake.html" class="btn btn-neutral float-right" title="Work with native CMake applications">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="zephyr.html" class="btn btn-neutral float-left" title="Work with Zephyr applications"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="manage_settings.html" class="btn btn-neutral float-right" title="Manage solutions">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -260,10 +211,10 @@ CONFIG_MINIMAL_LIBC=n
         </span>
     
     
-      <span><a href="create_app.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="zephyr.html" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="native_cmake.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="manage_settings.html" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

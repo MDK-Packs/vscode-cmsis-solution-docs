@@ -34,7 +34,7 @@
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a>
         <div class="version">
-          1.70.0
+          1.72.0
         </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -61,6 +61,10 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="zephyr.html">Work with Zephyr applications</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="native_cmake.html">Work with native CMake applications</a>
                 </li>
               </ul>
               <ul>
@@ -106,7 +110,11 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#change-variable-display-radix">Change variable display radix</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fvp-plug-ins-are-not-found-when-starting-a-debug-session">FVP plug-ins are not found when starting a debug session</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#cannot-connect-uart-when-debugging">Cannot connect UART when debugging</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#stack-unwinding-fails-or-hangs">Stack unwinding fails or hangs</a>
     </li>
         </ul>
     </li>
@@ -270,6 +278,13 @@ might have been removed with it. Just reinstall them via the <strong>Extensions<
 <li>Refer to <a href="https://sourceware.org/gdb/current/onlinedocs/gdb.html/Numbers.html">Numbers</a> for more information.</li>
 </ul>
 </div>
+<h3 id="fvp-plug-ins-are-not-found-when-starting-a-debug-session">FVP plug-ins are not found when starting a debug session</h3>
+<p><strong>Symptom</strong></p>
+<p>After the Arm Tools Environment Manager activates the FVP tools, <strong>Load &amp; Debug application</strong> fails because VS Code
+cannot resolve <code>${env:AVH_FVP_PLUGINS}</code>, even though the <code>AVH_FVP_PLUGINS</code> environment variable is set.</p>
+<p><strong>Solution</strong></p>
+<p>Open the Command Palette (Ctrl/Cmd + Shift + p) and run <strong>Developer: Reload Window</strong> before starting the debug session.
+Reloading the window refreshes the environment variables used by VS Code.</p>
 <h3 id="cannot-connect-uart-when-debugging">Cannot connect UART when debugging</h3>
 <p><strong>Symptom</strong></p>
 <p>Using older <strong>DAPLink</strong> or <strong>LPC-Link2</strong> implementations, it is not possible to have a debug connection and monitor the
@@ -285,6 +300,35 @@ Use the &quot;interrupt&quot; command to stop the target and then try again.
 <p>Using an NXP board with the new MCU-Link FW, this problem does not occur.</p>
 <p>For older boards, there is no new DAPLink firmware available. Please avoid using the UART when debugging or use an
 external debug adapter.</p>
+<h3 id="stack-unwinding-fails-or-hangs">Stack unwinding fails or hangs</h3>
+<p>AC6 (Arm Compiler for Embedded) or CLANG may not emit the required ELF/DWARF unwind information for functions with the
+<code>noreturn</code> attribute. As a result, GDB may show an incorrect call stack or the stack unwinder may take a long time or
+hang.</p>
+<p>The compiler option <code>-funwind-tables</code> preserves the link register on the stack, which slightly increases stack usage
+but enables reliable stack unwinding. Add the option only for C files in the debug <code>build-type</code> in the
+<code>*.csolution.yml</code> file.</p>
+<p><strong>AC6</strong></p>
+<pre><code class="language-yml">solution:
+
+  build-types:
+    - type: Debug
+      debug: on
+      misc:
+        - for-compiler: AC6
+          C:
+            - -funwind-tables
+</code></pre>
+<p><strong>CLANG</strong></p>
+<pre><code class="language-yml">solution:
+
+  build-types:
+    - type: Debug
+      debug: on
+      misc:
+        - for-compiler: CLANG
+          C:
+            - -funwind-tables
+</code></pre>
               
             </div>
           </div><footer>
