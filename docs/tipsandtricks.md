@@ -153,6 +153,18 @@ changes the radix to hexadecimal. Supported choices for base are decimal `8`, `1
     - The `>` is part of the entered command instructing the console processing to use GDB CLI.
     - Refer to [Numbers](https://sourceware.org/gdb/current/onlinedocs/gdb.html/Numbers.html) for more information.
 
+### FVP plug-ins are not found when starting a debug session
+
+**Symptom**
+
+After the Arm Tools Environment Manager activates the FVP tools, **Load & Debug application** fails because VS Code
+cannot resolve `${env:AVH_FVP_PLUGINS}`, even though the `AVH_FVP_PLUGINS` environment variable is set.
+
+**Solution**
+
+Open the Command Palette (Ctrl/Cmd + Shift + p) and run **Developer: Reload Window** before starting the debug session.
+Reloading the window refreshes the environment variables used by VS Code.
+
 ### Cannot connect UART when debugging
 
 **Symptom**
@@ -178,3 +190,41 @@ Using an NXP board with the new MCU-Link FW, this problem does not occur.
 
 For older boards, there is no new DAPLink firmware available. Please avoid using the UART when debugging or use an
 external debug adapter.
+
+### Stack unwinding fails or hangs
+
+AC6 (Arm Compiler for Embedded) or CLANG may not emit the required ELF/DWARF unwind information for functions with the
+`noreturn` attribute. As a result, GDB may show an incorrect call stack or the stack unwinder may take a long time or
+hang.
+
+The compiler option `-funwind-tables` preserves the link register on the stack, which slightly increases stack usage
+but enables reliable stack unwinding. Add the option only for C files in the debug `build-type` in the
+`*.csolution.yml` file.
+
+**AC6**
+
+```yml
+solution:
+
+  build-types:
+    - type: Debug
+      debug: on
+      misc:
+        - for-compiler: AC6
+          C:
+            - -funwind-tables
+```
+
+**CLANG**
+
+```yml
+solution:
+
+  build-types:
+    - type: Debug
+      debug: on
+      misc:
+        - for-compiler: CLANG
+          C:
+            - -funwind-tables
+```

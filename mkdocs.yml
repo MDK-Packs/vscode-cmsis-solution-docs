@@ -1,6 +1,6 @@
 site_name: Arm Keil Studio for VS Code
 extra: 
-  version: 1.70.0
+  version: 1.72.0
 repo_name: GitHub
 repo_url: https://github.com/MDK-Packs/vscode-cmsis-solution-docs
 edit_uri: edit/main/docs/
@@ -10,6 +10,7 @@ nav:
     - User interface: userinterface.md
     - Work with CMSIS solutions: create_app.md
     - Work with Zephyr applications: zephyr.md
+    - Work with native CMake applications: native_cmake.md
     - Manage solutions: manage_settings.md
     - Build and run: build_run.md
     - Debug: debug.md

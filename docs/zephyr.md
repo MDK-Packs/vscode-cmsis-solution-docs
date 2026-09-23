@@ -5,6 +5,10 @@ solution extension displays an outline view of the Zephyr project.
 
 ![Zephyr applications in the CMSIS Solution extension](./images/cmsis-zephyr.png)
 
+The **Manage Solution target** dialog can still be used to select the target for build, load, and debug.
+
+![Manage Zephyr Solution](./images/manage-solution-zephyr.png)
+
 ## Prerequisites
 
 To work with Zephyr-based applications, make sure that the following is set up on your machine.
