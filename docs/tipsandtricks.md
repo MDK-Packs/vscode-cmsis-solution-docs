@@ -228,3 +228,32 @@ solution:
           C:
             - -funwind-tables
 ```
+
+### No dropdown to select the start processor
+
+In multi-core systems, you need to instruct the debugger which processor it needs to connect to at the beginning of a
+debug session. Usually, the **Debug Adapter** section of the
+[**Manage Solution** view](./manage_settings.md#manage-solutions) allows you to select the **Start Processor**:
+
+![Select start processor](./images/start-pname-selection.png)
+
+**Symptom**
+
+This entry is not visible, but you get a warning for your current `cproject` file:
+
+```text
+'device: Dname' is deprecated at this level and accepted in *.csolution.yml only [Ln 1, Col 1]
+```
+
+**Solution**
+
+In your `*.csolution.yml` file, add the `device:` node to every `target-types:`, for example:
+
+```yml
+  target-types:
+    - type: armgcc
+      compiler: GCC
+      device: NXP::LPC55S69JBD100
+```
+
+This enables the display of the **Start Processor** selector in the **Debug Adapter** view.
