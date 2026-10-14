@@ -48,6 +48,7 @@ The IDE:
 
 Version            | Description
 :------------------|:-------------------------
+1.72.1             | Added archiving advice, updated debug documentation for trace
 1.72.0             | Added **Working with native CMake applications**, more tips and tricks, minor enhancements
 1.70.0             | Updates for v1.68.0. and v1.70.0
 1.66.0             | Added **Software pack**, **Related Documentation**, and **Features and roadmap** chapters
