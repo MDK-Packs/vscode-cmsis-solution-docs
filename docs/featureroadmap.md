@@ -65,7 +65,7 @@
 | --------------------------------------------------- | ------------------------------------------------ |
 | &#128994; [Run control](./debug.md#debug-toolbar)   | Run, halt, reset, step into, step over, step out |
 | &#128994; [Breakpoints](./debug.md#breakpoints)     | Various types of breakpoints                     |
-| &#128993; Watchpoints                               | Data read/write/access breakpoints (DWT)         |
+| &#128994; [Watchpoints](./debug.md#data-breakpoints)| Data read/write/access breakpoints (DWT)         |
 | &#128994; [Multi-core](./debug.md#multi-core-debug) | Single GUI for multiple cores in a device        |
 
 ### Register and memory inspection
@@ -95,10 +95,10 @@
 
 | Category                                       | Debug Features            |
 | ---------------------------------------------- | ------------------------- |
-| &#128993; Serial wire output                   | ITM `printf`-style output |
+| &#128994; Serial wire output                   | ITM `printf`-style output |
 | &#128994; [Variable tracing](./debug.md#watch) | Real-time data watch      |
-| &#128993; Event tracing                        | Exception trace           |
-| &#128993; Event tracing                        | Interrupt trace           |
+| &#128994; Event tracing                        | Exception trace           |
+| &#128994; Event tracing                        | Interrupt trace           |
 | &#128994; [Sampling](./debug.md#cpu-time)      | CPU time                  |
 | &#128993; Embedded trace buffer                | ETB instruction trace     |
 | &#128993; Micro trace buffer                   | MTB instruction trace     |
@@ -152,8 +152,10 @@
 | &#128993; Debug probes                                                | ULINKpro support         |
 | &#128994; [Debug probes](./debug.md#debug-adapter-support)            | CMSIS-DAP support        |
 | &#128994; [Debug probes](./debug.md#debug-adapter-support)            | J-Link support           |
-| &#128994; Debug interfaces                                            | SWD                      |
-| &#128994; Debug interfaces                                            | JTAG                     |
+| &#128994; Debug interface                                             | SWD                      |
+| &#128994; Debug interface                                             | JTAG                     |
+| &#128994; Trace interface                                             | SWO                      |
+| &#128993; Trace interface                                             | Trace port interface     |
 | &#128994; [Debug interfaces](./build_run.md#check-target-information) | Target detection         |
 | &#128993; Debug interfaces                                            | Connect configuration    |
 | &#128994; [Flash programming](./build_run.md#load-and-run)            | Flash download           |
