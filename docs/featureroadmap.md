@@ -65,7 +65,7 @@
 | --------------------------------------------------- | ------------------------------------------------ |
 | &#128994; [Run control](./debug.md#debug-toolbar)   | Run, halt, reset, step into, step over, step out |
 | &#128994; [Breakpoints](./debug.md#breakpoints)     | Various types of breakpoints                     |
-| &#128993; Watchpoints                               | Data read/write/access breakpoints (DWT)         |
+| &#128994; [Watchpoints](./debug.md#data-breakpoints)| Data read/write/access breakpoints (DWT)         |
 | &#128994; [Multi-core](./debug.md#multi-core-debug) | Single GUI for multiple cores in a device        |
 
 ### Register and memory inspection
