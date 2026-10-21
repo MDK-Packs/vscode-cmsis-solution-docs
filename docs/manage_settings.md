@@ -6,9 +6,9 @@ connectivity.
 
 In the **CMSIS view**, click ![Cogwheel icon](./images/cogwheel-icon.png) to open the **Manage Solution** view:
 
-![Manage Solution view](./images/manage-solution-view.png)
+![Manage Solution view](./videos/ManageSolution.gif)
 
-## Active Target
+## Manage Solution Target
 
 In this section, select the target for build, load, and debug:
 
@@ -18,24 +18,23 @@ In this section, select the target for build, load, and debug:
 
 To specify your target types by editing the YAML file directly, click **Edit csolution.yml**.
 
-The status bar shows the current **target type@target set** (only the **target type** in case of a `<default>`
-**target set**):
+!!! Note
+    The status bar shows the current **target type@target set** (only the **target type** in case of a `<default>`
+    **target set**).
 
-![Target type at target set](./images/target-type-at-target-set.png)
-
-## Projects and images
+## Projects and Images
 
 In this section, select the projects, build types, and additional images that are included in the target set.
 
 - Select the **project(s)** that are part of the solution.
 - Select a **build type** for each project. You can set different build types for different projects in your solution.
 - Set the **load settings**:
-    - *Image & Symbols* (default): debug adapter loads debug (DWARF) information and project output image.
-    - *Symbols*: debug adapter loads only debug (DWARF) information.
-    - *Image*: debug adapter loads only project output image.
-    - *None*: debug adapter does not use the output, however the project is included in build.
+  - *Image & Symbols* (default): debug adapter loads debug (DWARF) information and project output image.
+  - *Symbols*: debug adapter loads only debug (DWARF) information.
+  - *Image*: debug adapter loads only project output image.
+  - *None*: debug adapter does not use the output, however the project is included in build.
 
-- Add further **images** with specific **load settgings**.
+- Add further **images** with specific **load settings**.
 
 To specify your projects and images by editing the YAML file directly, click **Edit cproject.yml**.
 
@@ -48,7 +47,15 @@ To specify your projects and images by editing the YAML file directly, click **E
       [Conditional build](https://open-cmsis-pack.github.io/cmsis-toolbox/YML-Input-Format/#conditional-build)
       information in the CMSIS-Toolbox documentation.  
 
-### Errors and warnings
+## Debug Adapter
+
+A broad range of adapters is supported. Use this drop-down to select the
+[debug adapter](./debug.md#debug-adapter-support) that you are using within the target set.
+
+!!! Note
+    Some of the debug adapters require further setup steps.
+
+## Errors and warnings
 
 You can inspect errors and warnings for a target set. For active projects in the target set, errors and warnings
 display when you move your cursor over the **Target Set** in the status bar. The indicator is red for errors and yellow
@@ -60,11 +67,3 @@ Click the indicator to open the **Output** tab for the **CMSIS Solution** catego
 **Manage Solution** view, then this action also re-opens the view.
 
 You can also go to the **Problems** tab and check for errors.
-
-## Debug Adapter
-
-A broad range of adapters is supported. Use this drop-down to select the
-[debug adapter](./debug.md#debug-adapter-support) that you are using within the target set.
-
-!!! Note
-    Some of the debug adapters require further setup steps.
