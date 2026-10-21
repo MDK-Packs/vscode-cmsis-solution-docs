@@ -74,7 +74,13 @@
     </li>
         </ul>
     </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#graphical-previews">Graphical previews</a>
+        <ul>
     <li class="toctree-l3"><a class="reference internal" href="#configuration-wizard">Configuration Wizard</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#vcpkg-configuration-file">Vcpkg configuration file</a>
     </li>
         </ul>
     </li>
@@ -313,7 +319,7 @@ to use this generated build information.</p>
 Information</strong> next to the required <code>*.cproject.yml</code> file. The <strong>Clangd
 Information Active</strong> icon identifies the project that currently provides
 IntelliSense information.</p>
-<p><img alt="Select the active project for clangd" src="images/clangd-active-project.png" /></p>
+<p><img alt="Select the active project for clangd" src="videos/ClangdInfo.gif" /></p>
 <h4 id="compiler-predefined-macros">Compiler predefined macros</h4>
 <p>CMSIS-Toolbox generates separate predefined macro headers for C and C++ in the project output directory:</p>
 <ul>
@@ -355,6 +361,16 @@ manual customization.</p>
   Command Palette. If the problem persists, reload the VS Code window to
   regenerate <code>.clangd</code> and restart the extensions.</li>
 </ol>
+<h2 id="graphical-previews">Graphical previews</h2>
+<p>Files may have dedicated graphical previews:</p>
+<ul>
+<li>Files with <a href="#configuration-wizard">configuration wizard annotations</a>, such as header (<code>.h</code>) and debugger
+  configuration files (<code>.dbgconf</code>).</li>
+<li>The <a href="#vcpkg-configuration-file"><code>vckpg-configuration.json</code></a> file.</li>
+<li>The <a href="manage_settings.html#manage-solutions"><code>*.csolution.yml</code></a> file.</li>
+<li>The <a href="create_app.html#software-components-view"><code>*.cproject.yml</code></a> file.</li>
+<li>The <a href="debug.html#review-captured-trace-data"><code>*.SWO.csv</code></a> file.</li>
+</ul>
 <h3 id="configuration-wizard">Configuration Wizard</h3>
 <p><a href="https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/configWizard.html">Configuration Wizard annotations</a>
 enable GUI-like elements in IDEs for configuration source files. This graphical approach makes it easier for users
@@ -363,14 +379,19 @@ to review and edit configuration settings as required by the application.</p>
 <img alt="Open Preview" src="images/open-conf-wiz-view-icon.png" /> in the top right corner of the file window.</p>
 <p>The view will be opened next to the original source file. You can switch back pressing the <strong>Show Source</strong> button
 <img alt="Open source file view" src="images/open-source-file-view-icon.png" />.</p>
-<p><img alt="RTE_Device.h file in configuration wizard view" src="images/rte-device-config-wiz-view.png" /></p>
+<p><img alt="RTOS Configuration Wizard view" src="videos/ConfigWizard.gif" /></p>
 <p>The configuration wizard view is error tolerant but notifies the user in case of malformed annotations:</p>
 <p><img alt="Configuration Wizard Issues" src="images/config-wizard-issues.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>When you select an option in the Configuration Wizard view and switch to the text editor, the cursor moves to the
-corresponding location in the configuration file.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use configuration wizard annotations for your own purposes (for example in header files). The built-in preview
+enables a graphical view to your files without additional effort.</p>
 </div>
+<h3 id="vcpkg-configuration-file">Vcpkg configuration file</h3>
+<p>A <code>vcpkg-configuration.json</code> file specifies the development tools and versions required by a project. The Arm Tools
+Environment Manager uses it to download and activate those tools, providing a consistent development environment. The
+graphical preview makes it easier to detect optional tools and to select other tools versions.</p>
+<p><img alt="Manage tools with vcpkg-configuration.json file" src="videos/vcpkg-config.gif" /></p>
 <h2 id="status-bar">Status bar</h2>
 <p>The VS Code status bar displays information about the status of your development environment and the project:</p>
 <p><img alt="Status bar" src="images/status-bar.png" /></p>

@@ -396,17 +396,17 @@ project of a solution.</p>
 <h3 id="software-components-view">Software Components view</h3>
 <p>Open the <strong>CMSIS view</strong> and click <img alt="Manage software components" src="images/software-components-icon.png" /> to open the
 <strong>Software Components</strong> view:</p>
-<p><img alt="The 'Software Components' view" src="images/software-components-view.png" /></p>
+<p><img alt="The 'Software Components' view" src="videos/SoftwareComponentsView.gif" /></p>
 <p>You can:</p>
-<ol>
-<li>Switch between <em>components</em> and <a href="#software-packs"><em>software packs</em></a>.</li>
+<ul>
 <li>View only components that are <em>part of the csolution</em> or components from <em>all installed packs</em>.</li>
 <li>Set the <em>context</em> for which the component selection applies (including layers).</li>
 <li><em>Select/remove</em> software components.</li>
 <li>View <em>more information</em> about the component (name, pack, version, and description).</li>
 <li>Select different <em>variants</em> of a component.</li>
 <li>Open <em>related documentation</em>.</li>
-</ol>
+<li>Switch between <em>components</em> and <a href="#software-packs"><em>software packs</em></a>.</li>
+</ul>
 <!--
 Layer icons ![Layer icon](./images/layer-icon.png) indicate which components are used in layers. In the current version,
 layers are read-only, so you cannot select or clear them. Click the layer icon of a component to open the `*.clayer.yml`
@@ -439,7 +439,7 @@ or version. The `cproject.yml` file is automatically updated.
 <h4 id="validation">Validation</h4>
 <p>In the <strong>Software Components view</strong>, you can manage the dependencies between components and solve validation issues.
 Issues are highlighted with a yellow exclamation mark icon <img alt="Issue icon" src="images/issue-icon.png" />.</p>
-<p><img alt="Validation errors" src="images/validation-error.png" /></p>
+<p><img alt="Validation errors" src="videos/SWCompValidation.gif" /></p>
 <p>If there are validation issues:</p>
 <ol>
 <li>Hover over <img alt="Issue icon" src="images/issue-icon.png" /> or the <strong>Resolve</strong> button for more information.</li>
@@ -474,9 +474,9 @@ Issues are highlighted with a yellow exclamation mark icon <img alt="Issue icon"
     - pack: ARM::CMSIS-RTX
 </code></pre>
 <h3 id="software-packs">Software packs</h3>
-<p><img alt="The 'Software Components - Software packs' view" src="images/software-packs.png" /></p>
+<p><img alt="The 'Software Components - Software packs' view" src="videos/SoftwarePacks.gif" /></p>
 <p>You can:</p>
-<ol>
+<ul>
 <li>Switch between <a href="#software-components-view"><em>components</em></a> and <em>software packs</em>.</li>
 <li>View only software packs that are <em>part of the csolution</em> or view <em>all installed packs</em>.</li>
 <li>Using the drop down, select the cproject/clayer scope. It always shows all packs but "highlights" (greyed) the packs
@@ -484,7 +484,7 @@ Issues are highlighted with a yellow exclamation mark icon <img alt="Issue icon"
 <li>Examine on which level the packs are references (csolution/cproject/clayer).</li>
 <li><a href="#manage-software-packs"><em>Manage software packs</em></a>.</li>
 <li>Open <em>related documentation</em>.</li>
-</ol>
+</ul>
 <h4 id="install-software-packs">Install software packs</h4>
 <p>Browse the <a href="https://www.keil.arm.com/packs/">public index</a> to search for software packs. This website also provides
 hints on how to add a software pack to a CMSIS Solution or via
