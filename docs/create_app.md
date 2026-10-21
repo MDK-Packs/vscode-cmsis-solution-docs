@@ -228,17 +228,17 @@ project of a solution.
 Open the **CMSIS view** and click ![Manage software components](./images/software-components-icon.png) to open the
 **Software Components** view:
 
-![The 'Software Components' view](./images/software-components-view.png)
+![The 'Software Components' view](./videos/SoftwareComponentsView.gif)
 
 You can:
 
-1. Switch between *components* and [*software packs*](#software-packs).
-2. View only components that are *part of the csolution* or components from *all installed packs*.
-3. Set the *context* for which the component selection applies (including layers).
-4. *Select/remove* software components.
-5. View *more information* about the component (name, pack, version, and description).
-6. Select different *variants* of a component.
-7. Open *related documentation*.
+- View only components that are *part of the csolution* or components from *all installed packs*.
+- Set the *context* for which the component selection applies (including layers).
+- *Select/remove* software components.
+- View *more information* about the component (name, pack, version, and description).
+- Select different *variants* of a component.
+- Open *related documentation*.
+- Switch between *components* and [*software packs*](#software-packs).
 
 <!--
 Layer icons ![Layer icon](./images/layer-icon.png) indicate which components are used in layers. In the current version,
@@ -274,7 +274,7 @@ or version. The `cproject.yml` file is automatically updated.
 In the **Software Components view**, you can manage the dependencies between components and solve validation issues.
 Issues are highlighted with a yellow exclamation mark icon ![Issue icon](./images/issue-icon.png).
 
-![Validation errors](./images/validation-error.png)
+![Validation errors](./videos/SWCompValidation.gif)
 
 If there are validation issues:
 
@@ -320,17 +320,17 @@ project:
 
 ### Software packs
 
-![The 'Software Components - Software packs' view](./images/software-packs.png)
+![The 'Software Components - Software packs' view](./videos/SoftwarePacks.gif)
 
 You can:
 
-1. Switch between [*components*](#software-components-view) and *software packs*.
-2. View only software packs that are *part of the csolution* or view *all installed packs*.
-3. Using the drop down, select the cproject/clayer scope. It always shows all packs but "highlights" (greyed) the packs
+- Switch between [*components*](#software-components-view) and *software packs*.
+- View only software packs that are *part of the csolution* or view *all installed packs*.
+- Using the drop down, select the cproject/clayer scope. It always shows all packs but "highlights" (greyed) the packs
    specified in "scope".
-4. Examine on which level the packs are references (csolution/cproject/clayer).
-5. [*Manage software packs*](#manage-software-packs).
-6. Open *related documentation*.
+- Examine on which level the packs are references (csolution/cproject/clayer).
+- [*Manage software packs*](#manage-software-packs).
+- Open *related documentation*.
 
 #### Install software packs
 

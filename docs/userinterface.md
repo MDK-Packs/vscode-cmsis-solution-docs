@@ -98,7 +98,7 @@ Information** next to the required `*.cproject.yml` file. The **Clangd
 Information Active** icon identifies the project that currently provides
 IntelliSense information.
 
-![Select the active project for clangd](./images/clangd-active-project.png)
+![Select the active project for clangd](./videos/ClangdInfo.gif)
 
 #### Compiler predefined macros
 
@@ -145,6 +145,17 @@ If editor diagnostics or completion do not match a successful build:
   Command Palette. If the problem persists, reload the VS Code window to
   regenerate `.clangd` and restart the extensions.
 
+## Graphical previews
+
+Files may have dedicated graphical previews:
+
+- Files with [configuration wizard annotations](#configuration-wizard), such as header (`.h`) and debugger
+  configuration files (`.dbgconf`).
+- The [`vckpg-configuration.json`](#vcpkg-configuration-file) file.
+- The [`*.csolution.yml`](./manage_settings.md#manage-solutions) file.
+- The [`*.cproject.yml`](./create_app.md#software-components-view) file.
+- The [`*.SWO.csv`](./debug.md#review-captured-trace-data) file.
+
 ### Configuration Wizard
 
 [Configuration Wizard annotations](https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/configWizard.html)
@@ -157,15 +168,23 @@ For files containing configuration wizard annotations, open the graphical view b
 The view will be opened next to the original source file. You can switch back pressing the **Show Source** button
 ![Open source file view](./images/open-source-file-view-icon.png).
 
-![RTE_Device.h file in configuration wizard view](./images/rte-device-config-wiz-view.png)
+![RTOS Configuration Wizard view](./videos/ConfigWizard.gif)
 
 The configuration wizard view is error tolerant but notifies the user in case of malformed annotations:
 
 ![Configuration Wizard Issues](./images/config-wizard-issues.png)
 
-!!! Note
-    When you select an option in the Configuration Wizard view and switch to the text editor, the cursor moves to the
-    corresponding location in the configuration file.
+!!! Tip
+    Use configuration wizard annotations for your own purposes (for example in header files). The built-in preview
+    enables a graphical view to your files without additional effort.
+
+### Vcpkg configuration file
+
+A `vcpkg-configuration.json` file specifies the development tools and versions required by a project. The Arm Tools
+Environment Manager uses it to download and activate those tools, providing a consistent development environment. The
+graphical preview makes it easier to detect optional tools and to select other tools versions.
+
+![Manage tools with vcpkg-configuration.json file](./videos/vcpkg-config.gif)
 
 ## Status bar
 
