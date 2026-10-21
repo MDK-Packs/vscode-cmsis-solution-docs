@@ -751,7 +751,8 @@ the debug adapters are running the latest firmware. Set the `PATH` variable corr
 
 | Debug Adapter | Notes |
 |---------------|-------|
-| Arm ULINKplus | Make sure that the [V2.x.x firmware](https://developer.arm.com/documentation/101636/0100/Introduction/Firmware-Update) is installed. |
+| Arm ULINKplus | Make sure that the [V2.x.x firmware](https://support.arm.com/documentation/101636/latest/Introduction/Firmware-Update) is installed. |
+| Arm ULINK2 | Make sure that the [voltage jumper](https://support.arm.com/documentation/101455/latest/Hardware-Description/Jumpers) is set correctly. [Select](#select-debug-adapter) `CMSIS-DAP@pyOCD` as the debug adapter. |
 | Infineon KitProg3 | Make sure that the latest [firmware is installed](https://community.infineon.com/t5/Knowledge-Base-Articles/ModusToolbox-Updating-the-KitProg3-MiniProg4-firmware-from-modus-shell/ta-p/625419#.). |
 | Microchip PICKit Basic | Use the Python utility [pycmsisdapswitcher](https://pypi.org/project/pycmsisdapswitcher/) to switch the firmware to a CMSIS-DAP v2 implementation. |
 | Nuvoton NuLink | Make sure that the latest [firmware is installed](https://github.com/OpenNuvoton/Nuvoton_Tools/blob/master/Latest_NuLink_Firmware/README.md). |
