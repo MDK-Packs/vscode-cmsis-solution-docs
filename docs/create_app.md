@@ -21,10 +21,6 @@ Examples, templates, and reference applications depend on the selected board or 
 - [**Templates**](#templates) are stub projects that help you getting started. Some CMSIS-Packs may contain
   device-specific templates.
 
-- [**GitHub repositories**](#github-repositories) may contain projects showcasing a specific use case. These repos can
-  be cloned directly into VS Code. The **Source Control** view ![Source control icon](./images/SourceControlView.png)
-  helps maintaining these repos.
-
 Further settings include:
 
 - The **Solution Sub Folder** is typically a sub-directory in your workspace.
@@ -35,6 +31,10 @@ Further settings include:
 
 - **Show project opening options** allows you to open the solution a new instance of VS Code. By default, it is loaded
   into the current VS Code instance.
+
+- Select **All pack versions** if you want to search for examples that are in an older pack version.
+
+- Enable **Web and uVision Examples** if you want to display examples from the web and legacy uVision examples.
 
 ## Examples
 
