@@ -54,13 +54,17 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">User interface</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#activity-bar">Activity bar</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#cmsis-view">CMSIS view</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#no-solution-loaded">No solution loaded</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#actions-available-through-the-cmsis-view">Actions available through the CMSIS view</a>
+    <li class="toctree-l3"><a class="reference internal" href="#action-buttons">Action Buttons</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#search-in-solution-sources">Search in solution sources</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#refresh-build-and-rte-information">Refresh Build and RTE Information</a>
     </li>
         </ul>
     </li>
@@ -74,13 +78,19 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#graphical-previews">Graphical previews</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#configuration-wizard">Configuration Wizard</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#vcpkg-configuration-file">Vcpkg configuration file</a>
+    </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#graphical-previews">Graphical previews</a>
+    <li class="toctree-l3"><a class="reference internal" href="#documentation-management">Documentation Management</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#configuration-wizard">Configuration Wizard</a>
+    <li class="toctree-l4"><a class="reference internal" href="#identification-letters">Identification letters</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#vcpkg-configuration-file">Vcpkg configuration file</a>
+        </ul>
     </li>
         </ul>
     </li>
@@ -89,6 +99,32 @@
     <li class="toctree-l2"><a class="reference internal" href="#run-and-debug-view">Run and Debug view</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#available-commands">Available commands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#auto-debug-launch">Auto Debug Launch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#auto-refresh-on-file-change">Auto Refresh On File Change</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#auto-show-cmsis-view">Auto Show CMSIS View</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#build-output-verbosity">Build Output Verbosity</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#download-packs">Download Packs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#environment-variables">Environment Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#experimental-features">Experimental Features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generate-clang-setup">Generate Clang Setup</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#output-directory">Output Directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#probe-id-modified-in-workspace">Probe-ID (Modified in Workspace)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#use-web-services">Use Web Services</a>
+    </li>
+        </ul>
     </li>
     </ul>
                 </li>
@@ -166,7 +202,13 @@
 <a href="https://open-cmsis-pack.github.io/cmsis-toolbox/">CMSIS-Toolbox</a>. Combined with other Arm and third-party extensions,
 it implements a powerful embedded development environment.</p>
 <p><img alt="CMSIS view" src="images/solution-outline.png" /></p>
-<p>The GUI consists of these views:</p>
+<ol>
+<li>The <a href="#activity-bar">activity bar</a> gives access to various views.</li>
+<li><a href="#action-buttons">Action buttons</a> trigger specific commands.</li>
+<li>Some <a href="#main-area-icons">action icons</a> may appear depending on the file and context.</li>
+<li>The <a href="#status-bar">status bar</a> displays further information.</li>
+</ol>
+<h2 id="activity-bar">Activity bar</h2>
 <table>
 <thead>
 <tr>
@@ -203,11 +245,16 @@ it implements a powerful embedded development environment.</p>
 <td style="text-align: center;"><img alt="Trace and live view" src="images/TraceLiveView.png" /></td>
 <td style="text-align: left;"><a href="debug.html#trace-and-live-view"><strong>Trace and Live</strong> view</a> shows trace and live data during debugging.</td>
 </tr>
+<tr>
+<td style="text-align: center;"><img alt="SDS view" src="images/sds-view.png" /></td>
+<td style="text-align: left;"><strong>SDS</strong> view allows capturing, replaying, inspecting, and validating synchronous data streams from embedded systems.</td>
+</tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The ordering of the icons may be different in your VS Code environment.</p>
+<p>The ordering of the icons may be different in your VS Code environment. Depending on the installed extensions, you
+may also see additional view icons.</p>
 </div>
 <h2 id="cmsis-view">CMSIS view</h2>
 <p>The CMSIS view <img alt="CMSIS icon" src="images/cmsis-icon.png" /> shows the content of the active projects included in the
@@ -235,7 +282,7 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 <li><a href="https://github.com/Arm-Examples">Browse Arm Examples</a> that show the usage of Arm technology on various platforms.</li>
 </ul>
 <p>The links below the buttons take you to the documentation and the overview of the VS Code extension.</p>
-<h3 id="actions-available-through-the-cmsis-view">Actions available through the <strong>CMSIS</strong> view</h3>
+<h3 id="action-buttons">Action Buttons</h3>
 <p>Once a CMSIS solution is loaded, the following action buttons are available:</p>
 <table>
 <thead>
@@ -256,6 +303,10 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 <tr>
 <td style="text-align: center;"><img alt="Load &amp; Debug application" src="images/debug-icon.png" /></td>
 <td style="text-align: left;"><a href="debug.html"><strong>Load &amp; Debug application</strong></a> flashes the binary onto the target and starts a debug session.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img alt="Refresh Build and RTE Information" src="images/reload-icon.png" /></td>
+<td style="text-align: left;"><a href="#refresh-build-and-rte-information"><strong>Refresh Build and RTE Information</strong></a> reloads the CMSIS-Pack information, updates the cbuild and RTE files.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><img alt="Open csolution.yml file" src="images/openFile.png" /></td>
@@ -280,6 +331,10 @@ information. The main area of the <strong>CMSIS</strong> view shows:</p>
 belong to the current solution configuration. The scope includes the source files of the selected projects, source
 files supplied by CMSIS-Packs, and the project YML files. Files that are excluded from the current configuration are
 not searched.</p>
+<h4 id="refresh-build-and-rte-information">Refresh Build and RTE Information</h4>
+<p>This button enables quick access to the command <code>Refresh (Reload Packs and Update RTE)</code> if the
+<code>Auto Refresh On File Change</code> extension setting is disabled. In this case, the button shows that an update is required
+by showing an additional exclamation mark: <img alt="Reload suggested" src="images/reload-icon-update.png" />.</p>
 <h3 id="main-area-icons">Main area icons</h3>
 <p>Depending on the file and the context, various icons may appear:</p>
 <table>
@@ -361,7 +416,7 @@ manual customization.</p>
   Command Palette. If the problem persists, reload the VS Code window to
   regenerate <code>.clangd</code> and restart the extensions.</li>
 </ol>
-<h2 id="graphical-previews">Graphical previews</h2>
+<h3 id="graphical-previews">Graphical previews</h3>
 <p>Files may have dedicated graphical previews:</p>
 <ul>
 <li>Files with <a href="#configuration-wizard">configuration wizard annotations</a>, such as header (<code>.h</code>) and debugger
@@ -371,7 +426,7 @@ manual customization.</p>
 <li>The <a href="create_app.html#software-components-view"><code>*.cproject.yml</code></a> file.</li>
 <li>The <a href="debug.html#review-captured-trace-data"><code>*.SWO.csv</code></a> file.</li>
 </ul>
-<h3 id="configuration-wizard">Configuration Wizard</h3>
+<h4 id="configuration-wizard">Configuration Wizard</h4>
 <p><a href="https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/configWizard.html">Configuration Wizard annotations</a>
 enable GUI-like elements in IDEs for configuration source files. This graphical approach makes it easier for users
 to review and edit configuration settings as required by the application.</p>
@@ -387,11 +442,57 @@ to review and edit configuration settings as required by the application.</p>
 <p>Use configuration wizard annotations for your own purposes (for example in header files). The built-in preview
 enables a graphical view to your files without additional effort.</p>
 </div>
-<h3 id="vcpkg-configuration-file">Vcpkg configuration file</h3>
+<h4 id="vcpkg-configuration-file">Vcpkg configuration file</h4>
 <p>A <code>vcpkg-configuration.json</code> file specifies the development tools and versions required by a project. The Arm Tools
 Environment Manager uses it to download and activate those tools, providing a consistent development environment. The
 graphical preview makes it easier to detect optional tools and to select other tools versions.</p>
 <p><img alt="Manage tools with vcpkg-configuration.json file" src="videos/vcpkg-config.gif" /></p>
+<h3 id="documentation-management">Documentation Management</h3>
+<p>The document management system in Keil Studio gives versatile options to access and store solution-related
+documentation. Locally stored documentation can be shared with other extensions, such as the
+<a href="https://marketplace.visualstudio.com/items?itemName=Arm.cmsis-developer-assistant">CMSIS Developer Assistant</a>.</p>
+<p><img alt="Documentation Management" src="images/document-management.png" /></p>
+<ol>
+<li>Board-related documentation is shown.</li>
+<li>Device-related documentation is shown.</li>
+<li>A fight-click on <strong>Board/Device</strong> enables you to add documentation.</li>
+<li>A click on a book icon <img alt="Book" src="images/book-icon.png" /> opens the document.</li>
+<li>Hovering over an <a href="#identification-letters">identification letter</a> displays the document location.</li>
+<li>A right-click on the document allows to download or import the document into the local document cache on the host
+   machine (usually <code>~/.cmsis/docs</code>).</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Processor specific Arm architecture, core, debug and NPU manuals are automatically added to the list of device
+specific books.</p>
+</div>
+<h4 id="identification-letters">Identification letters</h4>
+<table>
+<thead>
+<tr>
+<th>Letter</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H</td>
+<td>HTML-based documentation</td>
+</tr>
+<tr>
+<td>P</td>
+<td>documentation contained in CMSIS-Pack</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Web-based documentation (non-HTML)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Icons in front of a documentation item may show additional information, such as file type (e.g. PDF).</p>
+</div>
 <h2 id="status-bar">Status bar</h2>
 <p>The VS Code status bar displays information about the status of your development environment and the project:</p>
 <p><img alt="Status bar" src="images/status-bar.png" /></p>
@@ -431,54 +532,6 @@ graphical preview makes it easier to detect optional tools and to select other t
 </table>
 <h2 id="run-and-debug-view">Run and Debug view</h2>
 <p>Refer to the <a href="debug.html#debugger-user-interface">Debugger user interface</a> section for more information.</p>
-<!--
-!!! Tip
-    The [Arm CMSIS Debugger README](https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger)
-    contains a more detailed description of the usage of this view.
-
-The **Run and Debug View** ![Run and Debug view](./images/RunDebugView.png) in Keil Studio connects to the target using
-the request selection shown below.
-
-![Debug View Debugger request](./images/run-debug-view.png)
-
-1. Select the core you want to **launch** (start an application) or **attach** to (connect to a running application).
-2. Interact with the cores.
-
-### Run and Debug controls
-
-Depending on the target device (number of cores etc.), a similar run and debug control bar will be visible:
-
-![Run and Debug controls](./images/debug-full-controls.png) or
-
-![Run and Debug controls in a multicore environment](./images/debug-full-controls-multicore.png)
-
-The icons enable access to:
-
-| Icon | Action | Description |
-|:----:|:-------|:------------|
-| ![Continue](./images/debug-continue.png) | Continue | Resume normal program execution (up to the next breakpoint). |
-| ![Pause](./images/debug-pause.png) | Pause | Inspect code executing at the current location. |
-| ![Step over](./images/debug-step-over.png) | Step over | Execute the next statement as a single command without inspecting or following its component steps. |
-| ![Step into](./images/debug-step-into.png) | Step into | Enter the next statement to follow its execution line-by-line. |
-| ![Step out](./images/debug-step-out.png) | Step out | When inside a function, return to the earlier execution context by completing remaining lines of the current method as though it were a single command. |
-| ![Restart](./images/debug-restart.png) | Restart | Terminate the current program execution and start debugging again using the current run configuration. |
-| ![Stop](./images/debug-stop.png) | Stop |  Terminate the current debug session. |
-| ![Disconnect](./images/debug-disconnect.png) | Disconnect |  Detach debugger from a core without changing the execution status (running/pause). |
-| ![Reset](./images/debug-reset-target.png) | Reset | Reset target device. |
-
-## Trace and Live view
-
-The **Trace and Live View** ![Trace and Live view](./images/TraceLiveView.png) contains the **LIVE WATCH** section that
-continuously displays the value of an expression while the program is running.  Future versions of this view will also
-show trace information.
-
-You can add expressions to the **LIVE WATCH** by:
-
-1. Pressing the `+` sign and entering an expression.
-2. Using the context menu item **Add to Live Watch** in the editor or the the **Run and Debug** view.
-
-![Displaying a variable in the LIVE WATCH](./images/lw-counter.gif)
--->
 <h2 id="available-commands">Available commands</h2>
 <p>You can access commands to manage your solution and the related projects in the following ways:</p>
 <ul>
@@ -572,6 +625,66 @@ You can add expressions to the **LIVE WATCH** by:
 </tr>
 </tbody>
 </table>
+<h2 id="settings">Settings</h2>
+<p>The following is available via <strong>Settings (Ctrl/Cmd ,) - Extensions - CMSIS Solution</strong>.</p>
+<h3 id="auto-debug-launch">Auto Debug Launch</h3>
+<p>Create or update <code>launch.json</code> and <code>tasks.json</code> with the debug adapter configuration of the CMSIS solution project.
+When disabled, the files <code>launch.json</code> and <code>tasks.json</code> are no longer modified. (Note: also available in <a href="manage_settings.html">Manage Solution</a> settings dialog).</p>
+<h3 id="auto-refresh-on-file-change">Auto Refresh On File Change</h3>
+<p>Automatically refresh build information when files used by the active solution change. When disabled, these file
+changes mark the solution as needing refresh. Use Refresh Build Information to refresh manually. Changes committed via
+webviews/dialogs will still automatically trigger refresh.</p>
+<h3 id="auto-show-cmsis-view">Auto Show CMSIS View</h3>
+<p>Automatically shows the <strong>CMSIS</strong> view in the side bar when a CMSIS solution is loaded.</p>
+<h3 id="build-output-verbosity">Build Output Verbosity</h3>
+<p>Control verbosity of the build and setup console messages in the Terminal view.</p>
+<p>Available options:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>quiet</td>
+<td>Show only errors or fatal conditions</td>
+</tr>
+<tr>
+<td>normal</td>
+<td>Include build steps and warnings</td>
+</tr>
+<tr>
+<td>build-commands</td>
+<td>Show command invocations during build process</td>
+</tr>
+<tr>
+<td>verbose</td>
+<td>Include command-line invocation</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>Include internal process steps</td>
+</tr>
+</tbody>
+</table>
+<h3 id="download-packs">Download Packs</h3>
+<p>The CMSIS-Toolbox downloads required software packs using cpackget during setup and project build. This option enables the option <code>--packs</code> for <code>cbuild</code>.</p>
+<h3 id="environment-variables">Environment Variables</h3>
+<p>Specify additional environment variables to be set for build, run, and terminals.</p>
+<h3 id="experimental-features">Experimental Features</h3>
+<p>Enable experimental features.</p>
+<h3 id="generate-clang-setup">Generate Clang Setup</h3>
+<p>Automatically generate for the active solution context the required setup (<code>.clangd</code> file and <code>.vscode/settings.json</code>).
+For AC6 compiler include pre-defined macros in the clangd file.</p>
+<h3 id="output-directory">Output Directory</h3>
+<p>Enter an output directory prefix for <code>outdir</code> and <code>tmpdir</code> and relocated build information files (experimental).</p>
+<h3 id="probe-id-modified-in-workspace">Probe-ID (Modified in Workspace)</h3>
+<p>Specify the unique identifier of a debug probe to connect on your host computer (typically its serial number). Leave empty to connect o the first debug probe that matches the specified type. Try using Target Information with your debug adapter connected.</p>
+<h3 id="use-web-services">Use Web Services</h3>
+<p>Use web services to obtain information about devices, boards, and examples. If enabled, information from the internet database and
+installed packs is used. If disabled, only information from installed packs is used.</p>
               
             </div>
           </div><footer>
