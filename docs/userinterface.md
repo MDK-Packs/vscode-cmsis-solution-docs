@@ -68,7 +68,7 @@ Once a CMSIS solution is loaded, the following action buttons are available:
 | ![Build solution](./images/build-icon.png) | [**Build solution**](./build_run.md) calls the compiler toolchain and builds the solution. |
 | ![Load and Run Application](./images/run-icon.png) | [**Load & Run application**](./build_run.md#load-and-run) flashes the binary onto the target and starts the application. |
 | ![Load & Debug application](./images/debug-icon.png) | [**Load & Debug application**](./debug.md) flashes the binary onto the target and starts a debug session. |
-| ![Refresh Build and RTE Information](./images/reload-icon.png) | [**Refresh Build and RTE Information**](#refresh-build-and-rte-information) reloads the CMSIS-Packs and updates the RTE configuration. |
+| ![Refresh Build and RTE Information](./images/reload-icon.png) | [**Refresh Build and RTE Information**](#refresh-build-and-rte-information) reloads the CMSIS-Pack information, updates the cbuild and RTE files. |
 | ![Open csolution.yml file](./images/openFile.png) | **Open csolution.yml file** opens the CMSIS solution YML file for editing. |
 | ![Search in Solution Sources](./images/search-icon.png) | [Search](#search-in-solution-sources) in the current solution configuration. |
 | ![Manage Solution Settings](./images/settings-cog.png) | Open the [**Manage Solution**](./manage_settings.md) view to configure project and debug settings. |
@@ -210,9 +210,10 @@ documentation. Locally stored documentation can be shared with other extensions,
 
 1. Board-related documentation is shown.
 2. Device-related documentation is shown.
-3. A click on a book icon ![Book](./images/book-icon.png) opens the document.
-4. Hovering over an [identification letter](#identification-letters) displays the document location.
-5. A right-click on the document allows to download or import the document into the local document cache on the host
+3. A fight-click on **Board/Device** enables you to add documentation.
+4. A click on a book icon ![Book](./images/book-icon.png) opens the document.
+5. Hovering over an [identification letter](#identification-letters) displays the document location.
+6. A right-click on the document allows to download or import the document into the local document cache on the host
    machine (usually `~/.cmsis/docs`).
 
 !!! Note
@@ -226,7 +227,7 @@ documentation. Locally stored documentation can be shared with other extensions,
 |--------|---------|
 | H      | HTML-based documentation |
 | P      | documentation contained in CMSIS-Pack |
-| W      | Web-based documentation |
+| W      | Web-based documentation (non-HTML) |
 
 !!! Note
     Icons in front of a documentation item may show additional information, such as file type (e.g. PDF).
@@ -292,8 +293,8 @@ When disabled, the files `launch.json` and `tasks.json` are no longer modified. 
 ### Auto Refresh On File Change
 
 Automatically refresh build information when files used by the active solution change. When disabled, these file
-changes mark the solution as needing refresh. Use Refresh Build Information to refresh manually. Successful webview
-saves can also refresh build information.
+changes mark the solution as needing refresh. Use Refresh Build Information to refresh manually. Changes committed via
+webviews/dialogs will still automatically trigger refresh.
 
 ### Auto Show CMSIS View
 
