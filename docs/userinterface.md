@@ -6,7 +6,12 @@ it implements a powerful embedded development environment.
 
 ![CMSIS view](./images/solution-outline.png)
 
-The GUI consists of these views:
+1. The [activity bar](#activity-bar) gives access to various views.
+2. [Action buttons](#action-buttons) trigger specific commands.
+3. Some [action icons](#main-area-icons) may appear depending on the file and context.
+4. The [status bar](#status-bar) displays further information.
+
+## Activity bar
 
 | View | Description |
 |:----:|:------------|
@@ -17,9 +22,11 @@ The GUI consists of these views:
 | ![Run and Debug view](./images/RunDebugView.png) | **Run and Debug** view switches the GUI to a dedicated [debug view](./debug.md#debugger-user-interface). |
 | ![CMSIS view](./images/CMSISView.png) | [**CMSIS** view](#cmsis-view) is the main view for working with CMSIS solution-based projects. |
 | ![Trace and live view](./images/TraceLiveView.png) | [**Trace and Live** view](./debug.md#trace-and-live-view) shows trace and live data during debugging. |
+| ![SDS view](./images/sds-view.png) | **SDS** view allows capturing, replaying, inspecting, and validating synchronous data streams from embedded systems. |
 
 !!! Note
-    The ordering of the icons may be different in your VS Code environment.
+    The ordering of the icons may be different in your VS Code environment. Depending on the installed extensions, you
+    may also see additional view icons.
 
 ## CMSIS view
 
@@ -52,7 +59,7 @@ This allows you to:
 
 The links below the buttons take you to the documentation and the overview of the VS Code extension.
 
-### Actions available through the **CMSIS** view
+### Action Buttons
 
 Once a CMSIS solution is loaded, the following action buttons are available:
 
@@ -61,6 +68,7 @@ Once a CMSIS solution is loaded, the following action buttons are available:
 | ![Build solution](./images/build-icon.png) | [**Build solution**](./build_run.md) calls the compiler toolchain and builds the solution. |
 | ![Load and Run Application](./images/run-icon.png) | [**Load & Run application**](./build_run.md#load-and-run) flashes the binary onto the target and starts the application. |
 | ![Load & Debug application](./images/debug-icon.png) | [**Load & Debug application**](./debug.md) flashes the binary onto the target and starts a debug session. |
+| ![Refresh Build and RTE Information](./images/reload-icon.png) | [**Refresh Build and RTE Information**](#refresh-build-and-rte-information) reloads the CMSIS-Pack information, updates the cbuild and RTE files. |
 | ![Open csolution.yml file](./images/openFile.png) | **Open csolution.yml file** opens the CMSIS solution YML file for editing. |
 | ![Search in Solution Sources](./images/search-icon.png) | [Search](#search-in-solution-sources) in the current solution configuration. |
 | ![Manage Solution Settings](./images/settings-cog.png) | Open the [**Manage Solution**](./manage_settings.md) view to configure project and debug settings. |
@@ -72,6 +80,12 @@ Select **Search in Solution Sources** to open the VS Code **Search** view with a
 belong to the current solution configuration. The scope includes the source files of the selected projects, source
 files supplied by CMSIS-Packs, and the project YML files. Files that are excluded from the current configuration are
 not searched.
+
+#### Refresh Build and RTE Information
+
+This button enables quick access to the command `Refresh (Reload Packs and Update RTE)` if the
+`Auto Refresh On File Change` extension setting is disabled. In this case, the button shows that an update is required
+by showing an additional exclamation mark: ![Reload suggested](./images/reload-icon-update.png).
 
 ### Main area icons
 
@@ -145,7 +159,7 @@ If editor diagnostics or completion do not match a successful build:
   Command Palette. If the problem persists, reload the VS Code window to
   regenerate `.clangd` and restart the extensions.
 
-## Graphical previews
+### Graphical previews
 
 Files may have dedicated graphical previews:
 
@@ -156,7 +170,7 @@ Files may have dedicated graphical previews:
 - The [`*.cproject.yml`](./create_app.md#software-components-view) file.
 - The [`*.SWO.csv`](./debug.md#review-captured-trace-data) file.
 
-### Configuration Wizard
+#### Configuration Wizard
 
 [Configuration Wizard annotations](https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/configWizard.html)
 enable GUI-like elements in IDEs for configuration source files. This graphical approach makes it easier for users
@@ -178,13 +192,45 @@ The configuration wizard view is error tolerant but notifies the user in case of
     Use configuration wizard annotations for your own purposes (for example in header files). The built-in preview
     enables a graphical view to your files without additional effort.
 
-### Vcpkg configuration file
+#### Vcpkg configuration file
 
 A `vcpkg-configuration.json` file specifies the development tools and versions required by a project. The Arm Tools
 Environment Manager uses it to download and activate those tools, providing a consistent development environment. The
 graphical preview makes it easier to detect optional tools and to select other tools versions.
 
 ![Manage tools with vcpkg-configuration.json file](./videos/vcpkg-config.gif)
+
+### Documentation Management
+
+The document management system in Keil Studio gives versatile options to access and store solution-related
+documentation. Locally stored documentation can be shared with other extensions, such as the
+[CMSIS Developer Assistant](https://marketplace.visualstudio.com/items?itemName=Arm.cmsis-developer-assistant).
+
+![Documentation Management](./images/document-management.png)
+
+1. Board-related documentation is shown.
+2. Device-related documentation is shown.
+3. A fight-click on **Board/Device** enables you to add documentation.
+4. A click on a book icon ![Book](./images/book-icon.png) opens the document.
+5. Hovering over an [identification letter](#identification-letters) displays the document location.
+6. A right-click on the document allows to download or import the document into the local document cache on the host
+   machine (usually `~/.cmsis/docs`).
+
+!!! Note
+    Processor specific Arm architecture, core, debug and NPU manuals are automatically added to the list of device
+    specific books.
+
+
+#### Identification letters
+
+| Letter | Meaning |
+|--------|---------|
+| H      | HTML-based documentation |
+| P      | documentation contained in CMSIS-Pack |
+| W      | Web-based documentation (non-HTML) |
+
+!!! Note
+    Icons in front of a documentation item may show additional information, such as file type (e.g. PDF).
 
 ## Status bar
 
@@ -205,54 +251,6 @@ The VS Code status bar displays information about the status of your development
 
 Refer to the [Debugger user interface](./debug.md#debugger-user-interface) section for more information.
 
-<!--
-!!! Tip
-    The [Arm CMSIS Debugger README](https://marketplace.visualstudio.com/items?itemName=Arm.vscode-cmsis-debugger)
-    contains a more detailed description of the usage of this view.
-
-The **Run and Debug View** ![Run and Debug view](./images/RunDebugView.png) in Keil Studio connects to the target using
-the request selection shown below.
-
-![Debug View Debugger request](./images/run-debug-view.png)
-
-1. Select the core you want to **launch** (start an application) or **attach** to (connect to a running application).
-2. Interact with the cores.
-
-### Run and Debug controls
-
-Depending on the target device (number of cores etc.), a similar run and debug control bar will be visible:
-
-![Run and Debug controls](./images/debug-full-controls.png) or
-
-![Run and Debug controls in a multicore environment](./images/debug-full-controls-multicore.png)
-
-The icons enable access to:
-
-| Icon | Action | Description |
-|:----:|:-------|:------------|
-| ![Continue](./images/debug-continue.png) | Continue | Resume normal program execution (up to the next breakpoint). |
-| ![Pause](./images/debug-pause.png) | Pause | Inspect code executing at the current location. |
-| ![Step over](./images/debug-step-over.png) | Step over | Execute the next statement as a single command without inspecting or following its component steps. |
-| ![Step into](./images/debug-step-into.png) | Step into | Enter the next statement to follow its execution line-by-line. |
-| ![Step out](./images/debug-step-out.png) | Step out | When inside a function, return to the earlier execution context by completing remaining lines of the current method as though it were a single command. |
-| ![Restart](./images/debug-restart.png) | Restart | Terminate the current program execution and start debugging again using the current run configuration. |
-| ![Stop](./images/debug-stop.png) | Stop |  Terminate the current debug session. |
-| ![Disconnect](./images/debug-disconnect.png) | Disconnect |  Detach debugger from a core without changing the execution status (running/pause). |
-| ![Reset](./images/debug-reset-target.png) | Reset | Reset target device. |
-
-## Trace and Live view
-
-The **Trace and Live View** ![Trace and Live view](./images/TraceLiveView.png) contains the **LIVE WATCH** section that
-continuously displays the value of an expression while the program is running.  Future versions of this view will also
-show trace information.
-
-You can add expressions to the **LIVE WATCH** by:
-
-1. Pressing the `+` sign and entering an expression.
-2. Using the context menu item **Add to Live Watch** in the editor or the the **Run and Debug** view.
-
-![Displaying a variable in the LIVE WATCH](./images/lw-counter.gif)
--->
 ## Available commands
 
 You can access commands to manage your solution and the related projects in the following ways:
@@ -282,3 +280,65 @@ You can access commands to manage your solution and the related projects in the 
 | Run application on target      | Run the current application in the target with active GDB server ([Debugger](./debug.md) can be attached). |
 | Target Information             | Show information about debug adapter and target. |
 | Focus on Solution View                   | Open the [CMSIS view](#cmsis-view). |
+
+## Settings
+
+The following is available via **Settings (Ctrl/Cmd ,) - Extensions - CMSIS Solution**.
+
+### Auto Debug Launch
+
+Create or update `launch.json` and `tasks.json` with the debug adapter configuration of the CMSIS solution project.
+When disabled, the files `launch.json` and `tasks.json` are no longer modified. (Note: also available in [Manage Solution](./manage_settings.md) settings dialog).
+
+### Auto Refresh On File Change
+
+Automatically refresh build information when files used by the active solution change. When disabled, these file
+changes mark the solution as needing refresh. Use Refresh Build Information to refresh manually. Changes committed via
+webviews/dialogs will still automatically trigger refresh.
+
+### Auto Show CMSIS View
+
+Automatically shows the **CMSIS** view in the side bar when a CMSIS solution is loaded.
+
+### Build Output Verbosity
+
+Control verbosity of the build and setup console messages in the Terminal view.
+
+Available options:
+
+| Option         | Description|
+|----------------|------------|
+| quiet          | Show only errors or fatal conditions |
+| normal         | Include build steps and warnings |
+| build-commands | Show command invocations during build process |
+| verbose        | Include command-line invocation |
+| debug          | Include internal process steps |
+
+### Download Packs
+
+The CMSIS-Toolbox downloads required software packs using cpackget during setup and project build. This option enables the option `--packs` for `cbuild`.
+
+### Environment Variables
+
+Specify additional environment variables to be set for build, run, and terminals.
+
+### Experimental Features
+
+Enable experimental features.
+
+### Generate Clang Setup
+
+Automatically generate for the active solution context the required setup (`.clangd` file and `.vscode/settings.json`).
+For AC6 compiler include pre-defined macros in the clangd file.
+
+### Output Directory
+
+Enter an output directory prefix for `outdir` and `tmpdir` and relocated build information files (experimental).
+
+### Probe-ID (Modified in Workspace)
+
+Specify the unique identifier of a debug probe to connect on your host computer (typically its serial number). Leave empty to connect o the first debug probe that matches the specified type. Try using Target Information with your debug adapter connected.
+### Use Web Services
+
+Use web services to obtain information about devices, boards, and examples. If enabled, information from the internet database and
+installed packs is used. If disabled, only information from installed packs is used.
