@@ -24,9 +24,11 @@ In addition to the [VS Code built-in variables](https://code.visualstudio.com/do
 | `${command:cmsis-csolution.getDeviceName}`     | The device name for the Active Target as specified in the csolution.yml |
 | `${command:cmsis-csolution.getDfpName}`        | The Device Family Pack (DFP) for the Active Target |
 | `${command:cmsis-csolution.getDfpPath}`        | The path to the content of the DFP for the Active Target |
+| `${command:cmsis-csolution.getInfoPath}`       | Path to the output directory containing active clangd information. |
+| `${command:cmsis-csolution.getPackRootPath}`   | Path to the CMSIS-Pack root directory, determined by CMSIS_PACK_ROOT or the operating system default. |
 | `${command:cmsis-csolution.getProcessorName}`  | The name of the processor for the Active Target; for multi-processor configurations start-pname |
-| `${command:cmsis-csolution.getSolutionFile}`   | The path to the csolution.yml file for the Active Solution |
-| `${command:cmsis-csolution.getSolutionName}`   | The base name of the Active Solution without the path and `.csolution.yml` suffix |
+| `${command:cmsis-csolution.getSolutionFile}`   | Path and filename of the csolution.yml file of the active solution. |
+| `${command:cmsis-csolution.getSolutionDir}`    | Directory of the active solution. |
 
 !!! Note
     - Active Solution refers to the *csolution project* that is currently loaded.
