@@ -964,46 +964,51 @@ The workspace `launch.json` and `tasks.json` files are updated in the following 
 
 In the [Manage Solution](./manage_settings.md) dialog, select the one of the debug adapters named **xyz@pyOCD**:
 
+In multi-core systems, you can select the **Start Processor**.
+
 For the **Debug Interface**, you can:
 
-- Set the maximum clock speed.
-- Select the debug protocol (`SWD` or `JTAG`).
+- Set the maximum **Clock (kHz)** speed.
+- Select the debug **Protocol** (`SWD` or `JTAG`).
 
 ![pyOCD Debug Interface Settings](./images/pyocd-as-debug-adapter.png)
 
-For **Telnet**, you can:
+For **Standard I/O**, you can:
 
-- Enable or disable the use of **Telnet** for semihosting.
-- Set the **Telnet Mode** to:
-  - Telnet Server: if you want to connect to the target with a standalone Telnet Client application.
-  - Debug Console: redirects the output to the VS Code **DEBUG CONSOLE** panel.
-  - Serial Monitor: redirects the output to the **SERIAL MONITOR** extension.
-  - Text File: saves the output to a file in the project workspace.
-  - Disabled: does not redirect the serial output.
+- Enable or disable the use of **Standard I/O** for semihosting.
+- Set the **Redirect Mode** to:
+    - **Telnet Server**: if you want to connect to the target with a standalone Telnet Client application.
+    - **Debug Console**: redirects the output to the VS Code **DEBUG CONSOLE** panel.
+    - **Serial Monitor**: redirects the output to the **SERIAL MONITOR** extension.
+    - **Text File**: saves the output to a file in the project workspace.
+    - **Disabled**: does not redirect the serial output.
 
-![Using pyOCD with Telnet](./images/pyocd-telnet.png)
+![Using pyOCD with Standard I/O](./images/pyocd-standardio.png)
 
 ### J-Link Server
 
 In the [Manage Solution](./manage_settings.md) dialog select **J-Link Server**.
 
+In multi-core systems, you can select the **Start Processor**.
+
 For the **Debug Interface**, you can:
 
-- Set the maximum clock speed.
-- Select the debug protocol (`SWD` or `JTAG`).
+- Set the maximum **Clock (kHz)** speed.
+- Select the debug **Protocol** (`SWD` or `JTAG`).
 
 ![JLink Server as debug adapter](./images/j-link-debug-adapter.png)
 
-For **Telnet**, you can:
+For **Standard I/O**, you can:
 
-- Enable or disable the use of **Telnet** for semihosting.
-- Set the **Telnet Mode** to:
-  - Telnet Server: if you want to connect to the target with a standalone Telnet Client application.
-  - Debug Console: redirects the output to the VS Code **DEBUG CONSOLE** panel.
-  - Serial Monitor: redirects the output to the **SERIAL MONITOR** extension.
-  - Disabled: does not redirect the serial output.
+- Enable or disable the use of **Standard I/O** for semihosting.
+- Set the **Redirect Mode** to:
+    - **Telnet Server**: if you want to connect to the target with a standalone Telnet Client application.
+    - **Debug Console**: redirects the output to the VS Code **DEBUG CONSOLE** panel.
+    - **Serial Monitor**: redirects the output to the **SERIAL MONITOR** extension.
+    - **Text File**: saves the output to a file in the project workspace.
+    - **Disabled**: does not redirect the serial output.
 
-![Using J-Link with Telnet](./images/jlink-telnet.png)
+![Using JLink with Standard I/O](./images/pyocd-standardio.png)
 
 ### Arm Debugger
 
@@ -1021,16 +1026,23 @@ Before you can launch a debug session using Arm Debugger, you need to:
 
 In the [Manage Solution](./manage_settings.md) dialog, select the one of the debug adapters named **xyz@Arm-Debugger**.
 
+In multi-core systems, you can select the **Start Processor**.
+
+For the **Debug Interface**, you can:
+
+- Set the maximum **Clock** speed. Default is `auto`.
+- Select the debug **Protocol** (`SWD` or `JTAG`). Default is `auto`.
+
 ![Arm-Debugger as debug adapter](./images/arm-debugger-as-adapter.png)
 
 ### Arm FVPs
 
 In the [Manage Solution](./manage_settings.md) dialog:
 
-- Select the **Arm-FVP** debug adapter
-- Select the model you wish to use
-- Point to your configuration file
-- If you wish to set a simulation limit, add this in the **Misc** box:
+- Select the **Arm-FVP** debug adapter.
+- Select the **Model** you wish to use.
+- Select your **Config File**.
+- Use **Misc** to add additional command line options:
 
 ![Arm-FVP Debug Adapter Settings](./images/arm-fvp-debug-adapter.png)
 
