@@ -34,7 +34,7 @@
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a>
         <div class="version">
-          1.72.0
+          1.74.0
         </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -1231,41 +1231,48 @@ only overwrite matching entries during the final merge step. Non-matching worksp
 </ol>
 <h3 id="pyocd">pyOCD</h3>
 <p>In the <a href="manage_settings.html">Manage Solution</a> dialog, select the one of the debug adapters named <strong>xyz@pyOCD</strong>:</p>
+<p>In multi-core systems, you can select the <strong>Start Processor</strong>.</p>
 <p>For the <strong>Debug Interface</strong>, you can:</p>
 <ul>
-<li>Set the maximum clock speed.</li>
-<li>Select the debug protocol (<code>SWD</code> or <code>JTAG</code>).</li>
+<li>Set the maximum <strong>Clock (kHz)</strong> speed.</li>
+<li>Select the debug <strong>Protocol</strong> (<code>SWD</code> or <code>JTAG</code>).</li>
 </ul>
 <p><img alt="pyOCD Debug Interface Settings" src="images/pyocd-as-debug-adapter.png" /></p>
-<p>For <strong>Telnet</strong>, you can:</p>
+<p>For <strong>Standard I/O</strong>, you can:</p>
 <ul>
-<li>Enable or disable the use of <strong>Telnet</strong> for semihosting.</li>
-<li>Set the <strong>Telnet Mode</strong> to:</li>
-<li>Telnet Server: if you want to connect to the target with a standalone Telnet Client application.</li>
-<li>Debug Console: redirects the output to the VS Code <strong>DEBUG CONSOLE</strong> panel.</li>
-<li>Serial Monitor: redirects the output to the <strong>SERIAL MONITOR</strong> extension.</li>
-<li>Text File: saves the output to a file in the project workspace.</li>
-<li>Disabled: does not redirect the serial output.</li>
+<li>Enable or disable the use of <strong>Standard I/O</strong> for semihosting.</li>
+<li>Set the <strong>Redirect Mode</strong> to:<ul>
+<li><strong>Telnet Server</strong>: if you want to connect to the target with a standalone Telnet Client application.</li>
+<li><strong>Debug Console</strong>: redirects the output to the VS Code <strong>DEBUG CONSOLE</strong> panel.</li>
+<li><strong>Serial Monitor</strong>: redirects the output to the <strong>SERIAL MONITOR</strong> extension.</li>
+<li><strong>Text File</strong>: saves the output to a file in the project workspace.</li>
+<li><strong>Disabled</strong>: does not redirect the serial output.</li>
 </ul>
-<p><img alt="Using pyOCD with Telnet" src="images/pyocd-telnet.png" /></p>
+</li>
+</ul>
+<p><img alt="Using pyOCD with Standard I/O" src="images/pyocd-standardio.png" /></p>
 <h3 id="j-link-server">J-Link Server</h3>
 <p>In the <a href="manage_settings.html">Manage Solution</a> dialog select <strong>J-Link Server</strong>.</p>
+<p>In multi-core systems, you can select the <strong>Start Processor</strong>.</p>
 <p>For the <strong>Debug Interface</strong>, you can:</p>
 <ul>
-<li>Set the maximum clock speed.</li>
-<li>Select the debug protocol (<code>SWD</code> or <code>JTAG</code>).</li>
+<li>Set the maximum <strong>Clock (kHz)</strong> speed.</li>
+<li>Select the debug <strong>Protocol</strong> (<code>SWD</code> or <code>JTAG</code>).</li>
 </ul>
 <p><img alt="JLink Server as debug adapter" src="images/j-link-debug-adapter.png" /></p>
-<p>For <strong>Telnet</strong>, you can:</p>
+<p>For <strong>Standard I/O</strong>, you can:</p>
 <ul>
-<li>Enable or disable the use of <strong>Telnet</strong> for semihosting.</li>
-<li>Set the <strong>Telnet Mode</strong> to:</li>
-<li>Telnet Server: if you want to connect to the target with a standalone Telnet Client application.</li>
-<li>Debug Console: redirects the output to the VS Code <strong>DEBUG CONSOLE</strong> panel.</li>
-<li>Serial Monitor: redirects the output to the <strong>SERIAL MONITOR</strong> extension.</li>
-<li>Disabled: does not redirect the serial output.</li>
+<li>Enable or disable the use of <strong>Standard I/O</strong> for semihosting.</li>
+<li>Set the <strong>Redirect Mode</strong> to:<ul>
+<li><strong>Telnet Server</strong>: if you want to connect to the target with a standalone Telnet Client application.</li>
+<li><strong>Debug Console</strong>: redirects the output to the VS Code <strong>DEBUG CONSOLE</strong> panel.</li>
+<li><strong>Serial Monitor</strong>: redirects the output to the <strong>SERIAL MONITOR</strong> extension.</li>
+<li><strong>Text File</strong>: saves the output to a file in the project workspace.</li>
+<li><strong>Disabled</strong>: does not redirect the serial output.</li>
 </ul>
-<p><img alt="Using J-Link with Telnet" src="images/jlink-telnet.png" /></p>
+</li>
+</ul>
+<p><img alt="Using JLink with Standard I/O" src="images/pyocd-standardio.png" /></p>
 <h3 id="arm-debugger">Arm Debugger</h3>
 <p>You can use the <a href="https://developer.arm.com/Tools%20and%20Software/Arm%20Debugger">Arm Debugger</a> with Keil Studio.</p>
 <h4 id="prerequisites">Prerequisites</h4>
@@ -1277,14 +1284,20 @@ only overwrite matching entries during the final merge step. Non-matching worksp
 </ol>
 <h4 id="setup-for-arm-debugger">Setup for Arm Debugger</h4>
 <p>In the <a href="manage_settings.html">Manage Solution</a> dialog, select the one of the debug adapters named <strong>xyz@Arm-Debugger</strong>.</p>
+<p>In multi-core systems, you can select the <strong>Start Processor</strong>.</p>
+<p>For the <strong>Debug Interface</strong>, you can:</p>
+<ul>
+<li>Set the maximum <strong>Clock</strong> speed. Default is <code>auto</code>.</li>
+<li>Select the debug <strong>Protocol</strong> (<code>SWD</code> or <code>JTAG</code>). Default is <code>auto</code>.</li>
+</ul>
 <p><img alt="Arm-Debugger as debug adapter" src="images/arm-debugger-as-adapter.png" /></p>
 <h3 id="arm-fvps">Arm FVPs</h3>
 <p>In the <a href="manage_settings.html">Manage Solution</a> dialog:</p>
 <ul>
-<li>Select the <strong>Arm-FVP</strong> debug adapter</li>
-<li>Select the model you wish to use</li>
-<li>Point to your configuration file</li>
-<li>If you wish to set a simulation limit, add this in the <strong>Misc</strong> box:</li>
+<li>Select the <strong>Arm-FVP</strong> debug adapter.</li>
+<li>Select the <strong>Model</strong> you wish to use.</li>
+<li>Select your <strong>Config File</strong>.</li>
+<li>Use <strong>Misc</strong> to add additional command line options:</li>
 </ul>
 <p><img alt="Arm-FVP Debug Adapter Settings" src="images/arm-fvp-debug-adapter.png" /></p>
 <h3 id="keil-uvision">Keil uVision</h3>

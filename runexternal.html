@@ -34,7 +34,7 @@
           <a href="index.html" class="icon icon-home"> Arm Keil Studio for VS Code
         </a>
         <div class="version">
-          1.72.0
+          1.74.0
         </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -211,16 +211,24 @@ In addition to the <a href="https://code.visualstudio.com/docs/editor/variables-
 <td style="text-align: left;">The path to the content of the DFP for the Active Target</td>
 </tr>
 <tr>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getInfoPath}</code></td>
+<td style="text-align: left;">Path to the output directory containing active clangd information.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getPackRootPath}</code></td>
+<td style="text-align: left;">Path to the CMSIS-Pack root directory, determined by CMSIS_PACK_ROOT or the operating system default.</td>
+</tr>
+<tr>
 <td style="text-align: left;"><code>${command:cmsis-csolution.getProcessorName}</code></td>
 <td style="text-align: left;">The name of the processor for the Active Target; for multi-processor configurations start-pname</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>${command:cmsis-csolution.getSolutionFile}</code></td>
-<td style="text-align: left;">The path to the csolution.yml file for the Active Solution</td>
+<td style="text-align: left;">Path and filename of the csolution.yml file of the active solution.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>${command:cmsis-csolution.getSolutionName}</code></td>
-<td style="text-align: left;">The base name of the Active Solution without the path and <code>.csolution.yml</code> suffix</td>
+<td style="text-align: left;"><code>${command:cmsis-csolution.getSolutionDir}</code></td>
+<td style="text-align: left;">Directory of the active solution.</td>
 </tr>
 </tbody>
 </table>
